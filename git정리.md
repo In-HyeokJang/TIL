@@ -137,6 +137,9 @@ bit에 맞는거 설치
 
 1. Typora설치 
 
+   * [Typora주소](https://typora.io/windows/dev_release.html)
+   * 주의 할점 : 업데이트 하지 말것, 업데이트 하면 유료로 바뀜
+
 2. Makrdown
 
    1. 마크다운이란?
@@ -210,3 +213,74 @@ bit에 맞는거 설치
 
    
 
+## Visual Studio Code
+
+  		1. Visual Studio Code 설치하기
+       - [Visual Studio Code 설치 주소](https://code.visualstudio.com/docs/?dv=win)
+
+ 2. vscode 열기
+
+    - vscode를 열었을 때 다음과 같이 나오는 경우, `yes, I trust the authors`를 클릭 합니다.
+
+ 3. vscode 왼쪽 메뉴바에서 `A4 용지 두 장이 겹쳐져 있느 아이콘` 을 클릭합니다.
+
+    현재 작업중인 폴더의 파일/폴더의 목록이 출력
+
+ 4. 기본 터미널 지정
+
+    - ctrl + `를 눌러서 vscode화면에서 터밀을 연다. or  vscode 화면 상단 > Terinal > New Terminal
+    -  +표시 옆 아래 화살표 클릭 후 Select Default Profile  클릭 후 Git bash 선택
+    - 기존에 떠 있던 Powershell을 `휴지통` 버튼을 눌러서 삭제(X가 아니라 휴지통 모양)
+
+ 5. vscode에서 터미널 명령어 사용하기
+
+    - CLI에서 사용했던 터미널 명령어를 vscode에서 실습하기
+
+## Git 기초
+
+### Git이란?
+
+1. 분산 버전 관리 시스템
+2. **Working Directory →Staging Area → Repository**의 과정으로 버전 관리 수행
+   - `Working Directory(=Working Tree)` : 사용자의 일반적인 작업이 일어나는 곳
+   - `Staging Area(=Index)` : 사용자의 일반적인 작업이 일어나는 곳
+   - `Repository` : 사용자의 일반적인 작업이 일어나는 곳
+
+### Git 초기 설정
+
+1. 최초 한 번만 설정합니다. 매번 Git을 사용할 대마다 설정할 필요가 없다.
+
+   1. 누가 커밋 기록을 남겼는지 확인 할 수 있도록 이름과 이메일을 설정 한다.
+
+   2. 작성자를 수정하고 싶을 때에는 이름, 메일 주소만 다르게 하여 동일하게 입력 한다.
+
+      ``` bash
+      $ git config --global user.name"이름"
+      $ git config --global user.email "메일주소"
+      ```
+
+   3. 작성자가 올바르게 설정되었는지 확인
+
+      ``` bash
+      $ git config --global -l
+      또는
+      $ git congig --global --list
+      ```
+
+### Git 기본 명령어
+
+1. git init
+
+   ``` bash
+   $ git init
+   Initialized empty Git repository in C:/Users/kyle/git-practice/.git/
+   ```
+
+   - 현재 작업중인 디렉토리를 Git으로 관리 한다는 명령어
+
+   - `.git`이라는 숨김 폴더를 생성하고, 터미널에는 `(master)`라고 표기 된다
+
+     **주의사항**
+
+     1. 터미널에 이미 (master)가 있다면, git init을 덜대 입력하면 안됨
+     2. 절대로 홈 디렉토리에서 git init을 하지 않습니다. 터미널의 경로가 `~`인지 확인합니다.

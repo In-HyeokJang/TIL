@@ -1,4 +1,4 @@
-# Git&Github
+# Git
 
 ## Git
 
@@ -100,4 +100,90 @@
      $ git add .
      ```
 
+     - Working Direcorty에 있는 파일을 Staging Area로 올리는 명령어
      
+     - Git이 해당 파일을 추적(관리)할 수 있도록 만든다
+     
+     - `Untracked, Modified → Staged` 로 상태를 변경한다
+     
+     - 예시
+     
+       ```bash
+       $ touch a.txt b.txt
+       
+       $ git status
+       On branch master
+       
+       No commits yet
+       
+       Untracked files: # 트래킹 되고 있지 않는 파일 목록
+         (use "git add <file>..." to include in what will be committed)
+               a.txt
+               b.txt
+       
+       nothing added to commit but untracked files present (use "git add" to track)
+       ```
+     
+       ```bash
+       # a.txt만 Staging Area에 올립니다.
+       
+       $ git add a.txt
+       ```
+     
+       ```bash
+       $ git status
+       
+       On branch master
+       
+       No commits yet
+       
+       Changes to be committed: # 커밋 예정인 변경사항(Staging Area)
+         (use "git rm --cached <file>..." to unstage)
+               new file:   a.txt
+       
+       Untracked files: # 트래킹 되고 있지 않은 파일
+         (use "git add <file>..." to include in what will be committed)
+               b.txt
+       ```
+     
+  4. Git commit
+  
+     ``` bash
+     $ git commit -m "first commit"
+     [master (root-commit) c02659f] first commit
+      1 file changed, 0 insertions(+), 0 deletions(-)
+      create mode 100644 a.txt
+     ```
+  
+     - Stagding Area에 올라온 파일의 변경 사항을 하나의 버전(커밋)으로 저장하는 명령어
+     - `커밋 메세지` 는 현재 변경 사항들을 잘 나타낼 수 있도록 `의미` 있게 작성하는 것을 권장합니다
+     - 각각의 커밋은 `SHA-1` 알고리즘에 의해 반환 된 고유의 해시 값을 ID로 가집니다.
+     - `(root-commit)` 은 해당 커밋이 최초의 커밋 일 때만 표시됩니다. 이후 커밋부터는 사라집니다.
+  
+  5. git log
+  
+     ```bash
+     $ git log
+     commit 1870222981b4731d14ef91d401c68c0bbb2f6e7d (HEAD -> master)
+     Author: kyle <kyle123@hphk.kr>
+     Date:   Thu Dec 9 15:26:46 2021 +0900
+     
+         first commit
+     ```
+  
+     - 커밋의 내역(`ID, 작성자, 시간, 메세지 등` )을 조회할 수 있는 명령어
+  
+     - 옵션
+  
+       * `--oneline` : 한 줄로 축약해서 보여줍니다.
+  
+       * `--graph` : 브랜치와 머지 내역을 그래프로 보여줍니다.
+  
+       * `--all` : 현재 브랜치를 포함한 모든 브랜치의 내역을 보여줍니다.
+  
+       * `--reverse` : 커밋 내역의 순서를 반대로 보여줍니다.(최신이 가장 아래)
+  
+         Ex) `git log --oneline` 은 커밋 내역을 한 줄로 보고 싶을 때 사용합니다.
+  
+         ​	`git add` 라고만 작성하면 어떤 파일을 Staging Area에 올릴지 모르게 됩니다. 반드시 `git add a.txt` 와 같이 git add 명령어가 동작할 대상을 지정해야 하는데 이때 `a.txt` 와 같은 대상을 인자라고 합니다.
+

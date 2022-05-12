@@ -28,15 +28,15 @@ bit에 맞는거 설치
    - 그래픽을 통해 사용자와 컴퓨터가 상호 작용하는 방식
    - 우리가 평소에 보는 폴더 화면
 
-   2.CLI
+     2.CLI
 
    - CLI(Command Line Interface)
    - 터미널을 통해 사용자와 컴퓨터가 상호 작용하는 방식
 
 2. CLI를 사용하는 이유
-   * new 라는 이름으로 새 폴더 생성하기
-     * GUI를 사용하는 경우 : 마우스 우클릭 > 새로만들기 > 폴더 > new 작성
-     * CLI를 사용하는 경우 : mkdir new 작성
+   - new 라는 이름으로 새 폴더 생성하기
+     - GUI를 사용하는 경우 : 마우스 우클릭 > 새로만들기 > 폴더 > new 작성
+     - CLI를 사용하는 경우 : mkdir new 작성
 
 ### 절대 결로와 상대 경로
 
@@ -47,25 +47,23 @@ bit에 맞는거 설치
 
 1. touch
 
-   * 파일을 생성하는 명령어
+   - 파일을 생성하는 명령어
 
-   * 띄어쓰기로 구분하여 여러 파일을 한번에 생성 가능
+   - 띄어쓰기로 구분하여 여러 파일을 한번에 생성 가능
 
      ```bash
      $ touch a.txt b.txt c.txt
      ```
 
-     
-
 2. mkdir
 
-   * make directory
+   - make directory
 
-   * 새 폴더를 생서하는 명령어
+   - 새 폴더를 생서하는 명령어
 
-   * 띄어쓰기로 구분하여 여러 폴더를 한번에 생성 가능
+   - 띄어쓰기로 구분하여 여러 폴더를 한번에 생성 가능
 
-   * 폴더 이름 사이에 공백을 넣고 싶다면 따옴표로 묶어서 입력
+   - 폴더 이름 사이에 공백을 넣고 싶다면 따옴표로 묶어서 입력
 
      ```bash
      $ mkdir folder
@@ -74,15 +72,15 @@ bit에 맞는거 설치
 
 3. ls
 
-   * list segments
+   - list segments
 
-   * 현재 작업 중인 디렉토리의 폴더/파일 목록을 보여주는 명령어
+   - 현재 작업 중인 디렉토리의 폴더/파일 목록을 보여주는 명령어
 
-   * -a : all옵션. 숨김파일까지 모두 보여줌
+   - -a : all옵션. 숨김파일까지 모두 보여줌
 
-   * -l : long옵션. 용량, 수정 날짜 등 파일 정보를 자세히 보여줌
+   - -l : long옵션. 용량, 수정 날짜 등 파일 정보를 자세히 보여줌
 
-     ``` bash
+     ```bash
      # 기본 사용
      $ ls
      # all 옵션
@@ -133,12 +131,12 @@ bit에 맞는거 설치
 
 ## Makrdown
 
-### Typora 
+### Typora
 
-1. Typora설치 
+1. Typora설치
 
-   * [Typora주소](https://typora.io/windows/dev_release.html)
-   * 주의 할점 : 업데이트 하지 말것, 업데이트 하면 유료로 바뀜
+   - [Typora주소](https://typora.io/windows/dev_release.html)
+   - 주의 할점 : 업데이트 하지 말것, 업데이트 하면 유료로 바뀜
 
 2. Makrdown
 
@@ -169,27 +167,32 @@ bit에 맞는거 설치
 
          - #을 사용하여 작성
 
-           ``` markdown
+           ```markdown
            # 제목1
+
            ## 제목2
+
            ### 제목3
+
            #### 제목4
+
            ##### 제목5
+
            ###### 제목 6
            ```
 
       2. 목록 (List)
 
          - 순서가 없는 목록과 순서가 있는 목록을 표현합니다
-         - 순서가 없는 목록은 - , *, + 를 사용
+         - 순서가 없는 목록은 - , \*, + 를 사용
          - 순서가 있는 목록은 1,2,3 숫자 사용
          - teb키를 이용해서 들여쓰기 가능
 
       3. 강조(Emphasis)
 
          - 글자의 스타일링 표현
-           1. 기울임 :* *글자* * 혹은_  _글자_ _
-           2. 굵게 : ** **글자** **혹은__  __글자__ __
+           1. 기울임 :\* _글자_ \* 혹은\_ _글자_ \_
+           2. 굵게 : \*\* **글자** \*\*혹은\_\_ **글자** \_\_
            3. 취소 :~~ ~~글자~~ ~~
 
       4. 코드(Code)
@@ -211,28 +214,28 @@ bit에 맞는거 설치
          - 구분 선 생성
          - `- * _` 을 3번 이상 연속으로 작성
 
-   
-
 ## Visual Studio Code
 
-  		1. Visual Studio Code 설치하기
+1. Visual Studio Code 설치하기
+
+
        - [Visual Studio Code 설치 주소](https://code.visualstudio.com/docs/?dv=win)
 
- 2. vscode 열기
+2.  vscode 열기
 
     - vscode를 열었을 때 다음과 같이 나오는 경우, `yes, I trust the authors`를 클릭 합니다.
 
- 3. vscode 왼쪽 메뉴바에서 `A4 용지 두 장이 겹쳐져 있느 아이콘` 을 클릭합니다.
+3.  vscode 왼쪽 메뉴바에서 `A4 용지 두 장이 겹쳐져 있느 아이콘` 을 클릭합니다.
 
     현재 작업중인 폴더의 파일/폴더의 목록이 출력
 
- 4. 기본 터미널 지정
+4.  기본 터미널 지정
 
-    - ctrl + `를 눌러서 vscode화면에서 터밀을 연다. or  vscode 화면 상단 > Terinal > New Terminal
-    -  +표시 옆 아래 화살표 클릭 후 Select Default Profile  클릭 후 Git bash 선택
+    - ctrl + `를 눌러서 vscode화면에서 터밀을 연다. or vscode 화면 상단 > Terinal > New Terminal
+    - +표시 옆 아래 화살표 클릭 후 Select Default Profile 클릭 후 Git bash 선택
     - 기존에 떠 있던 Powershell을 `휴지통` 버튼을 눌러서 삭제(X가 아니라 휴지통 모양)
 
- 5. vscode에서 터미널 명령어 사용하기
+5.  vscode에서 터미널 명령어 사용하기
 
     - CLI에서 사용했던 터미널 명령어를 vscode에서 실습하기
 
@@ -254,14 +257,14 @@ bit에 맞는거 설치
 
    2. 작성자를 수정하고 싶을 때에는 이름, 메일 주소만 다르게 하여 동일하게 입력 한다.
 
-      ``` bash
+      ```bash
       $ git config --global user.name"이름"
       $ git config --global user.email "메일주소"
       ```
 
    3. 작성자가 올바르게 설정되었는지 확인
 
-      ``` bash
+      ```bash
       $ git config --global -l
       또는
       $ git congig --global --list
@@ -271,7 +274,7 @@ bit에 맞는거 설치
 
 1. git init
 
-   ``` bash
+   ```bash
    $ git init
    Initialized empty Git repository in C:/Users/kyle/git-practice/.git/
    ```

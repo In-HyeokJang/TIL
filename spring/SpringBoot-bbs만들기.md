@@ -646,8 +646,8 @@
 
      @PostMapping("/bbs/update") // post방식의 url주소
      public String update(BbsDTO dto) { //메소드
-       Map map = new HashMap(); // map객체 생성 후 담아주기
-       map.put("bbsno", dto.getBbsno());
+       Map<String, String> map = new HashMap<String, String>();
+       map.put("bbsno", String.valueOf(dto.getBbsno())); // DAO에서 문자열로 되어 있어서 String.valueOf로 사용해서 mpa에 String로 넣어주는거로 변동
        map.put("passwd", dto.getPasswd());
        boolean pflag = dao.passCheck(map);
        boolean flag = false;

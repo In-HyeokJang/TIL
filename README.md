@@ -25,11 +25,15 @@
 
 [jQuery](https://github.com/In-HyeokJang/MLP_jQuery)
 
+[JSP게시판만들기](https://github.com/In-HyeokJang/MLP_webtest)
+
+[MVC사용해서 게시판 만들기](https://github.com/In-HyeokJang/mvc-MLP)
+
 ## 📖멀티캠퍼스 (특강)
 
-[git & github](./git%26github/)
-[Job_Research](./Job_Research/)
-[Recruit-research](./recruit-research/)
+[git & github](./git%26github/)<br>
+[Job_Research](./Job_Research/)<br>
+[Recruit-research](./recruit-research/)<br>
 [Notion](https://in-hyeokjang.notion.site/Ethan-c6951f05056149679b12d237b8fe53fe)
 
 ## 🏆Coding_test

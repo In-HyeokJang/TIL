@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.MemoMapper">
+
+	<select id="readReply" parameterType="int" resultType="com.study.model.MemoDTO">
+		select memono, title, grpno, indent, ansnum
+		from memo
+		where memono = #{memono}
+	</select>
+	
+	<update id="upAnsnum" parameterType="Map">
+		update memo 
+		set
+		ansnum = ansnum + 1
+		where grpno = #{grpno} 
+		and ansnum > #{ansnum}
+	</update>
+	
+	
+	<insert id="createReply" parameterType="com.study.model.MemoDTO">
+		insert into memo(wname, title, content, passwd, wdate, grpno, indent, ansnum)  
+		values(#{wname}, #{title}, #{content}, #{passwd},sysdate(),#{grpno}, #{indent}+1, #{ansnum}+1)
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from memo 
+		where memono = #{memono}
+	</delete>		
+	
+	<select id="passCheck" parameterType="Map" resultType="int">
+		select count(memono)
+		from memo 
+		where memono = #{memono} 
+		and passwd = #{passwd}
+	</select>
+	
+	<update id="update" parameterType="com.study.model.MemoDTO">
+		update memo 
+		set 
+			wname = #{wname} ,	
+		 	title = #{title} ,
+	 		content = #{content} 
+		 where memono = #{memono}
+	</update>
+	
+	<select id="read" parameterType="int" resultType="com.study.model.MemoDTO">
+		select memono, wname, title, content, viewcnt, wdate
+		from memo
+		where memono = #{memono}
+	</select>
+	
+	<update id="upViewcnt" parameterType="int">
+		update memo 
+		set viewcnt = viewcnt + 1
+		where memono = #{memono}
+	</update>
+	
+	<insert id="create" parameterType="com.study.model.MemoDTO">
+		insert into memo(wname, title, content, passwd, wdate, grpno) 
+		values(#{wname}, #{title}, #{content}, #{passwd}, sysdate(), 
+		(select ifnull(max(grpno),0)+1 from memo m) )
+	</insert>
+
+	<select id="total" parameterType="Map" resultType="int">
+		select count(*) from memo
+		<where>
+			<choose>
+				<when test="col == 'wname'">
+					wname like concat('%',#{word}'%')
+				</when>
+				<when test="col == 'title'">
+					title like concat('%',#{word}'%')
+				</when>
+				<when test="col == 'content'">
+					content like concat('%',#{word}'%')
+				</when>
+				<when test="col == 'title_content'">
+					title like concat('%',#{word}'%')
+					or
+					content like concat('%',#{word},'%')
+				</when>
+			</choose>
+		</where>
+	</select>
+
+
+
+	<select id="list" parameterType="Map" resultType="com.study.model.MemoDTO">
+		
+		select memono, wname, title, wdate, grpno, indent, ansnum
+		from memo
+		
+		<where>
+			<choose>
+				<when test="col == 'wname'">
+					wname like concat('%',#{word}'%')
+				</when>
+				<when test="col == 'title'">
+					title like concat('%',#{word}'%')
+				</when>
+				<when test="col == 'content'">
+					content like concat('%',#{word}'%')
+				</when>
+				<when test="col == 'title_content'">
+					title like concat('%',#{word}'%')
+					or
+					content like concat('%',#{word},'%')
+				</when>
+			</choose>
+		</where>
+		order by grpno desc, ansnum 
+		limit #{sno},#{eno}
+	</select>
+
+</mapper>

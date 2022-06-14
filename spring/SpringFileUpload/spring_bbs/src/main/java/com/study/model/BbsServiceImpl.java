@@ -66,5 +66,10 @@ public class BbsServiceImpl implements BbsService {
     // TODO Auto-generated method stub
     return mapper.createReply(dto);
   }
+  @Override
+  public int checkRefnum(int bbsno) {
+    // TODO Auto-generated method stub
+    return mapper.checkRefnum(bbsno);
+  }
 
 }

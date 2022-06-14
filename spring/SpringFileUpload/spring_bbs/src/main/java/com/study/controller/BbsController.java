@@ -33,6 +33,13 @@ public class BbsController {
   
   @PostMapping("/bbs/reply")
   public String reply(BbsDTO dto) {
+    
+    String upDir = UploadBbs.getUploadDir();
+    if(dto.getFilenameMF().getSize() > 0) {
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int)dto.getFilenameMF().getSize());
+    }
+    
     Map map = new HashMap();
     map.put("grpno", dto.getGrpno());
     map.put("ansnum", dto.getAnsnum());
@@ -78,8 +85,14 @@ public class BbsController {
   @GetMapping("/bbs/delete/{bbsno}/{oldfile}")
   public String delete(@PathVariable int bbsno, 
       @PathVariable String oldfile, Model model) {
+    
+    int cnt = dao.checkRefnum(bbsno); // bbsno의 refnum의 번호를 확인해서 cnt에 넣는다.
+    boolean flag = false;
+    if(cnt>0) flag =true;
+    
     model.addAttribute("bbsno", bbsno);
     model.addAttribute("oldfile", oldfile);
+    model.addAttribute("flag", flag);
     return "/delete";
   }
   
@@ -178,8 +191,6 @@ public class BbsController {
     if(dto.getFilenameMF().getSize() > 0) {//브라우져에서 파일을 보냈다.
       dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
       dto.setFilesize((int)dto.getFilenameMF().getSize());
-    }else {
-      dto.setFilename("");
     }
     
     int cnt = dao.create(dto);

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
- 
+<% boolean flag = (boolean)request.getAttribute("flag"); %>
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -13,6 +13,15 @@
 </head>
 <body> 
 <div class="container">
+<% 
+if(flag) {
+  out.print("<div class='well well-lg'>");
+  out.print("답변있는 글이므로 삭제할 수 없습니다.<br><br>");
+  out.print("<button class='btn' onclick='history.back()'>다시시도</button>");
+  out.print("<br></div>");
+}else{
+
+  %>
 <h1 class="col-sm-offset-2 col-sm-10">삭제</h1>
 <form class="form-horizontal" 
       action="/bbs/delete"
@@ -37,6 +46,7 @@
    </div>
  </div>
 </form>
+<%} %>
 </div>
 </body> 
 </html> 

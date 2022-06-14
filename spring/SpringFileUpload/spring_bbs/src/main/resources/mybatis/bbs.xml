@@ -20,10 +20,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="createReply" parameterType="com.study.model.BbsDTO">
-		insert into bbs(wname, title, content, passwd, wdate, grpno, indent, ansnum)
+		insert into bbs(wname, title, content, passwd, wdate, grpno, indent, ansnum, 
+						filename, filesize, refnum)
 		 values(#{wname}, #{title}, #{content}, #{passwd}, sysdate(), 
-		 		#{grpno}, #{indent}+1, #{ansnum}+1 )
+		 		#{grpno}, #{indent}+1, #{ansnum}+1,#{filename}, #{filesize}, #{bbsno} )
 	</insert>
+	
+	<select id="checkRefnum" parameterType="int" resultType="int">
+		select count(refnum) 
+		from bbs
+		where refnum = #{bbsno}
+	</select>
 	
 	<delete id="delete" parameterType="int">
 		delete from bbs

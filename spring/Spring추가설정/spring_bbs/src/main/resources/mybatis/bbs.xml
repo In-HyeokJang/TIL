@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.BbsMapper">
+
+	<select id="readReply" parameterType="int"
+		resultType="com.study.model.BbsDTO">
+		select bbsno, title, grpno, indent, ansnum
+		from bbs
+		where
+		bbsno = #{bbsno}
+	</select>
+
+	<update id="upAnsnum" parameterType="Map">
+		update bbs
+		set
+		ansnum = ansnum +1
+		where grpno = #{grpno}
+		and ansnum > #{ansnum}
+	</update>
+
+	<insert id="createReply" parameterType="com.study.model.BbsDTO">
+		insert into bbs(wname,
+		title, content, passwd, wdate, grpno, indent, ansnum,
+		filename, filesize, refnum)
+		values(#{wname}, #{title}, #{content}, #{passwd}, sysdate(),
+		#{grpno}, #{indent}+1, #{ansnum}+1,#{filename}, #{filesize}, #{bbsno} )
+	</insert>
+
+	<select id="checkRefnum" parameterType="int" resultType="int">
+		SELECT
+		count(*) FROM bbs
+		WHERE refnum = #{bbsno}
+	</select>
+
+	<delete id="delete" parameterType="int">
+		delete from bbs
+		where bbsno =
+		#{bbsno}
+	</delete>
+
+	<update id="update" parameterType="com.study.model.BbsDTO">
+		update bbs
+		<set>
+			wname = #{wname},
+			title = #{title},
+			content = #{content},
+			<if test="filesize > 0">
+				filename = #{filename},
+				filesize = #{filesize}
+			</if>
+		</set>
+		where bbsno = #{bbsno}
+
+	</update>
+
+	<select id="passCheck" parameterType="Map" resultType="int">
+		select
+		count(bbsno)
+		from bbs
+		where bbsno = #{bbsno}
+		and passwd = #{passwd}
+	</select>
+
+	<insert id="create" parameterType="com.study.model.BbsDTO">
+		insert into bbs(wname, title,
+		content, passwd, wdate, grpno, filename, filesize)
+		values(#{wname},
+		#{title}, #{content}, #{passwd},sysdate(),
+		(SELECT ifnull(MAX(grpno),0) + 1 FROM bbs b),#{filename}, #{filesize})
+	</insert>
+	<update id="upViewcnt" parameterType="int">
+		UPDATE bbs
+		SET viewcnt =
+		viewcnt + 1
+		WHERE bbsno = #{bbsno}
+	</update>
+	<select id="read" parameterType="int"
+		resultType="com.study.model.BbsDTO">
+		SELECT bbsno, wname, title, content, viewcnt, wdate,
+		filename
+		from bbs
+		where bbsno = #{bbsno}
+	</select>
+
+	<select id="total" parameterType="Map" resultType="int">
+		select count(*) from bbs
+		<where>
+			<choose>
+				<when test="col =='wname'">
+					wname like concat('%',#{word},'%')
+				</when>
+				<when test="col =='title'">
+					title like concat('%',#{word},'%')
+				</when>
+				<when test="col =='content'">
+					content like concat('%',#{word},'%')
+				</when>
+				<when test="col =='title_content'">
+					title like concat('%',#{word},'%')
+					of
+					content like
+					concat('%',#{word},'%')
+				</when>
+			</choose>
+		</where>
+
+	</select>
+	<select id="list" parameterType="Map"
+		resultType="com.study.model.BbsDTO">
+
+		select bbsno, wname, title, viewcnt, wdate, grpno, indent, ansnum,
+		filename, filesize
+		from bbs
+		<where>
+			<choose>
+				<when test="col =='wname'">
+					wname like concat('%',#{word},'%')
+				</when>
+				<when test="col =='title'">
+					title like concat('%',#{word},'%')
+				</when>
+				<when test="col =='content'">
+					content like concat('%',#{word},'%')
+				</when>
+				<when test="col =='title_content'">
+					title like concat('%',#{word},'%')
+					or
+					content like
+					concat('%',#{word},'%')
+				</when>
+			</choose>
+		</where>
+		order by grpno desc, ansnum
+		limit #{sno},#{eno}
+	</select>
+
+</mapper>

@@ -1,4 +1,4 @@
-# FileUpload 추가
+# Spring
 
 1. SpringBoot
 2. MyBatis
@@ -6,6 +6,7 @@
 4. EL(Expression Language) - JSTL
 5. 댓글기능 추가
 6. 댓글 갯수 나오는거 추가
+7. Notice 만드는중
 
    1. boradFileUpload
       - (C:\Aistudy_JIH\deploy\bbs\storage 파일 저장 경로)

@@ -6,7 +6,9 @@
 4. EL(Expression Language) - JSTL
 5. 댓글기능 추가
 6. 댓글 갯수 나오는거 추가
-7. Notice 만드는중
+7. Notice
+8. Shopping 만드는 중
+9. 과제... spring 사용 만들기
 
    1. boradFileUpload
       - (C:\Aistudy_JIH\deploy\bbs\storage 파일 저장 경로)

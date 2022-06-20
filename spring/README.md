@@ -7,8 +7,8 @@
 5. 댓글기능 추가
 6. 댓글 갯수 나오는거 추가
 7. Notice
-8. Shopping 추가 해야 할 부분 있음
-9. 과제... spring 사용 만들기
+8. Shopping 추가 해야 할 부분 있음 - 세미 프로젝트
+9. 과제 완료
 
    1. boradFileUpload
       - (C:\Aistudy_JIH\deploy\bbs\storage 파일 저장 경로)

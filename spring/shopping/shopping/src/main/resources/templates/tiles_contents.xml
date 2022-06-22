@@ -28,6 +28,14 @@
             <put-attribute name="title" value="상품상세페이지" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp" /> 
     </definition>
+    <definition name="/contents/read" extends="main"> 
+            <put-attribute name="title" value="상품조회" ></put-attribute> 
+            <put-attribute name="body" value="/WEB-INF/views/contents/read.jsp" /> 
+    </definition>
     
+    <definition name="/contents/delete" extends="main"> 
+            <put-attribute name="title" value="상품삭제" /> 
+            <put-attribute name="body" value="/WEB-INF/views/contents/deleteForm.jsp" /> 
+    </definition>
     
 </tiles-definitions>

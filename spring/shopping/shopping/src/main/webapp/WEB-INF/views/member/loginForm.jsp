@@ -56,8 +56,10 @@
         <button type="submit" class="btn btn-default">로그인</button>
         <button type="button" class="btn btn-default"
          onclick="location.href='agree'">회원가입</button>
-        <button type="button" class="btn btn-default">아이디 찾기</button>
-        <button type="button" class="btn btn-default">패스워드 찾기</button>
+        <button type="button" class="btn btn-default"
+        onclick = "location.href='findId'">아이디 찾기</button>
+        <button type="button" class="btn btn-default"
+        onclick = "location.href='findPw'">패스워드 찾기</button>
       </div>
     </div>
   </form>

@@ -18,8 +18,8 @@ img {
 <body> 
  
 <div class="container">
-    <p><a href="/contents/mainlist" >SHOP NOW</a></p>
-    <img src="/images/jeans.jpg" alt="Jeans">
+    <p><a href="/contents/mainlist/1" >SHOP NOW</a></p>
+    <img src="/images/shop.jpg" alt="Jeans">
     
 </div>
 </body> 

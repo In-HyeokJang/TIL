@@ -34,8 +34,6 @@
 
 <script>
 $(function(){
-	const id = document.getElementById("id").value;
-    alert(id);
     $.ajax({
         url: "/contents/getCategory",
         type: "GET",
@@ -45,7 +43,7 @@ $(function(){
         success: function(data){
         // alert("success:"+data.length);
 
-       alert(data[1]); //mysql
+       //alert(data[1]); //mysql
        // alert(data[0].cateno); //mysql   
         for (var i = 0; i < data.length; i++) {
         	$('#pmenu').append("<li><a href='/contents/mainlist/"+data[i].cateno+"'>" + data[i].catename + "</a></li>");
@@ -79,7 +77,7 @@ $(function(){
 						<ul class="dropdown-menu">
 							<li><a href="${root}/member/mypage">Mypage</a></li>
 							<li><a href="${root}/contents/detail">Review</a></li>
-							<li><a href="/notice/list">Notice</a></li>
+							<li><a href="${root}/notice/list">Notice</a></li>
 							<li><a href="#">Q&A</a></li>
 						</ul></li>
 					<li><a id="grade"><span class="glyphicon glyphicon-grain"></span>

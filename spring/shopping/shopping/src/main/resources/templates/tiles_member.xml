@@ -22,6 +22,18 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/member/agreement.jsp" />
 	</definition>
+	
+	<definition name="/member/findId" extends="main">
+		<put-attribute name="title" value="아이디 찾기"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/findIdForm.jsp" />
+	</definition>
+	
+	<definition name="/member/findPw" extends="main">
+		<put-attribute name="title" value="비밀번호 찾기"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/findPwForm.jsp" />
+	</definition>
 
 	<definition name="/member/create" extends="main">
 		<put-attribute name="title" value="회원가입"></put-attribute>

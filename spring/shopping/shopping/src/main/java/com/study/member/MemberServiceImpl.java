@@ -77,5 +77,16 @@ public class MemberServiceImpl implements MemberService {
           // TODO Auto-generated method stub
           return mapper.mypage(id);
         }
+
+ 
+        @Override
+        public MemberDTO reademail(String email) {
+          // TODO Auto-generated method stub
+          return mapper.reademail(email);
+        }
+
+
+
+
  
 }

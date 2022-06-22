@@ -14,7 +14,12 @@
   <div class="row">
   <div class="col-sm-3">
   <h3><span class="glyphicon glyphicon-user"></span> 나의 정보</h3>
-  <img class="img-rounded" src="/member/storage/${dto.fname}" style="width:280px">${dto.fname}
+  
+
+  <img class="img-rounded" src="/member/storage/${dto.fname}" style="width:280px">
+      
+  <a href="/member/updateFile"><span class="badge">사진수정</span></a>
+  
   <div class="caption">
     <p>ID:${dto.id}, 성명:${dto.mname}</p>
     <p>배송지:(${dto.zipcode })${dto.address1 }  ${dto.address2}</p>
@@ -32,7 +37,7 @@
        <li class="list-group-item">결제금액 : ${order.total} 원, 주문상태 : ${order.ostate}
     <c:forEach var="detail" items="${order.list}">
     <li class="list-group-item">${detail.pname}, ${detail.quantity}개
-     <a href="review/create/${detail.contentsno}"><span class="badge">Rivew</span></a></li>
+     <a href="/contents/detail/${detail.contentsno}"><span class="badge">Rivew</span></a></li>
     </c:forEach>
 </c:forEach>
     </c:otherwise>

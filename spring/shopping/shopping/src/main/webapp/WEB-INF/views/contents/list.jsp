@@ -12,10 +12,7 @@
    <script type="text/javascript">
      function read(contentsno){
        var url = "read";
-       url += "?contentsno="+contentsno;
-       url += "&col=${col}";
-       url += "&word=${word}";
-       url += "&nowPage=${nowPage}";
+       url += contentsno;
        location.href=url;
  
      }
@@ -86,7 +83,7 @@
     <img src="/contents/storage/${dto.filename}"  class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-    <a href="javascript:read('${dto.contentsno}')">${dto.pname}</a>
+    <a href="/admin/contents/read/${dto.contentsno}">${dto.pname}</a>
     <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }">
          <img src="/images/new.gif"> 
     </c:if> 

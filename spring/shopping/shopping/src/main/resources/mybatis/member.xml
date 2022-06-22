@@ -5,7 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.study.member.MemberMapper">
 
-
 	<resultMap type="com.study.member.MemberDTO" id="memberOrder">
 		<result property="id" column="id" />
 		<result property="mname" column="mname" />
@@ -32,6 +31,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pname" column="pname" />
 		<result property="contentsno" column="contentsno" />
 	</resultMap>
+	
+	<select id="reademail" parameterType="String" resultType="com.study.member.MemberDTO">
+		select *
+		from member
+		where email = #{email}
+	</select>
+
 	
 	<select id="mypage" parameterType="String"
 		resultMap="memberOrder">
@@ -90,6 +96,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{fname}
 		where id = #{id}
 	</update>
+	
 	<update id="update" parameterType="com.study.member.MemberDTO">
 		update member
 		set tel = #{tel},

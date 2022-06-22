@@ -91,6 +91,8 @@
    <div class="col-sm-offset-2 col-sm-5">
     <button class="btn">수정</button>
     <button type="reset" class="btn">취소</button>
+     <a href="javascript:history.back()">
+        <img class='btn' src="/svg/arrow-return-left.svg"/>뒤로</a>
    </div>
  </div>
 </form>

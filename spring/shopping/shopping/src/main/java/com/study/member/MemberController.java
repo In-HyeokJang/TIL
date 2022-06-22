@@ -12,11 +12,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,7 +34,44 @@ public class MemberController {
   @Autowired
   @Qualifier("com.study.member.MemberServiceImpl")
   private MemberService service;
+ 
+  
+  
+  @GetMapping("/member/findId")
+  public String findId() {
+    return "/member/findId";
+  }
+  
+  @GetMapping("/findId/{mname}/{email}")
+  public ResponseEntity<MemberDTO> getId(@PathVariable("mname") String mname,
+      @PathVariable("email") String email) {
 
+    int cnt = service.duplicatedEmail(email);
+    if (cnt == 1) {
+      return new ResponseEntity<MemberDTO>(service.reademail(email), HttpStatus.OK);
+    } else {
+      return null;
+    }
+
+  }
+  
+  @GetMapping("/member/findPw")
+  public String findPw() {
+    return "/member/findPw";
+  }
+  
+  @GetMapping("/findPw/{id}/{mname}")
+  public ResponseEntity<MemberDTO> getPw(@PathVariable("id") String id, @PathVariable("mname") String mname) {
+    int cnt = service.duplicatedId(id);
+    if(cnt == 1) {
+      return new ResponseEntity<MemberDTO>(service.read(id), HttpStatus.OK);
+    }
+    else {
+      return null;
+    }
+    
+  }
+  
   @GetMapping("/member/mypage")
   public String mypage(HttpSession session, Model model) {
     String id = (String) session.getAttribute("id");
@@ -126,6 +168,7 @@ public class MemberController {
   public String updateFile(MultipartFile fnameMF, String oldfile, HttpSession session, HttpServletRequest request)
       throws IOException {
     String basePath = UploadMem.getUploadDir();
+    oldfile = request.getParameter("oldfile");
 
     if (oldfile != null && !oldfile.equals("member.jpg")) { // 원본파일 삭제
       Utility.deleteFile(basePath, oldfile);
@@ -147,8 +190,18 @@ public class MemberController {
   }
 
   @GetMapping("/member/updateFile")
-  public String updateFileForm() {
-
+  public String updateFileForm(HttpSession session, Model model) {
+    String id = (String)session.getAttribute("id");
+    
+    if(id == null) {
+      return "redirect:/member/login";
+    }
+    else {
+      MemberDTO dto = service.mypage(id);
+      
+      model.addAttribute("dto", dto);
+    }
+    
     return "/member/updateFile";
   }
 
@@ -266,6 +319,13 @@ public class MemberController {
     }
   }
 
+  
+  @GetMapping("/member/find_id")
+  public String id_find() {
+    return "/member/find_id";
+  }
+
+  
   @GetMapping(value = "/member/emailcheck", produces = "application/json;charset=utf-8")
   @ResponseBody
   public Map<String, String> emailcheck(String email) {

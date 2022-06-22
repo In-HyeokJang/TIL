@@ -110,6 +110,7 @@ function inCheck(f){
         name = 'frm'
         onsubmit="return inCheck(this)"
         >
+        
      <input type="hidden" name="id" value="${dto.id}">
     <div class="form-group">
       <label class="control-label col-sm-2" for="id">아이디</label>

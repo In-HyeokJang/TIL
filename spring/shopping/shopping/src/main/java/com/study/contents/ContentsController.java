@@ -29,11 +29,55 @@ public class ContentsController {
   @Autowired
   @Qualifier("com.study.contents.ContentsServiceImpl")
   private ContentsService service;
+  
+  @GetMapping("/admin/contents/delete/{contentsno}")
+  public String delete(@PathVariable("contentsno") int contentsno) {
+    
+    int cnt = service.delete(contentsno);
+    
+    if(cnt == 1) {
+      return "redirect:/admin/contents/list";
+    }
+    else {
+      return "error";
+    }
+    
+  }
+  
+  @GetMapping("/admin/contents/read/{contentsno}")
+  public String read(@PathVariable("contentsno") int contentsno, Model model) {
+   
+    ContentsDTO dto = service.read(contentsno);
+    model.addAttribute("dto", dto);
+    
+    return "/contents/read";
+  }
 
   @GetMapping("/contents/detail/{contentsno}")
-  public String detail(@PathVariable("contentsno") int contentsno, Model model) {
+  public String detail(@PathVariable("contentsno") int contentsno, Model model,
+      HttpServletRequest request) {
 
     model.addAttribute("dto", service.detail(contentsno));
+    
+    /* 댓글 관련 시작 */
+    int nPage = 1;
+    if (request.getParameter("nPage") != null) {
+      nPage = Integer.parseInt(request.getParameter("nPage"));
+    }
+    int recordPerPage = 3;
+
+    // mysql
+    int sno = (nPage - 1) * recordPerPage;
+    int eno = recordPerPage;
+
+    Map map = new HashMap();
+    map.put("sno", sno);
+    map.put("eno", eno);
+    map.put("nPage", nPage);
+
+    model.addAllAttributes(map);
+
+    /* 댓글 처리 끝 */
 
     return "/contents/detail";
   }
@@ -153,6 +197,7 @@ public class ContentsController {
     return "/contents/update";
 
   }
+  
 
   @PostMapping("/contents/create")
   public String create(ContentsDTO dto, HttpServletRequest request) throws IOException {

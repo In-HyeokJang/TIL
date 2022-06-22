@@ -14,7 +14,7 @@
 
 ## 📖멀티캠퍼스 (AI플랫폼 웹서비스 개발)
 
-> 💻 소스 코드s
+> 💻 소스 코드
 
 [JAVA](https://github.com/In-HyeokJang/MLP_Java)
 
@@ -31,6 +31,14 @@
 [MVC사용해서 게시판 만들기](https://github.com/In-HyeokJang/mvc-MLP)
 
 [SpringMyBatis 사용해서 게시판 만들기](https://github.com/In-HyeokJang/TIL/tree/master/spring/Spring%EC%B6%94%EA%B0%80%EC%84%A4%EC%A0%95/spring_bbs)
+
+[SpringEL 이해](https://github.com/In-HyeokJang/TIL/tree/master/spring/SpringEL)
+
+[Notice만들기]
+
+[과제](https://github.com/In-HyeokJang/TIL/tree/master/spring/spring%EA%B3%BC%EC%A0%9C)
+
+[세미프로젝트-쇼핑몰구현하기](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping/shopping)
 
 ## 📖멀티캠퍼스 (특강)
 

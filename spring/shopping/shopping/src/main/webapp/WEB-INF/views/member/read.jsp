@@ -44,7 +44,7 @@
  <table class="table table-bordered">
  <tr>
  	<td colspan="2" style="text-align: center">
- 		<img src="${root}/storage/${dto.fname}" 
+ 		<img src="/member/storage/${dto.fname}" 
  		width="250px" height="250px" class="img-rounded" >
  	</td>
  </tr>
@@ -90,7 +90,7 @@
  <button class="btn btn-default" onclick="updateFile()">사진수정</button>
  <button class="btn btn-default" onclick="updatePw()">패스워드변경</button>
  <button class="btn btn-default" 
- onclick="location.href='./download?dir=storage&filename=${dto.fname}'">다운로드</button>  
+ onclick="location.href='./download?dir=/member/storage&filename=${dto.fname}'">다운로드</button>  
  </c:if>
  <button class="btn btn-default" onclick="deleteM()">회원탈퇴</button>
  <c:if test="${not empty dto.id and dto.grade == 'A'}">

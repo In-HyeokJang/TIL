@@ -53,16 +53,13 @@
 		</div>
 
 		<div>
-			<c:choose>
-				<c:when
-					test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
-					<button type="button" class="btn"
-						onclick="location.href='/admin/notice/create'">등록</button>
-					<button type="button" class="btn" onclick="updateM()">수정</button>
-					<button type="button" class="btn" onclick="deleteM()">삭제</button>
+			<c:if test="${sessionScope.grade == 'A'}">
+				<button type="button" class="btn"
+					onclick="location.href='/admin/notice/create'">등록</button>
+				<button type="button" class="btn" onclick="updateM()">수정</button>
+				<button type="button" class="btn" onclick="deleteM()">삭제</button>
+			</c:if>
 
-				</c:when>
-			</c:choose>
 
 
 			<button type="button" class="btn" onclick="listM()">목록</button>

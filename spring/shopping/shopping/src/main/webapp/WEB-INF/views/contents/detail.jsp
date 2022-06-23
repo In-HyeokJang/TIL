@@ -12,7 +12,7 @@
   	function cart(){
   		if('${sessionScope.id}' == ''){
   			alert('로그인을 하세요')
-  			location.href='/member/login';
+  			location.href="/member/login?rurl=/contents/detail/"+contentsno+"&"+param;
   			return;
   		}
   		//카트테이블에 등록하고 카트 alert창으로 메세지 보여주고 현재페이지 보이게 하기(비동기)
@@ -20,7 +20,7 @@
   	function order(){
   		if('${sessionScope.id}' == ''){
   			alert('로그인을 하세요')
-  			location.href='/member/login';
+  			location.href="/member/login?rurl=/contents/detail/"+contentsno+"&"+param;
   			return;
   		}
   		//주문서 작성으로 이동 주문생성 (비동기)  		

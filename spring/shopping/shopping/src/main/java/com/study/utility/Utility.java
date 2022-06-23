@@ -14,7 +14,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Utility {
-
+  
   public static String paging2(int total, int nowPage, int recordPerPage, String col, String word, int cateno) {
     int pagePerBlock = 5; // 블럭당 페이지 수
     int totalPage = (int) (Math.ceil((double) total / recordPerPage)); // 전체 페이지
@@ -22,44 +22,42 @@ public class Utility {
     int nowGrp = (int) (Math.ceil((double) nowPage / pagePerBlock)); // 현재 그룹
     int startPage = ((nowGrp - 1) * pagePerBlock) + 1; // 특정 그룹의 페이지 목록 시작
     int endPage = (nowGrp * pagePerBlock); // 특정 그룹의 페이지 목록 종료
-
+ 
     StringBuffer str = new StringBuffer();
     str.append("<div style='text-align:center'>");
     str.append("<ul class='pagination'> ");
     int _nowPage = (nowGrp - 1) * pagePerBlock; // 10개 이전 페이지로 이동
     if (nowGrp >= 2) {
-      str.append("<li><a href='/contents/mainlist/" + cateno + "?col=" + col + "&word=" + word + "&nowPage=" + _nowPage
-          + "'>이전</A></li>");
+      str.append("<li><a href='/contents/mainlist/"+cateno+"?col=" + col + "&word=" + word + "&nowPage=" + _nowPage + "'>이전</A></li>");
     }
-
+ 
     for (int i = startPage; i <= endPage; i++) {
       if (i > totalPage) {
         break;
       }
-
+ 
       if (nowPage == i) {
         str.append("<li class='active'><a href=#>" + i + "</a></li>");
       } else {
-        str.append("<li><a href='/contents/mainlist/" + cateno + "?col=" + col + "&word=" + word + "&nowPage=" + i
-            + "'>" + i + "</A></li>");
+        str.append(
+            "<li><a href='/contents/mainlist/"+cateno+"?col=" + col + "&word=" + word + "&nowPage=" + i + "'>" + i + "</A></li>");
       }
     }
-
+ 
     _nowPage = (nowGrp * pagePerBlock) + 1; // 10개 다음 페이지로 이동
     if (nowGrp < totalGrp) {
-      str.append("<li><A href='/contents/mainlist/" + cateno + "?col=" + col + "&word=" + word + "&nowPage=" + _nowPage
-          + "'>다음</A></li>");
+      str.append("<li><A href='/contents/mainlist/"+cateno+"?col=" + col + "&word=" + word + "&nowPage=" + _nowPage + "'>다음</A></li>");
     }
     str.append("</ul>");
     str.append("</div>");
-
+ 
     return str.toString();
   }
-
+  
   public static String getCodeValue(String code) {
     String jobname = null;
-    Map<String, String> codes = new HashMap<String, String>();
-
+    Map<String,String> codes = new HashMap<String,String>();
+    
     codes.put("A01", "회사원");
     codes.put("A02", "전산관련직");
     codes.put("A03", "연구전문직");
@@ -70,15 +68,13 @@ public class Utility {
     codes.put("A08", "법조인");
     codes.put("A09", "종교/언론/예술인");
     codes.put("A10", "기타");
-
+    
     jobname = codes.get(code);
     return jobname;
-
-  }
-
+    
+}
   /**
    * 오늘,어제,그제 날짜 가져오기
-   * 
    * @return List- 날짜들 저장 SimpleDateFormat("yyyy-MM-dd")
    */
   public static List<String> getDay() {
@@ -238,26 +234,46 @@ public class Utility {
       file.delete();
 
   }
-
-  public static String rpaging(int total, int recordPerPage, int nPage) {
+  
+  public static String rpaging(int total, int recordPerPage,  int nPage) {
     int pagePerBlock = 5; // 블럭당 페이지 수
     int totalPage = (int) (Math.ceil((double) total / recordPerPage)); // 전체 페이지
     int totalGrp = (int) (Math.ceil((double) totalPage / pagePerBlock));// 전체 그룹
-
-
+    int nowGrp = (int) (Math.ceil((double) nPage / pagePerBlock)); // 현재 그룹
+    int startPage = ((nowGrp - 1) * pagePerBlock) + 1; // 특정 그룹의 페이지 목록 시작
+    int endPage = (nowGrp * pagePerBlock); // 특정 그룹의 페이지 목록 종료
+ 
     StringBuffer str = new StringBuffer();
     str.append("<div style='text-align:center'>");
     str.append("<ul class='pagination'> ");
-
-
+    int _nowPage = (nowGrp - 1) * pagePerBlock; // 10개 이전 페이지로 이동
+ 
+    if (nowGrp >= 2) {
+      str.append("<li><a href='"  + "?nPage=" + _nowPage + "'>이전</A></li>");
+    }
+ 
+    for (int i = startPage; i <= endPage; i++) {
+      if (i > totalPage) {
+        break;
+      }
+ 
+      if (nPage == i) {
+        str.append("<li class='active'><a href=#>" + i + "</a></li>");
+      } else {
+        str.append("<li><a href='"  + "?nPage=" + i + "'>" + i + "</A></li>");
+      }
+    }
+ 
+    _nowPage = (nowGrp * pagePerBlock) + 1; // 10개 다음 페이지로 이동
+    if (nowGrp < totalGrp) {
+      str.append("<li><A href='"  + "?nPage=" + _nowPage + "'>다음</A></li>");
+    }
     str.append("</ul>");
     str.append("</div>");
-
+ 
     return str.toString();
-
+ 
   }
-
 //  public static int rcount(int bbsno,ReplyService rservice){
 //    return rservice.total(bbsno);
-//}
-}
+//  }

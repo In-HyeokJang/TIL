@@ -35,6 +35,16 @@ public class MemberController {
   @Qualifier("com.study.member.MemberServiceImpl")
   private MemberService service;
  
+  @GetMapping("/member/read")
+  public String read(String id, Model model) {
+ 
+
+      MemberDTO dto = service.read(id);
+
+      model.addAttribute("dto", dto);
+
+      return "/member/read";
+  }
   
   
   @GetMapping("/member/findId")

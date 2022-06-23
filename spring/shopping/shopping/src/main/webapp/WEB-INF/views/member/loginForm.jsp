@@ -14,11 +14,10 @@
         action="/member/login"
         method="post">
     <input type="hidden" name="rurl" value="${param.rurl}">    
-    <input type="hidden" name="bbsno" value="${param.bbsno}">    
-    <input type="hidden" name="nowPage" value="${param.nowPage}">    
+    <input type="hidden" name="contentno" value="${param.contentno}">    
+    
     <input type="hidden" name="nPage" value="${param.nPage}">    
-    <input type="hidden" name="col" value="${param.col}">    
-    <input type="hidden" name="word" value="${param.word}">
+    
         
     <div class="form-group">
       <label class="control-label col-sm-2" for="id">아이디</label>

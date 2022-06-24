@@ -9,17 +9,7 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-   <script type="text/javascript">
-     function read(contentsno){
-       var url = "read";
-       url += "?contentsno="+contentsno;
-       url += "&col=${col}";
-       url += "&word=${word}";
-       url += "&nowPage=${nowPage}";
-       location.href=url;
- 
-     }
-     
+   <script type="text/javascript">    
      function change(check){
          if(check.checked){
 
@@ -34,7 +24,6 @@
         	}
          }
         }
-  
   </script>
  
 </head>
@@ -57,26 +46,27 @@
    <tbody>
  
 <c:choose>   
-<c:when test="${false}">
+<c:when test="${empty list}">
    <tr><td colspan="6">등록된 상품이 없습니다.</td>
 </c:when>
 <c:otherwise>
   
-   <c:forEach var="dto" begin="1" end="3"> 
-   
+  <c:set var="tot" value='${0}'/>
+   <c:forEach var="dto" items="${list }"> 
+   <c:set var='tot' value='${tot + (dto.cdto.price * dto.count)}'/>
    <tr>
     <td><input type='checkbox' id='ch'></td>
     <td>
-    <img src="/contents/storage/jeans1.jpg"  class="img-rounded" width="100px" height="100px">
+    <img src="/contents/storage/${dto.cdto.filename }"  class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-    <a href="javascript:read('1')">찢어진 청바지(size : M)</a>
+    <a href="/contents/detail/${dto.cdto.contentsno}">${dto.cdto.pname}(size : <span id='size'>${dto.size}</span>)</a>
     
     </td>
-    <td><input type='number' value="1" min="1" max="10"></td>
-    <td>50000</td>
+    <td><input type='number' value="${dto.count}" min="1" max="10"></td>
+    <td>${dto.cdto.price}</td>
     <td> 
-        <a href="./delete/1">
+        <a href="javascript:del('${dot.cartno })">
           <span class="glyphicon glyphicon-trash"></span>
         </a>     
     </td>
@@ -88,7 +78,7 @@
    <tfoot>
    <tr style="background-color:beige;font-size:large">
    <th colspan="6" style="padding:30px;">
-    주문금액 150,000원 + 배송비 3,000원 = 153,000
+    주문금액 ${tot}원 + 배송비 3,000원 = 총 금액 ${tot + 3000} 
     <a href="/order/create">
    	<img src="/svg/bag-heart-fill.svg" title="주문하기" style='width:30px;margin-left:30px'></a>
    	<a href="/contents/mainlist/1">

@@ -9,7 +9,27 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-   <script type="text/javascript">    
+   <script type="text/javascript"> 
+   $(function(){
+	  if('${empty list}' == 'true'){
+		  $("tfoot").hide();
+	  }else{
+		  $("tfoot").show();
+	  }
+   });
+   
+   function del(cartno){
+	   if(confirm('상품을 삭제 하시겠습니까?')){
+		   let url ='/cart/delete/'+cartno;
+		   location.href= url;
+	   }
+   }
+   
+   function read(contentsno){
+       var url = "/contents/detail/"+contentsno;
+       location.href=url;
+ 
+     }
      function change(check){
          if(check.checked){
 
@@ -60,13 +80,13 @@
     <img src="/contents/storage/${dto.cdto.filename }"  class="img-rounded" width="100px" height="100px">
     </td>
     <td>
-    <a href="/contents/detail/${dto.cdto.contentsno}">${dto.cdto.pname}(size : <span id='size'>${dto.size}</span>)</a>
+    <a href="javascript:read('${dto.cdto.contentsno}')">${dto.cdto.pname}(size : <span id='size'>${dto.size}</span>)</a>
     
     </td>
     <td><input type='number' value="${dto.count}" min="1" max="10"></td>
     <td>${dto.cdto.price}</td>
     <td> 
-        <a href="javascript:del('${dot.cartno })">
+        <a href="javascript:del('${dto.cartno}')">
           <span class="glyphicon glyphicon-trash"></span>
         </a>     
     </td>

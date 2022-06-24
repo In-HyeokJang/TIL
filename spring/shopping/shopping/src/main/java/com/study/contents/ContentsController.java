@@ -167,7 +167,7 @@ public class ContentsController {
     }
   }
 
-  @GetMapping("/contents/updateFile/{contentsno}/{oldfile}")
+  @GetMapping("/admin/contents/updateFile/{contentsno}/{oldfile}")
   public String updateFileForm(@PathVariable("contentsno") int contentsno, @PathVariable("oldfile") String oldfile,
       Model model) {
     model.addAttribute("contentsno", contentsno);
@@ -187,7 +187,7 @@ public class ContentsController {
     }
   }
 
-  @GetMapping("/contents/update/{contentsno}")
+  @GetMapping("/admin/contents/update/{contentsno}")
   public String update(@PathVariable("contentsno") int contentsno, Model model) {
 
     ContentsDTO dto = service.read(contentsno);
@@ -213,7 +213,7 @@ public class ContentsController {
     }
 
     if (service.create(dto) > 0) {
-      return "redirect:./list";
+      return "redirect:/admin/contents/list";
     } else {
       return "error";
     }
@@ -224,7 +224,7 @@ public class ContentsController {
     return "/contents/create";
   }
 
-  @RequestMapping("/contents/list")
+  @RequestMapping("/admin/contents/list")
   public String list(HttpServletRequest request) {
     // 검색관련------------------------
     String col = Utility.checkNull(request.getParameter("col"));

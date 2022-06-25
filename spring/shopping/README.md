@@ -1,23 +1,35 @@
-# SemiProject - MLP
+# 📖SemiProject - MLP
 
-## shopping mall site 구현하기
+## 👓shopping mall  구현하기
 
-> 수업시간에 공부한 자료를 통해서 개인 세미프로젝트로 쇼핑몰 사이트 구현하기!
+-----
 
-### Views 소스 코드 (JSP)
+멀티캠퍼스 AI플랫폼을 활용한 웹 서비스 개발 15회차
 
-1. [회원가입](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/member/agreement.jsp)
-1. [가입 폼](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/member/createForm.jsp)
-1. [로그인 (ID 찾기)](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/member/findIdForm.jsp)
-1. [로그인 (PW 찾기)](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/member/findPwForm.jsp)
-1. [회원정보수정](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/member/updateForm.jsp)
-1. [나의정보](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/member/mypage.jsp)
-1. [옷 사진, 가격 갯수 (관리자권한) 만들기]()
-1. [Shop Home Page](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/template/top.jsp)
-   1. [홈페이지 사진 넣기](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/index.jsp)
-   2. [옷 구경](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/contents/mainlist.jsp)
-      1. [상품 자세히 구경(Review)](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/contents/detail.jsp)
-1. [Review 작성하기 (본인이 쓴 댓글만 삭제 수정 기능)]()
-1. [공지(Notice) 만들기, 수정, 삭제 (관리자만 가능) / 회원은 목록 읽기만 가능](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/notice/list.jsp)
-   1. [read](https://github.com/In-HyeokJang/TIL/blob/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/notice/read.jsp)
-1. [Cart담기-미완성](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping/shopping/src/main/webapp/WEB-INF/views/cart)
+세미프로젝트 shopping mall 만들기
+
+수업시간에 공부한 자료를 통해서 개인 세미프로젝트로 쇼핑몰 사이트 구현하기!
+
+기간 : 22-06-20 ~ 22-06-23
+
+------
+
+###  1. 사용 코드 기술 🔨
+
+ 	1. 사용코드
+     - Java (STS)
+     - HTML / CSS / JavaScript
+     - MySQL
+     - Spring Boot / MyBatis
+     - Windows 10
+
+### 2. 기능 📽
+
+- 회원가입
+- 로그인페이지 (ID, PW 찾기)
+- 나의 정보 보기
+- 회원정보 수정(이미지 수정기능)
+- 관리자 페이지(상품조회, 등록, 수정, 삭제)
+- 상품 상세페이지(리뷰 기능, 장바구니, 구매)
+- 공지(Notice) 만들기, 수정, 삭제 (관리자만 가능) / 회원은 목록 읽기만 가능
+

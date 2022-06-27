@@ -34,7 +34,7 @@
 
 [SpringEL 이해](https://github.com/In-HyeokJang/TIL/tree/master/spring/SpringEL)
 
-[Notice만들기]
+[Notice만들기](https://github.com/In-HyeokJang/TIL/tree/master/spring/springNotice/notice)
 
 [과제](https://github.com/In-HyeokJang/TIL/tree/master/spring/spring%EA%B3%BC%EC%A0%9C)
 

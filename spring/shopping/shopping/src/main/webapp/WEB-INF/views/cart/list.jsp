@@ -33,17 +33,49 @@
      function change(check){
          if(check.checked){
 
-        	aa = document.querySelectorAll("#ch");
+        	let aa = document.querySelectorAll("#ch");
         	for(let i=0; i<aa.length; i++){
-        		aa[i].setAttribute("checked",'checked');
+        		aa[i].checked=true;
         	}
          }else{
-        	aa = document.querySelectorAll("#ch")
+        	let aa = document.querySelectorAll("#ch")
         	for(let i=0; i<aa.length; i++){
-        		aa[i].removeAttribute("checked");
+        		aa[i].checked=false;
         	}
          }
         }
+     
+     function order(){
+    	 //alert('test');
+    	 let cno = document.querySelectorAll("#ch");
+    	 let qty = document.querySelectorAll("#qty");
+    	 let size = document.querySelectorAll("#size");
+    	 
+    	 let cnt =0;//체크값을 검사하는 변수
+    	 let param_cno = ''; //체크박스 안에 있는 value값, 상품번호가 여러개 연결된다.
+    	 let param_qty = ''; //수량을 여러개 연결한다.
+    	 let param_size = ''; //size를 여러개 연결한다.
+    	 
+    	 for(let i=0; i<cno.length; i++){
+    		 if(cno[i].checked==true){
+    			 cnt++;
+    			 param_cno += cno[i].value +','; //input type인 value로 가져올수 있음
+    			 param_qty += qty[i].value +',';
+    			 param_size += size[i].innerText +','; //input type이 아니라서 innerText로 가져옴
+    		 }
+    	 }
+    	 if(cnt==0){
+    		 alert("상품을 선택하세요");
+    		 return;
+    	 }else{
+    		 //alert(param_cno);
+    		 //alert(param_qty);
+    		 //alert(param_size);
+    		 
+    		 let url = "/order/create/cart/"+param_cno+"/"+param_qty+"/"+param_size;
+    		 location.href=url
+    	 }
+     }
   </script>
  
 </head>
@@ -75,7 +107,7 @@
    <c:forEach var="dto" items="${list }"> 
    <c:set var='tot' value='${tot + (dto.cdto.price * dto.count)}'/>
    <tr>
-    <td><input type='checkbox' id='ch'></td>
+    <td><input type='checkbox' id='ch' value="${dto.cdto.contentsno}"></td>
     <td>
     <img src="/contents/storage/${dto.cdto.filename }"  class="img-rounded" width="100px" height="100px">
     </td>
@@ -83,7 +115,7 @@
     <a href="javascript:read('${dto.cdto.contentsno}')">${dto.cdto.pname}(size : <span id='size'>${dto.size}</span>)</a>
     
     </td>
-    <td><input type='number' value="${dto.count}" min="1" max="10"></td>
+    <td><input type='number' value="${dto.count}" min="1" max="10" id="qty"></td>
     <td>${dto.cdto.price}</td>
     <td> 
         <a href="javascript:del('${dto.cartno}')">
@@ -99,10 +131,10 @@
    <tr style="background-color:beige;font-size:large">
    <th colspan="6" style="padding:30px;">
     주문금액 ${tot}원 + 배송비 3,000원 = 총 금액 ${tot + 3000} 
-    <a href="/order/create">
-   	<img src="/svg/bag-heart-fill.svg" title="주문하기" style='width:30px;margin-left:30px'></a>
+    <a href="javascript:order()">
+   	<img src="/svg/bag-heart-fill.svg" title="주문하기" style='width:30px;margin-left:30px'>주문하기</a>
    	<a href="/contents/mainlist/1">
-   	<img src="/svg/box2-heart.svg" title="쇼핑계속" style='width:30px;margin-left:30px'></a>
+   	<img src="/svg/box2-heart.svg" title="쇼핑계속" style='width:30px;margin-left:30px'>쇼핑</a>
    </th>
    </tr>
 
@@ -112,3 +144,4 @@
 </div>
 </body> 
 </html> 
+

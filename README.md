@@ -38,7 +38,7 @@
 
 [과제](https://github.com/In-HyeokJang/TIL/tree/master/spring/spring%EA%B3%BC%EC%A0%9C)
 
-[세미프로젝트-쇼핑몰구현하기](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping/shopping)
+[세미프로젝트-쇼핑몰구현하기](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
 
 ## 📖멀티캠퍼스 (특강)
 

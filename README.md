@@ -71,4 +71,4 @@
 - Beakjoon 1330 [A,B비교](https://github.com/In-HyeokJang/Coding_test/blob/master/BaekJoon/if%EB%AC%B8/CondingTest220520.md)
 - Beakjoon 9498 [시험출력](https://github.com/In-HyeokJang/Coding_test/blob/master/BaekJoon/if%EB%AC%B8/CondingTest220520.md)
 - Beakjoon 2753 [윤년](https://github.com/In-HyeokJang/Coding_test/blob/master/BaekJoon/if%EB%AC%B8/CodingTest220527.md)
-- Beakjoon 14681 [사분면](
+- Beakjoon 14681 [사분면](https://github.com/In-HyeokJang/Coding_test/blob/master/BaekJoon/if%EB%AC%B8/CodingTest220527.md)

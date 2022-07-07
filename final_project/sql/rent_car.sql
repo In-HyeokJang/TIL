@@ -121,8 +121,8 @@ join carcondition on category.carno = carcondition.carno;
 
 
 -- 3개 조인
-select a.catename, b.carname, b.filename, b.cardetail, b.carpoint, b.rdate,
-c.wheel, c.windows, c.bumper, c.sideMirror, c.cardoor, c.airconditioner, c.safetyBelt, 
+select a.carno, a.catename, b.carno, b.carinfono, b.carname, b.filename, b.cardetail, b.carpoint, b.rdate,
+c.carinfono, c.wheel, c.windows, c.bumper, c.sideMirror, c.cardoor, c.airconditioner, c.safetyBelt, 
 c.bluetooth, c.rearSensor, c.rearCamera, c.sunroof, c.blackbox, c.chargeState
 from category a
 left join carinfo b

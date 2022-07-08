@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rentcar.member.MemberMapper">
+
+   <select id="carData" parameterType="String" resultType="List">
+        select  rentDate, endDate
+        from member
+        where car_license = #{car_license}
+
+    </select>
+
+
+</mapper>

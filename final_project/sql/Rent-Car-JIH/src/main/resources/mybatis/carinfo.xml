@@ -5,6 +5,11 @@
 
 <mapper namespace="com.rentcar.carinfo.mapper.CarinfoMapper">
 
+    <delete id="delete" parameterType="String">
+        delete from carinfo
+        where carnumber =#{carnumber};
+    </delete>
+
     <insert id="create" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         insert into carinfo
         (carnumber, carname, carimage, carseate, carpoint, category)
@@ -57,11 +62,11 @@
 
     <update id="update" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         update carinfo
-        set carnumber = #{carnumber}
-            carname = #{carname}
-            category = #{category}
-            carseate = #{carseate}
-            carpoint = #{carpoint}
-        where carnumber =#{carnumber}
+        set
+        carname = #{carname},
+        category = #{category},
+        carseate = #{carseate},
+        carpoint = #{carpoint}
+        where carnumber =#{carnumber};
     </update>
 </mapper>

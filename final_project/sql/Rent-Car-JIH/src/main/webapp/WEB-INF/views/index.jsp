@@ -19,7 +19,7 @@ img {
 
 <div class="container">
     <p><a href="/contents/mainlist/1" >SHOP NOW</a></p>
-    <img src="/images/shop.jpg" alt="Jeans">
+    <img src="/images/G63 amg.jpg" alt="Jeans">
 </div>
     
 </div>

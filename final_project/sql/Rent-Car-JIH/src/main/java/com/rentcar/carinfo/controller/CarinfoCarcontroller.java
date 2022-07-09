@@ -27,6 +27,14 @@ public class CarinfoCarcontroller {
     private CarinfoService service;
 
 
+
+    @GetMapping("/delete/{carnumber}")
+    public String delete(@PathVariable String carnumber){
+        int flag = service.delete(carnumber);
+        if(flag != 1) return "error";
+        else return "redirect:/carinfo/list";
+    }
+
     @PostMapping("/update")
     public String update(CarinfoDTO dto){
         int cnt = service.update(dto);

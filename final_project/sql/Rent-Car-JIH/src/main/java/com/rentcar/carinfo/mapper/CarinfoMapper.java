@@ -13,7 +13,9 @@ public interface CarinfoMapper {
     int total(Map map);
     List<CarinfoDTO> list(Map map);
     CarinfoDTO read(String carnumber);
+
     int update(CarinfoDTO dto);
+    int delete(String carnumber);
 
 
 }

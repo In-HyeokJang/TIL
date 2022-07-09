@@ -39,5 +39,10 @@ public class CarinfoServiceImpl implements CarinfoService {
     public int update(CarinfoDTO dto) {
         return mapper.update(dto);
     }
+
+    @Override
+    public int delete(String carnumber) {
+        return mapper.delete(carnumber);
+    }
 }
 

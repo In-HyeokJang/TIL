@@ -23,6 +23,13 @@
          location.href=url;
         }
 
+     function del(carnumber){
+        if(confirm("정말삭제하시겠습니까?")){
+            let url ="delete/"+carnumber;
+            location.href=url;
+            }
+         }
+
   </script>
 
 </head>
@@ -91,7 +98,7 @@
           <span class="glyphicon glyphicon-edit"></span>
         </a>
         /
-        <a href="./delete/${dto.carnumber }">
+        <a href="javascript:del('${dto.carnumber}')">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
         /

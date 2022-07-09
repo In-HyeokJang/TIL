@@ -28,6 +28,7 @@
     <li class="list-group-item">차 좌석 : ${dto.carseate }
     <li class="list-group-item">차 지점위치 : ${dto.carpoint }
   	<li class="list-group-item">밑에 추가적인 차량세부정보 등록해야함
+  	<li class="list-group-item">
 
   	<td> <a href="./update/${dto.carnumber }">
           <span class="glyphicon glyphicon-edit"></span>

@@ -7,18 +7,9 @@
   <meta charset="utf-8">
   <script type="text/JavaScript">
  $(function() {
-	 CKEDITOR.replace('detail'); // <TEXTAREA>태그 id 값
-	 });
-
- function checkIn(f){
-          if (f.carnumber.value == ""){
-             alert("가격을 입력하세요");
-             f.carnumber.focus();
-             return false;
-          }
 
      if (f.carname.value == ""){
-             alert("상품명을 입력하세요");
+             alert("차이름을 입력하세요");
              f.carname.focus()
              return false;
      }
@@ -26,17 +17,17 @@
 
      if (f.category.value == ""){
              alert("차 종을 입력하세요");
-             f.category.focus();
+             f.category.focus()
              return false;
      }
         if (f.carseate.value == ""){
              alert("좌석수를 입력하세요");
-             f.carseate.focus();
+             f.carseate.focus()
              return false;
      }
         if (f.carpoint.value == ""){
              alert("지점을 입력하세요");
-             f.carpoint.focus();
+             f.carpoint.focus()
              return false;
      }
 }
@@ -53,33 +44,27 @@
   <input type="hidden" name="carnumber" value="${carnumber}">
 
   <div class="form-group">
-    <label class="control-label col-sm-2" for="carnumber">차번호</label>
-    <div class="col-sm-8">
-      <input type="text" name="carnumber" id="carnumber" class="form-control" value="${dto.carnumber }">
-    </div>
-  </div>
-  <div class="form-group">
     <label class="control-label col-sm-2" for="carname">차이름</label>
     <div class="col-sm-8">
-      <input type="text" name="carname" id="carname" class="form-control" value="${dto.carname }">
+      <input type="text" name="carname" id="carname" class="form-control" value="${dto.carname }" >
     </div>
   </div>
     <div class="form-group">
-    <label class="control-label col-sm-2" for="category">차종류</label>
+    <label class="control-label col-sm-2" for="category">차 종</label>
     <div class="col-sm-8">
-      <input type="text" name="category" id="category" class="form-control" value="${dto.category }">
+      <input type="text" name="category" id="category" class="form-control" value="${dto.category }" >
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="carseate">좌석수</label>
     <div class="col-sm-6">
-      <input type="text" name="carseate" id="carseate" class="form-control" value="${dto.carseate }">
+      <input type="text" name="carseate" id="carseate" class="form-control" value="${dto.carseate }" >
     </div>
   </div>
     <div class="form-group">
     <label class="control-label col-sm-2" for="carpoint">지점</label>
     <div class="col-sm-8">
-      <input type="text" name="carpoint" id="carpoint" class="form-control" value="${dto.carpoint }">
+      <input type="text" name="carpoint" id="carpoint" class="form-control" value="${dto.carpoint }" >
     </div>
   </div>
 

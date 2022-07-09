@@ -16,4 +16,6 @@ public interface CarinfoService {
     CarinfoDTO read(String carnumber);
 
     int update(CarinfoDTO dto);
+
+    int delete(String carnumber);
 }

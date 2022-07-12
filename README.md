@@ -1,6 +1,6 @@
 # TIL(Today I Learned)
 
-🙌백엔드 엔지니어가 되는 그날까지!
+🙌백엔드 개발자가 되는 그날까지!
 
 ## 📖멀티캠퍼스 (AI플랫폼 웹서비스 개발)
 
@@ -39,6 +39,10 @@
 [과제](https://github.com/In-HyeokJang/TIL/tree/master/spring/spring%EA%B3%BC%EC%A0%9C)
 
 [세미프로젝트-쇼핑몰구현하기](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
+
+[Final_Project:Rent-car-JIH](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
+
+[Final_Project:Rent-car 팀 주소](https://github.com/ISOSIM)
 
 ## 📖멀티캠퍼스 (특강)
 

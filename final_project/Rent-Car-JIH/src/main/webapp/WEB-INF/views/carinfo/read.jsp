@@ -16,7 +16,7 @@
   <div class="row">
   <div class="col-sm-3">
   <h4><img src="/svg/box2-heart.svg"> 차 정보</h4>
-  <img class="img-rounded" src="/contents/storage/${dto.carimage}" style="width:250px">
+  <img class="img-rounded" src="/carinfo/storage/${dto.carimage}" style="width:250px">
   </div>
   <div class="col-sm-6">
   <h4><img src="/svg/rulers.svg"> 차 정보</h4>
@@ -27,15 +27,12 @@
     <li class="list-group-item">차 종 : ${dto.category }
     <li class="list-group-item">차 좌석 : ${dto.carseate }
     <li class="list-group-item">차 지점위치 : ${dto.carpoint }
-  	<li class="list-group-item">밑에 추가적인 차량세부정보 등록해야함
+  	<li class="list-group-item">외부 상태 :
+  	<li class="list-group-item">내부 상태 :
   	<li class="list-group-item">
 
   	<td> <a href="./update/${dto.carnumber }">
           <span class="glyphicon glyphicon-edit"></span>
-        </a>
-        /
-        <a href="./delete/${dto.carnumber }">
-          <span class="glyphicon glyphicon-trash"></span>
         </a>
         /
         <a href="./updateFile/${dto.carnumber }/${dto.carimage}">
@@ -43,7 +40,7 @@
         </a>
     </td>
   <a href="javascript:history.back()">
-        <img class='btn' src="/svg/arrow-return-left.svg"/>뒤로</a>
+        <img class='btn' src="/svg/arrow-return-left.svg"/></a>
   </ul>
   </div>
   </div>

@@ -34,7 +34,7 @@ drop table carcondition;
 drop table carinfo;
 -- =====================================================
 -- 차량 관리 테이블 
-CREATE TABLE car_info (
+CREATE TABLE carinfo (
     carnumber VARCHAR(8) NOT NULL PRIMARY KEY,
     carname VARCHAR(100) NOT NULL,
     carimage VARCHAR(100) NULL,
@@ -43,26 +43,26 @@ CREATE TABLE car_info (
     category VARCHAR(40) NOT NULL
 );
 
-CREATE TABLE carCondition (
-    wheel INT(5),
-    windows INT(5),
-    bumper INT(5),
-    sideMirror INT(5),
-    cardoor INT(5),
-    airconditioner VARCHAR(2),
-    safetyBelt VARCHAR(2),
-    bluetooth VARCHAR(2),
-    rearSensor VARCHAR(2),
-    rearCamera VARCHAR(2),
-    sunroof VARCHAR(2),
-    blackbox VARCHAR(2),
-    chargeState VARCHAR(2),
-    carnumber VARCHAR(8),
+create table carCondition(
+	wheel varchar (5),
+    windows varchar (5),
+    bumper varchar (5),
+    sideMirror varchar (5),
+    cardoor varchar (5),
+	airconditioner varchar(2),
+    safetyBelt varchar (2),
+    bluetooth varchar (2),
+    rearSensor varchar(2),
+    rearCamera varchar(2),
+    sunroof varchar(2),
+    blackbox varchar(2),
+     carnumber VARCHAR(8),
     FOREIGN KEY (carnumber)
-        REFERENCES car_info (carnumber)
+        REFERENCES carinfo (carnumber)
 );
 
-insert into car_info(carname, carimage, carseate, carnumber, carpoint, category)
+
+insert into carinfo(carname, carimage, carseate, carnumber, carpoint, category)
 values('k5', 'k5.jpg', '4인승','12가1234', '서울 동작구', '중형차');
 
 insert into carCondition(wheel, windows, bumper, sideMirror, cardoor, airconditioner, safetyBelt, bluetooth, rearSensor, rearCamera, sunroof, blackbox,chargeState,carnumber)

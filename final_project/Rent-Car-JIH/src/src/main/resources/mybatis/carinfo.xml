@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rentcar.carinfo.mapper.CarinfoMapper">
+
+    <update id="updateFile" parameterType="Map">
+        update carinfo
+        set
+        carimage = #{carimage}
+        where carnumber = #{carnumber}
+    </update>
+    <delete id="delete" parameterType="String">
+        delete from carinfo
+        where carnumber =#{carnumber};
+    </delete>
+
+    <insert id="create" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
+        insert into carinfo
+        (carnumber, carname, carimage, carseate, carpoint, category,rdate)
+        values(#{carnumber}, #{carname}, #{carimage}, #{carseate}, #{carpoint}, #{category},sysdate())
+    </insert>
+
+    <select id="list" parameterType="Map" resultType="com.rentcar.carinfo.model.CarinfoDTO">
+        select carnumber, carname, carimage, carseate, carpoint, category, rdate
+        from
+        carinfo
+        <where>
+            <choose>
+                <when test="col=='carname'">
+                    carname like concat('%',#{word},'%')
+                </when>
+                <when test="col=='carpoint'">
+                    carpoint like concat('%' #{word},'%')
+                </when>
+                <when test="col=='carnumber'">
+                    carnumber like concat('%'#[word},'%')
+                </when>
+            </choose>
+        </where>
+        order by carnumber desc
+        limit ${sno}, #{eno}
+    </select>
+
+    <select id="total" parameterType="Map" resultType="int">
+        select count(*) from carinfo
+        <where>
+            <choose>
+                <when test="col=='carname'">
+                    carname like concat('%',#{word},'%')
+                </when>
+                <when test="col=='carpoint'">
+                    carpoint like concat('%',#{word}'%')
+                </when>
+                <when test="col=='carnumber'">
+                    carnumber like concat('%',#{word},'%')
+                </when>
+            </choose>
+        </where>
+    </select>
+
+    <select id="read" parameterType="String" resultType="com.rentcar.carinfo.model.CarinfoDTO">
+        select carnumber, carname, category, carseate, carimage, carpoint
+        from carinfo
+        where carnumber = #{carnumber}
+    </select>
+
+    <update id="update" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
+        update carinfo
+        set
+        carname = #{carname},
+        category = #{category},
+        carseate = #{carseate},
+        carpoint = #{carpoint}
+        where carnumber =#{carnumber};
+    </update>
+</mapper>

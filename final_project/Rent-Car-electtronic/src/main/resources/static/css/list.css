@@ -1,0 +1,112 @@
+.commu-content{margin:0 10px 0 0;width:1020px}
+.commu-content .__a1-video-banner-large-container{margin:0 0 10px 0}
+.commu-content header{display:flex;margin:0 0 10px 0}
+.commu-content header h1{margin:0 10px 0 0;width:282px;height:90px;line-height:90px;text-align:center}
+.commu-content header h1 a{display:block;width:100%;height:100%;text-indent:-9999px}
+.commu-content header h1 a img{vertical-align:middle}
+.commu-content header h1.has-logo-image a{text-indent:0px}
+.commu-content header .ad-header{width:728px;height:90px}
+.commu-content nav{min-height:42px;background-color:#666}
+.commu-content nav ul{display:flex;flex-direction:row;background:#666}
+.commu-content nav ul>li{position:relative;flex:1;text-align:center;border:1px solid #333;border-right:0px}
+.commu-content nav ul>li:last-child{border-right:1px solid #333}
+.commu-content nav ul>li>a{display:block;position:relative;line-height:40px;box-sizing:border-box}
+.commu-content nav ul>li>a>.text{color:#fff;font-weight:bold}
+.commu-content nav ul>li>a::before{content:"";display:block;position:absolute;width:100%;height:2px;top:0;background-color:#aaa}
+.commu-content nav ul>li>a::after{content:"";display:block;position:absolute;width:100%;height:2px;bottom:0;display:none;background-color:#eee}
+.commu-content nav ul>li>a:hover::after{display:block}
+.commu-content nav ul>li>ol{position:absolute;left:-1px;width:calc(100% + 2px);background-color:#666;border-color:#f50e0e;border:1px solid;z-index:99;box-sizing:border-box}
+.commu-content nav ul>li>ol.hidden{display:none}
+.commu-content nav ul>li>ol>li{padding:6px 10px;text-align:left}
+.commu-content nav ul>li>ol>li a{display:block;font-size:12px}
+.commu-content nav ul>li>ol>li a:hover{text-decoration:underline}
+.commu-content nav .add-tab li{border:0}
+.commu-content nav .add-tab a::before,
+.commu-content nav .add-tab a::after{display:none}
+.commu-content nav .svg{position:absolute;top:0;left:50%;width:46px;height:12px;margin-left:-23px;z-index:10}
+.commu-content nav .svg .text_path{fill:#000}
+.commu-content nav .svg.new .path{fill:#ffbc00}
+.commu-content nav .svg.update .path{fill:#c00}
+.commu-content nav .svg.update .text_path{fill:#ffd400}
+.commu-content>article{display:flex;height:100%}.commu-left{width:200px;background-color:#f4f4f4;border:1px solid #d0d0d0;border-top:0;border-bottom:0;box-sizing:border-box;line-height:1}
+
+.articleInfo{display:flex;justify-content:space-between;margin:0 0 20px 0;padding:14px 10px 16px;background:#f8f8f8;border-bottom:1px solid #ccc}
+.articleInfo .articleWriter{width:30%}
+.articleInfo .articleWriter span{font-size:14px}
+.articleInfo .articleWriter span img{position:relative;top:-2px}
+.articleInfo .articleDate{width:40%;text-align:center;font-size:13px}
+.articleInfo .articleHit{width:30%;text-align:right}
+.articleInfo .articleHit b,
+.articleInfo .articleHit strong{font-weight:normal}.
+
+.articleTopMenu{width:30%;text-align:right}
+
+.articleSubject{display:flex;margin:0 auto 20px;width:calc(100% - 59px);min-height:253px}
+.articleSubject {width:calc(100% - 250px);margin:55px 0 0 0;padding:0 30px 0 0}
+.articleSubject  h1{font-size:24px;font-weight:normal;line-height:33px;color:brown}
+.articleSubject {width:250px}
+
+#powerbbsContent{font-size:15px;letter-spacing:-0.5px;line-height:1.64}
+
+.articleBottomMenuTop{position:absolute;top:0;left:0;width:260px;height:inherit} 
+.articleBottomMenu{position:absolute;bottom:0;left:0}
+
+.botMenuCenter{margin:0 auto;text-align:center}
+.botMenuCenter {display:inline-block;margin:0;width:90px;height:55px}
+.botMenuCenter  a{position:relative;width:90px;height:55px;border:1px solid #ccc;border-radius:5px;box-sizing:border-box}
+.botMenuCenter  a.bttnNotRecommend{background-image:none}
+.botMenuCenter  span{position:absolute;left:50%;top:50%;margin:-11px 0 0 -45px;width:90px;height:22px;font-size:16px;font-family:"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;font-weight:bold}
+.botMenuCenter  span.reqnum>span::before{content:"";display:inline-block;position:relative;top:4px;margin:-4px 4px 0 -5px;width:24px;height:21px;background:url("https://static.inven.co.kr/image_2011/common/common/common_img_sprite2.png?v=20220530a") no-repeat}
+.botMenuCenter  span.reqblue>span{color:#c44747}
+.botMenuCenter  span.reqblue>span::before{background-position:-235px -5px}
+.botMenuCenter  span.reqred>span{color:#4288c8}
+.botMenuCenter  span.reqred>span::before{background-position:-264px -5px}
+
+
+.cmtHead{overflow:hidden;padding:0 0 10px;width:100%;border-color:#f0f0f0}
+.cmtHead h4{float:left;margin:0 10px 0 0;padding:0;background:none;font-size:15px}
+.cmtHead h4::before{content:"";display:inline-block;margin:0 5px 0 0;width:17px;height:14px;background:url("https://static.inven.co.kr/image_2011/common/common/common_img_sprite2.png?v=20220530a") no-repeat no-repeat;background-position:-123px -7px}#powerbbsCmt2
+.cmtHead h4 strong{position:relative;top:-1px;margin:0 0 0 3px;font-size:15px;font-weight:bold;color:#000}
+.cmtHead ul{display:flex;float:left;margin:2px;padding:0}
+.cmtHead ul a{color:#8b8b8b;font-size:12px !important}
+.cmtHead .recent .recent a,#powerbbsCmt2
+.cmtHead .dice .dice a,#powerbbsCmt2
+.cmtHead .date .date a{color:#1f1f1f;font-weight:400}
+.cmtMain{width:100%;border:0px}
+
+
+.articleView{overflow:hidden}
+.articleView {overflow:hidden;float:left;margin:0 0 10px}
+.articleView  a:first-child,
+.articleView  button{display:inline-block;padding:0 10px;height:30px;background:#fff;border:1px solid #aaa;border-radius:3px;box-sizing:border-box;color:#686868;line-height:30px;text-align:center;transition:.2s;float:left;margin:0 5px 0 0}
+.articleView  a:first-child:hover,
+.articleView  button:hover{color:#000}
+.articleView  #viewUrl{font-size:11px;line-height:30px}
+.articleView {float:right;margin:0 0 10px}
+.articleView  a{font-size:12px;line-height:30px}.articleView>table{width:100%}
+.articleView {margin:0 auto 20px;width:calc(100% - 59px)}
+.articleView {display:flex;justify-content:space-between;margin:0 0 20px 0;padding:14px 10px 16px;background:#f8f8f8;border-bottom:1px solid #ccc}
+.articleView  {width:30%}
+.articleView   span{font-size:14px}
+.articleView   span img{position:relative;top:-2px}
+.articleView  {width:40%;text-align:center;font-size:13px}
+.articleView  {width:30%;text-align:right}
+.articleView   b,
+.articleView   strong{font-weight:normal}
+.articleView {display:flex;justify-content:space-between;margin:0 auto 20px;width:calc(100% - 59px)}
+.articleView  {width:30%}
+.articleView   select{border:1px solid #ccc;font-size:13px}
+.articleView  {width:40%;text-align:center}
+.articleView  {width:30%;text-align:right}
+.articleView {display:flex;margin:0 auto 20px;width:calc(100% - 59px);min-height:253px}
+.articleView  {width:calc(100% - 250px);margin:55px 0 0 0;padding:0 30px 0 0}
+.articleView   h1{font-size:24px;font-weight:normal;line-height:33px;color:brown}
+.articleView  {width:250px}
+.articleView {margin:0 auto 100px;width:calc(100% - 59px)}
+
+
+.cmtWriteForm{padding:20px 0;width:100%}#powerbbsCmt2 .commentWrite
+.cmtWriteForm .cmtContent{width:100%}#powerbbsCmt2
+.cmtWriteForm .cmtContent textarea{width:570px;border-color:#ccc;font-family:inherit;outline:none;font-size:14px;resize:vertical;min-height:66px;max-height:600px}#powerbbsCmt2 .commentWrite .cmtWriteForm .cmtContent textarea.notice{background-image:url("https://static.inven.co.kr/image_2011/board/common/comment_img.png")}
+.cmtWriteForm {padding:0 0 0 9px;width:100% !important}
+.cmtWriteForm .textLogin textarea{width:682px !important}#powerbbsCmt2 .commentWrite .cmtWriteForm .cmtSubmit{position:relative;background-color:#fff;border:1px solid #ccc;border-radius:5px;height:70px}#powerbbsCmt2 .commentWrite .cmtWriteForm .cmtSubmit input{background-image:none;box-sizing:inherit}#powerbbsCmt2 .commentWrite .cmtWriteForm .cmtSubmit button{width:100%;height:100%;border:none;background:none;font-size:13px;text-indent:0}

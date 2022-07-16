@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="main"
+                template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="header"
+                       value="/WEB-INF/views/template/top.jsp" />
+    </definition>
+
+    <definition name="/reservation" extends="main">
+        <put-attribute name="title" value="기본페이지"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/views/member/reservation.jsp" />
+    </definition>
+
+    <definition name="/mypage" extends="main">
+        <put-attribute name="title" value="마이페이지"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/views/member/mypage.jsp" />
+    </definition>
+
+    <definition name="/list" extends="main">
+        <put-attribute name="title" value="게시판"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/views/list/list.jsp" />
+    </definition>
+
+
+</tiles-definitions>

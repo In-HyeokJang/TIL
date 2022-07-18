@@ -1,12 +1,13 @@
-<!--<%@ page contentType="text/html; charset=UTF-8" %>-->
-<!--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
-<!--<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>-->
-<!--<%@ taglib prefix="util" uri="/ELFunctions" %>-->
+<%@ page contentType="text/html; charset=UTF-8" %>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html>
 
-<head>
+    <head>
+      <title>자동차등록</title>
+      <meta charset="utf-8">
+    </head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,150 +16,131 @@
     <link rel="stylesheet" type="text/css" href="/css/support/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-</head>
+    <body>
+      <div class="container">
+        <header>Registration</header>
+        <form class="form-horizontal" action="/carinfo/create" method="post" enctype="multipart/form-data"
+          onsubmit="return checkIn(this)">
 
-<body>
-    <div class="container">
-        <header>Car Registration</header>
+          <div class="form first">
+            <div class="details carinfo">
+              <span class="title">Car Info</span>
 
-        <form>
-            <div class="form first">
-                <div class="details personal">
-                    <span class="title">Car Info</span>
+              <div class="fields" id="carinfo">
 
-                    <div class="fields" id="carinfo">
-                        <div class="input-field">
-                            <label>Car Number</label>
-                            <input type="text" placeholder="Enter Car Number" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Car Name</label>
-                            <input type="text" placeholder="Enter Car Name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Car Category</label>
-                            <input type="text" placeholder="Enter Car Category" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Car Seate</label>
-                            <input type="text" placeholder="Enter Car Seate" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Car Point</label>
-                            <input type="text" placeholder="Enter Car Point" required>
-                        </div>
-
-                    </div>
-
+                <div class="input-field">
+                  <label for="carnumber">Car Number</label>
+                  <input type="text" name="carnumber" id="carnumber" placeholder="Enter Car Number" required>
+                </div>
+                <div class="input-field">
+                  <label for="carname">Car Name</label>
+                  <input type="text" name="carname" id="carname" placeholder="Enter Car Name" required>
                 </div>
 
-                <div class="details ID">
-                    <span class="title">Car Image</span>
-
-                    <div class="fields" id="carimage">
-                          <div class="form-group">
-                            <label class="control-label col-sm-2" for="filenameMF">차이미지</label>
-                            <div class="col-sm-6">
-                              <input type="file" name="filenameMF" id="filenameMF" class="form-control">
-                            </div>
-                          </div>
-                    </div>
-
-                    <button class="nextBtn">
-                        <span class="btnText">Next</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
+                <div class="input-field">
+                  <label for="category">Car Category</label>
+                  <input type="text" name="category" id="category" placeholder="Enter Car Category" required>
                 </div>
+
+                <div class="input-field">
+                  <label for="carseate">Car Seate</label>
+                  <input type="text" name="carseate" id="carseate" placeholder="Enter Car Seate" required>
+                </div>
+
+                <div class="input-field">
+                  <label for="carpoint">Car Point</label>
+                  <input type="text" name="carpoint" id="carpoint" placeholder="Enter Car Point" required>
+                </div>
+
+                <div class="input-field">
+                  <label for="filenameMF">Car Image</label>
+                  <input type="file" name="filenameMF" id="filenameMF" placeholder="Enter Car Image" required>
+                </div>
+              </div>
+
+              <button class="nextBtn">
+                <span class="btnText">Next</span>
+                <i class="uil uil-navigator"></i>
+              </button>
             </div>
+          </div>
 
-            <div class="form second">
-                <div class="carinfo">
-                    <span class="title">Car Option</span>
+          <div class="form second">
+            <div class="carpotion">
+              <span class="title">Car Option</span>
 
-                    <div class="fields" id="option">
-                        <div class="input-field">
-                            <label>bluetooth</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
+              <div class="fields" id="option">
 
-                        <div class="input-field">
-                            <label>rear_sensor</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>rear_camera</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>black_box</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>heated_seat</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>heated_handle</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>ventilated_seat</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>navigation</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-                        <div class="input-field">
-                            <label>non_smoking_vchicle</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>non_smoking_vchicle</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>non_smoking_vchicle</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-
-                        <div class="input-field">
-                            <label>non_smoking_vchicle</label>
-                            <input type="checkbox" name="checkbox" class="cm-toggle" value="1">
-                        </div>
-                    </div>
-
-                    <div class="buttons">
-                        <div class="backBtn">
-                            <i class="uil uil-navigator"></i>
-                            <span class="btnText">Back</span>
-                        </div>
-
-                        <button class="sumbit" onclick="getInfo()">
-                            <span class="btnText">Submit</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
-                    </div>
-
+                <div class="input-field">
+                  <label for="bluetooth">bluetooth</label>
+                  <input type="checkbox" name="checkbox" id="bluetooth" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="rear_sensor">rear_sensor</label>
+                  <input type="checkbox" name="checkbox" id="rear_sensor" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="rear_camera">rear_camera</label>
+                  <input type="checkbox" name="checkbox" id="rear_camera" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="black_box">black_box</label>
+                  <input type="checkbox" name="checkbox" id="black_box" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="heated_seat">heated_seat</label>
+                  <input type="checkbox" name="checkbox" id="heated_seat" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="heated_handle">heated_handle</label>
+                  <input type="checkbox" name="checkbox" id="heated_handle" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="ventilated_seat">ventilated_seat</label>
+                  <input type="checkbox" name="checkbox" id="ventilated_seat" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="navigation">navigation</label>
+                  <input type="checkbox" name="checkbox" id="navigation" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="non_smoking_vehicle">non_smoking_vehicle</label>
+                  <input type="checkbox" name="checkbox" id="non_smoking_vehicle" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="smart_key">smart_key</label>
+                  <input type="checkbox" name="checkbox" id="smart_key" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="sunroof">sunroof</label>
+                  <input type="checkbox" name="checkbox" id="sunroof" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="rear_warning_light">rear_warning_light</label>
+                  <input type="checkbox" name="checkbox" id="rear_warning_light" class="cm-toggle" value="1">
+                </div>
+                <div class="input-field">
+                  <label for="Lane_Departure_Prevention">Lane_Departure_Prevention</label>
+                  <input type="checkbox" name="checkbox" id="Lane_Departure_Prevention" class="cm-toggle" value="1">
+                </div>
+              </div>
+              <div class="buttons">
+                <div class="backBtn">
+                  <i class="uil uil-navigator"></i>
+                  <span class="btnText">Back</span>
                 </div>
 
+                <button class="sumbit" onclick="getInfo()">
+                  <span class="btnText">Submit</span>
+                  <i class="uil uil-navigator"></i>
+                </button>
+              </div>
             </div>
+          </div>
         </form>
-    </div>
-
-    <script>
+      </div>
+      
+      <script>
         const form = document.querySelector("form"),
             nextBtn = form.querySelector(".nextBtn"),
             backBtn = form.querySelector(".backBtn"),
@@ -176,7 +158,6 @@
         })
         backBtn.addEventListener("click", () => form.classList.remove('secActive'));
     </script>
-
     <script type="text/javascript">
         async function getInfo() {
             const answer = GetWrited();
@@ -189,7 +170,7 @@
                 registe: registe
             };
 
-            var url = "/carinfo/create";
+            var url = "/support/create_supporter";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -203,9 +184,9 @@
 
         function GetWrited() {
             const answer = new Array();
-            var carinfo = document.getElementById("carinfo");
+            var vehicle = document.getElementById("vehicle");
             //Reference all the CheckBoxes in Table.
-            var res = carinfo.getElementsByTagName("INPUT");
+            var res = vehicle.getElementsByTagName("INPUT");
 
             // Loop and push the checked CheckBox value in Array.
             for (var i = 0; i < res.length; i++) {
@@ -216,7 +197,7 @@
 
         function GetRegiste() {
             const answer = new Array();
-            var register = document.getElementById("carimage");
+            var register = document.getElementById("register");
             //Reference all the CheckBoxes in Table.
             var res = register.getElementsByTagName("INPUT");
 
@@ -230,7 +211,7 @@
         function GetSelected() {
             var selected = new Array();
             //Reference the Table.
-            var tblFruits = document.getElementById("option");
+            var tblFruits = document.getElementById("charge");
 
             //Reference all the CheckBoxes in Table.
             var chks = tblFruits.getElementsByTagName("INPUT");
@@ -246,7 +227,7 @@
         };
 
     </script>
+    
+    </body>
 
-</body>
-
-</html>
+    </html>

@@ -27,6 +27,7 @@
                     <span class="title">Vehicle Info</span>
 
                     <div class="fields" id="vehicle">
+                        
                         <div class="input-field">
                             <label>Vehicle Number</label>
                             <input type="text" placeholder="Enter your Number" required>

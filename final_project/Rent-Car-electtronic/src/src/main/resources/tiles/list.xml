@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="main"
+                template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="header"
+                       value="/WEB-INF/views/template/top.jsp" />
+    </definition>
+
+    <definition name="/list" extends="main">
+        <put-attribute name="title" value="게시판"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/views/list/list.jsp" />
+    </definition>
+
+    <definition name="/list/create" extends="main">
+        <put-attribute name="title" value="list 등록" ></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/list/createForm.jsp" />
+    </definition>
+    <definition name="/list/read" extends="main">
+        <put-attribute name="title" value="list 조회" ></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/list/readdd.jsp" />
+    </definition>
+    <definition name="/list/update" extends="main">
+        <put-attribute name="title" value="list 수정" ></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/list/updateForm.jsp" />
+    </definition>
+    <definition name="/list/reply" extends="main">
+        <put-attribute name="title" value="list 답변" ></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/list/replyForm.jsp" />
+    </definition>
+    <definition name="/list/delete" extends="main">
+        <put-attribute name="title" value="list 삭제" ></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/list/deleteForm.jsp" />
+    </definition>
+</tiles-definitions>

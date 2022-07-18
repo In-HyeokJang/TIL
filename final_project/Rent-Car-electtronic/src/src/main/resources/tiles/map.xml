@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="main" template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" />
+    </definition>
+
+
+
+    <definition name="/map" extends="main">
+        <put-attribute name="title" value="EV Rent"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/map/map.jsp" />
+    </definition>
+
+    <definition name="/test" extends="main">
+        <put-attribute name="title" value="기본페이지"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/test.jsp" />
+    </definition>
+
+
+    <definition name="/request" extends="main">
+        <put-attribute name="title" value="기본페이지"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/surpport/request.jsp" />
+    </definition>
+
+</tiles-definitions>

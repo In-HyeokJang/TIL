@@ -27,10 +27,11 @@
 
               <div class="fields" id="carinfo">
 
-                <div class="input-field">
+                <!--<div class="input-field">
                   <label for="carnumber">Car Number</label>
                   <input type="text" name="carnumber" placeholder="Enter Car Number" required>
                 </div>
+
                 <div class="input-field">
                   <label for="carname">Car Name</label>
                   <input type="text" name="carname" placeholder="Enter Car Name" required>
@@ -58,9 +59,9 @@
 
                 <div class="input-field">
                   <label for="filenameMF">Car Image</label>
-                  <input type="file" name="filenameMF" placeholder="Enter Car Image" required>
+                  <input type="file" name="filenameMF" required>
                 </div>
-              </div>
+              </div> -->
 
               <button class="nextBtn">
                 <span class="btnText">Next</span>
@@ -152,7 +153,7 @@
 
 
         nextBtn.addEventListener("click", () => {
-            allInput.forEach(input => {
+          allInput.forEach(input => {
                 if (input.value != "") {
                     form.classList.add('secActive');
                 } else {
@@ -161,61 +162,61 @@
             })
         })
         backBtn.addEventListener("click", () => form.classList.remove('secActive'));
-    </script>
-        <script type="text/javascript">
-          async function getInfo() {
-              const answer = GetWrited();
-              const selected = GetSelected();
+   </script>
+         <script type="text/javascript">
+    //       async function getInfo() {
+    //           const answer = GetWrited();
+    //           const selected = GetSelected();
 
-              data = {
-                  answer: answer,
-                  selected: selected
-              };
+    //           data = {
+    //               answer: answer,
+    //               selected: selected
+    //           };
 
-              var url = "/carinfo/create";
-              const response = await fetch(url, {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data)
-              })
-                  .then((res) => { if (res.ok) { window.close(); } })
-                  .catch("잠시후 다시 시도해 보세요.");
-          }
+    //           var url = "/carinfo/create";
+    //           const response = await fetch(url, {
+    //               method: 'POST',
+    //               headers: {
+    //                   'Content-Type': 'application/json',
+    //               },
+    //               body: JSON.stringify(data)
+    //           })
+    //               .then((res) => { if (res.ok) { window.close(); } })
+    //               .catch("잠시후 다시 시도해 보세요.");
+    //       }
 
-          function GetWrited() {
-              const answer = new Array();
-              var carinfo = document.getElementById("carinfo");
-              //Reference all the CheckBoxes in Table.
-              var res = carinfo.getElementsByTagName("INPUT");
+    //       function GetWrited() {
+    //           const answer = new Array();
+    //           var carinfo = document.getElementById("carinfo");
+    //           //Reference all the CheckBoxes in Table.
+    //           var res = carinfo.getElementsByTagName("INPUT");
 
-              // Loop and push the checked CheckBox value in Array.
-              for (var i = 0; i < res.length; i++) {
-                  answer.push(res[i].value);
-              }
-              return answer;
-          }
+    //           // Loop and push the checked CheckBox value in Array.
+    //           for (var i = 0; i < res.length; i++) {
+    //               answer.push(res[i].value);
+    //           }
+    //           return answer;
+    //       }
 
-          function GetSelected() {
-              var selected = new Array();
-              //Reference the Table.
-              var tblFruits = document.getElementById("option");
+    //       function GetSelected() {
+    //           var selected = new Array();
+    //           //Reference the Table.
+    //           var tblFruits = document.getElementById("option");
 
-              //Reference all the CheckBoxes in Table.
-              var chks = tblFruits.getElementsByTagName("INPUT");
+    //           //Reference all the CheckBoxes in Table.
+    //           var chks = tblFruits.getElementsByTagName("INPUT");
 
-              // Loop and push the checked CheckBox value in Array.
-              for (var i = 0; i < chks.length; i++) {
-                  if (chks[i].checked) {
-                      selected.push(chks[i].value);
-                  }
-              }
+    //           // Loop and push the checked CheckBox value in Array.
+    //           for (var i = 0; i < chks.length; i++) {
+    //               if (chks[i].checked) {
+    //                   selected.push(chks[i].value);
+    //               }
+    //           }
 
-              return selected;
-          };
+    //           return selected;
+    //       };
 
-      </script>
+    //   </script>
 
     </body>
 

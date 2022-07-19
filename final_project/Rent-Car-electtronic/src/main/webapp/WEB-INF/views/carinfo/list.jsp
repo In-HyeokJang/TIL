@@ -47,15 +47,15 @@
     <div class="form-group">
       <select class="form-control" name="col">
         <option value="category"
-        <c:if test= "${col=='category'}"> selected </c:if>>차종류</option>
+        <c:if test= "${col=='category'}"> selected </c:if>차종류</option>
         <option value="carname"
-        <c:if test= "${col=='carname'}"> selected </c:if>>차이름</option>
+        <c:if test= "${col=='carname'}"> selected </c:if>차이름</option>
         <option value="carpoint"
         <c:if test= "${col=='carpoint'}"> selected </c:if>
-        >지점</option>
+        지점</option>
         <option value="total"
         <c:if test= "${col=='total'}"> selected </c:if>
-        >전체출력</option>
+        전체출력</option>
      </select>
     </div>
     <div class="form-group">

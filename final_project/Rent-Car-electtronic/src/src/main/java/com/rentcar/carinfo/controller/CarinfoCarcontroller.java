@@ -133,7 +133,7 @@ public class CarinfoCarcontroller {
         if(request.getParameter("nowPage") !=null){
             nowPage = Integer.parseInt(request.getParameter("nowPage"));
         }
-        int recordPerPage = 5;
+        int recordPerPage = 3;
         int sno = (nowPage - 1) * recordPerPage;
         int eno = recordPerPage;
 

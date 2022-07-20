@@ -36,6 +36,10 @@
                   <label for="carname">Car Name</label>
                   <input type="text" name="carname" placeholder="Enter Car Name" required>
                 </div>
+                <div class="input-field">
+                                  <label for="carprice">Car Rent Price</label>
+                                  <input type="text" name="carprice" placeholder="Enter Car Rent Price" required>
+                                </div>
 
                 <div class="input-field">
                   <label for="category">Car Category</label>

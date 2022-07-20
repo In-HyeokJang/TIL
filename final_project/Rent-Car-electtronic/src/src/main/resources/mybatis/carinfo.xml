@@ -18,24 +18,20 @@
 
     <insert id="create" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         insert into carinfo
-        (carnumber, carname, carimage, carseate, carpoint, category,caryearmodel)
-        values(#{carnumber}, #{carname}, #{carimage}, #{carseate}, #{carpoint}, #{category},#{caryearmodel})
+        (carnumber, carname, carimage, carprice, carseate, carpoint, category,caryearmodel)
+        values(#{carnumber}, #{carname}, #{carimage}, #{carprice}, #{carseate}, #{carpoint}, #{category},#{caryearmodel})
     </insert>
 
     <select id="list" parameterType="Map" resultType="com.rentcar.carinfo.model.CarinfoDTO">
-        select carnumber, carname, carimage, carseate, carpoint, category, caryearmodel
-        from
-        carinfo
+        select carname, carimage, carprice, carseate, carnumber, carpoint, category, caryearmodel
+        from carinfo
         <where>
             <choose>
+                <when test="col=='carnumber'">
+                    carnumber like concat('%',#{word},'%')
+                </when>
                 <when test="col=='carname'">
                     carname like concat('%',#{word},'%')
-                </when>
-                <when test="col=='carpoint'">
-                    carpoint like concat('%' #{word},'%')
-                </when>
-                <when test="col=='carnumber'">
-                    carnumber like concat('%'#[word},'%')
                 </when>
             </choose>
         </where>
@@ -47,21 +43,18 @@
         select count(*) from carinfo
         <where>
             <choose>
-                <when test="col=='carname'">
-                    carname like concat('%',#{word},'%')
-                </when>
-                <when test="col=='carpoint'">
-                    carpoint like concat('%',#{word}'%')
-                </when>
                 <when test="col=='carnumber'">
                     carnumber like concat('%',#{word},'%')
+                </when>
+                <when test="col=='carname'">
+                    carname like concat('%',#{word},'%')
                 </when>
             </choose>
         </where>
     </select>
 
     <select id="read" parameterType="String" resultType="com.rentcar.carinfo.model.CarinfoDTO">
-        select carnumber, carname, category, carseate, carimage, carpoint, caryearmodel
+        select carnumber, carname, category, carprice, carseate, carimage, carpoint, caryearmodel
         from carinfo
         where carnumber = #{carnumber}
     </select>
@@ -69,10 +62,13 @@
     <update id="update" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         update carinfo
         set
+        carnumber = #{carnumber},
         carname = #{carname},
+        carprice = #{carprice},
         category = #{category},
+        caryearmodel = #{caryearmodel},
         carseate = #{carseate},
         carpoint = #{carpoint}
-        where carnumber =#{carnumber};
+        where carnumber =#{carnumber}
     </update>
 </mapper>

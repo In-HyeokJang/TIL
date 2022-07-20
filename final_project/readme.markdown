@@ -28,3 +28,13 @@
 - create 에서 next 버튼 안되는거 js 확인 필요
 - update 는 create 처럼 비동기로 등록하는거 만들기
 - read view 수정/ 초안 만들어 놓음
+
+#### 220720
+
+- read view 수정 완료 + caroption create 완성하면 수정 다시 필요
+- fileupload view 수정 완료
+- update view 내일 하기
+- list paging view 수정 필요
+
+- back caroption 해야함...
+- user list/read page / admin list/read/delete/update/fileupdate 구분 필요

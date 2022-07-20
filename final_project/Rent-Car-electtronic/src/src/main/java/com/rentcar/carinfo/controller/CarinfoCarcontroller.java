@@ -76,9 +76,11 @@ public class CarinfoCarcontroller {
 
     @PostMapping("/update")
     public String update(CarinfoDTO dto){
+        //log.info("dto:"+dto);
         int cnt = service.update(dto);
+        log.info("cnt:"+cnt);
         if(cnt == 1){
-            return "redirect:./list";
+            return "redirect:/carinfo/list";
         }else{
             return "error";
         }

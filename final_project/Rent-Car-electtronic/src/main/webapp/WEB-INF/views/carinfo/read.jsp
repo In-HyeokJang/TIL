@@ -8,41 +8,85 @@
 <title>차량정보 조회</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+  .layout{
+    display: flex;
+    justify-content: center;
+  }
+
+  .carname {
+    font-weight: 600;
+    font-size: 3.75rem;
+    margin: -200px 861px 0 -190px;
+    font-family: Raleway, sans-serif !important;
+    margin-left: 100px;
+}
+.carinfo {
+  display: flex;
+    justify-content: center;
+  line-height: 2;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: -80px 13px 150px 13px;
+    font-family: Roboto,sans-serif !important;
+    margin-left: 770px;
+}
+.img{
+  display: flex;
+    justify-content: center;
+    margin-left: 350px;
+}
+.button{
+  display: flex;
+    justify-content: center;
+    margin-top:35%;
+}
+
+.res{
+  border-style: solid;
+    border-radius: 23px !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+    background-color: transparent !important;
+    margin-left: 500px;
+}
+</style>
+
 
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-  <div class="col-sm-3">
-  <h4><img src="/svg/box2-heart.svg"> 차 정보</h4>
-  <img class="img-rounded" src="/carinfo/storage/${dto.carimage}" style="width:250px">
-  </div>
-  <div class="col-sm-6">
-  <h4><img src="/svg/rulers.svg"> 차 정보</h4>
-  <ul class="list-group">
+  <div class="layout">
+  <div>
 
-    <li class="list-group-item">차 이름 : ${dto.carname }
-    <li class="list-group-item">차 번호 : ${dto.carnumber }
-    <li class="list-group-item">차 종 : ${dto.category }
-    <li class="list-group-item">차 좌석 : ${dto.carseate }
-    <li class="list-group-item">차 지점위치 : ${dto.carpoint }
-  	<li class="list-group-item">여기에 선택된 옵션 들어게 만들기
-  	<li class="list-group-item">
+  <img class="img" src="/carinfo/storage/${dto.carimage}"
+   style="width:400px;", height="323px;", margin="90px auto 0 250px">
 
-  	<td> <a href="./update/${dto.carnumber }">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a>
-        /
-        <a href="./updateFile/${dto.carnumber }/${dto.carimage}">
-          <span class="glyphicon glyphicon-picture"></span>
-        </a>
-    </td>
-  <a href="javascript:history.back()">
-        <img class='btn' src="/svg/arrow-return-left.svg"/></a>
-  </ul>
+   <h2 class="carname">${dto.carname}</h2>
+
+   <h3 class="carinfo">
+    ${dto.carnumber}<br>
+    ${dto.carseate} | ${dto.carpoint} | ${dto.category}<br>
+    ${dto.caryearmodel}<br>
+    ${dto.carprice}<br>
+   </h3>
+   <!-- 수정 / 사진수정 버튼은 유저한테 안보이게 해야함 -->
+   <P class="button">
+    <button>
+   <a href="/carinfo/update/${dto.carnumber }">수정</a></button>
+   <button>
+    <a href="/carinfo/updateFile/${dto.carnumber }/${dto.carimage}">사진 수정</a></button>
+  </P>
+    
+      <a class="res" href="javscropt:history.back()">RESERVATION<a></a>
+    <button>
+    <a href="javascript:history.back()">
+      뒤로</a></button>
   </div>
   </div>
-</div>
+  </div>  
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.rentcar.support.mapper;
 
 
 import com.rentcar.support.model.Request;
+import com.rentcar.support.model.Support_log;
 import com.rentcar.support.model.Supporter;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,7 @@ support_log 테이블로 저장
 @Repository
 public interface RequestMapper {
 
-    Supporter read(String carnum);
+    Request read(String carnum);
 
     // 도움 요청
     Boolean create(Request request);
@@ -29,4 +30,5 @@ public interface RequestMapper {
     Boolean readmock(String carnum);
 
     Boolean cancle(String carnum);
+
 }

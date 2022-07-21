@@ -10,10 +10,10 @@
         from supporter
             <where>
                 <choose>
-                    <when test="col=='carnum'">
+                    <when test="col=='차량번호'">
                         carnum like CONCAT('%',#{word},'%')
                     </when>
-                    <when test="col=='state'">
+                    <when test="col=='상태'">
                         state like CONCAT('%',#{word},'%')
                     </when>
                 </choose>
@@ -43,7 +43,7 @@
     </select>
 
 
-<!--    차량만 들록해 줄 것-->
+<!--    서포트 차량 들록해 줄 것-->
     <insert id="create" parameterType="com.rentcar.support.model.Supporter">
         insert into supporter
         (carnum, registed, production, brand, model, dccombo, dcdemo, ac, fullcharge, state)
@@ -62,4 +62,26 @@
         delete from supporter where carnum = #{supporter};
     </delete>
 
+<!--     로그 기록 가져오기 -->
+    <select id="log" parameterType="Map" resultType="com.rentcar.support.model.Support_log">
+        select *
+        from support_log
+        <where>
+            <choose>
+                <when test="col=='차량번호'">
+                    carnum like CONCAT('%',#{word},'%')
+                </when>
+                <when test="col=='상태'">
+                    state like CONCAT('%',#{word},'%')
+                </when>
+            </choose>
+        </where>
+        order by carnum;
+    </select>
+
+    <!--    서포트 기록 등록-->
+    <insert id="complete" parameterType="com.rentcar.support.model.Support_log">
+        insert into support_log(name, rx, ry, reason, request_time, accepted_time, complete_time, carnum)
+        values(#{name}, #{rx}, #{ry}, #{reason}, #{request_time}, #{accepted_time}, sysdate(), #{carnum} );
+    </insert>
 </mapper>

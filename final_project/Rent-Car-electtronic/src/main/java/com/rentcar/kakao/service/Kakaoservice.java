@@ -16,7 +16,7 @@ import java.net.URL;
 @Service
 public class Kakaoservice {
 
-//    @Value("${kakao.ak}")
+    @Value("${kakao.ak}")
     private String ak;
 
     public JSONArray getMap(StringBuilder urlBuilder) throws IOException, ParseException {

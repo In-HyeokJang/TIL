@@ -1,5 +1,6 @@
 package com.rentcar.config;
 
+
 import javax.sql.DataSource;
 
 import org.mybatis.spring.annotation.MapperScan;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.PropertySource;
 
 
 @Configuration
+
 @PropertySource("classpath:/application.properties")
 @MapperScan(basePackages = {"com.rentcar.*"})
 public class DatabaseConfiguration {
@@ -25,7 +27,10 @@ public class DatabaseConfiguration {
     private ApplicationContext applicationContext;
 
     @Bean
+
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
+
+
     public HikariConfig hikariConfig() {
         return new HikariConfig();
     }

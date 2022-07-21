@@ -27,8 +27,6 @@ public class ListController {
     @Autowired
     private ReviewServiceImpl rservice;
 
-
-
     @GetMapping("/list/delete")
     public String delete(int listno, Model model) {
         model.addAttribute("listno", listno);
@@ -64,16 +62,26 @@ public class ListController {
         map.put("listno", dto.getListno());
         service.update(dto);
         return "redirect:/contents/list";
+
+    }
+
+
+    @PostMapping("/list/read")
+    public String read(int listno) {
+        service.recommend(listno);
+
+        return "/list/read";
     }
 
     @GetMapping("/list/read")
     public String read(int listno, Model model, HttpServletRequest request) {
+        String col = Utility.checkNull(request.getParameter("col"));
+        String word = Utility.checkNull(request.getParameter("word"));
 
 
         service.upCnt(listno);
 
         ListDTO dto = service.read(listno);
-
 
         String content = dto.getContent().replaceAll("\r\n", "<br>");
 
@@ -85,24 +93,31 @@ public class ListController {
         if (request.getParameter("nPage") != null) {
             nPage = Integer.parseInt(request.getParameter("nPage"));
         }
-        int recordPerPage = 3;
+        int recordPerPage = 100;
+
 
         //oracle
         //int sno = ((nPage - 1) * recordPerPage) + 1;
         //int eno = nPage * recordPerPage;
-
+        int nowPage = 1;// 현재 보고있는 페이지
         //mysql
         int sno = (nPage - 1) * recordPerPage;
         int eno = recordPerPage;
 
+
         Map map = new HashMap();
         map.put("sno", sno);
         map.put("eno", eno);
-        map.put("nPage", nPage);
+        map.put("listno", listno);
 
         model.addAllAttributes(map);
+        System.out.println("map=" + map);
+        List<ReviewDTO> list = rservice.list(map);
 
-        ReviewDTO rlist = (ReviewDTO) rservice.list(map);
+        System.out.println("list=" + list);
+
+
+        request.setAttribute("list", list);
 
 
         return "/list/read";

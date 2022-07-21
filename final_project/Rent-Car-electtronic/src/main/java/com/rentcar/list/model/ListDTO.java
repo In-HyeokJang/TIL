@@ -11,6 +11,7 @@ public class ListDTO {
         private String content      ;
         private String wname        ;
         private int    cnt          ;
+        private int recommend       ;
         private String rdate        ;
 
 }

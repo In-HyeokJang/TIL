@@ -64,4 +64,7 @@ public class ListServiceImpl implements ListService {
     return mapper.delete(listno);
   }
 
+  public void recommend(int listno) {
+    mapper.recommend(listno);
+  }
 }

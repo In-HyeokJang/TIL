@@ -6,6 +6,13 @@
 
 <mapper namespace="com.rentcar.list.mapper.ListMapper">
 
+
+    <update id="recommend" parameterType="int">
+        update list
+        set recommend = #{recommend}+1
+        where listno = #{listno}
+    </update>
+
     <delete id="delete" parameterType="int">
         DELETE FROM list
         WHERE listno=#{listno}
@@ -35,12 +42,12 @@
     </select>
 
     <insert id="create" parameterType="com.rentcar.list.model.ListDTO">
-        INSERT INTO list(title,content, wname, cnt, rdate)
-        VALUES(#{title}, #{content},#{wname},  0, NOW())
+        INSERT INTO list(title,content, wname, cnt, 0,rdate)
+        VALUES(#{title}, #{content},#{wname},  0, 0,NOW())
     </insert>
     <select id="list" parameterType="Map"
             resultType="com.rentcar.list.model.ListDTO">
-        SELECT listno, title, wname, cnt, rdate
+        SELECT listno, title, wname, cnt, recommend,rdate
         FROM list
         <where>
             <choose>

@@ -15,4 +15,5 @@ public class Mapcontroller {
     public String map(){
         return "/map";
     }
+
 }

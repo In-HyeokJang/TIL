@@ -15,4 +15,6 @@ public interface ListMapper {
     int passwd(Map map);
     int update(ListDTO dto);
     int delete(int listno);
+
+    void recommend(int listno);
 }

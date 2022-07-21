@@ -1,13 +1,16 @@
 package com.rentcar.carinfo.controller;
 
 
+
 import com.rentcar.carinfo.service.CaroptionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import com.rentcar.carinfo.model.CarinfoDTO;
 import com.rentcar.carinfo.model.CaroptionDTO;
 import com.rentcar.carinfo.service.CarinfoService;
+import com.rentcar.carinfo.service.CaroptionService;
 import com.rentcar.utility.UploadCon;
 import com.rentcar.utility.Utility;
 import org.slf4j.Logger;
@@ -34,6 +37,7 @@ public class CarinfoCarcontroller {
     @Qualifier("com.rentcar.carinfo.service.CarinfoServiceImpl")
     private CarinfoService service;
 
+    @Autowired
     @Qualifier("com.rentcar.carinfo.service.CaroptionServiceImpl")
     private CaroptionService cservice;
 
@@ -76,9 +80,11 @@ public class CarinfoCarcontroller {
 
     @PostMapping("/update")
     public String update(CarinfoDTO dto){
+        //log.info("dto:"+dto);
         int cnt = service.update(dto);
+        log.info("cnt:"+cnt);
         if(cnt == 1){
-            return "redirect:./list";
+            return "redirect:/carinfo/list";
         }else{
             return "error";
         }
@@ -97,12 +103,23 @@ public class CarinfoCarcontroller {
         return "/carinfo/read";
     }
 
-   @PostMapping("/create")
-   @ResponseBody
-   public Boolean create(@RequestBody Map map){
-       Boolean answer = service.create(map);
-        return answer;
-   }
+    @PostMapping("/create")
+    public String crate(CarinfoDTO dto, HttpServletRequest request)throws IOException{
+        String upDir = UploadCon.getUploadDir();
+        String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
+        int size = (int)dto.getFilenameMF().getSize();
+        if(size > 0){
+            dto.setCarimage(fname);
+        }else{
+            dto.setCarimage("default.jpg");
+        }
+
+        if(service.create(dto) > 0){
+            return "redirect:./list";
+        }else{
+            return "error";
+        }
+    }
     @GetMapping("/create")
     public String create(){
         return
@@ -122,7 +139,7 @@ public class CarinfoCarcontroller {
         if(request.getParameter("nowPage") !=null){
             nowPage = Integer.parseInt(request.getParameter("nowPage"));
         }
-        int recordPerPage = 5;
+        int recordPerPage = 3;
         int sno = (nowPage - 1) * recordPerPage;
         int eno = recordPerPage;
 

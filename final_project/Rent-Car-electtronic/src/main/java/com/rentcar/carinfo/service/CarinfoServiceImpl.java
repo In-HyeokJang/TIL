@@ -16,8 +16,8 @@ public class CarinfoServiceImpl implements CarinfoService {
 
 
     @Override
-    public Boolean create(Map map) {
-        return mapper.create(map);
+    public int create(CarinfoDTO dto) {
+        return mapper.create(dto);
     }
 
     @Override

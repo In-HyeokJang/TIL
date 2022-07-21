@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rentcar.utility.Ncloud.mapper.Ncloudmapper">
+
+
+<!--    서포트 차량 들록해 줄 것-->
+    <insert id="save" parameterType="com.rentcar.utility.Ncloud.AwsS3">
+        insert into new_table(`key`, `path`)
+        values(#{key}, #{path});
+    </insert>
+
+    <select id="read" parameterType="com.rentcar.utility.Ncloud.AwsS3" resultType="com.rentcar.utility.Ncloud.AwsS3">
+        select *
+        from new_table
+        where no = #{idx}
+    </select>
+
+<!--    출동시 요청자의 위치 정보를 저장한다.-->
+<!--    <update id="update" parameterType="com.rentcar.support.model.Supporter">-->
+<!--        UPDATE supporter-->
+<!--        SET state = #{state}-->
+<!--        WHERE carnum = #{carnum};-->
+<!--    </update>-->
+
+<!--    <delete id="delete" parameterType="String">-->
+<!--        delete from supporter where carnum = #{supporter};-->
+<!--    </delete>-->
+
+</mapper>

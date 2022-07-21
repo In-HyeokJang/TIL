@@ -1,3 +1,5 @@
+
+
 $(function(){
 	$("#addreviewBtn").click(function(){
 
@@ -36,4 +38,47 @@ $(function(){
 	    }
 	});
 		});
-		});
+
+
+		$("#delete").click(function(){
+
+
+
+
+
+
+          	var data = {
+        		"rnum" : rnum
+        	}
+        	console.log(data);
+
+         	$.ajax({
+
+        	    type : "delete",
+        	    url : "/review/${rnum}", //+ "?id=" + id + "&pw=" + pw,
+        	     data : JSON.stringify(data),
+        	    //data: data,
+        	    // dataType:"json",
+        	    contentType: "application/json",
+        	    success:function(data){
+        		   console.log('성공입니다.');
+        		   console.log(data);
+
+        				console.log(data);
+        				alert(data+"성공");
+
+        	    },
+        	    error:function(){
+        	        alert("에러입니다");
+        	    }
+        	});
+        		});
+
+
+
+
+
+
+
+
+});

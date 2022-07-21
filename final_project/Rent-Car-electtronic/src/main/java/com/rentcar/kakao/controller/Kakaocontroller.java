@@ -1,12 +1,11 @@
 package com.rentcar.kakao.controller;
 
 
+import com.rentcar.kakao.Model.Store;
 import com.rentcar.kakao.service.Kakaoservice;
+import com.rentcar.kakao.service.StoreServiceImpl;
 import net.minidev.json.JSONArray;
 import net.minidev.json.parser.ParseException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,19 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.List;
 
 @RestController
 public class Kakaocontroller {
 
-//    @Value("${kakao.url}")
+    @Value("${kakao.url}")
     private String url;
 
     @Autowired
     private Kakaoservice kakaoservice;
 
+    @Autowired
+    private StoreServiceImpl storeService;
+
     @GetMapping("/kakao_url/{lat}/{lng}")
     public JSONArray kakao_charge(@PathVariable("lat") String lat, @PathVariable("lng") String lng) throws IOException, ParseException {
-
         /*
         lat( x 좌표 ) lng( y 좌표 ) 가 카카오에서는 두 값을 바꾸어 입력해야 정상값이 도출된다.
          */
@@ -42,5 +44,14 @@ public class Kakaocontroller {
 
 
         return kakaoservice.getMap(urlBuilder);
+    }
+
+
+    // todo: 사용자의 위치 주소 습득
+    @GetMapping("/facilities/{lat}/{lng}")
+    public List<Store> facilities(@PathVariable("lat") String lat,
+                                  @PathVariable("lng") String lng) throws IOException, ParseException {
+
+        return storeService.stores(lat,lng);
     }
 }

@@ -1,6 +1,5 @@
 package com.rentcar.support.model;
 
-import com.rentcar.login.model.LoginDTO;
 import lombok.Data;
 
 
@@ -11,6 +10,7 @@ import lombok.Data;
 @Data
 public class Request {
 
+    private String name;
     /*
      견인 및 이동식 충전 서비스 지원
      */
@@ -24,5 +24,9 @@ public class Request {
     private String ry;
     private String state;
 
+    private String request_time;
+    private String accepted_time;
+
     private String supporter_carnum;
+
 }

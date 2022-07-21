@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface CarinfoService {
 
-    Boolean create(Map map);
+    int create(CarinfoDTO dto);
 
     int total(Map map);
 

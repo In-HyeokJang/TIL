@@ -1,6 +1,7 @@
 package com.rentcar.support.mapper;
 
 
+import com.rentcar.support.model.Support_log;
 import com.rentcar.support.model.Supporter;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +26,6 @@ public interface SupporterMapper {
     int total(Map map);
 
     Boolean delete(String carnum);
+
+    Boolean complete(Support_log log);
 }

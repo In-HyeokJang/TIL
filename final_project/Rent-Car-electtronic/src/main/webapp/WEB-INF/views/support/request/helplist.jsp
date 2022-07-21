@@ -17,7 +17,7 @@
 
 
                     <div class="container">
-                        <form class="form-inline" action="/support/list">
+                        <form class="form-inline" action="/request/list">
                             <div class="form-group">
 
                                 <select class="my-select-menu" name="col">
@@ -100,11 +100,13 @@
 
                         function delete_help(carnum) {
                             alert("요청을 취소 하시겠습니까?")
+                            var url = `/request/help/delete/` + carnum;
 
-                            let response = fetch(`/help/delete` + encodeURI(encodeURIComponent(carnum)));
-                            if (response == true) {
-                                alert("삭제하였습니다.")
-                            }
+                            let response = fetch(url)
+                            .then((res) => {if(res.status==200){
+                                alert("삭제하였습니다.");
+                                location.reload();
+                            }});
                         }
                     </script>
 

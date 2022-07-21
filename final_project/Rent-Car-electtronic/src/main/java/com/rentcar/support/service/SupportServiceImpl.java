@@ -1,7 +1,11 @@
 package com.rentcar.support.service;
 
 
+import com.rentcar.support.mapper.RequestMapper;
 import com.rentcar.support.mapper.SupporterMapper;
+import com.rentcar.support.model.Request;
+import com.rentcar.support.model.State;
+import com.rentcar.support.model.Support_log;
 import com.rentcar.support.model.Supporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +21,8 @@ public class SupportServiceImpl implements SurpportService {
     @Autowired
     private SupporterMapper mapper;
 
+    @Autowired
+    private RequestMapper requestMapper;
 
     @Override
     public Supporter read(String carnum) {
@@ -54,6 +60,7 @@ public class SupportServiceImpl implements SurpportService {
     }
 
 
+
     public Supporter MaptoModel(Map map){
 
         List<String> answer= (List<String>) map.get("answer");
@@ -80,8 +87,25 @@ public class SupportServiceImpl implements SurpportService {
         return supporter;
     }
 
+    @Override
+    public Boolean complete(String carnum) {
+
+        Request request = requestMapper.read(carnum);
+        Support_log log = Support_log.builder()
+                .name(request.getName())
+                .reason(request.getReason())
+                .rx(request.getRx())
+                .ry(request.getRy())
+                .request_time(request.getRequest_time())
+                .accepted_time(request.getAccepted_time())
+                .carnum(carnum)
+                .build();
+
+        System.out.println(log);
+
+
+        return mapper.complete(log);
+    }
+
 }
 
-//class answer{
-//    private String
-//}

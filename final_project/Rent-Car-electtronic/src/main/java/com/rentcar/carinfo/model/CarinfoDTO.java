@@ -10,10 +10,11 @@ public class CarinfoDTO {
     private String carname ; 	// 차이름
     private String carimage ; 	// 차사진
     private MultipartFile filenameMF;
+    private String carprice; // 가격
     private String carseate; //좌석수
     private String carpoint ;  	// 차 위치 (지점)
     private String category ; // 차 종류
-    private String rdate ;  // 등록일
+    private String caryearmodel ;  // 차연식
 }
 
 

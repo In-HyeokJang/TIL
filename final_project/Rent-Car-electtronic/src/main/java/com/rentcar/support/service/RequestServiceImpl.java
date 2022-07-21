@@ -4,6 +4,7 @@ package com.rentcar.support.service;
 import com.rentcar.support.mapper.RequestMapper;
 import com.rentcar.support.mapper.SupporterMapper;
 import com.rentcar.support.model.Request;
+import com.rentcar.support.model.Support_log;
 import com.rentcar.support.model.Supporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class RequestServiceImpl implements RequestService {
     done => 처리 완료
      */
     @Override
-    public Supporter read(String carnum) {
+    public Request read(String carnum) {
         return requestMapper.read(carnum);
     }
 
@@ -77,6 +78,7 @@ public class RequestServiceImpl implements RequestService {
     public Boolean cancle(String carnum) {
         return requestMapper.cancle(carnum);
     }
+
 
 
 }

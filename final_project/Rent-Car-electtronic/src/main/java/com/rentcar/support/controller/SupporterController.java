@@ -37,6 +37,7 @@ public class SupporterController {
     @PostMapping("/create_supporter")
     @ResponseBody
     public Boolean create_supporter(@RequestBody Map map){
+
         Boolean answer = supportService.create(map);
         return answer;
     }
@@ -53,7 +54,8 @@ public class SupporterController {
     @ResponseBody
     public Boolean delete(@PathVariable("carnum") String carnum) throws UnsupportedEncodingException {
         String supporter = URLDecoder.decode(carnum,"utf-8");
-        return supportService.delete(supporter);
+        Boolean flag = supportService.delete(supporter);
+        return flag;
     }
 
 
@@ -68,6 +70,9 @@ public class SupporterController {
         String col = Utility.checkNull(request.getParameter("col"));
         String word = Utility.checkNull(request.getParameter("word"));
 
+        System.out.println(col);
+        System.out.println(word);
+
         if (col.equals("total")) {
             word = "";
         }
@@ -76,7 +81,7 @@ public class SupporterController {
         if (request.getParameter("nowPage") != null) {
             nowPage = Integer.parseInt(request.getParameter("nowPage"));
         }
-        int recordPerPage = 3;
+        int recordPerPage = 5;
 
         // DB에서 가져올 순번-----------------
         int sno = ((nowPage - 1) * recordPerPage) ;
@@ -88,6 +93,7 @@ public class SupporterController {
         map.put("cnt", recordPerPage); // 페이지당 표시할 글 수
 
         int total = supportService.total(map);
+        System.out.println(total);
         List<Supporter> list = supportService.list(map);
 
         String paging = Utility.paging(total, nowPage, recordPerPage, col, word);

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.rentcar.support.mapper.RequestMapper">
 
 <!--    요청자 정보 저장 -->
     <insert id="create" parameterType="com.rentcar.support.model.Request">
-        insert into help(carnum, rx, ry, reason)
-        values(#{carnum}, #{rx}, #{ry}, #{reason});
+        insert into help(name, carnum, rx, ry, reason, request_time)
+        values(#{name}, #{carnum}, #{rx}, #{ry}, #{reason}, sysdate());
     </insert>
 
 <!--    출동시 요청자의 위치 정보를 저장한다.-->
@@ -21,17 +22,12 @@
 <!--    요청 접수 및 지원 차량 등록-->
     <update id="accept_request" parameterType="Map">
         UPDATE help
-        SET supporter_carnum = #{supporter}, state=#{state}
+        SET supporter_carnum = #{supporter},
+        state=#{state},
+        accepted_time = sysdate()
         WHERE carnum = #{carnum};
     </update>
 
-    <update id="update_state" parameterType="Map">
-        UPDATE help
-        SET state = #{state}, supporter_carnum =#{supporter}
-        WHERE carnum = #{carnum};
-    </update>
-
-<!--    예약 테이블 받아오면 수정할 것 -->
     <select id="readmock" parameterType="String" resultType="boolean">
         select IF(COUNT(*) = 1, true, false)
         from booking where reserved_car = #{carnum};
@@ -42,10 +38,10 @@
         from help
         <where>
             <choose>
-                <when test="col=='carnum'">
+                <when test="col=='차량번호'">
                     carnum like CONCAT('%',#{word},'%')
                 </when>
-                <when test="col=='state'">
+                <when test="col=='상태'">
                     state like CONCAT('%',#{word},'%')
                 </when>
             </choose>
@@ -57,5 +53,11 @@
         delete from help where carnum = #{carnum};
     </delete>
 
+
+    <select id="read" parameterType="String" resultType="com.rentcar.support.model.Request">
+        select *
+        from help
+        where carnum = #{carnum}
+    </select>
 
 </mapper>

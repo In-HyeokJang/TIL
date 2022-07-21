@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface CarinfoMapper {
 
-    boolean create(Map map);
+    int create(CarinfoDTO dto);
 
     int total(Map map);
     List<CarinfoDTO> list(Map map);

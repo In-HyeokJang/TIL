@@ -1,5 +1,6 @@
 package com.rentcar.support.service;
 
+import com.rentcar.support.model.Support_log;
 import com.rentcar.support.model.Supporter;
 
 import java.util.List;
@@ -23,4 +24,6 @@ public interface SurpportService {
     int total(Map map);
 
     Boolean delete(String carnum);
+
+    Boolean complete(String carnum);
 }

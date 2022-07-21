@@ -14,10 +14,12 @@
                         function deletefun(carnum) {
                             alert(carnum + " 차량을 삭제 하시겠습니까?")
 
-                            let response = fetch(`./delete/` + encodeURI(encodeURIComponent(carnum)));
-                            if (response == true) {
-                                alert("삭제하였습니다.")
-                            }
+                            let response = fetch(`./delete/` + encodeURI(encodeURIComponent(carnum)))
+                            .then((res) => {if(res.status==200){
+                                alert("삭제하였습니다.");
+                                location.reload();
+                            }});
+                            
                         }
 
                         function createwindow() {
@@ -118,6 +120,7 @@
                         ${paging}
                     </div>
                     </div>
+
                 </body>
 
                 </html>

@@ -117,7 +117,7 @@
                     reason: reason
                 };
 
-                alert(data);
+                console.log(data);
 
                 var url = "/request/help";
                 const response = await fetch(url, {
@@ -127,13 +127,13 @@
                     },
                     body: JSON.stringify(data)
                 })
-                    .then((res) => { if (res==true) { 
+                    .then((res) => { 
+                        if (res.status==200) { 
                         window.location("/");
-                    }else{
-                        alert(res);
-                    } })
-                    .catch(err => alert(err));
-
+                    }}
+                    ).catch(() => {
+                        alert("잠시 후 다시 이용해 주세요")
+                    });
             }
 
 

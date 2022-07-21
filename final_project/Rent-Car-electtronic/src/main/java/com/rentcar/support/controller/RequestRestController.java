@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,8 +37,6 @@ public class RequestRestController {
     // 요청자의 위치 정보를 습득하여 help_request 테이블에 저장한다.
     @PostMapping("/help")
     public Boolean create(@RequestBody Request request) {
-
-        System.out.println(request);
         // 예약 되어진 차량 check
         if (requestService.readmock(request.getCarnum()) == false) {
             return false;
@@ -62,12 +62,16 @@ public class RequestRestController {
         return flag;
     }
 
-    @PostMapping("/help/delete/{carnum}")
+    // 요청 취소
+    @GetMapping("/help/delete/{carnum}")
     public Boolean delete(@PathVariable("carnum") String carnum) {
-        System.out.println(carnum);
-        requestService.cancle(carnum);
-        return true;
+        return requestService.cancle(carnum);
     }
 
+    @GetMapping("/help/complete/{carnum}")
+    public Boolean complete(@PathVariable("carnum") String carnum) throws UnsupportedEncodingException {
+        String decodecarnum = URLDecoder.decode(carnum,"utf-8");
+        return surpportService.complete(decodecarnum);
+    }
 
 }

@@ -38,3 +38,11 @@
 
 - back caroption 해야함...
 - user list/read page / admin list/read/delete/update/fileupdate 구분 필요
+
+#### 220721
+
+- bootstrap intellij 저장 완료
+- carinfo views 수정 완료 => caroption 등록 성공하면 다시 수정 필요
+- 관리자/유저 구분 나중에 꼭 해야함
+- carinfo / caroption 비동기 next 버튼 클리 가능 하게 했으나 디비 저장 하는거 모르겠엄..
+- carinfo update 그냥 할지 고민중

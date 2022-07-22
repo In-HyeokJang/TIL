@@ -46,3 +46,9 @@
 - 관리자/유저 구분 나중에 꼭 해야함
 - carinfo / caroption 비동기 next 버튼 클리 가능 하게 했으나 디비 저장 하는거 모르겠엄..
 - carinfo update 그냥 할지 고민중
+
+#### 220722
+
+- 주간 공부, 작성 코드 팀 리뷰 공유
+- github push , pull , merge 완료
+- caroption back 부분 다음주 안으로 완성 시키기

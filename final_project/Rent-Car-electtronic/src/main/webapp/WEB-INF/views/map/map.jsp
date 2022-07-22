@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/css/common.css">
         <link rel="stylesheet" type="text/css" href="/css/map/map.css">
-
     </head>
 
     <body>
@@ -37,8 +36,11 @@
         <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
 
+
+
     </body>
 
     <!-- SHow up Map layout and Poiner -->
     <script src="/js/map/map_layout.js"></script>
+
     </html>

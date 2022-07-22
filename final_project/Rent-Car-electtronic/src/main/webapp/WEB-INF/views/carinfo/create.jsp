@@ -14,6 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/css/support/create.css">
   <link rel="stylesheet" type="text/css" href="/css/support/style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -32,46 +34,41 @@
           <div class="fields" id="carinfo">
 
             <div class="input-field">
-              <label>Car Number</label>
-              <input type="text" placeholder="Enter Car Number" required>
-            </div>
-
-            <div class="input-field">
-              <label>Car Name</label>
-              <input type="text" placeholder="Enter Car Name" required>
+              <label for="carnumber">Car Number</label>
+              <input type="text" name="carnumber" id="carnumber" placeholder="Enter Car Number" required>
             </div>
             <div class="input-field">
-              <label>Car Rent Price</label>
-              <input type="text" placeholder="Enter Car Rent Price" required>
+              <label for="carname">Car Name</label>
+              <input type="text" name="carname" id="carname" placeholder="Enter Car Name" required>
             </div>
-
             <div class="input-field">
-              <label>Car Category</label>
-              <input type="text" placeholder="Enter Car Category" required>
+              <label for="carprice">Car Rent Price</label>
+              <input type="text" name="carprice" id="carprice" placeholder="Enter Car Rent Price" required>
             </div>
-
             <div class="input-field">
-              <label>Car Year Model</label>
-              <input type="text" placeholder="Enter Car Year Model" required>
+              <label for="category">Car Category</label>
+              <input type="text" name="category" id="category" placeholder="Enter Car Category" required>
             </div>
-
             <div class="input-field">
-              <label>Car Seate</label>
-              <input type="text" placeholder="Enter Car Seate" required>
+              <label for="caryearmodel">Car Year Model</label>
+              <input type="text" name="caryearmodel" id="caryearmodel" placeholder="Enter Car Year Model" required>
             </div>
-
             <div class="input-field">
-              <label>Car Point</label>
-              <input type="text" placeholder="Enter Car Point" required>
+              <label for="carseate">Car Seate</label>
+              <input type="text" name="carseate" id="carseate" placeholder="Enter Car Seate" required>
             </div>
-
             <div class="input-field">
-              <label>Car Image</label>
-              <input type="file" required>
+              <label for="carpoint">Car Point</label>
+              <input type="text" name="carpoint" id="carpoint" placeholder="Enter Car Point" required>
+            </div>
+            <div class="input-field">
+              <label for="filenameMF">Car Image</label>
+              <input type="file" name="filenameMF" id="filenameMF" required>
             </div>
 
           </div>
-          <button class="nextBtn">
+          <button class="nextBtn" id="btn2">
+          <button id="btn3">123</button>
             <span class="btnText">Next</span>
             <i class="uil uil-navigator"></i>
           </button>
@@ -84,6 +81,11 @@
           <span class="title">Car Option</span>
 
           <div class="fields" id="option">
+
+            <div class="input-field">
+              <label for="carnumber">Car Number</label>
+              <input type="text" name="carnumber" placeholder="Enter Car Number">
+            </div>
 
             <div class="input-field">
               <label>bluetooth</label>
@@ -144,7 +146,7 @@
               <span class="btnText">Back</span>
             </div>
 
-            <button class="sumbit" onclick="getInfo()">
+            <button class="sumbit" id="btn1" onclick="getInfo()">
               <span class="btnText">Submit</span>
               <i class="uil uil-navigator"></i>
             </button>
@@ -154,34 +156,21 @@
       <!--second end-->
     </form>
   </div>
+  <script src="/js/asd.js"></script>
 
+<!--
   <script>
-
-    // const check = document.getElementById("check").checked; 1 0
-    // if check == 1; -> 다음으로 넘어간다. add
-    // 아니면 안넘어간다.
-
     const form = document.querySelector("form"),
       nextBtn = form.querySelector(".nextBtn"),
       backBtn = form.querySelector(".backBtn"),
       allInput = form.querySelectorAll(".first input");
 
-
-    // nextBtn.addEventListener("click", () => {
-    //   allInput.forEach(input => {
-    //     if (input.value != "") {
-    //       form.classList.add('secActive');
-    //       // alert("값을 추가해주세요")
-    //       // break;
-    //     } else {
-    //       form.classList.remove('secActive');
-    //     }
-    //   })
-    // })
-
     nextBtn.addEventListener("click", () => form.classList.add('secActive'));
     backBtn.addEventListener("click", () => form.classList.remove('secActive'));
   </script>
+
+
+
   <script type="text/javascript">
 
     async function getInfo() {
@@ -189,15 +178,18 @@
       const selected = GetSelected();
       // data 를 체크 해서 null값이 있다면 
       // 페이지 새로고침?!
-      answer.forEach(data => {if(data.value== ""){
-        alert("다시")
-        location.reload();
-      }})
+      answer.forEach(data => {
+        if (data.value == "") {
+          console.log("data")
+          location.reload();
+        }
+      })
 
       data = {
         answer: answer,
         selected: selected
       };
+
       var url = "/carinfo/create";
       const response = await fetch(url, {
         method: 'POST',
@@ -206,23 +198,25 @@
         },
         body: JSON.stringify(data)
       }).then((res) => {
-                if (res.status == 200) {
-                    alert("등록했습니다.");
-                    window.close();
-                }
-            }).catch(() => {
-                alert("잠시후 다시 시도해 보세요.");
-                window.close();
-            });
-
-            location.reload();
+        if (res.status == 200) {
+          alert("등록했습니다.");
+          window.close();
         }
+      }).catch(() => {
+        alert("잠시후 다시 시도해 보세요.");
+        window.close();
+      });
+      location.reload();
+    }
 
     function GetWrited() {
       const answer = new Array();
       var carinfo = document.getElementById("carinfo");
       //Reference all the CheckBoxes in Table.
-      var res = carinfo.getElementsByTagName("INPUT");
+      console.log(carinfo);
+      alert(carinfo);
+
+      var res = carinfo.getElementsByTagName("input");
 
       // Loop and push the checked CheckBox value in Array.
       for (var i = 0; i < res.length; i++) {
@@ -241,18 +235,18 @@
 
       // Loop and push the checked CheckBox value in Array.
       for (var i = 0; i < chks.length; i++) {
-                if (chks[i].checked) {
-                    selected.push(chks[i].value);
-                } else {
-                    selected.push('0');
-                }
-            }
+        if (chks[i].checked) {
+          selected.push(chks[i].value);
+        } else {
+          selected.push('0');
+        }
+      }
 
       return selected;
     };
 
-      </script>
-
+  </script>
+-->
 </body>
 
 </html>

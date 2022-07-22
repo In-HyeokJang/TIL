@@ -104,17 +104,19 @@ public class CarinfoCarcontroller {
     }
 
     @PostMapping("/create")
-    public String crate(CarinfoDTO dto, HttpServletRequest request)throws IOException{
+    public String crate(CarinfoDTO dto,  HttpServletRequest request)throws IOException{
+        System.out.println(dto);
         String upDir = UploadCon.getUploadDir();
         String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
         int size = (int)dto.getFilenameMF().getSize();
+
         if(size > 0){
             dto.setCarimage(fname);
         }else{
             dto.setCarimage("default.jpg");
         }
 
-        if(service.create(dto) > 0){
+        if(service.create(dto) > 0 ){
             return "redirect:./list";
         }else{
             return "error";

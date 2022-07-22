@@ -11,6 +11,5 @@
         navigation,non_smoking_vehicle, smart_key, sunroof ,rear_warning_light ,Lane_Departure_Prevention, carnumber )
         values(#{bluetooth}, #{rear_sensor}, #{rear_camera}, #{black_box}, #{heated_seat}, #{heated_handle}, #{ventilated_seat},
         #{navigation}, #{non_smoking_vehicle}, #{smart_key}, #{sunroof} , #{rear_warning_light} , #{Lane_Departure_Prevention}, #{carnumbe}
-
     </insert>
 </mapper>

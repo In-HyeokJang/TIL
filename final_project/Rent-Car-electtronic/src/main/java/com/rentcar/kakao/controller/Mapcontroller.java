@@ -16,4 +16,9 @@ public class Mapcontroller {
         return "/map";
     }
 
+
+    @GetMapping("/facilities/create")
+    public String facilities(){
+        return "/facilities";
+    }
 }

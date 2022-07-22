@@ -2,15 +2,14 @@ package com.rentcar.kakao.controller;
 
 
 import com.rentcar.kakao.Model.Store;
+import com.rentcar.kakao.Model.StoreDTO;
 import com.rentcar.kakao.service.Kakaoservice;
 import com.rentcar.kakao.service.StoreServiceImpl;
 import net.minidev.json.JSONArray;
 import net.minidev.json.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -47,11 +46,17 @@ public class Kakaocontroller {
     }
 
 
-    // todo: 사용자의 위치 주소 습득
+    // todo: 사용자의 위치 중심으로 주변 편의시설 검색
     @GetMapping("/facilities/{lat}/{lng}")
     public List<Store> facilities(@PathVariable("lat") String lat,
-                                  @PathVariable("lng") String lng) throws IOException, ParseException {
+                                  @PathVariable("lng") String lng){
 
         return storeService.stores(lat,lng);
+    }
+
+    @PostMapping("/facilities/create")
+    public Boolean create_facilities(@RequestBody Store store){
+
+        return storeService.create(store);
     }
 }

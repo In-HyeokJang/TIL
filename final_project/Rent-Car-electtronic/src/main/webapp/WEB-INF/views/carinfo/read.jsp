@@ -72,6 +72,9 @@
     ${dto.carseate} | ${dto.carpoint} | ${dto.category}<br>
     ${dto.caryearmodel}<br>
     ${dto.carprice}<br>
+    <!-- <c:forEach var="cdto" items="${dto.read}">
+      ${cdto.bluetooth}
+    </c:forEach> -->
    </h3>
    <!-- 수정 / 사진수정 버튼은 유저한테 안보이게 해야함 -->
    <P class="button">
@@ -81,7 +84,7 @@
     <a href="/carinfo/updateFile/${dto.carnumber }/${dto.carimage}">사진 수정</a></button>
   </P>
     
-      <a class="res" href="javscropt:history.back()">RESERVATION<a></a>
+      <a class="res" href="javscropt:history.back()">RESERVATION</a>
     <button>
     <a href="javascript:history.back()">
       뒤로</a></button>

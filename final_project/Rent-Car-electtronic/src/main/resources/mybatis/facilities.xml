@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rentcar.kakao.mapper.StoreMapper">
+
+    <select id="stores" parameterType="String" resultType="com.rentcar.kakao.Model.StoreDTO">
+        select x,y from facilities;
+    </select>
+
+    <insert id="create" parameterType="com.rentcar.kakao.Model.Store">
+
+        insert into facilities(name, address, address_road, phonenum, type, x, y)
+        values(#{name}, #{address}, #{address_road},#{phonenum}, #{type}, #{x}, #{y});
+    </insert>
+
+
+</mapper>

@@ -7,4 +7,6 @@ import java.util.List;
 public interface StoreMapper {
 
     List<Store> stores(String lat,String lng);
+
+    Boolean create(Store store);
 }

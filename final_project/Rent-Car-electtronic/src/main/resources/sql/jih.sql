@@ -4,16 +4,10 @@ CREATE TABLE carinfo (
     carimage VARCHAR(100) NULL,
     carseate VARCHAR(4) NOT NULL,
     carpoint VARCHAR(8) NOT NULL,
-    caryearmodel	varchar(5) NOT NULL,               -- 차 연식으로 바꾸기car_year_model // value는 2019년 이런식으로
+    caryearmodel	varchar(5) NOT NULL,               -- rdate 빼고 차 연식으로 바꾸기car_year_model // value는 2019년 이런식으로
     category VARCHAR(40) NOT NULL
 );
 
-
-drop table caroption;
-
-
-drop table caroption;
-use rent_car;
 CREATE TABLE IF NOT EXISTS `rent_car`.`caroption` (
 bluetooth varchar(4), -- 블루투스
 rear_sensor varchar(4), -- 후방센서

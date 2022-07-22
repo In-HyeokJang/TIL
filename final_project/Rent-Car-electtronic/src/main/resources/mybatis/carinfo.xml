@@ -53,10 +53,41 @@
         </where>
     </select>
 
-    <select id="read" parameterType="String" resultType="com.rentcar.carinfo.model.CarinfoDTO">
-        select carnumber, carname, category, carprice, carseate, carimage, carpoint, caryearmodel
-        from carinfo
-        where carnumber = #{carnumber}
+<!--    <resultMap id="caroptionread" type="com.rentcar.carinfo.model.CarinfoDTO">-->
+<!--        <result property="carnumber" column="carnumber" />-->
+<!--        <result property="carimage" column="carimage" />-->
+<!--        <result property="carname" column="carname" />-->
+<!--        <result property="carseate" column="carseate" />-->
+<!--        <result property="carpoint" column="carpoint" />-->
+<!--        <result property="category" column="category" />-->
+<!--        <result property="caryearmodel" column="caryearmodel" />-->
+<!--        <result property="carprice" column="carprice" />-->
+<!--        <collection property="read" column="carnumber" javaType="read"-->
+<!--                    ofType="com.rentcar.carinfo.model.CaroptionDTO">-->
+<!--            <result property="bluetooth" column="bluetooth" />-->
+<!--            <result property="rear_sensor" column="rear_sensor" />-->
+<!--            <result property="rear_camera" column="rear_camera" />-->
+<!--            <result property="black_box" column="black_box" />-->
+<!--            <result property="heated_seat" column="heated_seat" />-->
+<!--            <result property="heated_handle" column="heated_handle" />-->
+<!--            <result property="ventilated_seat" column="ventilated_seat" />-->
+<!--            <result property="navigation" column="navigation" />-->
+<!--            <result property="non_smoking_vehicle" column="non_smoking_vehicle" />-->
+<!--            <result property="smart_key" column="smart_key" />-->
+<!--            <result property="sunroof" column="sunroof" />-->
+<!--            <result property="rear_warning_light" column="rear_warning_light" />-->
+<!--            <result property="Lane_Departure_Prevention" column="Lane_Departure_Prevention" />-->
+<!--        </collection>-->
+<!--    </resultMap>-->
+
+<!--    resultMap="caroptionread"-->
+    <select id="read" parameterType="String" resultType="com.rentcar.carinfo.model.CarinfoDTO" >
+        select a.carnumber, a.carimage, a.carname, a.carseate, a.carpoint, a.category, a.caryearmodel, a.carprice,
+        b.bluetooth, b.rear_sensor, b.rear_camera, b.black_box, b.heated_seat, b.heated_handle, b.ventilated_seat,
+        b.navigation,b.non_smoking_vehicle, b.smart_key, b.sunroof ,b.rear_warning_light,b.Lane_Departure_Prevention
+        from carinfo a
+        join caroption b
+        on a.carnumber = b.carnumber;
     </select>
 
     <update id="update" parameterType="com.rentcar.carinfo.model.CarinfoDTO">

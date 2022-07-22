@@ -1,6 +1,7 @@
 package com.rentcar.kakao.service;
 
 import com.rentcar.kakao.Model.Store;
+import com.rentcar.kakao.Model.StoreDTO;
 import com.rentcar.kakao.mapper.StoreMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,10 @@ public class StoreServiceImpl implements StoreService{
     public List<Store> stores(String lat,String lng){
 
         return storeMapper.stores(lat,lng);
+    }
+
+    @Override
+    public Boolean create(Store store) {
+        return storeMapper.create(store);
     }
 }

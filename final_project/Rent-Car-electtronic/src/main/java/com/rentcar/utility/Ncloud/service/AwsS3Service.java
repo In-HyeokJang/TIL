@@ -22,9 +22,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AwsS3Service {
 
-    @Autowired
-    private Ncloudmapper mapper;
-
     private final AmazonS3 amazonS3;
 
     @Value("${cloud.naver.s3.bucket}")
@@ -49,8 +46,6 @@ public class AwsS3Service {
                 .path(path)
                 .build();
 
-        mapper.save(s3);
-
         return s3;
     }
 
@@ -67,8 +62,7 @@ public class AwsS3Service {
     }
 
     public String get(String idx) {
-        AwsS3 awsS3 = mapper.read(idx);
-        return amazonS3.getUrl(bucket, awsS3.getKey()).toString();
+        return amazonS3.getUrl(bucket, idx).toString();
     }
 
     private String getS3(String bucket, String fileName) {

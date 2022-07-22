@@ -16,11 +16,6 @@
         <put-attribute name="body" value="/WEB-INF/views/map/map.jsp" />
     </definition>
 
-    <definition name="/test" extends="main">
-        <put-attribute name="title" value="기본페이지"></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/test.jsp" />
-    </definition>
-
 
     <definition name="/request" extends="main">
         <put-attribute name="title" value="기본페이지"></put-attribute>

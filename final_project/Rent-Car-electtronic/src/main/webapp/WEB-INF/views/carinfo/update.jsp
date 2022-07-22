@@ -6,26 +6,35 @@
   <title>Car Update</title>
   <meta charset="utf-8">
 </head>
+
 <style>
   .container{
     display: flex;
           justify-content: center;
-
+  }
+  .img{
+    margin-right: 50%;
   }
   .update {
     font-weight: 700;
     font-size: 1.2rem;
-    margin: -350px 0 30px 550px;
+    margin: -350px 0 0px 550px;
     font-family: Roboto,sans-serif !important;
+
 }
 
 .h1{
-  margin-left: 300px;
+  margin-left: 35%;
     margin-bottom: 50px;
 }
 .button{
-  margin-left: 350px;
+  margin-left: 45%;
+  margin-top: 30px;
 }
+.cancel{
+  margin-left: 357px;
+}
+
 </style>
 <body>
 
@@ -91,15 +100,14 @@
         </div>
 </div>
 </div>
- 
- <div class="form-group">        
-  <div class="col-sm-offset-2 col-sm-5">
+ <div class="button">
+
+    <button><a href="javascript:history.back()">
+      <img class='btn'>뒤로</a></button>
     <button type="submit" class="btn btn-default">등록</button>
-    <button type="reset" class="btn btn-default">취소</button>
-    <a href="javascript:history.back()">
-    <img class='btn' src="/svg/arrow-return-left.svg"/>뒤로</a>
-  </div>
-</div>
+
+        <button type="reset" class="btn btn-default">취소</button></div>
+
 </form>
 </div>
 </body>

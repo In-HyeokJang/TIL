@@ -10,6 +10,7 @@ public class AwsS3 {
     private String key;
     private String path;
 
+
     public AwsS3() {
 
     }

@@ -52,3 +52,12 @@
 - 주간 공부, 작성 코드 팀 리뷰 공유
 - github push , pull , merge 완료
 - caroption back 부분 다음주 안으로 완성 시키기
+
+#### 220725
+
+- carinfo / caroption 비동기 x
+- 각각 동기로 등록하는 방법으로 수정
+- carinfo update / caroption update 각각 변경
+- read 에서 join으로 해서 carinfo 랑 caroption 나오게 해야 함
+- 내일 read랑 , caropiton update 완료 할 수 있으면 하기
+- 후 여유 있으면 비동기 공부하여 수저 조금씩 하고 views 페이지 css 느낌 추가 하기

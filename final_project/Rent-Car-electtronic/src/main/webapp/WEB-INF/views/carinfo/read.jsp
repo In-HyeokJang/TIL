@@ -72,22 +72,24 @@
     ${dto.carseate} | ${dto.carpoint} | ${dto.category}<br>
     ${dto.caryearmodel}<br>
     ${dto.carprice}<br>
-    <!-- <c:forEach var="cdto" items="${dto.read}">
-      ${cdto.bluetooth}
-    </c:forEach> -->
+   
    </h3>
+   <p>만약 carpotion의 값이 있으면 나오고 없으면 안나오는 if문 사용해서 
+    join 문 사용해서 받아오기
+  </p>
    <!-- 수정 / 사진수정 버튼은 유저한테 안보이게 해야함 -->
-   <P class="button">
+   <p class="button">
     <button>
-   <a href="/carinfo/update/${dto.carnumber }">수정</a></button>
+   <a href="/carinfo/update/${dto.carnumber}">정보 수정</a></button>
+   <button><a href="/carinfo/otpupdate/${dto.carnumber}">옵션 수정</a></button>
    <button>
     <a href="/carinfo/updateFile/${dto.carnumber }/${dto.carimage}">사진 수정</a></button>
-  </P>
+  
     
-      <a class="res" href="javscropt:history.back()">RESERVATION</a>
+      <!-- <a class="res" href="javscropt:history.back()">RESERVATION</a> -->
     <button>
     <a href="javascript:history.back()">
-      뒤로</a></button>
+      뒤로</a></button></p>
   </div>
   </div>
   </div>  

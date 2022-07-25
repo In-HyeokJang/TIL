@@ -21,5 +21,4 @@ public interface CarinfoService {
     int delete(String carnumber);
     int updateFile(Map map);
 
-    int create(CaroptionDTO cdto);
 }

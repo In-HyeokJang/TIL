@@ -37,10 +37,6 @@ public class CarinfoCarcontroller {
     @Qualifier("com.rentcar.carinfo.service.CarinfoServiceImpl")
     private CarinfoService service;
 
-    @Autowired
-    @Qualifier("com.rentcar.carinfo.service.CaroptionServiceImpl")
-    private CaroptionService cservice;
-
     @PostMapping("/updateFile")
     public String updateFile(MultipartFile filenameMF, String oldfile, String carnumber)throws IOException{
 
@@ -104,8 +100,9 @@ public class CarinfoCarcontroller {
     }
 
     @PostMapping("/create")
-    public String crate(CarinfoDTO dto,  HttpServletRequest request)throws IOException{
+    public String create(CarinfoDTO dto,  HttpServletRequest request)throws IOException{
         System.out.println(dto);
+        log.info("dto: "+ dto);
         String upDir = UploadCon.getUploadDir();
         String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
         int size = (int)dto.getFilenameMF().getSize();
@@ -117,10 +114,11 @@ public class CarinfoCarcontroller {
         }
 
         if(service.create(dto) > 0 ){
-            return "redirect:./list";
+            return "/carinfo/optcreate";
         }else{
-            return "error";
+            return "System.out.println(error)";
         }
+
     }
     @GetMapping("/create")
     public String create(){

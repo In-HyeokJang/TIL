@@ -104,8 +104,7 @@
 
     <button><a href="javascript:history.back()">
       <img class='btn'>뒤로</a></button>
-    <button type="submit" class="btn btn-default">등록</button>
-
+    <button class="btn btn-default">수정</button>
         <button type="reset" class="btn btn-default">취소</button></div>
 
 </form>

@@ -110,7 +110,7 @@
 
                     <!-- 나중에 수정/삭제는 유저한테 안보이게 처리 해야함 -->
                   </p><button>
-                  <a href="./update/${dto.carnumber}">Car Update
+                  <a href="./update/${dto.carnumber}">Car Info Update
                     <span class="glyphicon glyphicon-edit"></span>
                   </a></button>
 

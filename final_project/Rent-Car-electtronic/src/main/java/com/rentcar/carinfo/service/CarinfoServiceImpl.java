@@ -51,9 +51,5 @@ public class CarinfoServiceImpl implements CarinfoService {
         return mapper.updateFile(map);
     }
 
-    @Override
-    public int create(CaroptionDTO cdto) {
-        return mapper.create(cdto);
-    }
 }
 

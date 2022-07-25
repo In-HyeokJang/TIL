@@ -6,10 +6,31 @@
 <mapper namespace="com.rentcar.carinfo.mapper.CaroptionMapper">
 
     <insert id="create" parameterType="com.rentcar.carinfo.model.CaroptionDTO">
-        insert into caroption
-        insert into caroption(bluetooth, rear_sensor, rear_camera, black_box, heated_seat, heated_handle, ventilated_seat,
-        navigation,non_smoking_vehicle, smart_key, sunroof ,rear_warning_light ,Lane_Departure_Prevention, carnumber )
-        values(#{bluetooth}, #{rear_sensor}, #{rear_camera}, #{black_box}, #{heated_seat}, #{heated_handle}, #{ventilated_seat},
-        #{navigation}, #{non_smoking_vehicle}, #{smart_key}, #{sunroof} , #{rear_warning_light} , #{Lane_Departure_Prevention}, #{carnumbe}
+        insert into caroption(bluetooth, rear_sensor, rear_camera, black_box, heated_seat, heated_handle,
+        ventilated_seat,
+        navigation, non_smoking_vehicle, smart_key, sunroof ,rear_warning_light ,Lane_Departure_Prevention, carnumber)
+        values(#{bluetooth}, #{rear_sensor}, #{rear_camera}, #{black_box}, #{heated_seat}, #{heated_handle},
+        #{ventilated_seat},
+        #{navigation}, #{non_smoking_vehicle}, #{smart_key}, #{sunroof} , #{rear_warning_light} ,
+        #{Lane_Departure_Prevention}, #{carnumber})
     </insert>
+
+    <update id="update" parameterType="com.rentcar.carinfo.model.CaroptionDTO">
+        update caroption
+        set
+        bluetooth = #{bluetooth},
+        rear_sensor = #{rear_sensor},
+        rear_camera = #{rear_camera},
+        black_box = #{black_box},
+        heated_seat = #{heated_seat},
+        heated_handle = #{heated_handle},
+        ventilated_seat = #{ventilated_seat},
+        navigation = #{navigation},
+        non_smoking_vehicle = #{non_smoking_vehicle},
+        smart_key = #{smart_key},
+        sunroof = #{sunroof},
+        rear_warning_light = #{rear_warning_light},
+        Lane_Departure_Prevention = #{Lane_Departure_Prevention}
+        where carnumber = #{carnumber}
+    </update>
 </mapper>

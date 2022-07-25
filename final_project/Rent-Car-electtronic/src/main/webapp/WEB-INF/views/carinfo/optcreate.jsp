@@ -7,29 +7,37 @@
 <html lang="en">
 
 <head>
-  <title>Car Update</title>
+  <title>자동차등록</title>
   <meta charset="utf-8">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/css/support/create.css">
   <link rel="stylesheet" type="text/css" href="/css/support/style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
-
 <body>
   <div class="container">
-  <header>Registration</header>
+    <header>Registration</header>
     <form class="form-horizontal"
-    action="/carinfo/optupdate"
-    method="post">    
+    action="/carinfo/optcreate"
+    method="post">
 
-    <div class="form first">
-      <div class="carpotion">   
-        <span class="title">Car Option</span>
+      <div class="form first">
+
+        <div class="carpotion">
+          <span class="title">Car Option</span>
+
           <div class="fields" id="option">
+
+            <div class="input-field">
+              <label for="carnumber">Car Number</label>
+              <input type="text" name="carnumber" placeholder="Enter Car Number" required>
+            </div>
 
             <div class="input-field">
               <label>bluetooth</label>
@@ -84,9 +92,8 @@
               <input type="checkbox" name="Lane_Departure_Prevention" class="cm-toggle" value="차선방지이탈" >
             </div>
           </div>
-
           <div class="buttons">
-           <button type="submit" id="closebtn" class="btn btn-default">Option 수정</button>
+              <button class="btn" type="submit" id="closebtn">등록</button>
           </div>
         </div>
       </div>
@@ -95,7 +102,11 @@
 </body>
 <script>
   $("#closebtn").click(function(){
-    alert("수정되었습니다.");
-  })
-</script>
+    setTimeout(function() { 
+      alert("등록되었습니다");
+      window.close(); 
+    }, 0);
+  });
+  </script>
+
 </html>

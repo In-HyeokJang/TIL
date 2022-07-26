@@ -17,6 +17,7 @@ public class CarinfoDTO {
     private String carpoint ;  	// 차 위치 (지점)
     private String category ; // 차 종류
     private String caryearmodel ;  // 차연식
+    private CaroptionDTO cdto ;
 }
 
 

@@ -16,6 +16,6 @@ public class CaroptionDTO {
     private String smart_key ;
     private String sunroof ;
     private String rear_warning_light ;
-    private String Lane_Departure_Prevention ;
+    private String lane_departure_prevention ;
     private String carnumber ;
 }

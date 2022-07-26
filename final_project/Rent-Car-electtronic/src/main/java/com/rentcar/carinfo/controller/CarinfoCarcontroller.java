@@ -76,7 +76,7 @@ public class CarinfoCarcontroller {
 
     @PostMapping("/update")
     public String update(CarinfoDTO dto){
-        //log.info("dto:"+dto);
+        log.info("dto:"+dto);
         int cnt = service.update(dto);
         log.info("cnt:"+cnt);
         if(cnt == 1){
@@ -95,6 +95,8 @@ public class CarinfoCarcontroller {
     @GetMapping("/read/{carnumber}")
     public String read(@PathVariable("carnumber") String carnumber,Model model){
         CarinfoDTO dto = service.read(carnumber);
+
+        log.info("read dto: " + dto);
         model.addAttribute("dto", dto);
         return "/carinfo/read";
     }

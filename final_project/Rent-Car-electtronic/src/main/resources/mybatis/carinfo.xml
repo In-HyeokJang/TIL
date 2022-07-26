@@ -53,16 +53,45 @@
         </where>
     </select>
 
-    <select id="read" parameterType="String" resultType="com.rentcar.carinfo.model.CarinfoDTO">
-        select carnumber, carimage, carname, carseate, carpoint, category, caryearmodel, carprice
-        from carinfo
-        where carnumber = #{carnumber}
+    <resultMap id="carinfoOption" type="com.rentcar.carinfo.model.CarinfoDTO">
+        <result property="carnumber" column="carnumber" />
+        <result property="carname" column="carname" />
+        <result property="carprice" column="carprice" />
+        <result property="category" column="category" />
+        <result property="carpoint" column="carpoint" />
+        <result property="caryearmodel" column="caryearmodel" />
+        <result property="carimage" column="carimage" />
+        <result property="carseate" column="carseate" />
+
+        <association property="cdto" javaType="com.rentcar.carinfo.model.CaroptionDTO">
+            <result property="bluetooth" column="bluetooth" />
+            <result property="rear_sensor" column="rear_sensor" />
+            <result property="rear_camera" column="rear_camera" />
+            <result property="black_box" column="black_box" />
+            <result property="heated_seat" column="heated_seat" />
+            <result property="heated_handle" column="heated_handle" />
+            <result property="ventilated_seat" column="ventilated_seat" />
+            <result property="navigation" column="navigation" />
+            <result property="non_smoking_vehicle" column="non_smoking_vehicle" />
+            <result property="smart_key" column="smart_key" />
+            <result property="sunroof" column="sunroof" />
+            <result property="rear_warning_light" column="rear_warning_light" />
+            <result property="lane_departure_prevention" column="lane_departure_prevention" />
+        </association>
+    </resultMap>
+
+    <select id="read" parameterType="String" resultMap="carinfoOption">
+        select c.carnumber, c.carname, c.carprice, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate,
+        o.bluetooth, o.rear_sensor, o.rear_camera, o.black_box, o.heated_seat, o.heated_handle, o.ventilated_seat, o.navigation, o.non_smoking_vehicle,
+        o.smart_key, o.sunroof, o.rear_warning_light, o.lane_departure_prevention
+        from carinfo c inner join caroption o
+        on c.carnumber = o.carnumber
+        where c.carnumber = #{carnumber}
     </select>
 
     <update id="update" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         update carinfo
         set
-        carnumber = #{carnumber},
         carname = #{carname},
         carprice = #{carprice},
         category = #{category},

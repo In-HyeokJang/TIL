@@ -40,10 +40,8 @@ public class CaroptionController {
     }
 
     @GetMapping("/optupdate/{carnumber}")
-    public String update(@PathVariable("carnumber") String carnumber, Model model){
-        CarinfoDTO cdto = cservice.read(carnumber);
-        model.addAttribute("cdto", cdto);
-        return "/caroption/otpupdate";
+    public String update(@PathVariable("carnumber") String carnumber){
+        return "/carinfo/optupdate";
     }
 
     @PostMapping("/optupdate")
@@ -51,7 +49,7 @@ public class CaroptionController {
         int cnt = service.update(dto);
         log.info("cnt: " + cnt);
         if (cnt == 1) {
-            return "redirect:/carinfo/list";
+            return "null";
         } else {
             return "error";
         }

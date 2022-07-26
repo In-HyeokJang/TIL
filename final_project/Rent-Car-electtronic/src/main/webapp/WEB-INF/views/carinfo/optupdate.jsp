@@ -21,10 +21,13 @@
 
 <body>
   <div class="container">
+
   <header>Registration</header>
     <form class="form-horizontal"
     action="/carinfo/optupdate"
-    method="post">    
+    method="post">
+
+<input type="hidden" class="form-control" id="carnumber" name="carnumber" value="${carnumber}">
 
     <div class="form first">
       <div class="carpotion">   
@@ -80,13 +83,13 @@
               <input type="checkbox" name="rear_warning_light" class="cm-toggle" value="후방경고등" >
             </div>
             <div class="input-field">
-              <label>Lane_Departure_Prevention</label>
-              <input type="checkbox" name="Lane_Departure_Prevention" class="cm-toggle" value="차선방지이탈" >
+              <label>lane_departure_prevention</label>
+              <input type="checkbox" name="lane_departure_prevention" class="cm-toggle" value="차선방지이탈" >
             </div>
           </div>
 
           <div class="buttons">
-           <button type="submit" id="closebtn" class="btn btn-default">Option 수정</button>
+           <button type="submit" id="closebtn" class="btn">Option 수정</button>
           </div>
         </div>
       </div>
@@ -95,7 +98,10 @@
 </body>
 <script>
   $("#closebtn").click(function(){
-    alert("수정되었습니다.");
-  })
+    setTimeout(function(){
+      alert("option을 수정 했습니다.");
+      window.close();
+    }, 0);
+    });
 </script>
 </html>

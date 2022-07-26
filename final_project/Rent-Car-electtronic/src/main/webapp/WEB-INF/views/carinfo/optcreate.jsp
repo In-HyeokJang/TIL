@@ -88,8 +88,8 @@
               <input type="checkbox" name="rear_warning_light" class="cm-toggle" value="후방경고등" >
             </div>
             <div class="input-field">
-              <label>Lane_Departure_Prevention</label>
-              <input type="checkbox" name="Lane_Departure_Prevention" class="cm-toggle" value="차선방지이탈" >
+              <label>lane_departure_prevention</label>
+              <input type="checkbox" name="lane_departure_prevention" class="cm-toggle" value="차선방지이탈" >
             </div>
           </div>
           <div class="buttons">

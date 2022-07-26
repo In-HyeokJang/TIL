@@ -8,11 +8,11 @@
     <insert id="create" parameterType="com.rentcar.carinfo.model.CaroptionDTO">
         insert into caroption(bluetooth, rear_sensor, rear_camera, black_box, heated_seat, heated_handle,
         ventilated_seat,
-        navigation, non_smoking_vehicle, smart_key, sunroof ,rear_warning_light ,Lane_Departure_Prevention, carnumber)
+        navigation, non_smoking_vehicle, smart_key, sunroof ,rear_warning_light ,lane_departure_prevention, carnumber)
         values(#{bluetooth}, #{rear_sensor}, #{rear_camera}, #{black_box}, #{heated_seat}, #{heated_handle},
         #{ventilated_seat},
         #{navigation}, #{non_smoking_vehicle}, #{smart_key}, #{sunroof} , #{rear_warning_light} ,
-        #{Lane_Departure_Prevention}, #{carnumber})
+        #{lane_departure_prevention}, #{carnumber})
     </insert>
 
     <update id="update" parameterType="com.rentcar.carinfo.model.CaroptionDTO">
@@ -30,7 +30,7 @@
         smart_key = #{smart_key},
         sunroof = #{sunroof},
         rear_warning_light = #{rear_warning_light},
-        Lane_Departure_Prevention = #{Lane_Departure_Prevention}
+        lane_departure_prevention = #{lane_departure_prevention}
         where carnumber = #{carnumber}
     </update>
 </mapper>

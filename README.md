@@ -2,6 +2,14 @@
 
 ## 🙌백엔드 개발자가 되는 그날까지!
 
+### 👨‍💻Ethan: Portfolio
+
+[ShoopingMall site: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
+
+[Rent-Car-Electtronic: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
+
+[Rent-Car-Electtronic Team github](https://github.com/ISOSIM)
+
 ### 🔥Final_Project_TIL : [Final_Project_TIL](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
 
 ## 📖멀티캠퍼스 (AI플랫폼 웹서비스 개발)
@@ -39,12 +47,6 @@
 [Notice만들기](https://github.com/In-HyeokJang/TIL/tree/master/spring/springNotice/notice)
 
 [과제](https://github.com/In-HyeokJang/TIL/tree/master/spring/spring%EA%B3%BC%EC%A0%9C)
-
-[세미프로젝트-쇼핑몰구현하기](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
-
-[Final_Project:Rent-car-JIH](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
-
-[Final_Project:Rent-car 팀 주소](https://github.com/ISOSIM)
 
 ## 📖멀티캠퍼스 (특강)
 

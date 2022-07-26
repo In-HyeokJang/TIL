@@ -61,3 +61,11 @@
 - read 에서 join으로 해서 carinfo 랑 caroption 나오게 해야 함
 - 내일 read랑 , caropiton update 완료 할 수 있으면 하기
 - 후 여유 있으면 비동기 공부하여 수저 조금씩 하고 views 페이지 css 느낌 추가 하기
+
+#### 220726
+
+- caroption : update, read(carinfo 해서 join 1:1 해서 가져오는거 완료)
+- caroption : update(미니페이지 나오는거는 완성, 등록 후 창 꺼지고 새로고침 되어지면서 보여지는 페이지 아직 미완성)
+- views 조금씩 다시 수정중
+- 예약 만드는 사람이랑 이야기 해서 어느 부분 더 필요한지 해봐야 함
+- 유저 관리자 만드는 사람이랑 이야기 해서 session <c:if>문 만들어야 함

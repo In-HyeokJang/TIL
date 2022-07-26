@@ -2,15 +2,13 @@
 
 ## 🙌백엔드 개발자가 되는 그날까지!
 
-### 👨‍💻Ethan: Portfolio
+## 👨‍💻Ethan: Portfolio
 
----
+👗[ShoopingMall site: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
 
-[ShoopingMall site: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
+🚘[Rent-Car-Electtronic: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
 
-[Rent-Car-Electtronic: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
-
-[Rent-Car-Electtronic Team github](https://github.com/ISOSIM)
+🐷[Rent-Car-Electtronic Team github](https://github.com/ISOSIM)
 
 ### 🔥Final_Project_TIL : [Final_Project_TIL](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
 

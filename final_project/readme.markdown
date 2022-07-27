@@ -69,3 +69,9 @@
 - views 조금씩 다시 수정중
 - 예약 만드는 사람이랑 이야기 해서 어느 부분 더 필요한지 해봐야 함
 - 유저 관리자 만드는 사람이랑 이야기 해서 session <c:if>문 만들어야 함
+
+#### 220727
+
+- caroption : window.open / window.close (수정완료 js) 까지 완료
+- view : read (carinfo, caroption) 두개 읽어오고 caroption 에서 class 설정 후 el에서 내용 있는거만 나오는거 완성, border 설정 완료
+- 나머지 더 뭐할지 생각 해보기 추가 기능 필요하면 만들기

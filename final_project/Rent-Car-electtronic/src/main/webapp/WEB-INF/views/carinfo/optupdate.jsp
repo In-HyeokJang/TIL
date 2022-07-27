@@ -14,6 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/css/support/create.css">
   <link rel="stylesheet" type="text/css" href="/css/support/style.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -98,10 +100,10 @@
 </body>
 <script>
   $("#closebtn").click(function(){
-    setTimeout(function(){
-      alert("option을 수정 했습니다.");
+    setTimeout(function() {
+      alert("수정되었습니다.");
       window.close();
     }, 0);
-    });
+  });
 </script>
 </html>

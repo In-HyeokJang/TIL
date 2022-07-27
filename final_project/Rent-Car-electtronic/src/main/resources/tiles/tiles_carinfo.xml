@@ -23,11 +23,6 @@
         <put-attribute name="body" value="/WEB-INF/views/carinfo/read.jsp" />
     </definition>
 
-<!--    <definition name="/carinfo/optupdate" extends="main">-->
-<!--        <put-attribute name="title" value="차옵션수정" ></put-attribute>-->
-<!--        <put-attribute name="body" value="/WEB-INF/views/carinfo/optupdate.jsp" />-->
-<!--    </definition>-->
-
     <definition name="/carinfo/update" extends="main">
         <put-attribute name="title" value="자동차정보수정" ></put-attribute>
         <put-attribute name="body" value="/WEB-INF/views/carinfo/update.jsp" />

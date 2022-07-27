@@ -43,6 +43,7 @@
           justify-content: center;
           margin-bottom: 10px;
           margin-top: 10px;
+          margin-left: 120px;
         }
         .carlist {
           margin-left: 45%;
@@ -50,6 +51,7 @@
         .col-sm-3 {
           justify-content: center;
           margin: 15px;
+          font-size: 1.6rem;
         }
         .check{
           background-color: skyblue;
@@ -99,10 +101,10 @@
             <div class="row" id="row">
               <c:forEach var="dto" items="${list}">
                 <div class="col-sm-3">
-                  <h2> ${dto.carname }</h2>
+                  <h1> ${dto.carname }</h1>
 
                   <a href="/carinfo/read/${dto.carnumber}">
-                    <img src="/carinfo/storage/${dto.carimage}" class="img-thumbnail" width="300" height="280"></a>
+                    <img src="/carinfo/storage/${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
                     <b>차 위치 : ${dto.carpoint}</b><br>

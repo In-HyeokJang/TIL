@@ -75,3 +75,10 @@
 - caroption : window.open / window.close (수정완료 js) 까지 완료
 - view : read (carinfo, caroption) 두개 읽어오고 caroption 에서 class 설정 후 el에서 내용 있는거만 나오는거 완성, border 설정 완료
 - 나머지 더 뭐할지 생각 해보기 추가 기능 필요하면 만들기
+
+#### 220728
+
+- views 수정
+- aws a3 파일 업로드 하는법 다시 봐보기
+- 이해 한거로는 ncloud로 저장후 path, key 값 이 있는데 이게 db에 저장이 되고 db에 저장된 값이 이제 read,list 등등 에서 보여지게 하는거?
+- 흐름 다시 파악 필요....

@@ -52,7 +52,6 @@
               <a href="/carinfo/list">차량 리스트(유저)</a>
               <a href="#">차량 예약</a>
               <a href="#">예약 현황</a>
-              <a href="/carinfo/list">차량리스트(관리자)</a>
             </div>
           </div>
 

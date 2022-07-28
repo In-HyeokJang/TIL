@@ -119,7 +119,7 @@
               <div class="option">
                 <br>
                 <c:choose>
-                  <c:when test="${empty dto.cdto.bluetooth}"> </c:when>
+                  <c:when test="${empty dto.cdto.bluetooth}"></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.bluetooth}</span> </c:otherwise>
                 </c:choose>
 

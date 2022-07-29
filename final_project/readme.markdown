@@ -82,3 +82,17 @@
 - aws a3 파일 업로드 하는법 다시 봐보기
 - 이해 한거로는 ncloud로 저장후 path, key 값 이 있는데 이게 db에 저장이 되고 db에 저장된 값이 이제 read,list 등등 에서 보여지게 하는거?
 - 흐름 다시 파악 필요....
+
+#### 220729
+
+- Tema 회의
+  - rentcost time으로 설정
+  - 추가 table 이랑 join 필요 할듯
+  - booking 이랑 회의 필요
+  - 검색 차종, 차이름으로 했고
+  - booking 할 때 검색을 있는 차량만 나오게 하고 싶다고 함
+  - 할거 마무리 하고 다시 조율 필요
+- window.opener.location.reload 사용해서 caroption 수정 하고 등록 하면 carread에서 자동으로 reload 됨
+- aws a3 파일 업로드 하고 한국어 번역 안되는거 다시 찾아 봐서 수정 필요
+- 3주 정도 남음
+- evrent.ml (서버 구축 팀장이 함)

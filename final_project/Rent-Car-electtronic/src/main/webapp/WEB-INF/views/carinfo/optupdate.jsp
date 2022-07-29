@@ -103,7 +103,10 @@
     setTimeout(function() {
       alert("수정되었습니다.");
       window.close();
+     window.opener.location.reload();
     }, 0);
   });
+
+
 </script>
 </html>

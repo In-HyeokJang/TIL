@@ -27,8 +27,8 @@
         from carinfo
         <where>
             <choose>
-                <when test="col=='carnumber'">
-                    carnumber like concat('%',#{word},'%')
+                <when test="col=='category'">
+                    category like concat('%',#{word},'%')
                 </when>
                 <when test="col=='carname'">
                     carname like concat('%',#{word},'%')
@@ -43,8 +43,8 @@
         select count(*) from carinfo
         <where>
             <choose>
-                <when test="col=='carnumber'">
-                    carnumber like concat('%',#{word},'%')
+                <when test="col=='category'">
+                    category like concat('%',#{word},'%')
                 </when>
                 <when test="col=='carname'">
                     carname like concat('%',#{word},'%')

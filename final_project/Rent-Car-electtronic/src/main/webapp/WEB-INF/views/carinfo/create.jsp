@@ -18,8 +18,14 @@
     <body>
       <div class="container">
         <h1 class="col-sm-offset-2 col-sm-10">자동차 등록</h1>
-        <form class="form-horizontal" action="/carinfo/create" method="post" enctype="multipart/form-data"
-          onsubmit="return checkIn(this)">
+
+        <form class="form-horizontal"
+        action="/carinfo/create"
+        method="post"
+        enctype="multipart/form-data"
+        onsubmit="return checkIn(this)"
+        >
+
 
           <div class="form first">
 
@@ -65,7 +71,7 @@
 
                 <div class="input-field">
                   <label for="filenameMF">Car Image</label>
-                  <input type="file" name="filenameMF" id="filenameMF" required>
+                  <input type="file" name="carimage" id="filenameMF" required>
                 </div>
               </div>
 
@@ -79,5 +85,30 @@
         </form>
       </div>
     </body>
+    <script>
+
+    $("#btn").click(function(){
+
+    var data = document.querySelector("#filenameMF").value;
+    console.log(data);
+
+    $.ajax({
+    data: data,
+    type: "POST",
+    url: "/s3/resource",
+    contentType: false,
+    processData: false,
+    success: function (data)
+
+
+    {alert("성공");
+    },
+    error: function () {
+    alert("1111에러입니다"); }
+     });
+     });
+
+
+    </script>
 
     </html>

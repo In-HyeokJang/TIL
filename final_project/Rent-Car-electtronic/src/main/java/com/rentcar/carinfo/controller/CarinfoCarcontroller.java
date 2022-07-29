@@ -117,29 +117,31 @@ public class CarinfoCarcontroller {
     }
 
     @PostMapping("/create")
-    public String create(CarinfoDTO dto,  HttpServletRequest request,
-                         @RequestPart("file") MultipartFile multipartFile)throws IOException{
+    public String create(@RequestBody CarinfoDTO dto,  HttpServletRequest request,
+                         @RequestPart("carimage") MultipartFile multipartFile)throws IOException{
 //        System.out.println(dto);
 //        log.info("dto: "+ dto);
-        String upDir = UploadCon.getUploadDir();
-        String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
-        int size = (int)dto.getFilenameMF().getSize();
-
-        if(size > 0){
-            dto.setCarimage(fname);
-        }else{
-            dto.setCarimage("default.jpg");
-        }
-
-//         aws a3 사용 내가 생각했을때 코드
-//         파일 업로드 부분 코드
-//        String fname = awsS3Service.upload(multipartFile, "carinfo");
+//        String upDir = UploadCon.getUploadDir();
+//        String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
 //        int size = (int)dto.getFilenameMF().getSize();
+//
 //        if(size > 0){
 //            dto.setCarimage(fname);
 //        }else{
 //            dto.setCarimage("default.jpg");
 //        }
+
+//         aws a3 사용 내가 생각했을때 코드
+//         파일 업로드 부분 코드
+        AwsS3 a3 = awsS3Service.upload(multipartFile, "carinfo");
+
+        int size = (int)dto.getFilenameMF().getSize();
+
+        if(size > 0){
+            dto.setCarimage(a3.getKey());
+        }else{
+            dto.setCarimage("default.jpg");
+        }
 
         if(service.create(dto) > 0 ){
             return "/carinfo/optcreate";

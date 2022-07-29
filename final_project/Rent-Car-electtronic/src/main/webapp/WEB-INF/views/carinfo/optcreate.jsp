@@ -105,6 +105,7 @@
     setTimeout(function() { 
       alert("등록되었습니다");
       window.close(); 
+      window.opener.location.reload();
     }, 0);
   });
   </script>

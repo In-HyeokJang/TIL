@@ -43,10 +43,9 @@
           justify-content: center;
           margin-bottom: 10px;
           margin-top: 10px;
-          margin-left: 120px;
         }
         .carlist {
-          margin-left: 45%;
+          margin-left: 40%;
         }
         .col-sm-3 {
           justify-content: center;
@@ -70,7 +69,7 @@
             <form class="form-inline" action="./list">
               <div class="form-group">
                 <select class="form-control" name="col">
-                <option value="carnumber" <c:if test="${col=='carnumber'}"> selected </c:if>>차번호</option>
+                <option value="category" <c:if test="${col=='category'}"> selected </c:if>>차 종</option>
                   <option value="carname" <c:if test="${col=='carname'}"> selected </c:if>>차이름</option>
 
                   <option value="total" <c:if test="${col=='total'}"> selected </c:if>>
@@ -108,7 +107,7 @@
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
                     <b>차 위치 : ${dto.carpoint}</b><br>
-                    <b>차 렌트비용 : ${dto.carprice}</b>
+                    <b>차 렌트비용(시간당) : ${dto.carprice}</b>
 
                     <!-- 나중에 수정/삭제는 유저한테 안보이게 처리 해야함 -->
                   </p><button>

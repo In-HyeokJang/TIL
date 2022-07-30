@@ -111,7 +111,7 @@
           <div class="layout">
             <div>
               <div class="carinfocolor">
-                <img class="img" src="https://kr.object.ncloudstorage.com/imagetest/carinfo/morning.jpg" style="width:400px;" , height="323px;" ,
+                <img class="img" src="/carinfo/storage/${dto.carimage}" style="width:400px;" , height="323px;" ,
                   margin="90px auto 0 250px">
 
                 <h2 class="carname">${dto.carname}</h2>

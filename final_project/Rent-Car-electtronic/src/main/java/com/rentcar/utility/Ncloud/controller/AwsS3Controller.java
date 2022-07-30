@@ -19,7 +19,7 @@ public class AwsS3Controller {
     public AwsS3 upload(@RequestPart("file")
                             MultipartFile multipartFile) throws IOException {
 
-        return awsS3Service.upload(multipartFile,"carinfo");
+        return awsS3Service.upload(multipartFile,"user");
         // 나는 db에 키 값을 저장하고 싶어
 
     }

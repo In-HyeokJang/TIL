@@ -39,8 +39,6 @@ public class CarinfoCarcontroller {
     @Autowired
     @Qualifier("com.rentcar.carinfo.service.CarinfoServiceImpl")
     private CarinfoService service;
-
-
     private final AwsS3Service awsS3Service;
 
 //    @PostMapping("/resource")
@@ -116,11 +114,13 @@ public class CarinfoCarcontroller {
         return "/carinfo/read";
     }
 
+
     @PostMapping("/create")
-    public String create(@RequestBody CarinfoDTO dto,  HttpServletRequest request,
-                         @RequestPart("carimage") MultipartFile multipartFile)throws IOException{
-//        System.out.println(dto);
-//        log.info("dto: "+ dto);
+    public String create( CarinfoDTO dto, HttpServletRequest request
+                         )throws IOException{
+
+        System.out.println(dto);
+        log.info("dto: "+ dto);
 //        String upDir = UploadCon.getUploadDir();
 //        String fname = Utility.saveFileSpring(dto.getFilenameMF(), upDir);
 //        int size = (int)dto.getFilenameMF().getSize();
@@ -131,22 +131,10 @@ public class CarinfoCarcontroller {
 //            dto.setCarimage("default.jpg");
 //        }
 
-//         aws a3 사용 내가 생각했을때 코드
-//         파일 업로드 부분 코드
-        AwsS3 a3 = awsS3Service.upload(multipartFile, "carinfo");
-
-        int size = (int)dto.getFilenameMF().getSize();
-
-        if(size > 0){
-            dto.setCarimage(a3.getKey());
-        }else{
-            dto.setCarimage("default.jpg");
-        }
-
         if(service.create(dto) > 0 ){
             return "/carinfo/optcreate";
         }else{
-            return "System.out.println(error)";
+            return "error";
         }
 
     }
@@ -155,6 +143,18 @@ public class CarinfoCarcontroller {
         return
                 "/carinfo/create";
     }
+
+//    @PostMapping("/resource")
+//    public AwsS3 upload(@RequestPart("filenameMF")
+//                        MultipartFile multipartFile) throws IOException {
+//        AwsS3 a3 = awsS3Service.upload(multipartFile,"carinfo");
+//        System.out.println(a3);
+//        System.out.println(a3.getPath());
+//        System.out.println(a3.getKey());
+//
+//        return null;
+//
+//    }
 
     @RequestMapping("/list")
     public String list(HttpServletRequest request){

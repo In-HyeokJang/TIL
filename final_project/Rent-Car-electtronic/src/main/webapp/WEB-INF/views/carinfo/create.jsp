@@ -19,12 +19,12 @@
       <div class="container">
         <h1 class="col-sm-offset-2 col-sm-10">자동차 등록</h1>
 
-        <form class="form-horizontal"
+        <!-- <form class="form-horizontal"
         action="/carinfo/create"
-        method="post"
+        method="post" 
         enctype="multipart/form-data"
-        onsubmit="return checkIn(this)"
-        >
+
+          onsubmit="return checkIn(this)"> -->
 
 
           <div class="form first">
@@ -70,45 +70,51 @@
                 </div>
 
                 <div class="input-field">
-                  <label for="filenameMF">Car Image</label>
-                  <input type="file" name="carimage" id="filenameMF" required>
+                  <label for="filenameMF">Car Image path값을 carimage에 저장 시킨다.....</label>
+                  <input type="file" name="filenameMF" id="filenameMF" required>
+                  <input type="hidden" class="form-control" id="carimage" name="carimage" value="">
                 </div>
               </div>
 
-            <div class="buttons">
-                <button class="btn">다음</button>
+              <div class="buttons">
+                <button class="btn" id="btt">다음</button>
                 <button type="reset" class="btn">취소</button>
               </div><!-- button div end -->
-              
-              </div>
-            </div><!-- first div end -->
-        </form>
+            </div>
+          </div><!-- first div end -->
+        <!-- </form> -->
+        
       </div>
     </body>
-    <script>
-
-    $("#btn").click(function(){
-
-    var data = document.querySelector("#filenameMF").value;
-    console.log(data);
-
-    $.ajax({
-    data: data,
-    type: "POST",
-    url: "/s3/resource",
-    contentType: false,
-    processData: false,
-    success: function (data)
+<script>
 
 
-    {alert("성공");
-    },
-    error: function () {
-    alert("1111에러입니다"); }
-     });
-     });
+      $("#btt").click(function () {
+        data = new FormData();
+        data.append("filenameMF", $("input[name=filenameMF]")[0].files[0]);
 
+        console.log(data);
+        alert(data);
 
-    </script>
+        $.ajax({
+          data: data,
+          type: "POST",
+          url: "/carinfo/resource",
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            console.log(data);
+            console.log(data.path);
+            // function product(){ 
+            //   return data.path; }
+              $('#carimage').val(data.path);
 
+          },
+          error: function () {
+            alert("1111에러입니다");
+          }
+        });
+      });
+
+</script>
     </html>

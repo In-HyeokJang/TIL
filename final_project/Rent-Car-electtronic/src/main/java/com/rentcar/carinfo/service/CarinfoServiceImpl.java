@@ -47,8 +47,8 @@ public class CarinfoServiceImpl implements CarinfoService {
     }
 
     @Override
-    public int updateFile(Map map) {
-        return mapper.updateFile(map);
+    public int updateFile(CarinfoDTO dto) {
+        return mapper.updateFile(dto);
     }
 
 }

@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="input-field">
-                  <label for="carprice">Car Rent Price</label>
-                  <input type="text" name="carprice" id="carprice" placeholder="Enter Car Rent Price" required>
+                  <label for="rentcost">Car Rent Price</label>
+                  <input type="text" name="rentcost" id="rentcost" placeholder="Enter Car Rent Cost" required>
                 </div>
 
                 <div class="input-field">
@@ -90,8 +90,6 @@
       </div>
     </body>
 <script>
-
-
       // $("#btt").click(function () {
         $("#filenameMF").change(function(){ 
         data = new FormData();
@@ -121,7 +119,5 @@
           }
         });
       });
-
-
 </script>
     </html>

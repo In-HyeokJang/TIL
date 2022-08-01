@@ -50,19 +50,21 @@ public class CarinfoCarcontroller {
 //
 //    }
 
+
     @PostMapping("/updateFile")
-    public String updateFile(MultipartFile filenameMF, String oldfile, String carnumber)throws IOException{
+    public String updateFile(MultipartFile filenameMF, CarinfoDTO dto, HttpServletRequest request
+    )throws IOException{
 
-        String basePath = UploadCon.getUploadDir();
-        if(oldfile != null && !oldfile.equals("default.jpg")){
-            Utility.deleteFile(basePath, oldfile);
-        }
+//        String basePath = UploadCon.getUploadDir();
+//        if(carimgae != null && !carimgae.equals("default.jpg")){
+//            Utility.deleteFile(basePath, carimgae);
+//        }
 
-        Map map = new HashMap();
-        map.put("carnumber", carnumber);
-        map.put("carimage", Utility.saveFileSpring(filenameMF, basePath));
+//        Map map = new HashMap();
+//        map.put("carnumber", carnumber);
+//        map.put("carimage", Utility.saveFileSpring(filenameMF, basePath));
 
-        int cnt = service.updateFile(map);
+        int cnt = service.updateFile(dto);
         if(cnt == 1){
             return "redirect:/carinfo/list";
         }else {
@@ -70,12 +72,11 @@ public class CarinfoCarcontroller {
         }
     }
 
-    @GetMapping("/updateFile/{carnumber}/{oldfile}")
+    @GetMapping("/updateFile/{carnumber}")
     public String updateFileForm(@PathVariable("carnumber") String carnumber,
-                                 @PathVariable("oldfile") String oldfile,
                                  Model model){
-        model.addAttribute("carnumber", carnumber);
-        model.addAttribute("oldfile", oldfile);
+        CarinfoDTO dto = service.read(carnumber);
+        model.addAttribute("dto", dto);
         return "/carinfo/updateFile";
     }
 

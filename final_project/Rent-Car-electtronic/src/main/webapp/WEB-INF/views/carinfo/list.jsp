@@ -107,7 +107,7 @@
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
                     <b>차 위치 : ${dto.carpoint}</b><br>
-                    <b>차 렌트비용(시간당) : ${dto.carprice}</b>
+                    <!-- <b>차 렌트비용(시간당) : ${dto.rentcost}</b> -->
 
                     <!-- 나중에 수정/삭제는 유저한테 안보이게 처리 해야함 -->
                   </p><button>

@@ -5,7 +5,7 @@
 
 <mapper namespace="com.rentcar.carinfo.mapper.CarinfoMapper">
 
-    <update id="updateFile" parameterType="Map">
+    <update id="updateFile" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         update carinfo
         set
         carimage = #{carimage}
@@ -18,12 +18,12 @@
 
     <insert id="create" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         insert into carinfo
-        (carnumber, carname, carimage, carprice, carseate, carpoint, category, caryearmodel)
-        values(#{carnumber}, #{carname}, #{carimage}, #{carprice}, #{carseate}, #{carpoint}, #{category},#{caryearmodel})
+        (carnumber, carname, carimage, rentcost, carseate, carpoint, category, caryearmodel)
+        values(#{carnumber}, #{carname}, #{carimage}, #{rentcost}, #{carseate}, #{carpoint}, #{category},#{caryearmodel})
     </insert>
 
     <select id="list" parameterType="Map" resultType="com.rentcar.carinfo.model.CarinfoDTO">
-        select carname, carimage, carprice, carseate, carnumber, carpoint, category, caryearmodel
+        select carname, carimage, rentcost, carseate, carnumber, carpoint, category, caryearmodel
         from carinfo
         <where>
             <choose>
@@ -56,7 +56,7 @@
     <resultMap id="carinfoOption" type="com.rentcar.carinfo.model.CarinfoDTO">
         <result property="carnumber" column="carnumber" />
         <result property="carname" column="carname" />
-        <result property="carprice" column="carprice" />
+        <result property="rentcost" column="rentcost" />
         <result property="category" column="category" />
         <result property="carpoint" column="carpoint" />
         <result property="caryearmodel" column="caryearmodel" />
@@ -81,7 +81,7 @@
     </resultMap>
 
     <select id="read" parameterType="String" resultMap="carinfoOption">
-        select c.carnumber, c.carname, c.carprice, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate,
+        select c.carnumber, c.carname, c.rentcost, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate,
         o.bluetooth, o.rear_sensor, o.rear_camera, o.black_box, o.heated_seat, o.heated_handle, o.ventilated_seat, o.navigation, o.non_smoking_vehicle,
         o.smart_key, o.sunroof, o.rear_warning_light, o.lane_departure_prevention
         from carinfo c inner join caroption o
@@ -93,7 +93,7 @@
         update carinfo
         set
         carname = #{carname},
-        carprice = #{carprice},
+        rentcost = #{rentcost},
         category = #{category},
         caryearmodel = #{caryearmodel},
         carseate = #{carseate},

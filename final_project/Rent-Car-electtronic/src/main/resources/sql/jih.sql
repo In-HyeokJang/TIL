@@ -2,9 +2,10 @@ CREATE TABLE carinfo (
     carnumber VARCHAR(8) NOT NULL PRIMARY KEY,
     carname VARCHAR(100) NOT NULL,
     carimage VARCHAR(100) NULL,
+    rentcost int not null,               -- rentcost 비용 컬럼 추가
     carseate VARCHAR(4) NOT NULL,
     carpoint VARCHAR(8) NOT NULL,
-    caryearmodel	varchar(5) NOT NULL,               -- rdate 빼고 차 연식으로 바꾸기car_year_model // value는 2019년 이런식으로
+    caryearmodel	varchar(5) NOT NULL,
     category VARCHAR(40) NOT NULL
 );
 

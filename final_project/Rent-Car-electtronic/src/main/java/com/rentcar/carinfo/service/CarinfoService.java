@@ -19,6 +19,6 @@ public interface CarinfoService {
     int update(CarinfoDTO dto);
 
     int delete(String carnumber);
-    int updateFile(Map map);
+    int updateFile(CarinfoDTO dto);
 
 }

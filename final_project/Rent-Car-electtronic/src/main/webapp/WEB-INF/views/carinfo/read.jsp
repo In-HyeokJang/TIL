@@ -38,7 +38,7 @@
             font-size: 3.75rem;
             margin: -200px 861px 0 -190px;
             font-family: Raleway, sans-serif !important;
-            margin-left: 100px;
+            margin-left: 110px;
           }
 
           .carinfo {
@@ -111,8 +111,7 @@
           <div class="layout">
             <div>
               <div class="carinfocolor">
-                <img class="img" src="${dto.carimage}" style="width:400px;" , height="323px;" ,
-                  margin="90px auto 0 250px">
+                <img class="img" src="${dto.carimage}" style="width:400px;" , height="260px;" >
 
                 <h2 class="carname">${dto.carname}</h2>
 
@@ -120,7 +119,7 @@
                   🚗${dto.carnumber}<br>
                   🙍‍♂${dto.carseate} | 🚩${dto.carpoint} | 🚙${dto.category}<br>
                   🧭${dto.caryearmodel}<br>
-                  💲(시간당)${dto.carprice}<br>
+                  <!-- 💲(시간당)${dto.rentcost}<br> -->
 
                 </h3>
               </div>
@@ -211,7 +210,7 @@
                   <a href="/carinfo/update/${dto.carnumber}">정보 수정</a></button>
                 <button onclick="optupdate()">옵션 수정</button>
                 <button>
-                  <a href="/carinfo/updateFile/${dto.carnumber }/${dto.carimage}">사진 수정</a></button>
+                  <a href="/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
                 <button>
                   <a href="javascript:history.back()">
                     뒤로</a></button>

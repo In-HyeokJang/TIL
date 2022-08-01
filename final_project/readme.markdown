@@ -103,3 +103,12 @@
 - naver cloud a3 사진 올리기 ajax로 진행
 - 사진 upload는 완성
 - 올린 사진 list, read 에서 받아오는거 hidden 값으로 받아오고 싶지만 아직 안됨 (data.path)값
+
+#### 220801
+
+- aws a3 등록, 수정 완료(hidden값으로 다 받아옴)
+- aws a3 delete 할지 생각 중 안해도 가능해서 ...
+- reservation 이랑 간단 상의 후 carprice delete 하고 rentcost로 변경
+- rentcost carinfo list,read 에서 안보이게 하고 reservation에서만 보이게 만들기
+- 예약된 차량 확인 컬럼? or 테이블 생성 원함
+- 팀 점점 마무리 단계~

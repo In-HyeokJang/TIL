@@ -103,7 +103,7 @@
                   <h1> ${dto.carname }</h1>
 
                   <a href="/carinfo/read/${dto.carnumber}">
-                    <img src="/carinfo/storage/${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
+                    <img src="${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
                     <b>차 위치 : ${dto.carpoint}</b><br>

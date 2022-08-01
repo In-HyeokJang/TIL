@@ -19,12 +19,11 @@
       <div class="container">
         <h1 class="col-sm-offset-2 col-sm-10">자동차 등록</h1>
 
-        <!-- <form class="form-horizontal"
+        <form class="form-horizontal"
         action="/carinfo/create"
         method="post" 
         enctype="multipart/form-data"
-
-          onsubmit="return checkIn(this)"> -->
+          onsubmit="return checkIn(this)">
 
 
           <div class="form first">
@@ -70,9 +69,13 @@
                 </div>
 
                 <div class="input-field">
-                  <label for="filenameMF">Car Image path값을 carimage에 저장 시킨다.....</label>
+                  <label for="filenameMF">Car Image</label>
                   <input type="file" name="filenameMF" id="filenameMF" required>
-                  <input type="hidden" class="form-control" id="carimage" name="carimage" value="">
+
+                  <div style="border:5px #33FF66 solid;display:none;">
+                  <input type="text" class="form-control" id="carimage" name="carimage" value="">
+                  </div>
+
                 </div>
               </div>
 
@@ -82,19 +85,20 @@
               </div><!-- button div end -->
             </div>
           </div><!-- first div end -->
-        <!-- </form> -->
+        </form>
         
       </div>
     </body>
 <script>
 
 
-      $("#btt").click(function () {
+      // $("#btt").click(function () {
+        $("#filenameMF").change(function(){ 
         data = new FormData();
         data.append("filenameMF", $("input[name=filenameMF]")[0].files[0]);
 
         console.log(data);
-        alert(data);
+        // alert(data);
 
         $.ajax({
           data: data,
@@ -105,9 +109,11 @@
           success: function (data) {
             console.log(data);
             console.log(data.path);
+
+            document.querySelector("#carimage").value = data.path;
             // function product(){ 
             //   return data.path; }
-              $('#carimage').val(data.path);
+            
 
           },
           error: function () {
@@ -115,6 +121,7 @@
           }
         });
       });
+
 
 </script>
     </html>

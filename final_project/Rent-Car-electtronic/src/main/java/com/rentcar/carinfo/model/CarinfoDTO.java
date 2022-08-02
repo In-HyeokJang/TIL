@@ -18,6 +18,7 @@ public class CarinfoDTO {
     private String category ; // 차 종류
     private String caryearmodel ;  // 차연식
     private CaroptionDTO cdto ;
+    private int rentstatus;
 }
 
 

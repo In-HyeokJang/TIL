@@ -18,12 +18,12 @@
 
     <insert id="create" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         insert into carinfo
-        (carnumber, carname, carimage, rentcost, carseate, carpoint, category, caryearmodel)
-        values(#{carnumber}, #{carname}, #{carimage}, #{rentcost}, #{carseate}, #{carpoint}, #{category},#{caryearmodel})
+        (carnumber, carname, carimage, rentcost, carseate, carpoint, category, caryearmodel, rentstatus)
+        values(#{carnumber}, #{carname}, #{carimage}, #{rentcost}, #{carseate}, #{carpoint}, #{category},#{caryearmodel}, #{rentstatus})
     </insert>
 
     <select id="list" parameterType="Map" resultType="com.rentcar.carinfo.model.CarinfoDTO">
-        select carname, carimage, rentcost, carseate, carnumber, carpoint, category, caryearmodel
+        select carname, carimage, rentcost, carseate, carnumber, carpoint, category, caryearmodel,rentstatus
         from carinfo
         <where>
             <choose>
@@ -35,7 +35,7 @@
                 </when>
             </choose>
         </where>
-        order by carnumber desc
+        order by carnumber asc
         limit ${sno}, #{eno}
     </select>
 
@@ -97,7 +97,8 @@
         category = #{category},
         caryearmodel = #{caryearmodel},
         carseate = #{carseate},
-        carpoint = #{carpoint}
+        carpoint = #{carpoint},
+        rentstatus = #{status}
         where carnumber =#{carnumber}
     </update>
 </mapper>

@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="input-field">
-                  <label for="rentcost">Car Rent Price</label>
+                  <label for="rentcost">Car Rent Cost</label>
                   <input type="text" name="rentcost" id="rentcost" placeholder="Enter Car Rent Cost" required>
                 </div>
 
@@ -66,6 +66,11 @@
                 <div class="input-field">
                   <label for="carpoint">Car Point</label>
                   <input type="text" name="carpoint" id="carpoint" placeholder="Enter Car Point" required>
+                </div>
+
+                <div class="input-field">
+                  <label for="carpoint">Rent Status</label>
+                  <input type="text" name="rentstatus" id="rentstatus" placeholder="Enter Rent Status" required>
                 </div>
 
                 <div class="input-field">

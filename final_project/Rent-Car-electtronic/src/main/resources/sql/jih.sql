@@ -6,7 +6,8 @@ CREATE TABLE carinfo (
     carseate VARCHAR(4) NOT NULL,
     carpoint VARCHAR(8) NOT NULL,
     caryearmodel	varchar(5) NOT NULL,
-    category VARCHAR(40) NOT NULL
+    category VARCHAR(40) NOT NULL,
+    rentstatus int not null                   -- 0이면 대여 가능, 1이면 불가능
 );
 
 CREATE TABLE IF NOT EXISTS `rent_car`.`caroption` (

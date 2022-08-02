@@ -12,7 +12,7 @@ import com.rentcar.carinfo.model.CarinfoDTO;
 
 import com.rentcar.carinfo.service.CarinfoService;
 
-import com.rentcar.utility.UploadCon;
+
 import com.rentcar.utility.Utility;
 
 import org.springframework.beans.factory.annotation.Autowired;

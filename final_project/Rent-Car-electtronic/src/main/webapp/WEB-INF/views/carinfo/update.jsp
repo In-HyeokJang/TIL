@@ -103,6 +103,13 @@
                   <input type="text" class="form-control" id="carpoint" name="carpoint" value="${dto.carpoint}">
                 </div>
               </div>
+              <div class="form-group">
+                              <label class="control-label col-sm-2" for="rentstatus">Rent Status</label>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="rentstatus" name="rentstatus" value="${dto.rentstatus}">
+                              </div>
+                            </div>
+
             </div>
           </div>
           <div class="button">

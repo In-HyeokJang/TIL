@@ -84,6 +84,7 @@
           <button type="submit" class="check">검색</button>
           <!-- car create 버튼 나중에 유저는 안보이게 하고 관리자만 볼 수 있게 수정 필요 -->
           <button onclick="createwindow()">Car Create</button>
+        
           
           </form>
 
@@ -108,19 +109,20 @@
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
                     <b>차 위치 : ${dto.carpoint}</b><br>
                     <!-- <b>차 렌트비용(시간당) : ${dto.rentcost}</b> -->
-
-                    <!-- 나중에 수정/삭제는 유저한테 안보이게 처리 해야함 -->
-                  </p><button>
+                  </p>
+                  
+                  
+                  <button>
                   <a href="./update/${dto.carnumber}">Car Info Update
                     <span class="glyphicon glyphicon-edit"></span>
                   </a></button>
-
+                
 
                   <button>
                   <a href="javascript:del('${dto.carnumber}')">Car Delete
                     <span class="glyphicon glyphicon-trash"></span>
                   </a></button>
-
+                
                 </div>
 
               </c:forEach>

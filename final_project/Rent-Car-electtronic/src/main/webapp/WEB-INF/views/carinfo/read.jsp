@@ -61,12 +61,15 @@
           .button {
             display: flex;
             justify-content: center;
-            margin-top: 7%;
+            margin-top: 3%;
+
           }
 
           .Abtn {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
           }
 
           .res {
@@ -96,9 +99,77 @@
             border-radius: 10px !important;
             border-color: #000000 !important;
           }
-          .option>span.off{
+
+          .option>span.off {
             color: #000000;
-            
+          }
+
+          .plusbutton {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+          }
+
+          .tabCont {
+            margin: 100px;
+          }
+
+          .infoTypeIco {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+          }
+
+          div.txt {
+            margin: 0 100px 0 100px;
+          }
+
+          #tabContent01,
+          #tabContent02,
+          #tabContent03,
+          #tabContent04,
+          #tabContent05,
+          #tabContent06 {
+            display: block;
+            height: 9px;
+            margin: 30px -20px;
+            border-top: 1px solid #EAEAEA;
+            background: #F8F8F8;
+          }
+
+          .fig {
+            display: inline-block;
+            width: 72px;
+            height: 72px;
+            padding-top: 20px;
+            border-radius: 50%;
+            background: #F8F8F8;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+
+          .beware {
+            background-color: rgb(243, 220, 220);
+          }
+
+          [class^=tbl] th:first-child,
+          [class^=tbl] td:first-child {
+            border-left: none;
+          }
+
+          [class^=tbl] th {
+            color: #202020;
+            font-weight: 600;
+            background: #F8F8F8;
+          }
+
+          [class^=tbl] th,
+          [class^=tbl] td {
+            padding: 12px 16px;
+            line-height: 1.44;
+            border-left: 1px solid #EAEAEA;
+            border-top: 1px solid #EAEAEA;
           }
         </style>
 
@@ -111,7 +182,7 @@
           <div class="layout">
             <div>
               <div class="carinfocolor">
-                <img class="img" src="${dto.carimage}" style="width:400px;" , height="260px;" >
+                <img class="img" src="${dto.carimage}" style="width:400px;" , height="260px;">
 
                 <h2 class="carname">${dto.carname}</h2>
 
@@ -124,7 +195,7 @@
                 </h3>
               </div>
               <div class="option">
-              <h3> C a r O p t i o n </h3>
+                <h3> C a r O p t i o n </h3>
                 <br>
                 <c:choose>
                   <c:when test="${empty dto.cdto.bluetooth}">블루투스</c:when>
@@ -204,21 +275,217 @@
               <p class="button">
               <div>
                 <a class="res" href="#">RESERVATION</a>
+                <button>
+                  <a href="javascript:history.back()">
+                    뒤로</a></button>
               </div>
+
               <div class="Abtn">
                 <button>
                   <a href="/carinfo/update/${dto.carnumber}">정보 수정</a></button>
                 <button onclick="optupdate()">옵션 수정</button>
                 <button>
                   <a href="/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
-                <button>
-                  <a href="javascript:history.back()">
-                    뒤로</a></button>
               </div>
               </p>
             </div>
           </div>
+
+
+          <!-- 추가 -->
+          <div class="viewContents rentcar">
+            <div class="boxWhite">
+              <div class="plusbutton">
+                <ul class="pulsbutton01">
+                  <a href="#tabContents01" role="button" class="tabCont" aria-selected="true" data-controls="tabContents01">유의사항</a>
+                  <a href="#tebContents03" role="button" class="tabCont" aria-selected="false"
+                    data-controls="tabContents02">차량/보험</a>
+                  <a href="#tebContents04" role="button" class="tabCont" aria-selected="false" data-controls="tabContents04">업체위치</a>
+                </ul>
+              </div>
+              <!-- 유의사항 -->
+              <div id="tabContent01"></div>
+              <div id="tabContents01" class="tabContentWrap tabON">
+                <div class="detailCont">
+                  <div class="rentcarBanner" noticeBanner>
+
+                  </div>
+                  <div class="tabContRentcar">
+                    <div class="beware">
+                      <strong class="careful">👀주의하세요!</strong>
+                      <p cautionText><br>EV RentCar 추가 요금 및 대여 불가한 항목에 대해 꼼꼼히 확인하시기 바랍니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="tabContent02"></div>
+                <div class="borderTop">
+                  <h4 class="titDep4">인수불가 규정 안내</h4>
+                  <ul class="listType01">
+                    <li>반려동물 동반 시 &lt;인수 가능한 경우 상단에 별도 안내&gt;</li>
+                    <li>낚시용품 소지 시 &lt;인수 가능한 경우 상단에 별도 안내&gt;</li>
+                    <li>전기차 충전카드의 의무적인 구매 거부 시</li>
+                  </ul>
+                </div><br>
+                <div id="tabContent03"></div>
+                <div class="borderTop">
+                  <h4 class="titDep4">환불불가 안내</h4>
+                  <ul class="listType01">
+                    <li>인수불가 규정 위반에 따른 책임은 예약 당사자에게 있습니다.</li>
+                    <li>인수불가 시 선택한 요금제에 따라 당일취소 수수료가 부과됩니다.</li>
+                  </ul>
+                  <br>
+                </div>
+              </div>
+            </div>
+            
+
+            <!-- //유의사항 -->
+            <!-- 차량/보험 -->
+            <div id="tabContent04"></div>
+            <div id="tabContents02" class="tabContentWrap">
+              <h4 class="titDep4">대여규정</h4>
+              <ul class="infoTypeIco">
+                <div class="txt">
+                  <figure class="fig"><img
+                      src="https://static-www.jejupass.com/resource/PC/images/rentcar/ico_rent01.png" alt="연령아이콘">
+                  </figure><br>
+                  <b>연령</b>
+                  <br>
+                  <span>만 20세 이상</span>
+
+                </div>
+
+                <div class="txt">
+                  <figure class="fig"><img
+                      src="https://static-www.jejupass.com/resource/PC/images/rentcar/ico_rent02.png" alt="운전경력아이콘">
+                  </figure><br>
+                  <b>운전경력</b>
+                  <br>
+                  <span>1년 이상</span>
+
+
+                </div>
+
+                <div class="txt">
+                  <figure class="fig"><img
+                      src="https://static-www.jejupass.com/resource/PC/images/rentcar/ico_rent03.png" alt="운전면허아이콘">
+                  </figure><br>
+                  <b>운전면허</b>
+                  <br>
+                  <span>2종 보통 이상</span>
+
+                </div>
+              </ul>
+              <div id="tabContent05"></div>
+              <div id="tebContents03" class="anchorTab"></div>
+              <h4 class="titDep4" companyPartnerInsuranceTitle>종합보험</h4>
+              <ul>
+                <li><b>파트너사명 </b>: EV Rent Car</li>
+                <li><b>종합보험명 </b>: 렌트가공제조합</li>
+                <li><b>보상범위 및 비고</b></li>
+              </ul>
+              <div class="tblH" companyPartnerInsuranceInfo>
+                <table class="table table-striped">
+                  <colgroup>
+                    <col style="width:calc(100%/5)" span="5">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">파트너사명</th>
+                      <th scope="col">종합보험명</th>
+                      <th scope="col" colspan="2">보상범위</th>
+                      <th scope="col">비고</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="3" partnernm> <strong>EV Rent Car</strong></th>
+                      <th scope="row" rowspan="3">렌트카공제조합</th>
+                      <td>대인</td>
+                      <td>무제한</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>대물</td>
+                      <td>건당 2,000만원</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>자손</td>
+                      <td>건당 1,500만원</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <br>
+              <div class="titArea">
+                <h4 class="titDep4">자차보험</h4>
+              </div>
+              <div class="tblH">
+                <table class="table table-striped">
+                  <colgroup>
+                    <col style="width:calc(100%/3)" span="3">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">보상내용</th>
+                      <th scope="col" class="on" insuNm>보상범위</th>
+                      <th scope="col" superInsuNm>슈퍼무제한</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">면책금</th>
+                      <td class="on" insuranceDeductible>면제</td>
+                      <td superInsuranceDeductible>면제</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">보상한도</th>
+                      <td class="on" insuranceCoverageLimitAmount>300만원</td>
+                      <td superInsuranceCoverageLimitAmount>무제한</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">휴차보상료</th>
+                      <td class="on" insuranceLeaveCompensationYn>면제</td>
+                      <td superInsuranceLeaveCompensationYn>면제</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">단독사고</th>
+                      <td class="on" insuranceSoleAccidentCoverageYn>보상안됨</td>
+                      <td superInsuranceSoleAccidentCoverageYn>면제</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">휠/타이어</th>
+                      <td class="on" insuranceWheelAndTireCoverageYn>보상안됨</td>
+                      <td superInsuranceWheelAndTireCoverageYn>면제</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+            </div>
+            <!-- //차량/보험 -->
+
+            <!-- 업체정보 -->
+            <div id="tabContent06"></div>
+            <div id="tebContents04" class="anchorTab"></div>
+            <div id="tabContents04" class="tabContentWrap">
+              <div class="reviewArea">
+                <h4 class="titDep4" compName>여기 지점 위치 지도 넣기</h4>
+                <div class="compMap" compMap>
+                  <div id="map_div" style="width:1000px; height:400px"></div>
+                </div>
+
+              </div>
+            </div>
+            <!-- //업체정보 -->
+          </div>
         </div>
+
+        </div>
+
       </body>
 
       </html>

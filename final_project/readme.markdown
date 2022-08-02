@@ -112,3 +112,13 @@
 - rentcost carinfo list,read 에서 안보이게 하고 reservation에서만 보이게 만들기
 - 예약된 차량 확인 컬럼? or 테이블 생성 원함
 - 팀 점점 마무리 단계~
+
+#### 220802
+
+- read 유의사항 차량/보험 업체위치 추가
+- aria-selected or id 값으로 위치 찾기 연결 완료
+- 간단한 html, jss 적용 (table도 작성)
+- carinfo 추가 컬럼 생성 rentstatus 예약가능 0, 사용중(불가능) 1 int로 만들었고 어떻게 사용할지는 아직 생각중
+- kakao 지도 api 사용 할 예정 (위도, 경도 가져오는법 공부 필요)
+- 일단 가볍게 찾아보는 중
+- 여유시간 있어서 추가 할 거 있으면 해도 될 듯

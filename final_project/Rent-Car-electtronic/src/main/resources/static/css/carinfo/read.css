@@ -1,0 +1,149 @@
+ .layout {
+            display: flex;
+            justify-content: center;
+
+          }
+
+          .carinfocolor {
+            background: #F8F8F8;
+            align-items: center;
+          }
+
+          .carname {
+            font-weight: 600;
+            font-size: 3.75rem;
+            margin: -200px 861px 0 -190px;
+            font-family: Raleway, sans-serif !important;
+            margin-left: 110px;
+          }
+
+          .carinfo {
+            display: flex;
+            justify-content: center;
+            line-height: 2;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: -80px 13px 150px 13px;
+            font-family: Roboto, sans-serif !important;
+            margin-left: 770px;
+          }
+
+          .img {
+            display: flex;
+            justify-content: center;
+            margin-left: 350px;
+          }
+
+          .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 3%;
+
+          }
+
+          .Abtn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+          }
+
+          .res {
+            border-style: solid;
+            border-radius: 23px !important;
+            border-color: #000000 !important;
+            color: #000000 !important;
+            background-color: transparent !important;
+            margin-left: 500px;
+          }
+
+          .option {
+            background-color: rgb(228, 248, 246);
+            text-align: center;
+            font-size: 1.6rem;
+            border-style: solid;
+            border-radius: 23px !important;
+            border-color: #000000 !important;
+            color: #000000 !important;
+          }
+
+          .option>span.on {
+            color: #000000;
+            border-color: #63a1ff;
+            background-color: #fff;
+            border-style: solid;
+            border-radius: 10px !important;
+            border-color: #000000 !important;
+          }
+
+          .option>span.off {
+            color: #000000;
+          }
+
+          .plusbutton {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+          }
+
+          .tabCont {
+            margin: 100px;
+          }
+
+          .infoTypeIco {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+          }
+
+          div.txt {
+            margin: 0 100px 0 100px;
+          }
+
+          #tabContent01,
+          #tabContent02,
+          #tabContent03,
+          #tabContent04,
+          #tabContent05,
+          #tabContent06 {
+            display: block;
+            height: 9px;
+            margin: 30px -20px;
+            border-top: 1px solid #EAEAEA;
+            background: #F8F8F8;
+          }
+
+          .fig {
+            display: inline-block;
+            width: 72px;
+            height: 72px;
+            padding-top: 20px;
+            border-radius: 50%;
+            background: #F8F8F8;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+
+          .beware {
+            background-color: rgb(243, 220, 220);
+          }
+
+          [class^=tbl] th:first-child,
+          [class^=tbl] td:first-child {
+            border-left: none;
+          }
+
+          [class^=tbl] th {
+            color: #202020;
+            font-weight: 600;
+            background: #F8F8F8;
+          }
+
+          [class^=tbl] th,
+          [class^=tbl] td {
+            padding: 12px 16px;
+            line-height: 1.44;
+            border-left: 1px solid #EAEAEA;
+            border-top: 1px solid #EAEAEA;
+          }

@@ -41,7 +41,7 @@ rvClient.getNearestPanoId(position, 50, function (panoId) {
 function toggleMapWrapper(active, position) {
 if (active) {
 
-    // 지도를 감싸고 있는 div의 너비가 100%가 되도록 class를 변경합니다 
+    // 지도를 감싸고 있는 div의 너비가 100%가 되도록 class를 변경합니다
     container.className = '';
 
     // 지도의 크기가 변경되었기 때문에 relayout 함수를 호출합니다
@@ -76,7 +76,7 @@ if (active) {
     // 지도 위에 마커를 표시합니다
     dong_dong.setMap(map);
 
-    // 마커의 위치를 지도 중심으로 설정합니다 
+    // 마커의 위치를 지도 중심으로 설정합니다
     dong_dong.setPosition(map.getCenter());
 
     // 로드뷰의 위치를 지도 중심으로 설정합니다
@@ -132,16 +132,16 @@ facilitie(lat, lng);
 
 var mapCenter = new kakao.maps.LatLng(lat, lng);
 
-// 로드뷰 객체를 생성합니다 
+// 로드뷰 객체를 생성합니다
 rv = new kakao.maps.Roadview(rvContainer);
 
-// 좌표로부터 로드뷰 파노라마 ID를 가져올 로드뷰 클라이언트 객체를 생성합니다 
+// 좌표로부터 로드뷰 파노라마 ID를 가져올 로드뷰 클라이언트 객체를 생성합니다
 rvClient = new kakao.maps.RoadviewClient();
 
-// 로드뷰에 좌표가 바뀌었을 때 발생하는 이벤트를 등록합니다 
+// 로드뷰에 좌표가 바뀌었을 때 발생하는 이벤트를 등록합니다
 kakao.maps.event.addListener(rv, 'position_changed', function () {
 
-    // 현재 로드뷰의 위치 좌표를 얻어옵니다 
+    // 현재 로드뷰의 위치 좌표를 얻어옵니다
     var rvPosition = rv.getPosition();
 
     // 지도의 중심을 현재 로드뷰의 위치로 설정합니다
@@ -175,7 +175,7 @@ dong_dong = new kakao.maps.Marker({
 // 마커에 dragend 이벤트를 등록합니다
 kakao.maps.event.addListener(dong_dong, 'dragend', function (mouseEvent) {
 
-    // 현재 마커가 놓인 자리의 좌표입니다 
+    // 현재 마커가 놓인 자리의 좌표입니다
     var position = dong_dong.getPosition();
 
     // 마커가 놓인 위치를 기준으로 로드뷰를 설정합니다
@@ -184,12 +184,12 @@ kakao.maps.event.addListener(dong_dong, 'dragend', function (mouseEvent) {
 
 //지도에 클릭 이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
-    // 지도 위에 로드뷰 도로 오버레이가 추가된 상태가 아니면 클릭이벤트를 무시합니다 
+    // 지도 위에 로드뷰 도로 오버레이가 추가된 상태가 아니면 클릭이벤트를 무시합니다
     if (!overlayOn) {
         return;
     }
 
-    // 클릭한 위치의 좌표입니다 
+    // 클릭한 위치의 좌표입니다
     var position = mouseEvent.latLng;
 
     // 마커를 클릭한 위치로 옮깁니다
@@ -273,7 +273,6 @@ for (let i = 0; i < itemlist.length; i++) {
         <p>` + itemlist[i].road_address_name + `</p>
     </div>
 </div>
-
 <div class="dbox w-100 d-flex align-items-center">
     <div class="icon d-flex align-items-center justify-content-center">
         <span class="fa fa-phone"></span>
@@ -282,7 +281,6 @@ for (let i = 0; i < itemlist.length; i++) {
         <p>+ ` + itemlist[i].phone + `</p>
     </div>
 </div>
-
 <div class="dbox w-100 d-flex align-items-center">
     <div class="icon d-flex align-items-center justify-content-center">
         <span class="fa fa-car"></span>
@@ -291,7 +289,6 @@ for (let i = 0; i < itemlist.length; i++) {
         <p> `+ itemlist[i].distance + ` 미터</p>
     </div>
 </div>
-
 <div class="dbox w-100 d-flex align-items-center">
     <div class="icon d-flex align-items-center justify-content-center">
         <span class="fa fa-globe"></span>
@@ -319,7 +316,7 @@ return positions;
 async function facilitie(lat, lng) {
 // 주소 - 좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
-var imageSrc = 'https://user-images.githubusercontent.com/65659478/180254439-8cbfce96-f040-4900-9d22-86fd1943d73c.png', // 마커이미지의 주소입니다    
+var imageSrc = 'https://user-images.githubusercontent.com/65659478/180254439-8cbfce96-f040-4900-9d22-86fd1943d73c.png', // 마커이미지의 주소입니다
     imageSize = new kakao.maps.Size(100, 62), // 마커이미지의 크기입니다
     imageOption = { offset: new kakao.maps.Point(50, 62) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
@@ -346,6 +343,8 @@ itemlist.forEach(obj => { geo(obj) })
 function geo(obj) {
 
     var store = new kakao.maps.LatLng(obj.x, obj.y);
+
+
 
     var marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도

@@ -98,7 +98,7 @@
         caryearmodel = #{caryearmodel},
         carseate = #{carseate},
         carpoint = #{carpoint},
-        rentstatus = #{status}
+        rentstatus = #{rentstatus}
         where carnumber =#{carnumber}
     </update>
 </mapper>

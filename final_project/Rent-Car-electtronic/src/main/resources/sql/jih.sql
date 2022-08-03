@@ -63,7 +63,7 @@ from carinfo c inner join caroption o
 on c.carnumber = o.carnumber
 where c.carnumber = '95장0311';
 
-select c.carnumber, c.carname, c.carprice, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate
+select c.carnumber, c.carname, c.carprice, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate,
 o.bluetooth, o.rear_sensor, o.rear_camera, o.black_box, o.heated_seat, o.heated_handle, o.ventilated_seat, o.navigation, o.non_smoking_vehicle,
 o.smart_key, o.sunroof, o.rear_warning_light, o.lane_departure_prevention
 from carinfo c inner join caroption o

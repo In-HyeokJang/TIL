@@ -96,7 +96,7 @@
     </body>
 <script>
       // $("#btt").click(function () {
-        $("#filenameMF").change(function(){ 
+        $("#filenameMF").change(function(){
         data = new FormData();
         data.append("filenameMF", $("input[name=filenameMF]")[0].files[0]);
 
@@ -114,9 +114,9 @@
             console.log(data.path);
 
             document.querySelector("#carimage").value = data.path;
-            // function product(){ 
+            // function product(){
             //   return data.path; }
-            
+
 
           },
           error: function () {

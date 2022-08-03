@@ -9,171 +9,16 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/carinfo/read.css">
+        <link rel="stylesheet" type="text/css" href="/css/carinfo/readmap.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-
           function optupdate() {
             let windowObjectReference;
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
             windowObjectReference = window.open("/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
-
-
           }
-
         </script>
-        <style>
-          .layout {
-            display: flex;
-            justify-content: center;
-
-          }
-
-          .carinfocolor {
-            background: #F8F8F8;
-            align-items: center;
-          }
-
-          .carname {
-            font-weight: 600;
-            font-size: 3.75rem;
-            margin: -200px 861px 0 -190px;
-            font-family: Raleway, sans-serif !important;
-            margin-left: 110px;
-          }
-
-          .carinfo {
-            display: flex;
-            justify-content: center;
-            line-height: 2;
-            font-weight: 700;
-            font-size: 1.8rem;
-            margin: -80px 13px 150px 13px;
-            font-family: Roboto, sans-serif !important;
-            margin-left: 770px;
-          }
-
-          .img {
-            display: flex;
-            justify-content: center;
-            margin-left: 350px;
-          }
-
-          .button {
-            display: flex;
-            justify-content: center;
-            margin-top: 3%;
-
-          }
-
-          .Abtn {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 50px;
-          }
-
-          .res {
-            border-style: solid;
-            border-radius: 23px !important;
-            border-color: #000000 !important;
-            color: #000000 !important;
-            background-color: transparent !important;
-            margin-left: 500px;
-          }
-
-          .option {
-            background-color: rgb(228, 248, 246);
-            text-align: center;
-            font-size: 1.6rem;
-            border-style: solid;
-            border-radius: 23px !important;
-            border-color: #000000 !important;
-            color: #000000 !important;
-          }
-
-          .option>span.on {
-            color: #000000;
-            border-color: #63a1ff;
-            background-color: #fff;
-            border-style: solid;
-            border-radius: 10px !important;
-            border-color: #000000 !important;
-          }
-
-          .option>span.off {
-            color: #000000;
-          }
-
-          .plusbutton {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-          }
-
-          .tabCont {
-            margin: 100px;
-          }
-
-          .infoTypeIco {
-            flex: 1;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-          }
-
-          div.txt {
-            margin: 0 100px 0 100px;
-          }
-
-          #tabContent01,
-          #tabContent02,
-          #tabContent03,
-          #tabContent04,
-          #tabContent05,
-          #tabContent06 {
-            display: block;
-            height: 9px;
-            margin: 30px -20px;
-            border-top: 1px solid #EAEAEA;
-            background: #F8F8F8;
-          }
-
-          .fig {
-            display: inline-block;
-            width: 72px;
-            height: 72px;
-            padding-top: 20px;
-            border-radius: 50%;
-            background: #F8F8F8;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-          }
-
-          .beware {
-            background-color: rgb(243, 220, 220);
-          }
-
-          [class^=tbl] th:first-child,
-          [class^=tbl] td:first-child {
-            border-left: none;
-          }
-
-          [class^=tbl] th {
-            color: #202020;
-            font-weight: 600;
-            background: #F8F8F8;
-          }
-
-          [class^=tbl] th,
-          [class^=tbl] td {
-            padding: 12px 16px;
-            line-height: 1.44;
-            border-left: 1px solid #EAEAEA;
-            border-top: 1px solid #EAEAEA;
-          }
-        </style>
-
-
       </head>
 
       <body>
@@ -275,9 +120,6 @@
               <p class="button">
               <div>
                 <a class="res" href="#">RESERVATION</a>
-                <button>
-                  <a href="javascript:history.back()">
-                    뒤로</a></button>
               </div>
 
               <div class="Abtn">
@@ -297,10 +139,12 @@
             <div class="boxWhite">
               <div class="plusbutton">
                 <ul class="pulsbutton01">
-                  <a href="#tabContents01" role="button" class="tabCont" aria-selected="true" data-controls="tabContents01">유의사항</a>
+                  <a href="#tabContents01" role="button" class="tabCont" aria-selected="true"
+                    data-controls="tabContents01">유의사항</a>
                   <a href="#tebContents03" role="button" class="tabCont" aria-selected="false"
                     data-controls="tabContents02">차량/보험</a>
-                  <a href="#tebContents04" role="button" class="tabCont" aria-selected="false" data-controls="tabContents04">업체위치</a>
+                  <a href="#tebContents04" role="button" class="tabCont" aria-selected="false"
+                    data-controls="tabContents04">차 위치</a>
                 </ul>
               </div>
               <!-- 유의사항 -->
@@ -337,7 +181,7 @@
                 </div>
               </div>
             </div>
-            
+
 
             <!-- //유의사항 -->
             <!-- 차량/보험 -->
@@ -418,9 +262,8 @@
                   </tbody>
                 </table>
               </div>
-              <br>
               <div class="titArea">
-                <h4 class="titDep4">자차보험</h4>
+                <h4 class="titDep4">자차보험</h4><br>
               </div>
               <div class="tblH">
                 <table class="table table-striped">
@@ -473,17 +316,42 @@
             <div id="tebContents04" class="anchorTab"></div>
             <div id="tabContents04" class="tabContentWrap">
               <div class="reviewArea">
-                <h4 class="titDep4" compName>여기 지점 위치 지도 넣기</h4>
-                <div class="compMap" compMap>
-                  <div id="map_div" style="width:1000px; height:400px"></div>
-                </div>
-
+                <h4 class="titDep4" compName>차 위치</h4><br>
               </div>
             </div>
-            <!-- //업체정보 -->
-          </div>
-        </div>
+            
+            <div class="map_wrap">
+    
+                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    
+               
+    
+    
+                <div class="hAddr">
+                    <span class="title">${dto.carpoint}<br>
+                    </span>
 
+                </div>
+            </div>
+    
+            <script type="text/javascript"
+                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
+    
+            <!-- SHow up Map layout and Poiner -->
+            <script src="/js/carinfo/map_read.js"></script>
+
+          </div>
+
+        </div>
+        </div>
+        <!-- //업체정보 -->
+        </div>
+        </div>
+        <p class="button">
+<button>
+                  <a href="javascript:history.back()">
+                    뒤로</a></button>
+                  </p>
         </div>
 
       </body>

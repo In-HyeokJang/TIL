@@ -117,7 +117,7 @@
 
 - read 유의사항 차량/보험 업체위치 추가
 - aria-selected or id 값으로 위치 찾기 연결 완료
-- 간단한 html, jss 적용 (table도 작성)
+- 간단한 html, css 적용 (table도 작성)
 - carinfo 추가 컬럼 생성 rentstatus 예약가능 0, 사용중(불가능) 1 int로 만들었고 어떻게 사용할지는 아직 생각중
 - kakao 지도 api 사용 할 예정 (위도, 경도 가져오는법 공부 필요)
 - 일단 가볍게 찾아보는 중

@@ -140,3 +140,12 @@
 - option 다 수정하고 나서 reload 안됨.. 버그 찾아야함
 - 지도 x, y 값 못찾음
 - 다른 폴더에 있는거 복사 붙여 넣기 하지 말기...
+
+#### 220805
+
+- option update / create 오류 해결 완료
+- 지도 x, y 값 carinfo 컬럼 추가해서 read (hidden) 으로 저장하고 js 에서 불러 오는거 완료
+- 마크 아이콘 추가 하기
+- read caroption css 수정
+- 지도 아이콘만 추가 하면 될듯
+- 팀원 병합 완료

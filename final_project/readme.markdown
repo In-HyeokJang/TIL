@@ -132,3 +132,11 @@
 - 예약 어떻게 할지 생각 더 필요
 - x,y 경도, 위도 찾는법 구글맵에서 지도 클릭 아이콘 나오면 한번더 클릭하면 나옴
 - 내일 할거 map_read.js에 x, y 값 가져오게 하고 controller, service, mapper, serviceImpl 완료 마무리 하기
+
+#### 220804
+
+- 갑자기 리드 option update 오류 나서 수정함
+- option create 도 오류 나서 수정
+- option 다 수정하고 나서 reload 안됨.. 버그 찾아야함
+- 지도 x, y 값 못찾음
+- 다른 폴더에 있는거 복사 붙여 넣기 하지 말기...

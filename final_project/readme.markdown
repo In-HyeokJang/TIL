@@ -153,3 +153,12 @@
 #### 220806
 
 - 마크 아이콘 추가 즐겨찾기 확인
+
+#### 220808
+
+- 지도 마크 모양 만들고 지도에 나오게 하는거 추가 완료
+- 경도, 위도 값 create, 경도 위도 update complete
+- springboot, framework 공부하기 jsp 사용 안함 xml 고인물, jpa? jpql? 공부하기(query 중심으로 사용하는거 같음 실직으로 일하면 편할수도 있어 보임 mvc 도 이거롤 한다고 간단하게 들음)
+- ppt 만들기(my ppt part 4page), 발표 할 부분 준비
+- admin, user top 에맞춰서 준비
+- 예약 완성 되면 연동 시키기

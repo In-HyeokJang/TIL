@@ -2,6 +2,7 @@ package com.rentcar.list.mapper;
 
 
 import com.rentcar.list.model.ListDTO;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -16,5 +17,5 @@ public interface ListMapper {
     int update(ListDTO dto);
     int delete(int listno);
 
-    void recommend(int listno);
+    int recommend(int listno);
 }

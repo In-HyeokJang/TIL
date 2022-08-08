@@ -1,6 +1,7 @@
 package com.rentcar.notice.model;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class NoticeDTO {
@@ -11,5 +12,8 @@ public class NoticeDTO {
     private String passwd       ;
     private String wdate        ;
     private String fname        ;
+    private String key;
+
+    private MultipartFile fnameMF;
 
 }

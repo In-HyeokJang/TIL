@@ -35,6 +35,7 @@
 }
 
 .containerReserve{
+    diplay: center;
     border-radius: 20%;
     padding: 10px;
     border: 2px;
@@ -72,21 +73,21 @@
     width: 120px;
     height: 70px;
     font-size: 1.5em;
-    
+
 }
 
 .reserveBtn:hover{
     background-color: #5abdff;
     color: white;
 }
-
+/* 에러부분 */
 body {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
 
+}
 /*충전소 검색, 주변 편의시설 검색*/
 
 .containerFindDiv{

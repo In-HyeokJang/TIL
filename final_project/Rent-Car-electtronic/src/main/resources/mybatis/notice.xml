@@ -5,47 +5,44 @@
 
 <mapper namespace="com.rentcar.notice.mapper.NoticeMapper">
 
+	<update id="update"  parameterType="com.rentcar.notice.model.NoticeDTO">
+		UPDATE notice
+		SET title=#{title}, content=#{content}, wname=#{wname}, fname = #{fname}
+		WHERE noticeno=#{noticeno}
+	</update>
+
+	<update id="deleteFile" parameterType="int">
+		update notice
+		set fname = null
+		where noticeno=#{noticeno}
+	</update>
+
 	<delete id="delete" parameterType="int">
-		DELETE FROM projectNotice
+		DELETE FROM notice
 		WHERE noticeno=#{noticeno};
 	</delete>
 
 	<select id="passwd" resultType="int" parameterType="HashMap">
 		SELECT COUNT(*) AS cnt
-		FROM projectNotice
+		FROM notice
 		WHERE noticeno=#{noticeno} AND passwd=#{passwd}
 	</select>
 
 	<insert id="create" parameterType="com.rentcar.notice.model.NoticeDTO">
-
-		<choose>
-
-		<when test="fname == null">
-			INSERT INTO projectNotice(title, content, wname, passwd, wdate)
-				VALUES(#{title}, #{content}, #{wname}, #{passwd}, NOW())
-
-		</when>
-
-			<otherwise>
-				INSERT INTO projectNotice(title, content, wname, passwd, wdate, fname)
-				VALUES(#{title}, #{content}, #{wname}, #{passwd}, NOW(), #{fname})
-
-			</otherwise>
-
-		</choose>
-
+			INSERT INTO notice(title, content, wname, passwd, wdate, fname, `key`)
+			VALUES(#{title}, #{content}, #{wname}, #{passwd}, NOW(), #{fname}, #{key})
 	</insert>
 
-  <select id="read" resultType="com.rentcar.notice.model.NoticeDTO"  parameterType="int">
-    SELECT noticeno, title, content, wname, passwd, fname, wdate
-    FROM projectNotice
+  <select id="read" resultType="com.rentcar.notice.model.NoticeDTO" parameterType="int">
+    SELECT noticeno, title, content, wname, passwd, fname, wdate,`key`
+    FROM notice
     WHERE noticeno=#{noticeno}
   </select>
   
   <select id="list" parameterType="Map"
 		resultType="com.rentcar.notice.model.NoticeDTO">
-		SELECT noticeno, title, wname, wdate, fname
-		FROM projectNotice
+		SELECT noticeno, title, wname, wdate, fname, `key`
+		FROM notice
 		<where>
 			<choose>
 				<when test="col=='wname'">
@@ -69,7 +66,7 @@
 	</select>
 
 	<select id="total" parameterType="Map" resultType="int">
-		select count(*) from projectNotice
+		select count(*) from notice
 		<where>
 			<choose>
 				<when test="col=='wname'">

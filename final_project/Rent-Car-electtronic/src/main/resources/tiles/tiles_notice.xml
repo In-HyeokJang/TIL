@@ -7,14 +7,24 @@
 
     <definition name="main"
                 template="/WEB-INF/views/template/template.jsp">
+
         <put-attribute name="header"
                        value="/WEB-INF/views/template/top.jsp" />
+
+        <put-attribute name="footer"
+                       value="/WEB-INF/views/template/footer.jsp" />
     </definition>
 
     <definition name="/home" extends="main">
         <put-attribute name="title" value="기본페이지"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/main.jsp" />
+    </definition>
+
+    <definition name="/notice/update" extends="main">
+        <put-attribute name="title" value="수정"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/views/notice/updateForm.jsp" />
     </definition>
 
     <definition name="/notice/delete" extends="main">

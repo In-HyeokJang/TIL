@@ -102,7 +102,42 @@
   </div>
 </body>
 <script>
+//   $("#closebtn").click(function () {
 
+// var data = {
+// 		"carnumber" : carnumber,
+// 		"bluetooth" : bluetooth,
+// 		"rear_sensor" : rear_sensor,
+// 		"rear_camera" : rear_camera,
+// 		"black_box" : black_box,
+// 		"heated_seat" : heated_seat,
+// 		"heated_handle" : heated_handle,
+// 		"navigation" : navigation,
+// 		"ventilated_seat" : ventilated_seat,
+// 		"non_smoking_vehicl" : non_smoking_vehicl,
+// 		"smart_key" : smart_key,
+// 		"sunroof" : sunroof,
+// 		"rear_warning_light" : rear_warning_light,
+// 		"lane_departure_prevention" : lane_departure_prevention
+// 	}
+// $.ajax({
+//         type : "post",
+// 	    url : "/carinfo/optcreate",
+// 	    data : JSON.stringify(data),
+// 	    //data: data,
+// 	    // dataType:"json",
+// 	    contentType: "application/json",
+// 	}).then((res) => {
+//         if(res == "true"){
+//           alert("등록했습니다.");
+//           window.close();
+//         }
+//       })
+//       .catch(() => {
+//                       alert("잠시후 다시 시도해 보세요.");
+//                       window.close();
+//                   });;
+//     });
 
 $(function() {
 

@@ -13,7 +13,7 @@
             resultType="com.rentcar.member.model.MemberDTO">
         select *
         from user
-        where id =#{id}
+<!--        where id =#{id}-->
     </select>
 
     <select id="reservation" parameterType="String"

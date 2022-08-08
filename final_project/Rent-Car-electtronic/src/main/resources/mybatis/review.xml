@@ -4,7 +4,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.rentcar.review.mapper.ReviewMapper">
+<mapper namespace="com.rentcar.notice.model.review.mapper.ReviewMapper">
 
     <delete id="bdelete" parameterType="int">
         delete from review
@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     </delete>
 
-    <select id="list" parameterType="int" resultType="com.rentcar.review.model.ReviewDTO">
+    <select id="list" parameterType="int" resultType="com.rentcar.notice.model.review.model.ReviewDTO">
 
         select rnum, content, regdate, id,listno
         from review
@@ -32,17 +32,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE listno=#{listno}
     </select>
 
-    <insert id="create" parameterType="com.rentcar.review.model.ReviewDTO">
+    <insert id="create" parameterType="com.rentcar.notice.model.review.model.ReviewDTO">
         insert into review(content, regdate, id, listno)
         values(#{content}, sysdate(),'sss'  ,#{listno})
     </insert>
 
-    <select id="read" parameterType="int" resultType="com.rentcar.review.model.ReviewDTO">
+    <select id="read" parameterType="int" resultType="com.rentcar.notice.model.review.model.ReviewDTO">
         select * from review
         where rnum = #{rnum}
     </select>
 
-    <update id="update" parameterType="com.rentcar.review.model.ReviewDTO">
+    <update id="update" parameterType="com.rentcar.notice.model.review.model.ReviewDTO">
         update review
         set content = #{content}
         where rnum = #{rnum}

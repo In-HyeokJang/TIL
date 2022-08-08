@@ -1,148 +1,150 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>조회</title>
-<meta charset="utf-8">
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+    <%@ taglib prefix="util" uri="/ELFunctions" %>
+    <!DOCTYPE html>
+    <html>
+    <head>
+<link rel="shortcut icon" href="#">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>JS Bin</title>
+       <link rel="stylesheet" type="text/css" href="/css/list/read.css"/>
+       <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-<script type="text/javascript">
-	function updateM() {
-		var url = "/contents/list/update";
-		url += "?listno=${dto.listno}";
-		location.href = url;
-	}
-function deleteM() {
-		var url = "/contents/list/delete";
-		url += "?listno=${dto.listno}";
-		location.href = url;
-	}
+<style>
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
 
-	function listM() {
-		var url = "/contents/list";
-		url += "?nowPage=${param.nowPage}";
-		url += "&col=${param.col}";
-		url += "&word=${param.word}";
-		location.href = url;
-	}
-</script>
+  </style>
+    </head>
+    <body>
 
-</head>
-<body>
-	<div class="container">
+<input type="hidden" name="listno" id="listno" value="${dto.listno}">
+      <div class="container">
+        <div id="div1">
+         <table class="table table-striped">
+          <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828413.png" style="height:20px; width:20px ">&nbsp;${dto.wname}</th>
+          <th>&emsp;${dto.rdate}&emsp;</th>
+          <th>조회수: ${dto.cnt}</th>
+             <div style="display: inline-block; margin: 0 5px;  float: right;">
+             <button id='btn_update' class='btn' style="width:10; height:5;" >글 수정</button>
+            <button id='btn_delete' class='btn' style="width:10; height:5;" >글 삭제</button>
 
-		 <h2>조회</h2>
-		<div class="panel panel-default">
-			<div class="panel-heading">작성자</div>
-			<div class="panel-body">${dto.wname}</div>
-
-			<div class="panel-heading">제목</div>
-			<div class="panel-body">${dto.title}</div>
-
-			<div class="panel-heading">내용</div>
-			<div class="panel-body">${dto.content}</div>
-
-			<div class="panel-heading">조회수</div>
-			<div class="panel-body">${dto.cnt}</div>
-
-			<div class="panel-heading">등록일</div>
-			<div class="panel-body">${dto.rdate}</div>
-
-		</div>
-		<div>
-		 <c:if test="${sessionScope.grade=='A' }">
-			<button type="button" class="btn" onclick="location.href='/list/create'">등록</button>
-			<button type="button" class="btn" onclick="updateM()">수정</button>
-			<button type="button" class="btn" onclick="deleteM()">삭제</button>
-		</c:if>
-		<button type="button" class="btn" onclick="location.href='/contents/list/create'">등록</button>
-        <button type="button" class="btn" onclick="updateM()">수정</button>
-        <button type="button" class="btn" onclick="deleteM()">삭제</button>
-		<button type="button" class="btn" onclick="listM()">목록</button>
-		</div>
-	</div>
-<hr>
-	<div class="panel panel-default">
-
-    <div class="panel-heading">
-            <i class="fa fa-comments fa-fw"></i> 댓글
-            <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right'>New review</button>
-    </div>
+             </div>
 
 
-
-
-<!-- 댓글 -->
-    <div class="panel-body">
-
-            <ul class="chat list-group">
-                    <li class="left clearfix" data-rno="12">
-                            <div>
-                                    <div class="header">
-                                            <strong class="primary-font">user1</strong> <small
-                                                    class="pull-right text-muted">2019-05-12</small>
-                                    </div>
-                                    <p>Good job!</p>
-
-                            </div>
-                    </li>
-            </ul>
-            <!-- ul end  -->
-    </div>
-
-    <div class="panel-footer">1234</div>
-
-    </div>
-    <!-- panel end-->
-    </div>
-    <!-- <!--  col-lg-12 end -->
-    </div>
-    <!-- row end -->
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"
-            aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">review MODAL</h4>
+          </table>
         </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>내용</label>
-            <textarea cols="10" rows="3" class="form-control" name='content'>New review!!!!</textarea>
+        <br>
+        <div style="display: inline-block; margin: 0 5px;  float: right;"><span style="color: #787878;">
+        <a style="color: #787878;" href="/contents/list">목록</a>
+    |   <a style="color: #787878;" href="javascript:void(0);" onClick="document.getElementById('powerbbsCmt2').scrollIntoView();">추천(<span style="color:#F94B4B;">${dto.recommend}</span>)</a>
+          </span></div>
+          <br><br><br>
+        <h1>${dto.title}</h1>
+
+        <br><br><br>
+        <h3>${dto.content}</h3>
+
+          <br><br><br>
+          <div style="display: flex;   justify-content : center;">
+          <button id="btn1" style="border-radius: 30px;"><img src="/images/SJ/free-icon-thumb-up-889221.png" style="height:130px;"></button>
           </div>
-        </div>
-    <div class="modal-footer">
-    <button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
-    <button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
-    <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
-    <button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
-    </div>
-    </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+            <br><br><br>
+            <div id=review>
+                   <img src="https://cdn-icons-png.flaticon.com/512/4909/4909922.png" style="height:30px; width:30px "> <span style="font-size: 25px;">댓글</span>  <a style="color: #787878;">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;등록순</a>
+                <a style="display: inline-block; margin: 0 5px;  float: right; cursor: pointer; color: #787878;"  onClick="window.location.reload()">새로고침</a>
+            </div>
+            <hr>
+            <!-- -------------------------------------------------------------------------  -->
+
+ <table class="table table-striped">
+
+   <tbody>
+
+<c:choose>
+<c:when test="${empty list}">
+   <tr><td colspan="6">댓글이 없습니다.</td></tr>
+</c:when>
+<c:otherwise>
+
+   <c:forEach var="list" items="${list}">
+<input type="hidden" value="${list.rnum}" id="rnum">
+
+<strong class="title">
+<img src="https://cdn-icons-png.flaticon.com/128/1465/1465265.png" style=" height:30px; width:30px;">
+<span class="nickname" data-is-writer="1" style="padding: 1em;">${dto.wname}</span>
+<span class="date">(${list.regdate})</span>
 
 
-    <script>
-      let listno = "${dto.listno}";
-     let sno = "${sno}";
-      let eno = "${eno}";
-      <!-- 댓글용 paging 로그인 id -->
-      let nPage = "${nPage}";
-      let id = "${sessionScope.id}";
-   </script> 
 
-    <script src="/js/producer.js" defer></script>
+</strong>
+<br><br>
 
-    <script src="/js/consumer.js" defer></script>
-</body>
-</html>
+
+
+    <a >${list.content}</a>
+    <div style="display: inline-block; margin: 0 5px;  float: right;">
+   <button id='delete' class='delete' style="width:20; height:20;">삭 제</button>
+    </div>
+    <br>
+      <br>
+    <hr>
+
+
+
+
+   </c:forEach>
+   </c:otherwise>
+   </c:choose>
+
+   </tbody>
+
+  </table>
+
+
+              <!-- -------------------------------------------------------------------------  -->
+
+             <table  style=" width:930px; height:150px; margin:0 auto;">
+             <th>
+                <textarea id="review11" name="content" class="content" rows="8" tabindex="99" placeholder="명예훼손,개인정보 유출,분쟁,허위사실 유포 등의 글은 이용약관에 의해 제재는
+법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부 드립니다." style="width:830px; height:70px;"></textarea>
+             </th>
+             <th>
+             <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right' type="button" style="width:100px; height:70px;" >등 록</button>
+
+             </th>
+             </table>
+
+
+
+
+
+
+
+    </div>
+                   <script>
+                     let listno = "${dto.listno}";
+                    let sno = "${sno}";
+                     let eno = "${eno}";
+                     <!-- 댓글용 paging 로그인 id -->
+                     let nPage = "${nPage}";
+                     let id = "${sessionScope.id}";
+
+
+
+                  </script>
+
+
+
+
+
+
+ <script src="/js/list/read.js" defer></script>
+
+    </body>
+    </html>

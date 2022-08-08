@@ -7,14 +7,18 @@
   <!-- main -->
   <definition name="main"
     template="/WEB-INF/views/template/template.jsp">
+
     <put-attribute name="header"
       value="/WEB-INF/views/template/top.jsp" />
+
+	  <put-attribute name="footer"
+					 value="/WEB-INF/views/template/footer.jsp" />
   </definition>
 
   <definition name="/home" extends="main">
-    <put-attribute name="title" value="기본페이지"></put-attribute>
+    <put-attribute name="title" value="ISOSIM Rent-Car"></put-attribute>
     <put-attribute name="body"
-      value="/WEB-INF/views/index.jsp" />
+      value="/WEB-INF/views/main.jsp" />
   </definition>
   
   	<definition name="/user/login" extends="main">
@@ -36,9 +40,34 @@
 	</definition>
 
 	<definition name="/user/idfind" extends="main">
-		<put-attribute name="title" value="아이디찾기"></put-attribute>
+		<put-attribute name="title" value="아이디 찾기"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/login/idFindForm.jsp" />
 	</definition>
- 
+	<definition name="/user/pwfind" extends="main">
+		<put-attribute name="title" value="비밀번호 찾기"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/login/pwFindForm.jsp" />
+	</definition>
+	<definition name="/user/update" extends="main">
+		<put-attribute name="title" value="회원정보 수정"></put-attribute>
+		<put-attribute name="body"
+					   value="/WEB-INF/views/login/updateForm.jsp" />
+	</definition>
+	<definition name="/user/delete" extends="main">
+		<put-attribute name="title" value="회원탈퇴"></put-attribute>
+		<put-attribute name="body"
+					   value="/WEB-INF/views/login/deleteForm.jsp" />
+	</definition>
+	<definition name="/user/list" extends="main">
+		<put-attribute name="title" value="회원목록"></put-attribute>
+		<put-attribute name="body"
+					   value="/WEB-INF/views/login/list.jsp" />
+	</definition>
+	<definition name="/user/read" extends="main">
+		<put-attribute name="title" value="회원정보"></put-attribute>
+		<put-attribute name="body"
+					   value="/WEB-INF/views/login/read.jsp" />
+	</definition>
+
 </tiles-definitions>

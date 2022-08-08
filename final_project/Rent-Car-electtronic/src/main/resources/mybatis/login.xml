@@ -6,6 +6,76 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.rentcar.login.mapper.LoginMapper">
 
+	<delete id="delete" parameterType="com.rentcar.login.model.LoginDTO">
+		delete from user
+		where id = #{id},
+		and passwd = #{passwd}
+	</delete>
+
+	<select id="total" parameterType="Map" resultType="int">
+		select count(*) from user
+		<where>
+			<choose>
+				<when test="col=='mname'">
+					mname like concat('%', #{word} ,'%')
+				</when>
+				<when test="col=='id'">
+					id like concat('%', #{word} ,'%')
+				</when>
+				<when test="col=='email'">
+					email like concat('%', #{word} ,'%')
+				</when>
+			</choose>
+		</where>
+	</select>
+
+	<select id="list" parameterType="Map" resultType="com.rentcar.login.model.LoginDTO">
+		select
+		id, mname, phone, email, license, pnt, zipcode, address1, address2
+		from
+		user
+		<where>
+			<choose>
+				<when test="col=='mname'">
+					mname like concat('%', #{word} ,'%')
+				</when>
+				<when test="col=='id'">
+					id like concat('%', #{word} ,'%')
+				</when>
+				<when test="col=='email'">
+					email like concat('%', #{word} ,'%')
+				</when>
+			</choose>
+		</where>
+		ORDER BY mdate DESC
+		limit #{sno}, #{eno}
+	</select>
+
+	<update id="update" parameterType="com.rentcar.login.model.LoginDTO">
+		update user
+		set
+		phone = #{phone},
+		email = #{email},
+		zipcode = #{zipcode},
+		address1 = #{address1},
+		address2 = #{address2}
+		where id = #{id}
+	</update>
+
+	<select id="read" parameterType="String" resultType="com.rentcar.login.model.LoginDTO">
+		select *
+		from user
+		where id = #{id}
+	</select>
+
+
+	<select id="pwFind" parameterType="Map" resultType="String">
+		select passwd 
+		from user
+		where id = #{id}
+		and mname = #{mname}
+	</select>
+
 	<select id="idFind" parameterType="Map" resultType="String">
 		select id 
 		from user
@@ -27,9 +97,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create" parameterType="com.rentcar.login.model.LoginDTO">
-		insert into user (id, passwd, mname, phone, email, license, 
+		insert into user (id, passwd, mname, phone, email, jumin, license,
 		grade, pnt, fname, zipcode, address1,address2)
-		values (#{id}, #{passwd},#{mname}, #{phone}, #{email}, #{license},
+		values (#{id}, #{passwd},#{mname}, #{phone}, #{email}, #{jumin}, #{license},
 				'H', '0', #{fname}, #{zipcode}, #{address1}, #{address2})
 	</insert>
 

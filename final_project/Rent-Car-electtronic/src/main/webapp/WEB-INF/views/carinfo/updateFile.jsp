@@ -79,7 +79,7 @@
       data.append("filenameMF", $("input[name=filenameMF]")[0].files[0]);
 
       console.log(data);
-      alert(data);
+      // alert(data);
 
       $.ajax({
         data: data,

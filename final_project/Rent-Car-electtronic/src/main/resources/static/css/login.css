@@ -1,0 +1,202 @@
+li{ list-style: none; } /* 기호나 번호를 제거 */
+a{ text-decoration: none; } /* 링크텍스트에 밑줄없앰 */
+button{ cursor: pointer; }
+
+body{
+background-color: #f8fafb;
+}
+
+p {
+  color: #489CFF;
+  font-weight: 500;
+  font-size:15px;}
+
+.loginbox{
+    width: 780px;
+    height: 550px;
+    margin: 0 auto; /* 블록요소를 부모영역에서 가운데 처리 */
+}
+.loginbox form{
+    width: 100%;
+    height: 450px;
+    background-color: #fff;
+    /* 패딩수치를 인사이드 처리 */
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.loginbox fieldset{
+    border: none; /* 테두리 제거 */
+}
+
+.loginbox label{
+    display: block;
+    font-size: 12px; color: #333;
+    margin-bottom: 10px; /* 동위선택자와의 간격 조정 */
+}
+.loginbox input{
+    margin-bottom: 25px; /* 동위선택자와의 간격 조정 */
+    border: none;
+    background-color:#F8FFFF;
+    padding: 0 20px; /* 앞상하 뒷좌우 */
+    box-sizing: border-box; /* 패딩수치를 인사이드 처리 */
+}
+.loginbox .info input{
+	    width: 100%; height: 50px;
+}
+
+.loginbox ul{
+    width: 100%;
+    text-align: right; /* 글자를 오른쪽으로 처리 */
+    margin-bottom: 60px;
+}
+.loginbox li{
+    display: inline-block;
+    height: 12px; line-height: 12px;
+}
+.loginbox li:last-child{
+    border-left: 1px solid #333;
+    padding-left: 10px; /* 테두리 안쪽 여백 */
+    margin-left: 4px; /* 테두리 바깥쪽 여백 */
+}
+
+
+  .form-block {
+  background: #fff;
+  padding: 60px;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1); }
+  @media (max-width: 991.98px) {
+    .form-block {
+      padding: 30px; } }
+
+  .form-block_2 {
+  background: #F8FFFF;
+  padding: 60px;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1); }
+  @media (max-width: 991.98px) {
+    .form-block {
+      padding: 30px; } }
+
+ .find{
+	font-size:15px;
+}
+.message{
+
+font-size:20px;
+float:left;
+width:500px;
+color: #0054FF;
+font-weight: 700;
+padding:20px;
+	}
+  .loginbtn {
+        display:block;
+        width:100%;
+        height:40px;
+        line-height:40px;
+        border:1px #ffffff solid;;
+        margin:15px auto;
+        background-color:#66aaff;
+        text-align:center;
+        color:#ffffff;
+        transition:all 0.9s, color 0.3;
+    }
+    .loginbtn:hover{
+    color:#000000;
+    }
+
+.agreebtn{
+        display:block;
+        width:200px;
+        height:40px;
+        line-height:40px;
+        border:1px #ffffff solid;
+        background-color:#66aaff;
+        text-align:center;
+        color:#ffffff;
+        transition:all 0.9s, color 0.3;
+}
+    .agreebtn:hover{
+    color:#000000;
+    }
+.btn_2{
+        display:block;
+        width:200px;
+        height:40px;
+        line-height:40px;
+        border:1px #ffffff solid;
+
+        text-align:center;
+        color:#400040;
+        transition:all 0.9s, color 0.3;
+}
+    .btn_2:hover{
+    color:#ffffff;
+    }
+
+.createbox{
+    width: 1000px;
+    height: 550px;
+    margin: 0 auto; /* 블록요소를 부모영역에서 가운데 처리 */
+}
+
+.createbox label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.createbox .info input{
+    margin-bottom: 25px;
+    border: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color:#F8FFFF;
+	    width: 300px;
+	    height: 40px;
+}
+.createbox .info_2 input{
+    margin-bottom: 25px;
+    border: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color:#E7E7E7;
+	    width: 300px;
+	    height: 40px;
+}
+.list_info input{
+    margin-bottom: 25px;
+    border: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color:#e3f2fd;
+	    width: 300px;
+	    height: 40px;
+}
+.cre_btn {
+        width:150px;
+        height:30px;
+        border:1px #3DB7CC solid;
+        background-color:#FFFFFF;
+        color:#3DB7CC;
+}
+    .cre_btn:hover{
+    color:#000000;
+    }
+
+  .cre_btn[disabled]{
+      opacity: 0.4;
+      cursor: default;
+      pointer-events: none;
+      color:red;
+    }
+
+    .cre_btn2{
+         width:150px;
+        height:30px;
+        border:1px #A6A6A6 solid;
+        background-color:#FFFFFF;
+        color:#A6A6A6;
+    }
+

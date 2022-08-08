@@ -1,16 +1,15 @@
 package com.rentcar.list.controller;
 
+import com.google.gson.JsonObject;
 import com.rentcar.list.model.ListDTO;
 import com.rentcar.list.service.ListServiceImpl;
-import com.rentcar.review.model.ReviewDTO;
-import com.rentcar.review.service.ReviewServiceImpl;
+import com.rentcar.notice.model.review.model.ReviewDTO;
+import com.rentcar.notice.model.review.service.ReviewServiceImpl;
 import com.rentcar.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -27,24 +26,17 @@ public class ListController {
     @Autowired
     private ReviewServiceImpl rservice;
 
-    @GetMapping("/list/delete")
-    public String delete(int listno, Model model) {
-        model.addAttribute("listno", listno);
-        return "/list/delete";
-    }
 
     @PostMapping("/list/delete")
     public String delete(int listno) {
+        System.out.println("********************************" + listno);
+        System.out.println("********************************" + listno);
 
-        Map map = new HashMap();
-        map.put("listno", listno);
-        System.out.println(map);
-
+        rservice.bdelete(listno);
 
         service.delete(listno);
 
         return "redirect:/contents/list";
-
 
     }
 
@@ -62,26 +54,25 @@ public class ListController {
         map.put("listno", dto.getListno());
         service.update(dto);
         return "redirect:/contents/list";
-
     }
 
-
-    @PostMapping("/list/read")
+    @PostMapping("/list/{listno}")
     public String read(int listno) {
+//        System.out.println("listno="+listno);
         service.recommend(listno);
 
-        return "/list/read";
+        return "/list";
     }
+
 
     @GetMapping("/list/read")
     public String read(int listno, Model model, HttpServletRequest request) {
-        String col = Utility.checkNull(request.getParameter("col"));
-        String word = Utility.checkNull(request.getParameter("word"));
 
 
         service.upCnt(listno);
 
         ListDTO dto = service.read(listno);
+
 
         String content = dto.getContent().replaceAll("\r\n", "<br>");
 
@@ -111,10 +102,11 @@ public class ListController {
         map.put("listno", listno);
 
         model.addAllAttributes(map);
-        System.out.println("map=" + map);
+//        System.out.println("map="+map);
         List<ReviewDTO> list = rservice.list(map);
 
-        System.out.println("list=" + list);
+//        System.out.println("list="+list);
+        model.addAttribute("list", list);
 
 
         request.setAttribute("list", list);
@@ -133,6 +125,7 @@ public class ListController {
     @PostMapping("/list/create")
     public String create(ListDTO dto) {
 
+        System.out.println("dto=" + dto);
         if (service.create(dto) == 1) {
             return "redirect:/contents/list";
         } else {
@@ -155,17 +148,20 @@ public class ListController {
         if (request.getParameter("nowPage") != null) {
             nowPage = Integer.parseInt(request.getParameter("nowPage"));
         }
-        int recordPerPage = 3;// 한페이지당 보여줄 레코드갯수
+        int recordPerPage = 15;// 한페이지당 보여줄 레코드갯수
 
         // DB에서 가져올 순번-----------------
         int sno = ((nowPage - 1) * recordPerPage);
-        // int eno = nowPage * recordPerPage;
+        int eno = nowPage * recordPerPage;
 
         Map map = new HashMap();
         map.put("col", col);
         map.put("word", word);
         map.put("sno", sno);
         map.put("cnt", recordPerPage);
+
+
+//        System.out.println("map="+map);
 
         int total = service.total(map);
 

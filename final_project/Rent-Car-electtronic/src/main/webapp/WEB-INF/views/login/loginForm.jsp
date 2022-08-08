@@ -3,64 +3,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-  <title>로그인 처리</title>
+  <title>로그인</title>
   <meta charset="utf-8">
-</head>
-<body>
-<div class="container">
-
-<h1 class="col-sm-offset-2 col-sm-10">로그인</h1>
-  <form class="form-horizontal" 
-        action="/user/login"
-        method="post">
+  
+<link rel="stylesheet" href="/css/login.css">
+  
+  </head>
+  <body>
+  
+    <div class="loginbox">
+    
     <input type="hidden" name="rurl" value="${param.rurl}">    
     <input type="hidden" name="contentsno" value="${param.contentsno}">       
     <input type="hidden" name="nPage" value="${param.nPage}">    
-        
+         
+    <div class="form-block">
+   
+    <fieldset>
+  <h1><strong>로그인</strong></h1>
+  <p>로그인 하시면 다양하고 특별한 혜택을 이용할 수 있습니다.</p>
+
+         <form class="form-horizontal"
+        action="/user/login"
+        method="post">
+
+	<div class="info">
+          <label for="id">아이디</label>
+          <input type="text" id="id" required="required" name="id"
+         		 value='${c_id_val}' placeholder="아이디를 입력하세요">
+
+           <label for="passwd">비밀번호</label>
+           <input type="password" id="passwd" name="passwd" required="required" placeholder="비밀번호를 입력하세요">
+	</div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="id">아이디</label>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="id" 
-        placeholder="Enter id" name="id" required="required" 
-        value='${c_id_val}'>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">비밀번호</label>
-      <div class="col-sm-4">          
-        <input type="password" class="form-control" id="passwd" 
-        placeholder="Enter password" name="passwd" required="required">
-      </div>
-    </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-6">
+
         <div class="checkbox">
+        <div>
           <label>
           <c:choose>
           <c:when test="${c_id =='Y'}">
           	<input type="checkbox" name="c_id" value="Y" checked="checked"> 아이디 저장
           </c:when>
           <c:otherwise>
-            <input type="checkbox" name="c_id" value="Y" > 아이디 저장
+            <input type="checkbox" name="c_id" value="Y"> 아이디 저장
           </c:otherwise>
           </c:choose>
           </label>
         </div>
       </div>
     </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-8">
-        <button type="submit" class="btn btn-default">로그인</button>
-        <button type="button" class="btn btn-default"
-         onclick="location.href='/user/agree'">회원가입</button>
-        <button type="button" onclick="location.href='/user/idfind'" class="btn btn-default">아이디 찾기</button>
-        <button type="button" onclick="location.href='/user/pwfind'" class="btn btn-default">패스워드 찾기</button>
-      </div>
-    </div>
-  </form>
 
+        <div>
+        <button type="submit" class="loginbtn">로그인</button>
+		</div>
+
+		<div class ="find" align="center">
+			<p>
+				<br><a href="/user/idfind" class="btLink btLine" >아이디찾기</a>&nbsp; &nbsp;|&nbsp;&nbsp;
+					<a href="/user/pwfind" class="btLink btLine" >비밀번호 찾기</a>
+			</p>
+			<p>
+				<br><a href="/user/agree" style="color:#489CFF;">회원가입</a>
+			</p>	
+		</div>
+				
+ 	</form>
+ </fieldset>
 </div>
-</body>
+</div>
+</form>
+</div>
+
+  </body>
 </html>

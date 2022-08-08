@@ -58,7 +58,8 @@
           }
 
           .option {
-            background-color: rgb(228, 248, 246);
+            /* background-color: rgb(228, 248, 246); */
+            background-color: white;
             text-align: center;
             font-size: 1.6rem;
             border-style: solid;
@@ -66,18 +67,22 @@
             border-color: #000000 !important;
             color: #000000 !important;
           }
-
-          .option>span.on {
-            color: #000000;
-            border-color: #63a1ff;
-            background-color: #fff;
+          .option>span {
+            color: white;
+            background-color: #478ac9;
             border-style: solid;
             border-radius: 10px !important;
-            border-color: #000000 !important;
+            border-color: #478ac9 !important;
+            opacity: 0.4;
           }
 
-          .option>span.off {
-            color: #000000;
+          .option>span.on {
+            color: white;
+            background-color: #478ac9;
+            border-style: solid;
+            border-radius: 10px !important;
+            border-color: #478ac9 !important;
+
           }
 
           .plusbutton {

@@ -6,7 +6,15 @@
   * {
     box-sizing: border-box;
   }
-  
+
+  :root {
+    --greyColor: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
   h1,
   h2,
   h3,
@@ -15,7 +23,7 @@
     margin: 0;
     padding: 0;
   }
-  
+
 
   .header {
     margin-top: 20px;
@@ -35,6 +43,5 @@
     background-color: #fafafc;
     list-style: none;
     margin-bottom: 100px;
+    font-size:15px
   }
-  
-  

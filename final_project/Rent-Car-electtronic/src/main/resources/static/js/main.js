@@ -61,7 +61,7 @@ window.onload = function(){
             slideGroup.style.transition = 0.5+'s';
             slideGroup.style.left = -(imgNum*100)+'%';
             current = imgNum;
-            console.log(current);
+//            console.log(current);
             if(imgNum==4){
                     firstCurrent();
             }
@@ -80,14 +80,14 @@ window.onload = function(){
             if(timer) stopIt()
             timer = setInterval(function(){
                     slideMove(current+1); 
-                    console.log('진행중');   
+ //                   console.log('진행중');
             }, 2000);
 
             
     }
     function stopIt(){
     clearInterval(timer);
-    console.log('중지');
+ //   console.log('중지');
     }
     startIt() 
     function firstCurrent(){

@@ -1,14 +1,11 @@
 package com.rentcar.config;
 
-
-import javax.sql.DataSource;
-
-import org.mybatis.spring.annotation.MapperScan;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -16,9 +13,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+import javax.sql.DataSource;
+
 
 @Configuration
-
 @PropertySource("classpath:/application.properties")
 @MapperScan(basePackages = {"com.rentcar.*"})
 public class DatabaseConfiguration {
@@ -27,9 +25,7 @@ public class DatabaseConfiguration {
     private ApplicationContext applicationContext;
 
     @Bean
-
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
-
 
     public HikariConfig hikariConfig() {
         return new HikariConfig();
@@ -40,8 +36,10 @@ public class DatabaseConfiguration {
         DataSource dataSource = new HikariDataSource(hikariConfig());
 
         System.out.println(dataSource.toString());
-        System.out.println(dataSource.toString());  // 정상적으로 연결 되었는지 해시코드로 확인
 
+
+        System.out.println(dataSource.toString());
+        System.out.println(dataSource.toString());  // 정상적으로 연결 되었는지 해시코드로 확인
 
         return dataSource;
     }

@@ -10,7 +10,7 @@ public class UploadList {
     public static synchronized String getUploadDir() {
         String path = "";
         if (File.separator.equals("\\")) {
-            path = "C:/project/Rent-Car-electtronic/storage/";
+            path = "D:\\Github_upload\\projectSaveF\\download\\";
             System.out.println("Windows 10: " + path);
 
         } else {

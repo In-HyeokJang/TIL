@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- main -->
+    <definition name="main" template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" />
+    </definition>
+    <definition name="/home" extends="main">
+        <put-attribute name="title" value="기본페이지"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+    </definition>
+    <definition name="/booking/main" extends="main">
+        <put-attribute name="title" value="예약기본"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/main.jsp" />
+    </definition>
+    <definition name="/booking/rent" extends="main">
+        <put-attribute name="title" value="차량예약"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/rent.jsp" />
+    </definition>
+    <definition name="/booking/search" extends="main">
+        <put-attribute name="title" value="차량검색"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/search.jsp" />
+    </definition>
+    <definition name="/booking/searchList" extends="main">
+        <put-attribute name="title" value="차량검색리스트"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/searchList.jsp" />
+    </definition>
+    <definition name="/booking/detail" extends="main">
+        <put-attribute name="title" value="요금결제"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/detail.jsp" />
+    </definition>
+    <definition name="/booking/list" extends="main">
+        <put-attribute name="title" value="예약리스트"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/list.jsp" />
+    </definition>
+    <definition name="/booking/read" extends="main">
+        <put-attribute name="title" value="예약조회"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/booking/read.jsp" />
+    </definition>
+</tiles-definitions>

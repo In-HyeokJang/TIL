@@ -29,7 +29,7 @@ $(document).ready(function(){
  function checkModal(){ //modal 생성함수 선언
      if(history.state) return; //코드2
      if('${flag}'==false){
-         $(".modal-body").html('에러가 발생했습니다.<br>잠시후 다시 시도해주세요');
+         $(".modal-body").html('에러가 발생했습니다.<br>잠시후 다시 확인하세요');
          $("#myModal").modal("show");
      }
    }
@@ -49,10 +49,10 @@ $(document).ready(function(){
           <h4 class="modal-title">오류</h4>
         </div>
         <div class="modal-body">
-          <p>This is a small modal.</p>
+          <p>오류</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='list'">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="history.back()">닫기</button>
         </div>
       </div>
     </div>

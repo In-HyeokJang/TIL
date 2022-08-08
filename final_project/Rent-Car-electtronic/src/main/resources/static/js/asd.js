@@ -30,6 +30,7 @@ $(function(){
 	}
 	console.log(data);
 
+
 //fetch(`/carinfo/create`,{method: 'POST', body : data})
 //.then(response => response.text())
 //.then(location.reload())

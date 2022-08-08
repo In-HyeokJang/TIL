@@ -7,7 +7,9 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
    <script type="text/javascript">
      function read(noticeno){
        var url = "read";
@@ -17,7 +19,16 @@
        url += "&nowPage=${nowPage}";
        location.href=url;
  
-     }  
+     }
+
+     function fileDown(noticeno,key){
+             var url = "./fileDown";
+             url += "?noticeno=" + noticeno;
+             url += "&key="+key;
+             alert(url);
+             location.href=url;
+          }
+
   </script>
  
 </head>
@@ -87,7 +98,16 @@
     </td>
     <td>${dto.wname}</td>
     <td>${dto.wdate}</td>
-    <td>${dto.fname}</td>
+    <td>
+    			<c:choose>
+    			    <c:when test="${empty dto.fname}">파일없음</c:when>
+    			    <c:otherwise>
+    			    <a href="javascript:fileDown('${dto.noticeno}','${dto.key}')">
+    			    ${dto.fname}
+    			    </a>
+    			    </c:otherwise>
+    			    </c:choose>
+    </td>
    </tr>
    </c:forEach>
    </c:otherwise>

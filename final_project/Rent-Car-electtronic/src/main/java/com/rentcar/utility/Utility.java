@@ -1,19 +1,56 @@
 package com.rentcar.utility;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.rentcar.review.service.ReviewService;
+import com.rentcar.notice.model.review.service.ReviewService;
 import org.springframework.web.multipart.MultipartFile;
 
 
 public class Utility {
+
+
+    public static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary)
+            throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("--").append(boundary).append("\r\n");
+        sb.append("Content-Disposition:form-data; name=\"message\"\r\n\r\n");
+        sb.append(jsonMessage);
+        sb.append("\r\n");
+
+        out.write(sb.toString().getBytes("UTF-8"));
+        out.flush();
+
+        if (file != null && file.isFile()) {
+            out.write(("--" + boundary + "\r\n").getBytes("UTF-8"));
+            StringBuilder fileString = new StringBuilder();
+            fileString.append("Content-Disposition:form-data; name=\"file\"; filename=");
+            fileString.append("\"" + file.getName() + "\"\r\n");
+            fileString.append("Content-Type: application/octet-stream\r\n\r\n");
+            out.write(fileString.toString().getBytes("UTF-8"));
+            out.flush();
+
+            try (FileInputStream fis = new FileInputStream(file)) {
+                byte[] buffer = new byte[8192];
+                int count;
+                while ((count = fis.read(buffer)) != -1) {
+                    out.write(buffer, 0, count);
+                }
+                out.write("\r\n".getBytes());
+            }
+
+            out.write(("--" + boundary + "--\r\n").getBytes("UTF-8"));
+        }
+        out.flush();
+    }
+
+
+
+
+
     /**
      * 오늘,어제,그제 날짜 가져오기
      *
@@ -182,7 +219,7 @@ public class Utility {
                 if (os.equals("mac os x")) { // Mac
                     System.out.println("맥");
                     serverFullPath = basePath + "/" + filename;
-                } else if (os.equals("windows 10")) {
+                } else if (os.equals("windows 11")) {
                     System.out.println("os: " + os);
                     serverFullPath = basePath + "\\" + filename;
                 } else if (os.equals("linux")) {
@@ -210,7 +247,7 @@ public class Utility {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-
+           // System.out.println("filename="+ filename);
         }
 
         return filename;

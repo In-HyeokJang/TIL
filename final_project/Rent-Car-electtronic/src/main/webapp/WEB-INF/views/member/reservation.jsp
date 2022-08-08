@@ -1,181 +1,201 @@
-
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="나의 정보">
+    <meta name="description" content="">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/css/member/reservation/nicepage.css" media="screen">
+<link rel="stylesheet" href="/css/member/reservation/Contact.css" media="screen">
+<link rel="stylesheet" href="/css/member/reservation/slide.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/member/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/js/member/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.14.1, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 <style>
-	* {margin:0;padding:0;}
-	.section input[id*="slide"] {display:none;}
-	.section .slidewrap {max-width:1200px;margin:0 auto;}
-	.section .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
-	.section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
-	.section .slidelist > li > a {display:block;position:relative;}
-	.section .slidelist > li > a img {width:100%;}
-	.section .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
-	.section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
-	.section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
-	.section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
 
-	/* input에 체크되면 슬라이드 효과 */
-	.section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
-	.section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
-	.section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  * {
 
-	/* input에 체크되면 텍스트 효과 */
-	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
-	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
-	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
-	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
-	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
-	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+  }
+</style>
 
-	/* 좌,우 슬라이드 버튼 */
-	.slide-control > div {display:none;}
-	.section .left {left:30px;background:url('./img/left.png') center center / 100% no-repeat;}
-	.section .right {right:30px;background:url('./img/right.png') center center / 100% no-repeat;}
-	.section input[id="slide01"]:checked ~ .slidewrap .slide-control > div:nth-child(1) {display:block;}
-	.section input[id="slide02"]:checked ~ .slidewrap .slide-control > div:nth-child(2) {display:block;}
-	.section input[id="slide03"]:checked ~ .slidewrap .slide-control > div:nth-child(3) {display:block;}
-
-	/* 페이징 */
-	.slide-pagelist {text-align:center;padding:20px;}
-	.slide-pagelist > li {display:inline-block;vertical-align:middle;}
-	.slide-pagelist > li > label {display:block;padding:8px 30px;border-radius:30px;background:#ccc;margin:20px 10px;cursor:pointer;}
-	.section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:#999;}
-	.section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:#999;}
-	.section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#999;}
-	</style>
-</head>
-
-<body class="wrapper lnbWrapper">
-<p class="skip"><a href="#container">본문 바로가기</a></p>
-
-<section id="wrapper">
-
-
-
-  <div id="container" class="container">
-
-
-    <div id="contents" class="contents">
-            <!-- 컨텐츠 영역  -->
-            <div class="mainTop" profileMemberInfoArea>
-                <a href="/web/signup/pass/usermodify" class="imgArea">
-                    <div><img src="/resource/PC/images/mypage/img_profile_big.png" alt=""></div>
-                </a>
-                 <div class="txtArea">
-                 <h2 class="titDep2 name" profileLinkArea> ${dto.mname}님의<br><span>회원정보</span> </h2>
-                 </div>
-
-
-                <div class="btnArea">
-                 <button type="button" class="btnDefault btnS btnLineG" onclick="jppJs.go('/update')">나의 정보</button>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Contact">
+    <meta property="og:type" content="website">
+  </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+   <div class="container">
+      <section class="u-clearfix u-section-1" id="sec-54f1">
+        <div class="u-clearfix u-sheet u-sheet-1">
+          <img class="u-image u-image-default u-preserve-proportions u-image-1" src="/images/SJ/mypage/premium-icon-member-card-3945150.png" alt="" data-image-width="512" data-image-height="512">
+          <h3 class="u-text u-text-default u-text-1">김길동 님의</h3>
+          <h3 class="u-text u-text-default u-text-palette-1-base u-text-2">예약 차량</h3>
+          <h2 class="u-text u-text-custom-color-3 u-text-default u-text-3"> carprice</h2>
+          <h2 class="u-text u-text-default u-text-4"> 기아 올 뉴 K3 럭셔리</h2>
+          <h2 class="u-text u-text-black u-text-default u-text-5">만원</h2>
+          <h5 class="u-text u-text-default u-text-6"> caryearmodel</h5>
+          <h5 class="u-text u-text-default u-text-7"> carpoint</h5>
+          <h5 class="u-text u-text-default u-text-8"> category</h5>
+          <h5 class="u-text u-text-default u-text-9">carnumber</h5>
+          <div class="u-carousel u-gallery u-layout-thumbnails u-lightbox u-no-transition u-show-text-always u-gallery-1" id="carousel-e131" data-interval="5000" data-u-ride="carousel">
+            <div class="u-carousel-inner u-gallery-inner" role="listbox">
+              <div class="u-active u-carousel-item u-gallery-item u-carousel-item-1">
+                <div class="u-back-slide">
+                  <img class="u-back-image u-expanded" src="images/7.svg">
                 </div>
+                <div class="u-over-slide u-over-slide-1">
+                  <h3 class="u-gallery-heading">Sample Title</h3>
+                  <p class="u-gallery-text">Sample Text</p>
+                </div>
+              </div>
+              <div class="u-carousel-item u-gallery-item u-carousel-item-2">
+                <div class="u-back-slide">
+                  <img class="u-back-image u-expanded" src="images/7.svg">
+                </div>
+                <div class="u-over-slide u-over-slide-2">
+                  <h3 class="u-gallery-heading">Sample Title</h3>
+                  <p class="u-gallery-text">Sample Text</p>
+                </div>
+              </div>
+              <div class="u-carousel-item u-gallery-item u-carousel-item-3" data-image-width="2836" data-image-height="1875">
+                <div class="u-back-slide">
+                  <img class="u-back-image u-expanded" src="images/7.svg">
+                </div>
+                <div class="u-over-slide u-over-slide-3">
+                  <h3 class="u-gallery-heading">Sample Title</h3>
+                  <p class="u-gallery-text">Sample Text</p>
+                </div>
+                <style data-mode="XL" data-visited="true"></style>
+                <style data-mode="LG"></style>
+                <style data-mode="MD"></style>
+                <style data-mode="SM"></style>
+                <style data-mode="XS"></style>
+              </div>
             </div>
 
-           <div class="txtArea">
-             <div id="carnameTOP">
-                    <h2 class="titDep2 name" profileLinkArea> <br><span>${dto1.carname}</span> </h2>
-             </div>
+
+
+
+
+                 <img src="https://img.khan.co.kr/news/2021/12/21/l_2021122101002713000235791.jpg" style="height:600px; width:1200;">
 
 
 
 
 
 
-             <div class="section">
-	<input type="radio" name="slide" id="slide01" checked>
-	<input type="radio" name="slide" id="slide02">
-	<input type="radio" name="slide" id="slide03">
-	<div class="slidewrap">
 
-		<ul class="slidelist">
-			<!-- 슬라이드 영역 -->
-			<li class="slideitem">
-				<a>
-					  <img src="https://img.khan.co.kr/news/2021/12/21/l_2021122101002713000235791.jpg">
-				</a>
-			</li>
-			<li class="slideitem">
-				<a>
-					<img src="https://img.khan.co.kr/news/2021/12/21/l_2021122101002713000235791.jpg">
-				</a>
-			</li>
-			<li class="slideitem">
-				<a>
-					  <img src="https://img.khan.co.kr/news/2021/12/21/l_2021122101002713000235791.jpg">
-				</a>
-			</li class="slideitem">
 
-			<!-- 좌,우 슬라이드 버튼 -->
-			<div class="slide-control">
-				<div>
-					<label for="slide03" class="left"></label>
-					<label for="slide02" class="right"></label>
-				</div>
-				<div>
-					<label for="slide01" class="left"></label>
-					<label for="slide03" class="right"></label>
-				</div>
-				<div>
-					<label for="slide02" class="left"></label>
-					<label for="slide01" class="right"></label>
-				</div>
-			</div>
 
-		</ul>
-		<!-- 페이징 -->
-		<ul class="slide-pagelist">
-			<li><label for="slide01"></label></li>
-			<li><label for="slide02"></label></li>
-			<li><label for="slide03"></label></li>
-		</ul>
-	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+          <h3 class="u-text u-text-default u-text-10"> 편안하게 타실 수 있도록,&nbsp;옵션까지 한눈에 보여드립니다.</h3>
+          <div class="u-align-left u-border-3 u-border-grey-40 u-container-style u-group u-group-1">
+            <div class="u-container-layout u-container-layout-1">
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-2">
+                <div class="u-container-layout">
+                  <h5 class="u-align-center u-text u-text-11">
+                    <span style="font-size: 1rem;">블랙박스</span>
+                    <span style="font-size: 1rem;"></span>
+                  </h5>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-3" style="opacity: 0.4;">
+                <div class="u-container-layout">
+                  <h5 class="u-align-center u-text u-text-default u-text-12" > 후방센서</h5>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-4" style="opacity: 0.4;">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-align-center u-text u-text-default u-text-13">후방 카메라</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-5" style="opacity: 0.4;">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-text u-text-default u-text-14">블랙박스</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-6">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-text u-text-default u-text-15">열선시트</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-7">
+                <div class="u-container-layout">
+                  <h6 class="u-text u-text-default u-text-16">통풍시트</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-8">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-align-center u-text u-text-default u-text-17">스마트키</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-9">
+                <div class="u-container-layout">
+                  <h6 class="u-text u-text-default u-text-18">선루프</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-10">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-align-center u-text u-text-default u-text-19">네비게이션</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-11">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-align-center u-text u-text-default u-text-20">금연 차량</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-12">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-text u-text-default u-text-21">열선 핸들</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-13">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-align-center u-text u-text-default u-text-22">후방 경고등</h6>
+                </div>
+              </div>
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-14">
+                <div class="u-container-layout u-valign-middle">
+                  <h6 class="u-align-center u-text u-text-default u-text-23">차선방지이탈</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
 
 
 </div>
-
-
-
-
-
-
-
-
-
-              <table class="table table-bordered" style="font-size: 100px">
-            <tr>
-
-                <th class="col-sm-2">차 종</th>
-                <td class="col-sm-8">${dto1.carname}</td>
-            </tr>
-            <tr>
-                <th class="col-sm-2">차 번호</th>
-                <td class="col-sm-8">${dto1.carnumber}</td>
-            </tr>
-            <tr>
-                <th class="col-sm-2">승차인원</th>
-                <td class="col-sm-8">${dto1.carseate}</td>
-            </tr>
-            <tr>
-                <th class="col-sm-2"></th>
-                <td class="col-sm-8">${dto1.carname}</td>
-            </tr>
-            <tr>
-                <th class="col-sm-2"></th>
-                <td class="col-sm-8">${dto1.carname}</td>
-            </tr>
-
-            </table>
-
-                  </div>
-
-
-<link href="https://static-www.jejupass.com/resource/PC/css/p_common.min.css?v1" rel="stylesheet" type="text/css">
-<link href="https://static-www.jejupass.com/resource/PC/css/p_contents.min.css?v1" rel="stylesheet" type="text/css">
-<div class="dimmed"></div>
-</body>
-</html>
+</body></html>

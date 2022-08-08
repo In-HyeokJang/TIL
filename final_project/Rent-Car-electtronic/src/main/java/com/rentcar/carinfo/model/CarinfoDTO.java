@@ -19,6 +19,8 @@ public class CarinfoDTO {
     private String caryearmodel ;  // 차연식
     private CaroptionDTO cdto ;
     private int rentstatus;
+    private String x;
+    private String y;
 }
 
 

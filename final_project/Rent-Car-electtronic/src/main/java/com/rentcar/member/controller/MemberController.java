@@ -53,7 +53,7 @@ public class MemberController {
         //String id = (String) session.getAttribute("id");
         String id = "user1";
         if (id == null) {
-            return "redirect:/member/login/";
+            return "redirect:/user/login";
         } else {
             MemberDTO dto = service.mypage(id);
 

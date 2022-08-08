@@ -5,8 +5,9 @@
 
 <mapper namespace="com.rentcar.kakao.mapper.StoreMapper">
 
-    <select id="stores" parameterType="String" resultType="com.rentcar.kakao.Model.StoreDTO">
-        select x,y from facilities;
+    <select id="stores" resultType="com.rentcar.kakao.Model.Store">
+        SELECT *
+        FROM facilities;
     </select>
 
     <insert id="create" parameterType="com.rentcar.kakao.Model.Store">
@@ -14,6 +15,8 @@
         insert into facilities(name, address, address_road, phonenum, type, x, y)
         values(#{name}, #{address}, #{address_road},#{phonenum}, #{type}, #{x}, #{y});
     </insert>
+
+
 
 
 </mapper>

@@ -9,7 +9,7 @@
 
     <update id="recommend" parameterType="int">
         update list
-        set recommend = #{recommend}+1
+        set recommend = recommend+1
         where listno = #{listno}
     </update>
 
@@ -35,18 +35,17 @@
     </update>
 
     <!-- 조회 -->
-    <select id="read" resultType="com.rentcar.list.model.ListDTO"  parameterType="int">
-        SELECT listno, title, content, wname, cnt, rdate
+    <select id="read" resultType="com.rentcar.list.model.ListDTO" parameterType="int">
+        SELECT listno, title, content, wname, cnt,recommend, rdate
         FROM list
         WHERE listno=#{listno}
     </select>
 
     <insert id="create" parameterType="com.rentcar.list.model.ListDTO">
-        INSERT INTO list(title,content, wname, cnt, 0,rdate)
+        INSERT INTO list(title,content, wname, cnt, recommend,rdate)
         VALUES(#{title}, #{content},#{wname},  0, 0,NOW())
     </insert>
-    <select id="list" parameterType="Map"
-            resultType="com.rentcar.list.model.ListDTO">
+    <select id="list" parameterType="Map" resultType="com.rentcar.list.model.ListDTO">
         SELECT listno, title, wname, cnt, recommend,rdate
         FROM list
         <where>

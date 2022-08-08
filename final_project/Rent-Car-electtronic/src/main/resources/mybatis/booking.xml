@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rentcar.booking.BookingMapper">
+    <!-- (C) 렌트 예약 -->
+    <insert id="create" parameterType="com.rentcar.booking.BookingDTO">
+        INSERT INTO booking(rent_day, rent_time, return_day, return_time, user_id, reserved_car, insurance)
+        VALUES(#{rent_day}, #{rent_time}, #{return_day}, #{return_time}, #{user_id}, #{reserved_car} ,#{insurance})
+    </insert>
+    <!-- (C) 렌트 검색 -->
+    <select id="searchList" resultType="com.rentcar.carinfo.model.CarinfoDTO" parameterType="int">
+        SELECT category, carnumber, carname, carseate, rentcost
+        FROM car_info
+        WHERE rentstatus = 0 and category = #{category};
+    </select>
+    <!-- (C) 렌트 검색 -->
+    <select id="search" resultType="com.rentcar.booking.BookingDTO" parameterType="int">
+    SELECT *
+    FROM car_info
+    WHERE carnumber = #{carnumber};
+    </select>
+    <!-- (R) 예약 조회 -->
+    <select id="read" parameterType="int" resultType="com.rentcar.booking.BookingDTO">
+        SELECT booking_no, user_id, rent_day, rent_time, return_day, return_time, reserved_car, insurance
+        FROM booking
+        where booking_no = #{booking_no};
+    </select>
+    <!-- select id="read" resultType="com.rentcar.booking.BookingDTO" parameterType="int">
+        SELECT u.mname, c.carname, c.carnumber, b.rent_day, b.rent_time,
+        b.return_day, b.return_time, c.rentcost
+        FROM booking b, user u, car_info c
+        WHERE (b.user_id = u.id) AND (b.reserved_car = c.carnumber) AND (b.user_id = #{id});
+    </select> -->
+    <!-- (L) 예약 리스트 -->
+    <select id="total" parameterType="Map" resultType="int">
+        select count(*) from booking
+        <where>
+            <choose>
+                <when test="col=='rent_day'">
+                    rent_day like concat('%', #{word} ,'%')
+                </when>
+                <when test="col=='return_day'">
+                    return_day like concat('%', #{word} ,'%')
+                </when>
+                <when test="col=='booking_no'">
+                    booking_no = #{word}
+                </when>
+            </choose>
+        </where>
+    </select>
+    <select id="list" parameterType="Map" resultType="com.rentcar.booking.BookingDTO" >
+        SELECT booking_no, user_id, rent_day, rent_time, return_day, return_time, reserved_car, insurance
+        FROM booking
+        <where>
+            <choose>
+                <when test="col=='rent_day'">
+                    rent_day like concat('%', #{word} ,'%')
+                </when>
+                <when test="col=='return_day'">
+                    return_day like concat('%', #{word} ,'%')
+                </when>
+                <when test="col=='reserved_car'">
+                    reserved_car = #{word}
+                </when>
+            </choose>
+        </where>
+        order by booking_no
+        limit #{sno}, #{eno}
+    </select>
+    <!-- (U) 예약 수정 -->
+    <update id="update" parameterType="com.rentcar.booking.BookingDTO">
+        UPDATE booking
+        SET rent_time=#{rent_time}, return_time=#{return_time}
+        WHERE user_id=#{user_id}
+    </update>
+    <!-- (D) 예약 취소 -->
+    <delete id="delete" parameterType="int">
+        DELETE FROM booking
+        WHERE user_id=#{user_id}
+    </delete>
+</mapper>

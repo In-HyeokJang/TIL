@@ -5,7 +5,6 @@ import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.rentcar.utility.Ncloud.AwsS3;
-import com.rentcar.utility.Ncloud.mapper.Ncloudmapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,6 +57,7 @@ public class AwsS3Service {
     }
 
     public String get(String idx) {
+
         return amazonS3.getUrl(bucket, idx).toString();
     }
 

@@ -4,6 +4,7 @@ import com.rentcar.carinfo.model.CarinfoDTO;
 import com.rentcar.carinfo.mapper.CarinfoMapper;
 import com.rentcar.carinfo.model.CaroptionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

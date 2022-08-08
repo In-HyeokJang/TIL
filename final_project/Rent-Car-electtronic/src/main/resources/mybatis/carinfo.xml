@@ -18,8 +18,8 @@
 
     <insert id="create" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         insert into carinfo
-        (carnumber, carname, carimage, rentcost, carseate, carpoint, category, caryearmodel, rentstatus)
-        values(#{carnumber}, #{carname}, #{carimage}, #{rentcost}, #{carseate}, #{carpoint}, #{category},#{caryearmodel}, #{rentstatus})
+        (carnumber, carname, carimage, rentcost, carseate, carpoint, category, caryearmodel, rentstatus, x, y)
+        values(#{carnumber}, #{carname}, #{carimage}, #{rentcost}, #{carseate}, #{carpoint}, #{category},#{caryearmodel}, #{rentstatus}, #{x}, #{y})
     </insert>
 
     <select id="list" parameterType="Map" resultType="com.rentcar.carinfo.model.CarinfoDTO">
@@ -62,6 +62,9 @@
         <result property="caryearmodel" column="caryearmodel" />
         <result property="carimage" column="carimage" />
         <result property="carseate" column="carseate" />
+        <result property="rentstatus" column="rentstatus" />
+        <result property="x" column="x" />
+        <result property="y" column="y" />
 
         <association property="cdto" javaType="com.rentcar.carinfo.model.CaroptionDTO">
             <result property="bluetooth" column="bluetooth" />
@@ -81,7 +84,7 @@
     </resultMap>
 
     <select id="read" parameterType="String" resultMap="carinfoOption">
-        select c.carnumber, c.carname, c.rentcost, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate,
+        select c.carnumber, c.carname, c.rentcost, c.category, c.carpoint, c.caryearmodel, c.carimage, c.carseate, c.rentstatus, c.x, c.y,
         o.bluetooth, o.rear_sensor, o.rear_camera, o.black_box, o.heated_seat, o.heated_handle, o.ventilated_seat, o.navigation, o.non_smoking_vehicle,
         o.smart_key, o.sunroof, o.rear_warning_light, o.lane_departure_prevention
         from carinfo c inner join caroption o

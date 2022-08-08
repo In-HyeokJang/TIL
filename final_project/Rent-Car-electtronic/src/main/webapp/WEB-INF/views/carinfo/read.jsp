@@ -13,11 +13,21 @@
         <link rel="stylesheet" type="text/css" href="/css/carinfo/readmap.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
+
           function optupdate() {
             let windowObjectReference;
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
             windowObjectReference = window.open("/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
           }
+
+          function reservation() {
+            if ('${dto.rentstatus}' == '0') {
+              alert('예약가능 합니다.');
+            } else {
+              alert("예약이 불가능 합니다.");
+            };
+          };
+
         </script>
       </head>
 
@@ -27,6 +37,9 @@
           <div class="layout">
             <div>
               <div class="carinfocolor">
+                <input type="hidden" class="form-control" id="rentstatus" name="rentstatus" value="${dto.rentstatus}">
+                <input type="hidden" class="form-control" id="x" name="x" value="${dto.x}">
+                <input type="hidden" class="form-control" id="y" name="y" value="${dto.y}">
                 <img class="img" src="${dto.carimage}" style="width:400px;" , height="260px;">
 
                 <h2 class="carname">${dto.carname}</h2>
@@ -43,12 +56,12 @@
                 <h3> C a r O p t i o n </h3>
                 <br>
                 <c:choose>
-                  <c:when test="${empty dto.cdto.bluetooth}">블루투스</c:when>
+                  <c:when test="${empty dto.cdto.bluetooth}"><span>블루투스</span></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.bluetooth}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.rear_sensor}">후방센서 </c:when>
+                  <c:when test="${empty dto.cdto.rear_sensor}"><span>후방센서</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.rear_sensor}</span> </c:otherwise>
                 </c:choose>
 
@@ -119,7 +132,7 @@
               <!-- 수정 / 사진수정 버튼은 유저한테 안보이게 해야함 -->
               <p class="button">
               <div>
-                <a class="res" href="#">RESERVATION</a>
+                <a class="res" id="reserv" href="javascript:reservation()" value="${dto.rentstatus}">RESERVATION</a>
               </div>
 
               <div class="Abtn">
@@ -319,26 +332,65 @@
                 <h4 class="titDep4" compName>차 위치</h4><br>
               </div>
             </div>
-            
-            <div class="map_wrap">
-    
-                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    
-               
-    
-    
-                <div class="hAddr">
-                    <span class="title">${dto.carpoint}<br>
-                    </span>
 
-                </div>
+            <div class="map_wrap">
+
+              <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+              <div class="hAddr">
+                <span class="title">${dto.carpoint}<br>
+                </span>
+
+              </div>
             </div>
-    
+
             <script type="text/javascript"
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
-    
+              src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
+
             <!-- SHow up Map layout and Poiner -->
-            <script src="/js/carinfo/map_read.js"></script>
+            <!-- <script src="/js/carinfo/map_read.js"></script> -->
+            <script>
+              var address_result;
+
+              var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                mapOption = {
+                  center: new kakao.maps.LatLng('${dto.x}', '${dto.y}'), // 지도의 중심좌표
+                  level: 1 // 지도의 확대 레벨
+                };
+
+              var map = new kakao.maps.Map(mapContainer, mapOption);// 주소 - 좌표 변환 객체를 생성
+
+              searchAddrFromCoords(map.getCenter(), displayCenterInfo); // 현재 지도 중심좌표로 주소를 검색하새 지도 좌측 상단에 표시
+
+              kakao.maps.event.addListener(map, 'idle', function () {
+                searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+              });
+
+              function searchAddrFromCoords(coords, callback) {
+                // 좌표로 행정동 주소 정보를 요청합니다
+                geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+              }
+
+              function searchDetailAddrFromCoords(coords, callback) {
+                // 좌표로 법정동 상세 주소 정보를 요청합니다
+                geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+              }
+
+              // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+              function displayCenterInfo(result, status) {
+                if (status === kakao.maps.services.Status.OK) {
+                  var infoDiv = document.getElementById('centerAddr');
+
+                  for (var i = 0; i < result.length; i++) {
+                    // 행정동의 region_type 값은 'H' 이므로
+                    if (result[i].region_type === 'H') {
+                      infoDiv.innerHTML = result[i].address_name;
+                      break;
+                    }
+                  }
+                }
+              }
+            </script>
 
           </div>
 
@@ -348,10 +400,10 @@
         </div>
         </div>
         <p class="button">
-<button>
-                  <a href="javascript:history.back()">
-                    뒤로</a></button>
-                  </p>
+          <button>
+            <a href="javascript:history.back()">
+              뒤로</a></button>
+        </p>
         </div>
 
       </body>

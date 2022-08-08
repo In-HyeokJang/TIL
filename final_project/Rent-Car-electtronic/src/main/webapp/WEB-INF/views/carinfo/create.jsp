@@ -95,13 +95,13 @@
       </div>
     </body>
 <script>
-      // $("#btt").click(function () {
+
         $("#filenameMF").change(function(){
         data = new FormData();
         data.append("filenameMF", $("input[name=filenameMF]")[0].files[0]);
 
         console.log(data);
-        // alert(data);
+
 
         $.ajax({
           data: data,

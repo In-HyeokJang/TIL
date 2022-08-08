@@ -19,12 +19,19 @@
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
             windowObjectReference = window.open("/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
           }
+          function mapupdate(){
+            let windowObjectReference;
+            let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
+            windowObjectReference = window.open("/carinfo/mapupdate/${carnumber}", "mozillaTab", windowFeatures);
+          }
 
           function reservation() {
             if ('${dto.rentstatus}' == '0') {
-              alert('예약가능 합니다.');
+              alert('예약가능 합니다. 예약페이지로 이동 나중에 정우님꺼랑 병합 필요 필요');
+              let url = "/carinfo/list"
+              location.href = url;
             } else {
-              alert("예약이 불가능 합니다.");
+              alert("이미 예약이 되어 있어 예약이 불가능 합니다.");
             };
           };
 
@@ -56,22 +63,22 @@
                 <h3> C a r O p t i o n </h3>
                 <br>
                 <c:choose>
-                  <c:when test="${empty dto.cdto.bluetooth}"><span>블루투스</span></c:when>
+                  <c:when test="${empty dto.cdto.bluetooth}"><span class="off">블루투스</span></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.bluetooth}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.rear_sensor}"><span>후방센서</span> </c:when>
+                  <c:when test="${empty dto.cdto.rear_sensor}"><span class="off">후방센서</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.rear_sensor}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.rear_camera}">후방카메라 </c:when>
+                  <c:when test="${empty dto.cdto.rear_camera}"><span class="off">후방카메라</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.rear_camera}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.black_box}">블랙박스 </c:when>
+                  <c:when test="${empty dto.cdto.black_box}"><span class="off">블랙박스</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.black_box}</span>
                   </c:otherwise>
                 </c:choose>
@@ -79,22 +86,22 @@
                 <br><br>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.heated_seat}">열선시트</c:when>
+                  <c:when test="${empty dto.cdto.heated_seat}"><span class="off">열선시트</span></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.heated_seat}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.heated_handle}">열선핸들</c:when>
+                  <c:when test="${empty dto.cdto.heated_handle}"><span class="off">열선핸들</span></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.heated_handle}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.ventilated_seat}">통풍시트 </c:when>
+                  <c:when test="${empty dto.cdto.ventilated_seat}"><span class="off">통풍시트</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.ventilated_seat}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.navigation}">네비게이션 </c:when>
+                  <c:when test="${empty dto.cdto.navigation}"><span class="off">네비게이션</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.navigation}</span> </c:otherwise>
                 </c:choose>
 
@@ -102,27 +109,27 @@
                 <br><br>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.non_smoking_vehicle}">금연차량 </c:when>
+                  <c:when test="${empty dto.cdto.non_smoking_vehicle}"><span class="off">금연차량</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.non_smoking_vehicle}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.smart_key}">스마트키 </c:when>
+                  <c:when test="${empty dto.cdto.smart_key}"><span class="off">스마트키</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.smart_key}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.sunroof}"> 썬루프</c:when>
+                  <c:when test="${empty dto.cdto.sunroof}"> <span class="off">썬루프</span></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.sunroof}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.rear_warning_light}"> 후방경고등</c:when>
+                  <c:when test="${empty dto.cdto.rear_warning_light}"><span class="off">후방경고등</span></c:when>
                   <c:otherwise> <span class="on">${dto.cdto.rear_warning_light}</span> </c:otherwise>
                 </c:choose>
 
                 <c:choose>
-                  <c:when test="${empty dto.cdto.lane_departure_prevention}">차선방지이탈 </c:when>
+                  <c:when test="${empty dto.cdto.lane_departure_prevention}"><span class="off">차선방지이탈</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.lane_departure_prevention}</span> </c:otherwise>
                 </c:choose>
 
@@ -136,11 +143,13 @@
               </div>
 
               <div class="Abtn">
-                <button>
-                  <a href="/carinfo/update/${dto.carnumber}">정보 수정</a></button>
+                <button><a href="/carinfo/update/${dto.carnumber}">정보 수정</a></button>
+
                 <button onclick="optupdate()">옵션 수정</button>
-                <button>
-                  <a href="/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
+
+                <button><a href="/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
+
+                <button onclick="mapupdate()">차위치수정</button>
               </div>
               </p>
             </div>
@@ -319,11 +328,8 @@
                   </tbody>
                 </table>
               </div>
-
-
             </div>
             <!-- //차량/보험 -->
-
             <!-- 업체정보 -->
             <div id="tabContent06"></div>
             <div id="tebContents04" class="anchorTab"></div>
@@ -332,71 +338,44 @@
                 <h4 class="titDep4" compName>차 위치</h4><br>
               </div>
             </div>
-
             <div class="map_wrap">
-
               <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-
               <div class="hAddr">
                 <span class="title">${dto.carpoint}<br>
                 </span>
-
               </div>
             </div>
-
             <script type="text/javascript"
               src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
-
-            <!-- SHow up Map layout and Poiner -->
-            <!-- <script src="/js/carinfo/map_read.js"></script> -->
             <script>
-              var address_result;
-
               var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                 mapOption = {
                   center: new kakao.maps.LatLng('${dto.x}', '${dto.y}'), // 지도의 중심좌표
-                  level: 1 // 지도의 확대 레벨
+                  level: 4 // 지도의 확대 레벨
                 };
+              var map = new kakao.maps.Map(mapContainer, mapOption);
+              var imageSrc = 'https://kr.object.ncloudstorage.com/imagetest/carinfo/5b30ba63-3c38-4d93-b519-6898f2f0a840icon-charging-station-7144586.png', // 마커이미지의 주소입니다
+                imageSize = new kakao.maps.Size(26, 40), // 마커이미지의 크기입니다
+                imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
-              var map = new kakao.maps.Map(mapContainer, mapOption);// 주소 - 좌표 변환 객체를 생성
+              // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+              var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                markerPosition = new kakao.maps.LatLng('${dto.x}', '${dto.y}'); // 마커가 표시될 위치입니다
 
-              searchAddrFromCoords(map.getCenter(), displayCenterInfo); // 현재 지도 중심좌표로 주소를 검색하새 지도 좌측 상단에 표시
-
-              kakao.maps.event.addListener(map, 'idle', function () {
-                searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+              // 마커를 생성합니다
+              var marker = new kakao.maps.Marker({
+                position: markerPosition,
+                image: markerImage // 마커이미지 설정
               });
 
-              function searchAddrFromCoords(coords, callback) {
-                // 좌표로 행정동 주소 정보를 요청합니다
-                geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
-              }
-
-              function searchDetailAddrFromCoords(coords, callback) {
-                // 좌표로 법정동 상세 주소 정보를 요청합니다
-                geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
-              }
-
-              // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-              function displayCenterInfo(result, status) {
-                if (status === kakao.maps.services.Status.OK) {
-                  var infoDiv = document.getElementById('centerAddr');
-
-                  for (var i = 0; i < result.length; i++) {
-                    // 행정동의 region_type 값은 'H' 이므로
-                    if (result[i].region_type === 'H') {
-                      infoDiv.innerHTML = result[i].address_name;
-                      break;
-                    }
-                  }
-                }
-              }
+              // 마커가 지도 위에 표시되도록 설정합니다
+              marker.setMap(map);
             </script>
-
           </div>
-
         </div>
         </div>
         <!-- //업체정보 -->
+
         </div>
         </div>
         <p class="button">

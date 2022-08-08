@@ -19,4 +19,5 @@ public interface CarinfoMapper {
     int updateFile(CarinfoDTO dto);
     int updateFile(Map map);
     int create(CaroptionDTO cdto);
+    int mapupdate(CarinfoDTO dto);
 }

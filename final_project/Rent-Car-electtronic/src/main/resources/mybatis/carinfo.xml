@@ -5,6 +5,14 @@
 
 <mapper namespace="com.rentcar.carinfo.mapper.CarinfoMapper">
 
+    <update id="mapupdate" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
+        update carinfo
+        set
+        x = #{x},
+        y = #{y}
+        where carnumber = #{carnumber}
+    </update>
+
     <update id="updateFile" parameterType="com.rentcar.carinfo.model.CarinfoDTO">
         update carinfo
         set

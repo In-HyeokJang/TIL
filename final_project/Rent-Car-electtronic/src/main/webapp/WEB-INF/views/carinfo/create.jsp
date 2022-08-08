@@ -72,6 +72,14 @@
                   <label for="carpoint">Rent Status</label>
                   <input type="text" name="rentstatus" id="rentstatus" placeholder="Enter Rent Status" required>
                 </div>
+                <div class="input-field">
+                  <label for="carpoint">Rent Status</label>
+                  <input type="text" name="x" id="x" placeholder="Enter 경도" required>
+                </div>
+                <div class="input-field">
+                  <label for="carpoint">Rent Status</label>
+                  <input type="text" name="y" id="y" placeholder="Enter 위도" required>
+                </div>
 
                 <div class="input-field">
                   <label for="filenameMF">Car Image</label>

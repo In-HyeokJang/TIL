@@ -26,6 +26,7 @@ public class StoreServiceImpl implements StoreService {
 
         long s = timer.start();
         Stream<Store> stream = list.stream();
+
         List<Store> answer = stream.parallel().filter(data ->
                         HV(Double.parseDouble(data.getX()), Double.parseDouble(data.getY()),
                                 Double.parseDouble(map.get("lng")), Double.parseDouble(map.get("lat"))) <= 0.3)

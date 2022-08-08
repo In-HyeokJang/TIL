@@ -35,14 +35,23 @@ public class CarinfoCarcontroller {
     private CarinfoService service;
     private final AwsS3Service awsS3Service;
 
-//    @PostMapping("/resource")
-//    public AwsS3 upload(@RequestPart("file")
-//                        MultipartFile multipartFile) throws IOException {
-//
-//        return awsS3Service.upload(multipartFile,"carinfo");
-//        // 나는 db에 키 값을 저장하고 싶어
-//
-//    }
+
+
+    @GetMapping("/mapupdate/{carnumber}")
+    public String mapupdate(@PathVariable ("carnumber") String carnumber) {
+        return "/carinfo/mapupdate";
+    }
+    @PostMapping("/mapupdate")
+    public String mapupdate(CarinfoDTO dto) {
+        int cnt = service.mapupdate(dto);
+        log.info("dfdfdfd" + dto);
+        if(cnt == 1){
+            return "null";
+        }else{
+            return "error";
+        }
+    }
+
 
 
     @PostMapping("/updateFile")

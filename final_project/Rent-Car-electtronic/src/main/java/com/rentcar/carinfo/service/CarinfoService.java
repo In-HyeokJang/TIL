@@ -21,4 +21,5 @@ public interface CarinfoService {
     int delete(String carnumber);
     int updateFile(CarinfoDTO dto);
 
+    int mapupdate(CarinfoDTO dto);
 }

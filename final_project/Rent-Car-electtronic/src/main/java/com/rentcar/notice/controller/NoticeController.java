@@ -240,20 +240,7 @@ public class NoticeController {
 
         service.deleteFile(dto.getNoticeno());
 
-//        MultipartFile multipartFile = dto.getFnameMF();
-//        if (dto.getFnameMF() != null && !dto.getFnameMF().equals("")) {
-//            // 파일명으로 저장된다.
-//            dto.setFname(multipartFile.getOriginalFilename());
 
-
-//            dto.setKey((String) S3.getKey());
-//        }
-//
-//        if (service.create(dto) > 0) {
-//            return "/notice/list";
-//        } else {
-//            return "error";
-//        }
 
         return "/notice/update";
 
@@ -348,33 +335,8 @@ public class NoticeController {
     @PostMapping("/notice/create")
     public String create(NoticeDTO dto) throws IOException {
 
-        log.info("dto: " + dto.getContent());
-        log.info("dto: " + dto.getTitle());
-        log.info("dto: " + dto.getWname());
-        log.info("dto: " + dto.getFnameMF());
 
-// 로컬 저장 소스
-
-//        String upDir = UploadNotice.getUploadDir();
-//        if(dto.getFnameMF() != null && !dto.getFnameMF().equals("")) {
-//            String fname = Utility.saveFileSpring(dto.getFnameMF(), upDir);
-//
-//            log.info("fname:" + fname);
-//
-//
-//            dto.setFname(fname);
-//
-//        }
-//        if (service.create(dto) > 0) {
-//            return "ok";
-//        } else {
-//            return "error";
-//        }
-
-// AWS 사용
-
-        //String fname = dto.getFname(dto.getFnameMF());
-
+        log.info("createdto:" + dto);
 
         MultipartFile multipartFile = dto.getFnameMF();
         if (dto.getFnameMF() != null && !dto.getFnameMF().equals("")) {

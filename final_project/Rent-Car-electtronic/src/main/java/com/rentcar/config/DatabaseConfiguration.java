@@ -35,12 +35,6 @@ public class DatabaseConfiguration {
     public DataSource dataSource() throws Exception {
         DataSource dataSource = new HikariDataSource(hikariConfig());
 
-        System.out.println(dataSource.toString());
-
-
-        System.out.println(dataSource.toString());
-        System.out.println(dataSource.toString());  // 정상적으로 연결 되었는지 해시코드로 확인
-
         return dataSource;
     }
 

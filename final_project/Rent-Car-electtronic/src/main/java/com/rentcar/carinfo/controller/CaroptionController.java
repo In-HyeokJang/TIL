@@ -39,13 +39,6 @@ public class CaroptionController {
             return "error";
         }
     }
-//@PostMapping("/optcreate")
-//public Boolean create(CaroptionDTO dto, HttpServletRequest request)throws IOException {
-//
-//    Boolean answer = service.create(dto);
-//    return answer;
-
-//}
 
     @GetMapping("/optupdate/{carnumber}")
     public String update(@PathVariable("carnumber") String carnumber){

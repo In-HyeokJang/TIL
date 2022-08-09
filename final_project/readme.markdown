@@ -162,3 +162,12 @@
 - ppt 만들기(my ppt part 4page), 발표 할 부분 준비
 - admin, user top 에맞춰서 준비
 - 예약 완성 되면 연동 시키기
+
+#### 220809
+
+- admin / user 설정 완료
+- 예약 결제 창 or 예약 검색 창으로 이동 생각중
+- 종합db(MySQL)에 carlist 등록 완료
+- 더 많은 차종 전기차 추가 하기
+- read 에서 맨 밑으로 다 읽고 top 버튼 만듬
+- ppt (동영상 or 액션 or 사진) 으로 해서 만들까 고민중

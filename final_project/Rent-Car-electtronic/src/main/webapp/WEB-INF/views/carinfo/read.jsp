@@ -17,12 +17,12 @@
           function optupdate() {
             let windowObjectReference;
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
-            windowObjectReference = window.open("/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
+            windowObjectReference = window.open("/admin/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
           }
-          function mapupdate(){
+          function mapupdate() {
             let windowObjectReference;
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
-            windowObjectReference = window.open("/carinfo/mapupdate/${carnumber}", "mozillaTab", windowFeatures);
+            windowObjectReference = window.open("/admin/carinfo/mapupdate/${carnumber}", "mozillaTab", windowFeatures);
           }
 
           function reservation() {
@@ -141,16 +141,17 @@
               <div>
                 <a class="res" id="reserv" href="javascript:reservation()" value="${dto.rentstatus}">RESERVATION</a>
               </div>
+              <c:if test="${sessionScope.grade == 'A'}">
+                <div class="Abtn">
+                  <button><a href="/admin/carinfo/update/${dto.carnumber}">정보 수정</a></button>
 
-              <div class="Abtn">
-                <button><a href="/carinfo/update/${dto.carnumber}">정보 수정</a></button>
+                  <button onclick="optupdate()">옵션 수정</button>
 
-                <button onclick="optupdate()">옵션 수정</button>
+                  <button><a href="/admin/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
 
-                <button><a href="/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
-
-                <button onclick="mapupdate()">차위치수정</button>
-              </div>
+                  <button onclick="mapupdate()">차위치수정</button>
+                </div>
+              </c:if>
               </p>
             </div>
           </div>
@@ -375,13 +376,10 @@
         </div>
         </div>
         <!-- //업체정보 -->
-
         </div>
         </div>
         <p class="button">
-          <button>
-            <a href="javascript:history.back()">
-              뒤로</a></button>
+              <input type="button" value="TOP" onClick="javascript:window.scrollTo(0,0)"/>
         </p>
         </div>
 

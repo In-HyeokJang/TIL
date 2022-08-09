@@ -108,6 +108,7 @@ $(function() {
 $("#closebtn").click( function() {
      $('#optcreate').submit();
      setTimeout(function() {   
+      alert("등록했습니다.");
          window.close();
          window.opener.location.reload();
       }, 100);

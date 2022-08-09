@@ -24,7 +24,7 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/carinfo")
+//@RequestMapping("/carinfo")
 @RequiredArgsConstructor
 public class CarinfoCarcontroller {
 
@@ -37,11 +37,11 @@ public class CarinfoCarcontroller {
 
 
 
-    @GetMapping("/mapupdate/{carnumber}")
+    @GetMapping("/admin/carinfo/mapupdate/{carnumber}")
     public String mapupdate(@PathVariable ("carnumber") String carnumber) {
         return "/carinfo/mapupdate";
     }
-    @PostMapping("/mapupdate")
+    @PostMapping("/carinfo/mapupdate")
     public String mapupdate(CarinfoDTO dto) {
         int cnt = service.mapupdate(dto);
         log.info("dfdfdfd" + dto);
@@ -54,7 +54,7 @@ public class CarinfoCarcontroller {
 
 
 
-    @PostMapping("/updateFile")
+    @PostMapping("/carinfo/updateFile")
     public String updateFile(MultipartFile filenameMF, CarinfoDTO dto, HttpServletRequest request
     ) throws IOException {
 
@@ -67,7 +67,7 @@ public class CarinfoCarcontroller {
         }
     }
 
-    @GetMapping("/updateFile/{carnumber}")
+    @GetMapping("/admin/carinfo/updateFile/{carnumber}")
     public String updateFileForm(@PathVariable("carnumber") String carnumber,
 
                                  Model model) {
@@ -77,14 +77,14 @@ public class CarinfoCarcontroller {
     }
 
 
-    @GetMapping("/delete/{carnumber}")
+    @GetMapping("/carinfo/delete/{carnumber}")
     public String delete(@PathVariable String carnumber) {
         int flag = service.delete(carnumber);
         if (flag != 1) return "error";
         else return "redirect:/carinfo/list";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/carinfo/update")
     public String update(CarinfoDTO dto) {
         log.info("dto:" + dto);
 
@@ -97,14 +97,15 @@ public class CarinfoCarcontroller {
         }
     }
 
-    @GetMapping("/update/{carnumber}")
+    @GetMapping("/admin/carinfo/update/{carnumber}")
     public String update(@PathVariable("carnumber") String carnumber, Model model) {
         CarinfoDTO dto = service.read(carnumber);
         model.addAttribute("dto", dto);
         return "/carinfo/update";
     }
 
-    @GetMapping("/read/{carnumber}")
+    @GetMapping("/carinfo/read/{carnumber}")
+    // /user/carinfo/read/{carnumber}
     public String read(@PathVariable("carnumber") String carnumber, Model model) {
         CarinfoDTO dto = service.read(carnumber);
 
@@ -114,7 +115,7 @@ public class CarinfoCarcontroller {
     }
 
 
-    @PostMapping("/create")
+    @PostMapping("/carinfo/create")
     public String create(CarinfoDTO dto, HttpServletRequest request
     ) throws IOException {
 
@@ -129,14 +130,14 @@ public class CarinfoCarcontroller {
 
     }
 
-    @GetMapping("/create")
+    @GetMapping("/admin/carinfo/create")
     public String create() {
         return
                 "/carinfo/create";
     }
 
 
-    @RequestMapping("/list")
+    @RequestMapping("/carinfo/list")
     public String list(HttpServletRequest request) {
         // 검색관련------------------------
         String col = Utility.checkNull(request.getParameter("col"));

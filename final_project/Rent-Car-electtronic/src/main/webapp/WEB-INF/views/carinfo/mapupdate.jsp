@@ -58,6 +58,7 @@
     $("#closebtn").click(function () {
       $('#mapup').submit();
       setTimeout(function () {
+      alert("수정했습니다.");
         window.close();
         window.opener.location.reload();
       }, 100);

@@ -176,4 +176,4 @@
 
 - ppt 캡쳐본 조금 완료
 - 중간에 취업세미나 참여(안랩, SSNC, 클라썸, 아이포토플리오, 포스코건설, 가위IT솔루션)
-- 채용 확인 사이트 (잡플래닛, 블라인드, 롯켓펀치, TheVC)
+- 채용 확인 사이트 (잡플래닛, 블라인드, 롯켓펀치, TheVC, DeepSearch, Kredit job, catch, nicebizinfo, dart)

@@ -9,7 +9,7 @@
 🚘[Rent-Car-Electtronic: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
 
 😁[Rent-Car-Electronic : site(미완성)](https://evrent.ml/)
-🤬[Rent-Car-Electronic 서버 연결 방벙](https://github.com/In-HyeokJang/TIL/blob/master/Evrent_%EC%84%9C%EB%B2%84_%EC%97%B0%EA%B2%B0%EB%B0%A9%EB%B2%95)
+🤬[Rent-Car-Electronic 서버 연결 방벙](https://github.com/In-HyeokJang/TIL/blob/master/EvRent_server_connection.md)
 
 🐷[Rent-Car-Electtronic Team github](https://github.com/ISOSIM)
 

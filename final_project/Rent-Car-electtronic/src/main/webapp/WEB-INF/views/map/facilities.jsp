@@ -15,7 +15,7 @@
         <div clss="map_info">사장님의 가게 위치와 정보를 입력해주세요. 가게 위치는 정확할수록 좋습니다.</div>
         <div class="map_wrap">
 
-            <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+            <div id="map" style="width:100%;height:100%; position:relative; overflow:hidden;"></div>
 
             <div class="data">
                 <label>Store Name</label>

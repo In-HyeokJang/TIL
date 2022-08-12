@@ -1,0 +1,293 @@
+.reservePanel{
+    border: 2px;
+    border-color: black;
+}
+
+#quickBtnDiv{
+
+}
+
+.quickBtnUl{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.quickBtn{
+    display: inline-block;
+    text-align: center;
+    border: 1px solid 	#0099ff;
+    border-radius: 20%;
+    padding: 20px;
+    margin-left: 40px;
+    box-shadow: 0 0 2px grey;
+}
+
+.underQuickBtn{
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid 	#0099ff;
+    border-radius: 50%;
+    padding: 15px;
+    margin-left: 40px;
+    box-shadow: 0 0 4px grey;
+}
+
+.containerReserve{
+    display: center;
+    border-radius: 20%;
+    padding: 10px;
+    border: 2px;
+    border-color: black;
+}
+
+.reserveOptionUl{
+    list-style: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.reserveOptionLi{
+    float: left;
+    margin-left: 60px;
+    text-align: center;
+}
+
+.selectCar{
+    border: 1px solid 	#0099ff;
+    border-radius: 5%;
+    padding: 15px;
+}
+
+#choosedate{
+ border: 1px solid 	#0099ff;
+ border-radius: 6%;
+ padding: 15px;
+}
+
+.reserveBtn{
+    border: 1px solid 	#5abdff;
+    background-color: transparent;
+    color: #5abdff;
+    width: 120px;
+    height: 70px;
+    font-size: 1.5em;
+
+}
+
+.reserveBtn:hover{
+    background-color: #5abdff;
+    color: white;
+}
+/* 에러부분 */
+body {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+/*충전소 검색, 주변 편의시설 검색*/
+
+.containerFindDiv{
+    text-align: center;
+}
+
+.findInput{
+
+    border: 1px solid 	#0099ff;
+    width: 800px;
+    padding: 15px;
+    text-align: center;
+
+}
+
+.findBtn{
+    border: 1px solid 	#5abdff;
+    background-color: transparent;
+    color: #5abdff;
+    width: 80px;
+    height: 40px;
+    font-size: 1.5em;
+}
+
+.findBtn:hover{
+    background-color: #5abdff;
+    color: white;
+}
+
+/*사진 슬라이드 구현부*/
+
+#slide_warp {
+    width: 100%;
+    height: 10vh;
+}
+#slide_group_view {
+    width: 40%;
+    height:60%;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+#slide_group {
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: blueviolet;
+    /* height: 100%; */
+}
+.slide_img {
+    position: absolute;
+    top:70%;
+    /* transform: translateY(-30%); */
+    left: 0;
+    width: 100%;
+
+}
+#nav a {
+    display: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: 50px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;;
+}
+.prev {
+    display: hidden;
+    margin-left: calc(-20% - 75px);
+}
+.next {
+    display: hidden;
+    margin-left: calc(20% + 25px);
+}
+
+/*공지사항 구현부*/
+
+@font-face { /* 배달의 민족 폰트 적용 */
+    font-family: "bedal";
+    src: url("/font/BMJUA_ttf.ttf") format("truetype");
+    font-weight: normal;
+  } /* 이후 "SDGothic"으로 폰트 적용 가능 */
+
+/* .notice-list{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 60px;
+    margin-top: 45px;
+    width: 350px;
+
+} */
+
+.hline{
+    padding-left: 40px;
+    margin-right: 50px;
+}
+
+.hline p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 0.1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 20px;
+    
+}
+
+.hline a {
+    display: block;
+    margin-top: 25px;
+    text-align: right;
+    font-size: 22px;;
+}
+
+.hline h1{
+    display: block;
+    font-size: 2.5em;
+    /* margin-block-start: 0.83em;
+    margin-block-end: 0.83em; */
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.noticeContent .notice-list {
+
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    flex-wrap: wrap;
+    
+    width: 770px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+
+}
+
+.notice-list li{
+
+    margin-right: 70px;
+    border-bottom: 2px solid #2f2f2f;
+    justify-content: space-between;
+    /* flex: 1 1 40%; */
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-align: center;
+    font-weight: normal;
+    font-size: 22px;
+    width: 355px;
+    padding: 40px 0;
+    font-family: "bedal";
+
+}
+
+.noticeWrap{
+    justify-content: center;
+}
+
+.noticeInner{
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: baseline;
+    justify-content: center;
+    
+}
+
+.notice-list li:nth-of-type(1) {
+    border-bottom: 2px solid #2f2f2f;
+
+}
+
+.notice-list li:nth-of-type(2) {
+    border-bottom: 2px solid #2f2f2f;
+
+}
+
+.notice-list li:nth-of-type(3) {
+
+}

@@ -22,21 +22,7 @@ import java.util.Map;
     public class CarinfoA3Controller {
 
         private final AwsS3Service awsS3Service;
-//
-//    @Autowired
-//    @Qualifier("com.rentcar.carinfo.service.CaroptionServiceImpl")
-//    private CaroptionService service;
-//
-//    @Qualifier("com.rentcar.carinfo.service.CarinfoServiceImpl")
-//    private CarinfoService cservice;
-//
-//    @PostMapping("/optcreate")
-//    public Boolean create(CaroptionDTO dto, HttpServletRequest request)throws IOException {
-//
-//        Boolean answer = service.create(dto);
-//        return answer;
-//
-//    }
+
 
 
         @PostMapping("/resource")

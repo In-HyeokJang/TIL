@@ -5,9 +5,29 @@
 
 <mapper namespace="com.rentcar.notice.mapper.NoticeMapper">
 
+	<select id="mainNoticeList" resultType="com.rentcar.notice.model.NoticeDTO">
+
+		select noticeno, title, wdate
+		from notice
+		order by noticeno desc limit 4
+
+	</select>
+
 	<update id="update"  parameterType="com.rentcar.notice.model.NoticeDTO">
 		UPDATE notice
-		SET title=#{title}, content=#{content}, wname=#{wname}, fname = #{fname}
+
+		<choose>
+
+		<when test="fname == null || fname == '' ">
+
+			SET title=#{title}, content=#{content}, wname=#{wname}
+
+		</when>
+			<otherwise>
+				SET title=#{title}, content=#{content}, wname=#{wname}, fname = #{fname}, `key` = #{key}
+			</otherwise>
+		</choose>
+
 		WHERE noticeno=#{noticeno}
 	</update>
 
@@ -22,7 +42,7 @@
 		WHERE noticeno=#{noticeno};
 	</delete>
 
-	<select id="passwd" resultType="int" parameterType="HashMap">
+	<select id="passwd" resultType="int" parameterType="map">
 		SELECT COUNT(*) AS cnt
 		FROM notice
 		WHERE noticeno=#{noticeno} AND passwd=#{passwd}

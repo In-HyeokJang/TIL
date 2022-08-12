@@ -1,0 +1,31 @@
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    }
+    body {
+        font-family: 'bedal';
+        background-color: #fafafc;
+        list-style: none;
+        margin-bottom: 100px;
+        font-size: 15px;
+    }
+    .u-body {
+               font-family: 'bedal';
+                    background-color: #fafafc;
+                    list-style: none;
+                    margin-bottom: 100px;
+                    font-size: 15px;
+    }
+    h3 {
+    font-family: 'bedal';
+        font-weight: 400;
+        font-size: 1.875rem;
+        line-height: 1.2;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+        .u-table th .u-table td {
+                        font-size: 50px;
+        }

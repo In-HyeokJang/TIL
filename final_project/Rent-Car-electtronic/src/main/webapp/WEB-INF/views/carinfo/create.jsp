@@ -22,8 +22,7 @@
         <form class="form-horizontal"
         action="/carinfo/create"
         method="post" 
-        enctype="multipart/form-data"
-          onsubmit="return checkIn(this)">
+        enctype="multipart/form-data">
 
 
           <div class="form first">
@@ -103,13 +102,10 @@
       </div>
     </body>
 <script>
-
         $("#filenameMF").change(function(){
         data = new FormData();
         data.append("filenameMF", $("input[name=filenameMF]")[0].files[0]);
-
         console.log(data);
-
 
         $.ajax({
           data: data,
@@ -120,12 +116,7 @@
           success: function (data) {
             console.log(data);
             console.log(data.path);
-
             document.querySelector("#carimage").value = data.path;
-            // function product(){
-            //   return data.path; }
-
-
           },
           error: function () {
             alert("1111에러입니다");

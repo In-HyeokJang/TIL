@@ -54,14 +54,14 @@ button:focus {
     color: #d3d3d3
 }
 
-.form-control {
+/* .form-control {
     height: auto;
     border: 1px solid #bfc9d4;
     color: #3b3f5c;
     letter-spacing: 1px;
     padding: .35rem 1.25rem;
     border-radius: 6px
-}
+} */
 
 .form-control:focus {
     box-shadow: 0 0 5px 2px rgba(194, 213, 255, .6196078431372549);
@@ -216,7 +216,14 @@ select.form-control.form-custom {
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .1);
     will-change: opacity, transform;
     transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out
+    -webkit-transition: all .3s ease-out;
+
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    border: 1px solid transparent;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .btn svg {

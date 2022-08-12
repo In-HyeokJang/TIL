@@ -14,7 +14,7 @@
 <div class="container">
 <h1 class="col-sm-offset-2 col-sm-10">게시판 수정</h1>
 
-<form class="form-horizontal">
+<div class="form-horizontal">
 
 <input type="hidden" name="noticeno" id="noticeno" value="${dto.noticeno}">
   <div class="form-group">
@@ -65,97 +65,21 @@
   
    <div class="form-group">
    <div class="col-sm-offset-2 col-sm-5">
-    <button class="btn">수정</button>
-    <button type="reset" class="btn">취소</button>
+    <button class="btn" onClick="update()">수정</button>
+    <button class="btn" onClick="javscript:location.href = '/user/notice/list'">취소</button>
    </div>
  </div>
 
-</form>
+</div>
 
 </div>
 <script>
-// $("#deleteFile").click(function(){
-//   // function deleteFile(){
-//     // confirm("정말로 파일을 삭제하시겠습니까?")
-
-//     var noticeno = document.querySelector("#noticeno").value;
-//     var oldFile = document.querySelector("#oldFile").value;
-//     console.log(noticeno);
-//     console.log(oldFile);
-//     var data = { "noticeno" : noticeno,
-//                   "oldFile" : oldFile              
-//   } 
-    
-//     alert(data); 
- 
-//     $.ajax({ 
-      
-//       type : "post", 
-    
-//     url : "/notice/deletefile", 
-    
-//     dataType:"json",
-    
-//     data : JSON.stringify(data),
-
-// contentType: "application/json",
-
-//     success:
-    
-//       function(data){ 
-        
-//           console.log('성공입니다.'); 
-//           console.log(data); 
-        
-//           alert("성공입니다.") }, 
-        
-//           error:
-//             function(){ alert("에러입니다"); } });
-
-
-
-// let oldFile = document.getElementById("oldFile").value;
-// alert(oldFile);
-
-// // const formdata = new FormData();
-// // alert(formdata);
-// // formdata.append("oldfile",oldFile);
-
-//     fetch('/notice/deletefile/${noticeno}',{
-      
-//       method: 'GET',
-//     //  body:formdata,
-//       body: 'text'
-      
-//     })
-//     .then(response => response.text)
-//     .then(function(response){
-//       if(respons.oldFile == ''){
-//         alert('삭제를 성공하였습니다')
-//       }else{
-//         alert('삭제를 실패하였습니다')
-//       }
-      
-//     })
-//     .then(result => document.getElementById('oldFile').value(result))
-//     //이게맞나?
-//     .catch(console.log('실패'))
-//   });
-
 
 document.getElementById("deleteFile").onclick = function () {
 
   let oldFile = document.getElementById("oldFile").value;
   
   let noticeno = document.getElementById("noticeno").value;
-  
-  alert(noticeno);
-  alert(oldFile);
-
-//   let formData = new FormData()
-
-//   formdata.append("noticeno", noticeno);
-//   formData.append("oldFile", oldFile);
 
   const data = {
             noticeno : noticeno,
@@ -163,45 +87,69 @@ document.getElementById("deleteFile").onclick = function () {
 }
 
 $.ajax({
-  url: '/notice/deletefile',
+  url: '/admin/notice/deletefile',
   type: 'post',
-  dataType:'json',
+  dataType:'text',
   data : JSON.stringify(data),
   contentType: 'application/json',
   
-  success: function success(){
+  success: function (){
               alert('삭제를 성공하였습니다')
+              console.log('삭제를 성공하였습니다');
               location.reload()
-            
   },            
-  error: function error(){
-          alert('삭제를 실패하였습니다')
-            
+  error: function (request, status, error){
+          alert(request.status + '\n' + request.responseText + '\n' + error)
   }
 
 });
 };
-//  alert(data);
-//       fetch('/notice/deletefile',{
-      
-//             method: 'POST',
-//             body:JSON
-//           })
-//           .then(response => response.json())
-//           .then(function(result){
-//             if(result.fname == ''){
-//               alert('삭제를 성공하였습니다')
-//             }else{
-//               alert('삭제를 실패하였습니다')
-//             }
-            
-//           })
-//           .then(result => document.getElementById('oldFile').value(result))
-//           //이게맞나?
-//           .catch(console.log('실패'))
+  
+  function add(formdata){
 
-//     };
+return fetch('/admin/notice/update',{
+                method: 'POST',
+                body:  formdata,
+                // dataType: 'text',
+                // headers: {
+                //   "Content-Type":"text/xml"
+                // },
+                })
+                .then(function(response){
+                  return response.text()
+                })
+               .catch(alert("수정 되었습니다."));
 
+}
+
+function update(){
+
+  let noticeno = document.getElementById('noticeno').value;
+  let wname = document.getElementById('wname').value;
+  let title = document.getElementById('title').value;
+  let content = document.getElementById('content').value;
+  let passwd = document.getElementById('passwd').value;
+  let key = document.getElementById('fnameMF').value;
+
+
+const formdata = new FormData();
+const fileField = document.querySelector('input[type="file"]');
+
+formdata.append('noticeno', noticeno);
+formdata.append('wname', wname);
+formdata.append('title', title);
+formdata.append('content', content);
+formdata.append('passwd', passwd);
+
+if(fileField.files[0] != null){
+formdata.append('fnameMF', fileField.files[0]);
+}
+
+  add(formdata)
+  .then(function(url){
+    return location.href = url
+  });
+}
 
   </script>
 </body> 

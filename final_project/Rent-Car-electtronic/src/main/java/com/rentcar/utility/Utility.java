@@ -5,15 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import com.rentcar.notice.model.review.service.ReviewService;
+import com.rentcar.review.service.ReviewService;
 import org.springframework.web.multipart.MultipartFile;
 
 
 public class Utility {
-
-
-    public static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary)
+public static void writeMultiPart(OutputStream out, String jsonMessage, File file, String boundary)
             throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append("--").append(boundary).append("\r\n");
@@ -46,7 +43,6 @@ public class Utility {
         }
         out.flush();
     }
-
 
 
 
@@ -219,7 +215,7 @@ public class Utility {
                 if (os.equals("mac os x")) { // Mac
                     System.out.println("맥");
                     serverFullPath = basePath + "/" + filename;
-                } else if (os.equals("windows 11")) {
+                } else if (os.equals("windows 10")) {
                     System.out.println("os: " + os);
                     serverFullPath = basePath + "\\" + filename;
                 } else if (os.equals("linux")) {
@@ -247,7 +243,7 @@ public class Utility {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-           // System.out.println("filename="+ filename);
+
         }
 
         return filename;

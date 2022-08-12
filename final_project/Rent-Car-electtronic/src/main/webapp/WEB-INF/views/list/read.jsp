@@ -12,14 +12,7 @@
        <link rel="stylesheet" type="text/css" href="/css/list/read.css"/>
        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-<style>
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-    position: relative;
-  }
 
-  </style>
     </head>
     <body>
 
@@ -27,7 +20,7 @@
       <div class="container">
         <div id="div1">
          <table class="table table-striped">
-          <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828413.png" style="height:20px; width:20px ">&nbsp;${dto.wname}</th>
+          <th><img src="https://cdn-icons-png.flaticon.com/512/1828/1828413.png" style="height:20px; width:20px ">&nbsp;${sessionScope.id}</th>
           <th>&emsp;${dto.rdate}&emsp;</th>
           <th>조회수: ${dto.cnt}</th>
              <div style="display: inline-block; margin: 0 5px;  float: right;">
@@ -41,15 +34,16 @@
         </div>
         <br>
         <div style="display: inline-block; margin: 0 5px;  float: right;"><span style="color: #787878;">
-        <a style="color: #787878;" href="/contents/list">목록</a>
+        <a style="color: #787878;" href="/user/contents/list">목록</a>
     |   <a style="color: #787878;" href="javascript:void(0);" onClick="document.getElementById('powerbbsCmt2').scrollIntoView();">추천(<span style="color:#F94B4B;">${dto.recommend}</span>)</a>
           </span></div>
           <br><br><br>
         <h1>${dto.title}</h1>
 
         <br><br><br>
-        <h3>${dto.content}</h3>
-
+        <article>
+        <h3 id="content">${dto.content}</h3>
+</article>
           <br><br><br>
           <div style="display: flex;   justify-content : center;">
           <button id="btn1" style="border-radius: 30px;"><img src="/images/SJ/free-icon-thumb-up-889221.png" style="height:130px;"></button>
@@ -87,9 +81,9 @@
 
 
 
-    <a >${list.content}</a>
+    <a id="contents">${list.content}</a>
     <div style="display: inline-block; margin: 0 5px;  float: right;">
-   <button id='delete' class='delete' style="width:20; height:20;">삭 제</button>
+   <button type="button" id='delete' class='delete' style="width:20; height:20;">삭 제</button>
     </div>
     <br>
       <br>
@@ -109,13 +103,13 @@
 
               <!-- -------------------------------------------------------------------------  -->
 
-             <table  style=" width:930px; height:150px; margin:0 auto;">
+             <table  style=" width:1200px; height:150px; margin:0 auto;">
              <th>
                 <textarea id="review11" name="content" class="content" rows="8" tabindex="99" placeholder="명예훼손,개인정보 유출,분쟁,허위사실 유포 등의 글은 이용약관에 의해 제재는
-법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부 드립니다." style="width:830px; height:70px;"></textarea>
+법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부 드립니다." style="width:1100px; height:70px;"></textarea>
              </th>
              <th>
-             <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right' type="button" style="width:100px; height:70px;" >등 록</button>
+             <button id='addreviewBtn' type="button" style="width:100px; height:70px;" >등 록</button>
 
              </th>
              </table>
@@ -127,22 +121,16 @@
 
 
     </div>
-                   <script>
-                     let listno = "${dto.listno}";
-                    let sno = "${sno}";
-                     let eno = "${eno}";
-                     <!-- 댓글용 paging 로그인 id -->
-                     let nPage = "${nPage}";
-                     let id = "${sessionScope.id}";
-
-
-
-                  </script>
 
 
 
 
 
+
+
+
+<input type="hidden" value="${dto.listno}" id="listno">
+<input type="hidden" value="${sessionScope.id}" id="id">
 
  <script src="/js/list/read.js" defer></script>
 

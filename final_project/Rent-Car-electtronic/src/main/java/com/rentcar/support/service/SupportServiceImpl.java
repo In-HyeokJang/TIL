@@ -59,8 +59,6 @@ public class SupportServiceImpl implements SurpportService {
         return mapper.delete(carnum);
     }
 
-
-
     public Supporter MaptoModel(Map map){
 
         List<String> answer= (List<String>) map.get("answer");
@@ -91,18 +89,24 @@ public class SupportServiceImpl implements SurpportService {
     public Boolean complete(String carnum) {
 
         Request request = requestMapper.read(carnum);
+
         Support_log log = Support_log.builder()
                 .name(request.getName())
-                .reason(request.getReason())
                 .rx(request.getRx())
                 .ry(request.getRy())
+                .reason(request.getReason())
                 .request_time(request.getRequest_time())
                 .accepted_time(request.getAccepted_time())
                 .carnum(carnum)
                 .build();
 
-        System.out.println(log);
+        // 요청사항 취소
+        requestMapper.cancle(carnum);
 
+        // 서포터 상태 stay로 변경
+        Supporter supporter = mapper.read(request.getSupporter_carnum());
+        supporter.setState("stay");
+        mapper.update(supporter);
 
         return mapper.complete(log);
     }

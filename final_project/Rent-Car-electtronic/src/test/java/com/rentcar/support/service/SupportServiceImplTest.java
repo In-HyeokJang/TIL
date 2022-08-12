@@ -2,7 +2,6 @@ package com.rentcar.support.service;
 
 import com.rentcar.support.mapper.SupporterMapper;
 import com.rentcar.support.model.Supporter;
-import com.rentcar.utility.Utility;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SupportServiceImplTest {
@@ -23,11 +20,10 @@ class SupportServiceImplTest {
     @Test
     public void support_find(){
 
-        Supporter surpport = new Supporter();
-
         String carnum = "12가1234";
-        surpport.setCarnum(carnum);
-
+        Supporter surpport = Supporter.builder()
+                .carnum(carnum)
+                .build();
         Supporter su =mapper.read(carnum);
         System.out.println(su);
     }

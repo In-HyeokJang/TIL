@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/user/member")
 public class MemberController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class MemberController {
 
         String id = "user1";
         if (id == null) {
-            return "redirect:/member/login/";
+            return "redirect:/user/member/login/";
         } else {
             MemberDTO dto = service.mypage(id);
             System.out.println("dto :::"+dto);
@@ -50,8 +50,8 @@ public class MemberController {
 
     @GetMapping("/mypage")
     public String mypage(HttpSession session, Model model){
-        //String id = (String) session.getAttribute("id");
-        String id = "user1";
+        String id = (String) session.getAttribute("id");
+        System.out.println("@@@@@@@@@@@@@@@@@@"+id);
         if (id == null) {
             return "redirect:/user/login";
         } else {

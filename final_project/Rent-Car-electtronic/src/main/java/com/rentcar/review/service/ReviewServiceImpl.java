@@ -51,9 +51,9 @@ public class ReviewServiceImpl implements ReviewService {
   }
 
   @Override
-  public int bdelete(int listno) {
+  public void bdelete(int listno) {
     // TODO Auto-generated method stub
-    return mapper.bdelete(listno);
+    mapper.bdelete(listno);
   }
 
   @Override
@@ -61,5 +61,6 @@ public class ReviewServiceImpl implements ReviewService {
     // TODO Auto-generated method stub
     return 0;
   }
+
 
 }

@@ -21,31 +21,37 @@
                        value="/WEB-INF/views/main.jsp" />
     </definition>
 
-    <definition name="/notice/update" extends="main">
+    <definition name="/home2" extends="main">
+        <put-attribute name="title" value="기본페이지"></put-attribute>
+        <put-attribute name="body"
+                       value="/WEB-INF/views/main2.jsp" />
+    </definition>
+
+    <definition name="/admin/notice/update" extends="main">
         <put-attribute name="title" value="수정"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/notice/updateForm.jsp" />
     </definition>
 
-    <definition name="/notice/delete" extends="main">
+    <definition name="/admin/notice/delete" extends="main">
         <put-attribute name="title" value="공지삭제"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/notice/deleteForm.jsp" />
     </definition>
 
-    <definition name="/notice/create" extends="main">
+    <definition name="/admin/notice/create" extends="main">
         <put-attribute name="title" value="등록"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/notice/createForm.jsp" />
     </definition>
 
-    <definition name="/notice/read" extends="main">
+    <definition name="/user/notice/read" extends="main">
         <put-attribute name="title" value="기본페이지"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/notice/read.jsp" />
     </definition>
 
-    <definition name="/notice/list" extends="main">
+    <definition name="/user/notice/list" extends="main">
         <put-attribute name="title" value="기본페이지"></put-attribute>
         <put-attribute name="body"
                        value="/WEB-INF/views/notice/list.jsp" />

@@ -36,7 +36,7 @@
 
     <!-- 조회 -->
     <select id="read" resultType="com.rentcar.list.model.ListDTO" parameterType="int">
-        SELECT listno, title, content, wname, cnt,recommend, rdate
+        SELECT listno, title, content,cnt,recommend, rdate
         FROM list
         WHERE listno=#{listno}
     </select>

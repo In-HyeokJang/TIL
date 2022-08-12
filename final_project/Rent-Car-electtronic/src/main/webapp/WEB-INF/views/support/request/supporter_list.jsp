@@ -9,7 +9,6 @@
                 <head>
                     <title>Bootstrap Example</title>
                     <meta charset="utf-8">
-
                     <link rel="stylesheet" type="text/css" href="/css/support/style.css">
                 </head>
 
@@ -17,9 +16,8 @@
 
 
                     <div class="container">
-                        <form class="form-inline" action="/support/list">
+                        <form class="form-inline" action="/admin/support/list">
                             <div class="form-group">
-
                                 <select class="my-select-menu" name="col">
                                     <option <c:if test="${col=='carnum'}"> selected </c:if>
                                         >차량번호</option>
@@ -33,12 +31,11 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter 검색어" name="word"
-                                    value="${word}">
+                                <input type="text" class="form-control" placeholder="Enter 검색어" name="word" value="${word}">
                             </div>
                             <div style="left: 0px;">
                                 <button type="submit" class="btn btn-default">검색</button>
-                                <button onclick="createwindow();">등록</button>
+                                <button class="btn btn-default" onclick="createwindow();">등록</button>
                             </div>
                         </form>
                     </div>
@@ -93,15 +90,14 @@
                             var url = new URL(window.location.href);
                             const urlParams = url.searchParams;
                             var carnum = urlParams.get('carnum');
-                            var new_url = "/request/help/accept?carnum=" + carnum;
+                            var new_url = "/user/request/help/accept?carnum=" + carnum;
                             new_url += "&supporter=" + supporter;
-
-                            alert(new_url);
                             let response = await fetch(new_url);
                             
                             if(response.ok){
                                 alert("등록되었습니다.")
                                 window.close();
+                                window.location.reload();
                             }else{
                                 alert("HTTP-Error: " + response.status);
                             }

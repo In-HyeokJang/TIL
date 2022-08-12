@@ -23,7 +23,7 @@ public class RestController {
     @PostMapping("/resource")
     public AwsS3 upload(@RequestPart("file") MultipartFile multipartFile) throws IOException {
 
-
+System.out.println(multipartFile);
         return awsS3Service.upload(multipartFile, "list");
     }
 }

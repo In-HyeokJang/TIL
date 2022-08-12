@@ -33,12 +33,12 @@
         <put-attribute name="title" value="list 수정" ></put-attribute>
         <put-attribute name="body" value="/WEB-INF/views/list/updateForm.jsp" />
     </definition>
-    <definition name="/list/reply" extends="main">
-        <put-attribute name="title" value="list 답변" ></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/list/replyForm.jsp" />
-    </definition>
-    <definition name="/list/delete" extends="main">
-        <put-attribute name="title" value="list 삭제" ></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/list/deleteForm.jsp" />
-    </definition>
+<!--    <definition name="/list/reply" extends="main">-->
+<!--        <put-attribute name="title" value="list 답변" ></put-attribute>-->
+<!--        <put-attribute name="body" value="/WEB-INF/views/list/replyForm.jsp" />-->
+<!--    </definition>-->
+<!--    <definition name="/list/delete" extends="main">-->
+<!--        <put-attribute name="title" value="list 삭제" ></put-attribute>-->
+<!--        <put-attribute name="body" value="/WEB-INF/views/list/deleteForm.jsp" />-->
+<!--    </definition>-->
 </tiles-definitions>

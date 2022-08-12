@@ -1,7 +1,10 @@
 package com.rentcar.review.controller;
 
+
+import com.rentcar.list.service.ListServiceImpl;
 import com.rentcar.review.model.ReviewDTO;
 import com.rentcar.review.service.ReviewServiceImpl;
+
 import com.rentcar.utility.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +22,10 @@ import java.util.Map;
 public class ReviewController {
     private static final Logger log = LoggerFactory.getLogger(ReviewController.class);
 
-
-  @Autowired
-  private ReviewServiceImpl service;
+    @Autowired
+    private ReviewServiceImpl service;
+    @Autowired
+    private ListServiceImpl rservice;
 
     @GetMapping("/review/list/{listno}/{sno}/{eno}")
     public ResponseEntity<List<ReviewDTO>> getList(
@@ -39,8 +43,9 @@ public class ReviewController {
         return new ResponseEntity<List<ReviewDTO>>(service.list(map), HttpStatus.OK);
     }
 
-  @GetMapping("/review/page")
-  public ResponseEntity<String> getPage(int nPage, int listno, int nowPage, String col, String word) {
+
+    @GetMapping("/review/page")
+    public ResponseEntity<String> getPage(int nPage, int listno, int nowPage, String col, String word) {
 
         System.out.println("listno:  " + listno);
         int total = service.total(listno);
@@ -48,8 +53,7 @@ public class ReviewController {
 
         int recordPerPage = 10; // 한페이지당 출력할 레코드 갯수
 
-
-    String paging = Utility.rpaging(total, nowPage, recordPerPage, col, word, url, nPage);
+        String paging = Utility.rpaging(total, nowPage, recordPerPage, col, word, url, nPage);
 
         return new ResponseEntity<>(paging, HttpStatus.OK);
 
@@ -59,14 +63,14 @@ public class ReviewController {
     public ResponseEntity<String> create(@RequestBody ReviewDTO vo) {
 
         log.info("ReviewDTO:contents " + vo.getContent());
-//      log.info("ReviewDTO:id " + vo.getId());
+        log.info("ReviewDTO:id " + vo.getId());
         log.info("ReviewDTO:listno " + vo.getListno());
         System.out.println("vo:  " + vo);
-        vo.setContent(vo.getContent().replaceAll("/n/r", "<br>"));
+        // vo.setContent(vo.getContent().replaceAll("/n/r", "<br>"));
 
         int flag = service.create(vo);
 
-        log.info("Reply INSERT flag: " + flag);
+
 
         return flag == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -92,11 +96,26 @@ public class ReviewController {
 
     @DeleteMapping("/review/{rnum}")
     public ResponseEntity<String> remove(@PathVariable("rnum") int rnum) {
-
+        System.out.println("rnum="+rnum);
         log.info("remove: " + rnum);
 
         return service.delete(rnum) == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
+
+    @PostMapping("/list/{listno}")
+    public ResponseEntity<String> recommend(@PathVariable("listno") int listno) {
+        System.out.println("listno="+listno);
+        log.info("listno: " + listno);
+
+        int flag = rservice.recommend(listno);
+
+        System.out.println("flag?="+flag);
+
+        return flag == 1 ?  new ResponseEntity<>("success", HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+    }
+
 }

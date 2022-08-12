@@ -24,7 +24,7 @@
 <body>
   <div class="container">
 
-    <header>CarOption</header>
+    <header>CarMapUpdate</header>
     <form class="form-horizontal" action="/carinfo/mapupdate" method="post" id="mapup">
 
       <input type="hidden" class="form-control" id="carnumber" name="carnumber" value="${carnumber}">
@@ -52,20 +52,16 @@
   </div>
 </body>
 <script>
-
   $(function () {
-
     $("#closebtn").click(function () {
       $('#mapup').submit();
       setTimeout(function () {
       alert("수정했습니다.");
         window.close();
         window.opener.location.reload();
-      }, 100);
+      }, 10);
     });
-
   });
-
 </script>
 
 </html>

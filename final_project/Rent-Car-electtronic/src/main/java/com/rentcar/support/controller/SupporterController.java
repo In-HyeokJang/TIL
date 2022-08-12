@@ -1,7 +1,10 @@
 package com.rentcar.support.controller;
 
+import com.rentcar.support.model.Request;
 import com.rentcar.support.model.Supporter;
+import com.rentcar.support.service.RequestServiceImpl;
 import com.rentcar.support.service.SupportServiceImpl;
+import com.rentcar.support.service.WhereSet;
 import com.rentcar.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,58 +23,32 @@ import java.net.URLDecoder;
  */
 
 @Controller
-@RequestMapping("/support")
+@RequestMapping("/admin")
 public class SupporterController {
+
+    @Autowired
+    private RequestServiceImpl requestService;
 
     @Autowired
     private SupportServiceImpl supportService;
 
-    // 서포터 정보 읽어오기
-    @GetMapping("/read")
-    public Supporter sup(){
-        String  carnum = "12가1234";
-
+    // 한개의 서포터 정보 읽어오기
+    @GetMapping("/read/{carnum}")
+    public Supporter sup(@RequestParam("carnum") String carnum){
         return supportService.read(carnum);
     }
 
-    @PostMapping("/create_supporter")
-    @ResponseBody
-    public Boolean create_supporter(@RequestBody Map map){
-
-        Boolean answer = supportService.create(map);
-        return answer;
-    }
-
-
-    @PostMapping("/update")
-    @ResponseBody
-    public Boolean update(@RequestBody Supporter surpport){
-
-        return supportService.update(surpport);
-    }
-
-    @GetMapping("/delete/{carnum}")
-    @ResponseBody
-    public Boolean delete(@PathVariable("carnum") String carnum) throws UnsupportedEncodingException {
-        String supporter = URLDecoder.decode(carnum,"utf-8");
-        Boolean flag = supportService.delete(supporter);
-        return flag;
-    }
-
-
-    @GetMapping("/create")
+    @GetMapping("/support/create")
     public String create(){
         return "/supporter/create";
     }
 
-    @GetMapping("/list")
-    public String list(HttpServletRequest request){
+    // 서포트 리스트
+    @GetMapping("/support/list")
+    public String support_list(HttpServletRequest request){
 
         String col = Utility.checkNull(request.getParameter("col"));
         String word = Utility.checkNull(request.getParameter("word"));
-
-        System.out.println(col);
-        System.out.println(word);
 
         if (col.equals("total")) {
             word = "";
@@ -107,4 +84,41 @@ public class SupporterController {
 
         return "/supporter/list";
     }
+
+    final int recordPerPage = 3;// 한페이지당 보여줄 레코드갯수
+    public int nowPage = 1;// 현재 보고있는 페이지
+
+    // 관리자가 보는 request 리스트
+    @GetMapping("/request/list")
+    public String request_list(HttpServletRequest request) {
+
+        String col = Utility.checkNull(request.getParameter("col"));
+        String word = Utility.checkNull(request.getParameter("word"));
+
+        if (col.equals("total")) {
+            word = "";
+        }
+
+        if (request.getParameter("nowPage") != null) {
+            nowPage = Integer.parseInt(request.getParameter("nowPage"));
+        }
+
+        Map map = WhereSet.SQLWhereSet(request, col, word);
+
+        int total = supportService.total(map);
+        List<Request> list = requestService.list(map);
+
+        String paging = Utility.paging(total, nowPage, recordPerPage, col, word);
+
+        // request에 Model사용 결과 담는다
+        request.setAttribute("list", list);
+        request.setAttribute("nowPage", nowPage);
+        request.setAttribute("col", col);
+        request.setAttribute("word", word);
+        request.setAttribute("paging", paging);
+
+        return "/request/list";
+    }
+
+
 }

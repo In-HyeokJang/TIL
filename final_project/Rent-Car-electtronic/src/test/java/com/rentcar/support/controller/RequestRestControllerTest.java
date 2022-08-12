@@ -3,6 +3,7 @@ package com.rentcar.support.controller;
 import com.google.gson.Gson;
 import com.rentcar.support.model.Request;
 import com.rentcar.support.service.RequestServiceImpl;
+import com.rentcar.support.service.SupportServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @WebMvcTest(RequestRestController.class)
 class RequestRestControllerTest {
@@ -25,6 +27,9 @@ class RequestRestControllerTest {
 
     @MockBean
     RequestServiceImpl requestService;
+
+    @MockBean
+    SupportServiceImpl supportService;
 
     @Test
     @DisplayName("차량 상태 변경 테스트")
@@ -63,4 +68,11 @@ class RequestRestControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    @DisplayName("log 입력 테스트")
+    void log() throws Exception {
+
+        mvc.perform(get("/request/help/complete/12가1235"))
+                .andExpect(status().isOk());
+    }
 }

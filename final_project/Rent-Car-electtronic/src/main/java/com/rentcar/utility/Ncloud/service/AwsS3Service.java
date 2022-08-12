@@ -71,6 +71,7 @@ public class AwsS3Service {
 
 
     public void remove(AwsS3 awsS3) {
+        System.out.println("111"+awsS3);
         if (!amazonS3.doesObjectExist(bucket, awsS3.getKey())) {
             throw new AmazonS3Exception("Object " + awsS3.getKey() + " does not exist!");
         }

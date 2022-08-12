@@ -8,25 +8,40 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/login.css">
   <meta charset="utf-8">
+  <style>
+  .message{
+    color:red;
+    font-size:15px;
+  }
+  </style>
 
 	<script type="text/javascript">
 
-			$("#submit").on("click", function(){
-				if($("#passwd").val()==""){
-					alert("비밀번호를 입력해주세요.");
-					$("#passwd").focus();
-					return false;
-				}
-			});
-		})
+	    function inCheck(f){
+        	if(f.passwd.value.length==0){
+        		alert("비밀번호를 입력하세요");
+        		f.passwd.focus();
+        		return false;
+        	}else if (confirm("정말 탈퇴하시겠습니까?")) {
+
+                  document.getElementById('frm').submit();
+
+                } else {
+                    return false;
+                }
+        }
+
 	</script>
 	<body>
 		<div class="createbox">
 		    <div class="form-block">
 
 			<form
+			    name="frm"
 			    action="/user/delete"
-			    method="post">
+			    method="post"
+			    onsubmit="return inCheck(this)"
+			    >
 
 				<div class="info_2">
 					<label class="control-label" for="id">아이디</label>
@@ -40,17 +55,18 @@
 					<label class="control-label" for="passwd">비밀번호</label>
 					<input class="form-control" type="password" id="passwd" name="passwd" />
 				</div>
+				<div class="message">
+                	<c:if test="${msg == false}">
+               			비밀번호가 맞지 않습니다.
+               		</c:if>
+               	</div>
 				<div align="center">
-				<br><br>
-					<button class="agreebtn" onclick="location.href='/user/delete'">회원탈퇴</button><br>
-                    <button class="btn_2" onclick="history.back()">취소</button>
+				<br><br><br><br>
+					<button class="agreebtn">회원탈퇴</button><br>
+                    <button type="button" class="btn_2" onclick="location.href='/member/mypage/'">취소</button>
 				</div>
 			</form>
-			<div>
-				<c:if test="${msg == false}">
-					비밀번호가 맞지 않습니다.
-				</c:if>
-			</div>
+
 			</div>
 		</div>
 	</body>

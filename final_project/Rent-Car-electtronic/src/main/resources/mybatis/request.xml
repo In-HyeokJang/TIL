@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rentcar.support.mapper.RequestMapper">
+
+<!--    요청자 정보 저장 -->
+    <insert id="create" parameterType="com.rentcar.support.model.Request">
+        insert into help(name, carinfo_carnum, rx, ry, reason, request_time)
+        values(#{name}, #{carinfo_carnum}, #{rx}, #{ry}, #{reason}, sysdate());
+    </insert>
+
+<!--    출동시 요청자의 위치 정보를 저장한다.-->
+    <update id="update" parameterType="com.rentcar.support.model.Request">
+        UPDATE help
+        SET rx = #{rx}, ry = #{ry}
+        WHERE carinfo_carnum = #{carinfo_carnum};
+    </update>
+
+<!--    요청 접수 및 지원 차량 등록-->
+    <update id="accept_request" parameterType="Map">
+        UPDATE help
+        SET supporter_carnum = #{supporter},
+        state=#{state},
+        accepted_time = sysdate()
+        WHERE carinfo_carnum = #{carinfo_carnum};
+    </update>
+
+    <select id="readmock" parameterType="String" resultType="boolean">
+        select IF(COUNT(*) = 1, true, false)
+        from booking where reserved_car = #{carnum};
+    </select>
+
+    <select id="list" parameterType="Map" resultType="com.rentcar.support.model.Request">
+        select *
+        from help
+        <where>
+            <choose>
+                <when test="col=='차량번호'">
+                    carnum like CONCAT('%',#{word},'%')
+                </when>
+                <when test="col=='상태'">
+                    state like CONCAT('%',#{word},'%')
+                </when>
+            </choose>
+        </where>
+        order by no;
+    </select>
+
+    <delete id="cancle" parameterType="String">
+        delete from help where carinfo_carnum = #{carinfo_carnum};
+    </delete>
+
+
+    <select id="read" parameterType="String" resultType="com.rentcar.support.model.Request">
+        select *
+        from help
+        where carinfo_carnum = #{carinfo_carnum}
+    </select>
+
+</mapper>

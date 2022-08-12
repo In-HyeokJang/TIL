@@ -16,10 +16,10 @@
       <div class="container">
 
 
-        <form class="form-horizontal" 
-        action="/carinfo/update" 
+        <form class="form-horizontal"
+        action="/carinfo/update"
         method="post">
-        
+
         <input type="hidden" class="form-control" id="carnumber" name="carnumber" value="${dto.carnumber}">
           <h1 class="h1">차 정보 수정</h1>
           <img class="img" src="${dto.carimage}" style="width:400px;" , height="323px;" ,

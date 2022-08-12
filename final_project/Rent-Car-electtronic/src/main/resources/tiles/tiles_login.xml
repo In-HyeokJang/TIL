@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
-       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
-       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
- 
+		"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
 <tiles-definitions>
-  <!-- main -->
-  <definition name="main"
-    template="/WEB-INF/views/template/template.jsp">
+	<!-- main -->
+	<definition name="main"
+				template="/WEB-INF/views/template/template.jsp">
 
-    <put-attribute name="header"
-      value="/WEB-INF/views/template/top.jsp" />
+		<put-attribute name="header"
+					   value="/WEB-INF/views/template/top.jsp" />
 
-	  <put-attribute name="footer"
-					 value="/WEB-INF/views/template/footer.jsp" />
-  </definition>
+		<put-attribute name="footer"
+					   value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
 
-  <definition name="/home" extends="main">
-    <put-attribute name="title" value="ISOSIM Rent-Car"></put-attribute>
-    <put-attribute name="body"
-      value="/WEB-INF/views/main.jsp" />
-  </definition>
-  
-  	<definition name="/user/login" extends="main">
+	<definition name="/home" extends="main">
+		<put-attribute name="title" value="ISOSIM Rent-Car"></put-attribute>
+		<put-attribute name="body"
+					   value="/WEB-INF/views/main.jsp" />
+	</definition>
+
+	<definition name="/user/login" extends="main">
 		<put-attribute name="title" value="로그인"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/login/loginForm.jsp" />
+					   value="/WEB-INF/views/login/loginForm.jsp" />
 	</definition>
 
 	<definition name="/user/agree" extends="main">
 		<put-attribute name="title" value="약관동의"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/login/agreement.jsp" />
+					   value="/WEB-INF/views/login/agreement.jsp" />
 	</definition>
 
 	<definition name="/user/create" extends="main">
 		<put-attribute name="title" value="회원가입"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/login/createForm.jsp" />
+					   value="/WEB-INF/views/login/createForm.jsp" />
 	</definition>
 
 	<definition name="/user/idfind" extends="main">
 		<put-attribute name="title" value="아이디 찾기"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/login/idFindForm.jsp" />
+					   value="/WEB-INF/views/login/idFindForm.jsp" />
 	</definition>
 	<definition name="/user/pwfind" extends="main">
 		<put-attribute name="title" value="비밀번호 찾기"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/login/pwFindForm.jsp" />
+					   value="/WEB-INF/views/login/pwFindForm.jsp" />
 	</definition>
 	<definition name="/user/update" extends="main">
 		<put-attribute name="title" value="회원정보 수정"></put-attribute>

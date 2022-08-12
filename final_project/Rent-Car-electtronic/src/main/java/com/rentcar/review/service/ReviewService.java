@@ -22,7 +22,7 @@ public interface ReviewService {
 
 
 
-  int bdelete(int listno);
+  void bdelete(int listno);
 
  int rcount(int listno);
 

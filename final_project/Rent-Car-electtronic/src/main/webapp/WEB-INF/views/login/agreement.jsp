@@ -1,45 +1,33 @@
-<%@ page contentType="text/html; charset=UTF-8" %> 
- 
-<!DOCTYPE html> 
-<html> 
-<head>
-  <title>회원약관</title>
-  <meta charset="utf-8">
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <title>회원약관</title>
+    <meta charset="utf-8">
 
     <link rel="stylesheet" href="/css/login.css">
 
-  <script type="text/javascript">
-  function send(){
-    if(document.frm.agree.checked == false){
-      alert('이용약관에 동의해 주세요.');
-      return false; // 서브밋 중지
-    }
 
-  }
+  </head>
 
-  </script>
+  <body>
+    <div>
+      <div class="form-block">
+        <div class="mb-4" align="center">
+          <h1><strong>약관동의</strong></h1><br>
+          <p style="font-size:20px;">이용약관에 동의해 주세요.</p><br><br>
+        </div>
 
-</head>
-<body>
-<div>
-    <div class="form-block">
-	<div class="mb-4" align="center">
-       <h1><strong>약관동의</strong></h1><br>
-       <p style="font-size:20px;">이용약관에 동의해 주세요.</p><br><br>
-     </div>
-
-<form class="form-horizontal"
-      action="createForm"
-      method="post"
-      onsubmit="return send()"
-      name = "frm"
-      >
+        <form class="form-horizontal" action="/exception/user/createForm" method="post" onsubmit="return send()" name="frm">
 
 
-  <div class="form-group" align="center">
-    <label class="control-label col-sm-1" for="content"></label>
-    <div class="col-sm-8">
-    <textarea rows="20" cols="100" id="content" name="content" class="form-control" style="font-size:15px;">EV Rent Car 서비스약관 (2005. 7. 18 부터 유효)
+          <div class="form-group" align="center">
+            <label class="control-label col-sm-1" for="content"></label>
+            <div class="col-sm-8">
+              <textarea rows="20" cols="100" id="content" name="content" class="agree" style="font-size:15px;">
+                EV Rent Car 서비스약관 (2005. 7. 18 부터 유효)
 
 제1조(목적 등)
 
@@ -214,28 +202,39 @@
 
 
 본 약관은 2005. 7. 18. 부터 적용하고, 2004. 10. 11.부터 적용되던 종전의 약관은 본 약관으로 대체합니다. </textarea>
+            </div>
+          </div>
+
+          <div class="form-group" align="center">
+            <div class="col-sm-offset-2 col-sm-5">
+
+              <label class="control control--checkbox mb-0">
+                <div>
+                  <br>
+                  <input id="agree" type="checkbox" name="agree" value="1"><label for="agree"> 약관에 동의합니다 </label>
+                </div>
+              </label>
+
+            </div>
+            <div>
+              <br>
+              <button class="agreebtn">회원가입</button><br>
+              <button type="button" class="btn_2" onclick="history.back()">취소</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+    <script type="text/javascript">
+      function send() {
+        if (document.frm.agree.checked == false) {
+          alert('이용약관에 동의해 주세요.');
+          return false; // 서브밋 중지
+        }
 
-   <div class="form-group" align="center">
-   <div class="col-sm-offset-2 col-sm-5">
-   <label class="control control--checkbox mb-0" >
-<div>
+      }
 
-<br>
-   <input id="agree" type="checkbox" name="agree" value="1"><label for="agree" > 약관에 동의합니다 </label>
+    </script>
+  </body>
 
-</div>
-      </label>
-    </div>
-    <div>
-    <br>
-    <button class="agreebtn">회원가입</button><br>
-    <button type="button" class="btn_2" onclick="history.back()">취소</button>
-   </div>
- </div>
-</form>
-</div>
-</div>
-</body> 
-</html> 
+  </html>

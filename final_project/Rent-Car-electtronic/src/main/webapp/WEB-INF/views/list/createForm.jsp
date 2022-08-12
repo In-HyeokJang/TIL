@@ -6,26 +6,9 @@
   <head>
     <title>notice</title>
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-    <!-- include libraries(jQuery, bootstrap) -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 
 
-    <style>
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-    position: relative;
-  }
-    </style>
 
   </head>
 
@@ -40,13 +23,13 @@
          <div class="form-group">
 
              <div class="col-sm-6">
-             <input type="text" name="wname" id="wname" class="form-control" placeholder= '작성자를 입력해 주세요.' style="width:300px;font-size:14px;">
+             <input type="text" name="wname" id="wname" class="form-control"  style="width:100px;font-size:16px;border: none;" value="${sessionScope.id}" readonly>
              </div>
            </div>
            <div class="form-group">
 
              <div class="col-sm-8">
-               <input type="text" name="title" id="title" class="form-control" placeholder= '제목을 입력해 주세요.' style="width:1200px;font-size:14px;">
+               <input type="text" name="title" id="title" class="form-control" placeholder= '제목을 입력해 주세요.' style="width:500px;font-size:16px;">
              </div>
            </div>
 
@@ -68,9 +51,9 @@
 
 
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-5">
-            <button id="btn">등록</button>
-            <button type="reset" class="btn">취소</button>
+          <div style="display: inline-block; margin: 0 5px;  float: right;">
+            <button id='btn_delete' class='btn' style="width:10; height:5;" >취 소</button>
+            <button id='btn_update' class='btn' style="width:10; height:5;" >등 록</button>
           </div>
 
         </div>
@@ -80,10 +63,15 @@
 
 
  <script src="/js/list/create.js" defer></script>
-     <script>
-       let listno = "${dto.listno}";
+ <!-- include libraries(jQuery, bootstrap) -->
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-     </script>
+ <!-- include summernote css/js -->
+ <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="/css/list/create.css"/>
   </body>
 
   </html>

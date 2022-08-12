@@ -82,5 +82,10 @@ public class LoginServiceImpl implements LoginService {
     return mapper.list(map);
   }
 
+  @Override
+  public int passCheck(Map map) {
+    return mapper.passCheck(map);
+  }
+
 
 }

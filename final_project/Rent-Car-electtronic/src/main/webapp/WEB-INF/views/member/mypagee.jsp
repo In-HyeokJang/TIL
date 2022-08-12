@@ -53,7 +53,7 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-image u-image-default u-preserve-proportions u-image-1" src="/images/SJ/mypage/premium-icon-member-card-3945150.png" alt="" data-image-width="512" data-image-height="512">
         <h3 class="u-text u-text-default u-text-1">김길동 님의</h3>
-        <a href="" class="u-border-none u-btn u-btn-round u-button-style u-radius-30 u-btn-1">&nbsp;정보 수정</a>
+        <a href="/user/update" class="u-border-none u-btn u-btn-round u-button-style u-radius-30 u-btn-1">&nbsp;정보 수정</a>
         <a href="/member/reservation" class="u-border-none u-btn u-btn-round u-button-style u-radius-30 u-text-body-alt-color u-btn-2">예약 정보</a>
         <h3 class="u-text u-text-default u-text-palette-1-base u-text-2">회 원 정 보</h3>
         <h2 class="u-text u-text-default u-text-3">나의 정보</h2>

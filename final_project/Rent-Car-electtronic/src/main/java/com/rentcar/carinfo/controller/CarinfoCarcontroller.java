@@ -35,16 +35,18 @@ public class CarinfoCarcontroller {
     private CarinfoService service;
     private final AwsS3Service awsS3Service;
 
-
-
+    @GetMapping("/admin/carinfo/optupdate/{carnumber}")
+    public String update(@PathVariable("carnumber") String carnumber){
+        return "/carinfo/optupdate";
+    }
     @GetMapping("/admin/carinfo/mapupdate/{carnumber}")
     public String mapupdate(@PathVariable ("carnumber") String carnumber) {
         return "/carinfo/mapupdate";
     }
+
     @PostMapping("/carinfo/mapupdate")
     public String mapupdate(CarinfoDTO dto) {
         int cnt = service.mapupdate(dto);
-        log.info("dfdfdfd" + dto);
         if(cnt == 1){
             return "null";
         }else{
@@ -53,24 +55,20 @@ public class CarinfoCarcontroller {
     }
 
 
-
     @PostMapping("/carinfo/updateFile")
     public String updateFile(MultipartFile filenameMF, CarinfoDTO dto, HttpServletRequest request
     ) throws IOException {
 
         int cnt = service.updateFile(dto);
         if (cnt == 1) {
-
-            return "redirect:/carinfo/list";
+            return "/user/carinfo/list";
         } else {
             return "error";
         }
     }
 
     @GetMapping("/admin/carinfo/updateFile/{carnumber}")
-    public String updateFileForm(@PathVariable("carnumber") String carnumber,
-
-                                 Model model) {
+    public String updateFileForm(@PathVariable("carnumber") String carnumber, Model model) {
         CarinfoDTO dto = service.read(carnumber);
         model.addAttribute("dto", dto);
         return "/carinfo/updateFile";
@@ -81,17 +79,14 @@ public class CarinfoCarcontroller {
     public String delete(@PathVariable String carnumber) {
         int flag = service.delete(carnumber);
         if (flag != 1) return "error";
-        else return "redirect:/carinfo/list";
+        else return "/user/carinfo/list";
     }
 
     @PostMapping("/carinfo/update")
     public String update(CarinfoDTO dto) {
-        log.info("dto:" + dto);
-
         int cnt = service.update(dto);
-        log.info("cnt:" + cnt);
         if (cnt == 1) {
-            return "redirect:/carinfo/list";
+            return "/user/carinfo/list";
         } else {
             return "error";
         }
@@ -99,17 +94,18 @@ public class CarinfoCarcontroller {
 
     @GetMapping("/admin/carinfo/update/{carnumber}")
     public String update(@PathVariable("carnumber") String carnumber, Model model) {
+
         CarinfoDTO dto = service.read(carnumber);
         model.addAttribute("dto", dto);
         return "/carinfo/update";
     }
 
-    @GetMapping("/carinfo/read/{carnumber}")
-    // /user/carinfo/read/{carnumber}
+    @GetMapping("/user/carinfo/read/{carnumber}")
     public String read(@PathVariable("carnumber") String carnumber, Model model) {
         CarinfoDTO dto = service.read(carnumber);
-
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
         log.info("read dto: " + dto);
+        System.out.println(dto);
         model.addAttribute("dto", dto);
         return "/carinfo/read";
     }
@@ -118,9 +114,6 @@ public class CarinfoCarcontroller {
     @PostMapping("/carinfo/create")
     public String create(CarinfoDTO dto, HttpServletRequest request
     ) throws IOException {
-
-        System.out.println(dto);
-        log.info("dto: " + dto);
 
         if (service.create(dto) > 0) {
             return "/carinfo/optcreate";
@@ -131,11 +124,12 @@ public class CarinfoCarcontroller {
     }
 
     @GetMapping("/admin/carinfo/create")
-    public String create() {
-        return
+    public String create() {return
                 "/carinfo/create";
     }
 
+
+    // /user/carinfo/list  --> /carinfo/list
 
     @RequestMapping("/carinfo/list")
     public String list(HttpServletRequest request) {

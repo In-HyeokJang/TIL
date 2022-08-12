@@ -32,42 +32,21 @@ public class LoginRestController {
     @Qualifier("com.rentcar.login.service.LoginServiceImpl")
     private LoginService service;
 
-
-    @Autowired
-    private AwsS3Service awsS3Service;
-
     @Value("${login.url}")
     private String apiURL;
 
     @Value("${login.secret-key}")
     private String secretKey;
 
-    public LoginRestController(AwsS3Service awsS3Service) {
-        this.awsS3Service = awsS3Service;
-    }
 
     //ocr
     @PostMapping("/license")
-    public ResponseEntity<Map> licInfo(MultipartFile fname) throws IOException {
+    public ResponseEntity<Map> licInfo(MultipartFile fname) {
 
         String upDir = UploadLicense.getUploadDir();
         String fname2 = Utility.saveFileSpring(fname, upDir);
 
         String imageFile = UploadLicense.getUploadDir() + "\\" + fname2;
-
-
-
-//        AwsS3 s3 = awsS3Service.upload(fname,"user");
-//
-//      String fname2 = Utility.saveFileSpring(fname, s3.getKey());
-//        log.info("fname2 : "+fname2);
-//
-//        String imageFile = "";
-//
-//        //String imageFile = s3.getPath();
-//        //log.info("imageFile : "+imageFile);
-
-
 
         Map map = new HashMap();
 
@@ -117,7 +96,7 @@ public class LoginRestController {
             br.close();
             // System.out.println(response); // 문자열
 
-            // ---------------------------------------나온 결과값 보기 편하게 하기 위해
+            // ---------------------------------------json으로
             // String to Json Object
             JSONObject jsonObj = new JSONObject(response.toString());
             // System.out.println(jsonObj); https://jsonbeautifier.org/ 에서 확인
@@ -135,35 +114,32 @@ public class LoginRestController {
 
             }
 
-            // log.info(sb);
+            // System.out.println(sb);
 
             // ---- 운전면허증 사진에서 면허번호 추출하기
             int hypLic = sb.indexOf("-"); // 면허번호에 있는 맨 처음의 하이픈 위치번호
 
             String lic1 = sb.substring(hypLic - 2); // 맨처음 하이픈 앞의 두글자부터 추출 시작 //loginDTO엔 license로 저장되어있음
-            // log.info(lic1);
+            // System.out.println(lic1);
 
             String license = lic1.substring(0, 16);
-            // log.info("면허번호: " + lic);
+            // System.out.println("면허번호: " + lic);
 
             // ---- 운전면허증 사진에서 주민등록번호를 추출하기
             int hypJum = sb.lastIndexOf("-"); // 마지막 -의 위치번호 //hypenJ : 주민번호에 있는 하이픈
 
             String jumin1 = sb.substring(hypJum - 6); // - 기준 앞 6자리(생년월일)부터 시작 //jumin1 : 생년월일
-            //log.info(jumin1);
+            // System.out.println(jumin1);
 
             String jumin = jumin1.substring(0, 15); // 주민등록번호추출 (- 포함)
-            //log.info("주민등록번호: " + jumin);
+            // System.out.println("주민등록번호: " + jumin);
 
             map.put("license", license);
             map.put("jumin", jumin);
 
-
         } catch (Exception e) {
             System.out.println(e);
         }
-
-
         return new ResponseEntity<Map>(map, HttpStatus.OK);
 
     }

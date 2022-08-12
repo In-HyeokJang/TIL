@@ -30,5 +30,8 @@ public interface LoginMapper {
   int total(Map map);
 
   List<LoginDTO> list(Map map);
+
+  int passCheck(Map map);
+
 }
 

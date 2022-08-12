@@ -14,7 +14,7 @@ public class Request {
     /*
      견인 및 이동식 충전 서비스 지원
      */
-    private String carnum;
+    private String carinfo_carnum;
     private String reason;
 
     /*

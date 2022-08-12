@@ -30,4 +30,6 @@ public interface LoginService {
     int total(Map map);
 
   List<LoginDTO> list(Map map);
+
+    int passCheck(Map map);
 }

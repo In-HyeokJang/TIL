@@ -24,7 +24,7 @@
   <p>로그인 하시면 다양하고 특별한 혜택을 이용할 수 있습니다.</p>
 
          <form class="form-horizontal"
-        action="/user/login"
+        action="/exception/user/login"
         method="post">
 
 	<div class="info">
@@ -59,11 +59,11 @@
 
 		<div class ="find" align="center">
 			<p>
-				<br><a href="/user/idfind" class="btLink btLine" >아이디찾기</a>&nbsp; &nbsp;|&nbsp;&nbsp;
-					<a href="/user/pwfind" class="btLink btLine" >비밀번호 찾기</a>
+				<br><a href="/exception/user/idfind" class="btLink btLine" >아이디찾기</a>&nbsp; &nbsp;|&nbsp;&nbsp;
+					<a href="/exception/user/pwfind" class="btLink btLine" >비밀번호 찾기</a>
 			</p>
 			<p>
-				<br><a href="/user/agree" style="color:#489CFF;">회원가입</a>
+				<br><a href="/exception/user/agree" style="color:#489CFF;">회원가입</a>
 			</p>	
 		</div>
 				

@@ -19,7 +19,7 @@ public interface ReviewMapper {
 
    int total(int listno);
 
-   int bdelete(int listno);
+   void bdelete(int listno);
 
    int rcount(int listno);
 

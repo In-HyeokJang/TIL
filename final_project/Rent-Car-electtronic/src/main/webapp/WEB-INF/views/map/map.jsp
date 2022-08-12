@@ -28,20 +28,18 @@
                 <div id="map"></div>
                 <div id="roadviewControl" onclick="setRoadviewRoad()"></div>
             </div>
-        </div
-        >
+        </div>
     </div>
 
-<div class = marker>
-    <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png" style="height: 60px; width:40px"> 충전소
-    <img src="https://user-images.githubusercontent.com/65659478/182173528-9b320482-a8f3-44bd-a2c4-a8cfa4b79890.png" style="height: 60px; width:100px"> 까페
-    <img src="https://user-images.githubusercontent.com/65659478/182173533-4013c473-4a60-493c-8a2c-5753faeb73f4.png" style="height: 60px; width:100px"> 화장실
+    <div class = marker>
+        <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png" style="height: 60px; width:40px"> 충전소
+        <img src="https://user-images.githubusercontent.com/65659478/182173528-9b320482-a8f3-44bd-a2c4-a8cfa4b79890.png" style="height: 60px; width:100px"> 까페
+        <img src="https://user-images.githubusercontent.com/65659478/182173533-4013c473-4a60-493c-8a2c-5753faeb73f4.png" style="height: 60px; width:100px"> 화장실
 
-</div>
+    </div>
     <div class="map_info">고객의 현재 위치 기준 2km 이내의 충전소 정보를 표시합니다.</div>
 
-        <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6eae01749ed46288f45cd68bb87a3238&libraries=services"></script>
 
     </body>
 

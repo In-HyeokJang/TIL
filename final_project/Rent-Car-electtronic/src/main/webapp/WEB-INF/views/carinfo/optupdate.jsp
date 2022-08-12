@@ -33,7 +33,7 @@
 <input type="hidden" class="form-control" id="carnumber" name="carnumber" value="${carnumber}">
 
     <div class="form first">
-      <div class="carpotion">   
+      <div class="carpotion">
         <span class="title">Car Option</span>
           <div class="fields" id="option">
 
@@ -94,23 +94,20 @@
           <div class="buttons">
            <button type="submit" id="closebtn" class="btn">Option 수정</button>
           </div>
+
         </div>
       </div>
     </form>
   </div>
 </body>
 <script>
-
-
   $(function() {
-
 $("#closebtn").click( function() {
-     setTimeout(function() {   
+     setTimeout(function() {
          window.close();
          window.opener.location.reload();
-      }, 100);
+      }, 10);
   });
-
 });
 
 </script>

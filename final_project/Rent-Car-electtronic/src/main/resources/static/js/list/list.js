@@ -1,12 +1,22 @@
 
+$("#create_btn").click(function(){ //글 만들기
+var id =document.querySelector("#id").value;
+if(id === ""){
+alert("로그인 후 이용해주세요.");
+location.href='/user/login';
+}else{
+ location.href='/user/contents/list/create';
+}
+});
 
 
+ function read(listno){
+       var url = "/user/contents/list/read";
+       url += "?listno="+listno;
+       location.href=url;
+       }
 
-
-
-
-
-
+$("#rcdStart").click(function(){ //마이크 클릭 함수
  if(!("webkitSpeechRecognition") in window){
         alert("Connect in Chrome Browser");
     }else{
@@ -48,7 +58,7 @@
 
         }
         }
-
+});
 
 
 

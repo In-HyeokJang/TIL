@@ -9,18 +9,16 @@
                 <head>
                     <title>Bootstrap Example</title>
                     <meta charset="utf-8">
-
                     <link rel="stylesheet" type="text/css" href="/css/support/style.css">
+
                 </head>
 
+
                 <body>
-
-
                     <div class="container">
                         <form class="form-inline" action="/request/list">
                             <div class="form-group">
-
-                                <select class="my-select-menu" name="col">
+                                <select class="form-control" name="col">
                                     <option <c:if test="${col=='carnum'}"> selected </c:if>
                                         >차량번호</option>
 
@@ -38,7 +36,7 @@
                             </div>
                             <div style="left: 0px;">
                                 <button type="submit" class="btn btn-default">검색</button>
-                                <button onclick="createwindow();">등록</button>
+                                <button class="btn btn-default" onclick="createwindow();">등록</button>
                             </div>
                         </form>
                     </div>
@@ -55,6 +53,7 @@
                                     <th>지원차량</th>
                                     <th>지원</th>
                                     <th>취소</th>
+                                    <th>작업 완료</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,15 +66,16 @@
 
                                         <c:forEach var="dto" items="${list}">
 
-                                            <tr class="active-row">
-                                                <td>${dto.carnum}</td>
+                                            <tr class="active-row" style="text-align:center;">
+                                                <td>${dto.carinfo_carnum}</td>
                                                 <td>${dto.rx}</a></td>
                                                 <td>${dto.ry}</td>
                                                 <td>${dto.reason}</td>
                                                 <td>${dto.state}</td>
                                                 <td>${dto.supporter_carnum}</td>
-                                                <td><a onclick="createwindow(`${dto.carnum}`);"> accept</td>
-                                                <td><a onclick="delete_help(`${dto.carnum}`)"> cancle</td>
+                                                <td><a onclick="createwindow(`${dto.carinfo_carnum}`);"> accept</td>
+                                                <td><a onclick="delete_help(`${dto.carinfo_carnum}`)"> ❌ </td>
+                                                <td><a onclick="complete_help(`${dto.carinfo_carnum}`)"> ✔ </td>
                                             </tr>
 
                                         </c:forEach>
@@ -94,19 +94,33 @@
                         function createwindow(carnum) {
                             let windowObjectReference;
                             let windowFeatures = "left=100,top=100,width=320,height=900, width=640";
-                            windowObjectReference = window.open("/request/supporter?carnum=" + carnum, "mozillaTab", windowFeatures);
+                            windowObjectReference = window.open("/user/request/supporter?carnum=" + carnum, "mozillaTab", windowFeatures);
 
                         }
 
                         function delete_help(carnum) {
                             alert("요청을 취소 하시겠습니까?")
-                            var url = `/request/help/delete/` + carnum;
+                            var url = `/user/request/help/delete/` + carnum;
 
                             let response = fetch(url)
-                            .then((res) => {if(res.status==200){
-                                alert("삭제하였습니다.");
-                                location.reload();
-                            }});
+                                .then((res) => {
+                                    if (res.status == 200) {
+                                        alert("삭제하였습니다.");
+                                        location.reload();
+                                    }
+                                });
+                        }
+
+                        function complete_help(carnum) {
+                            alert("요청을 처리 하시셨습니까?")
+                            var url = `/user/request/help/complete/` + carnum;
+                            let response = fetch(url)
+                                .then((res) => {
+                                    if (res.status == 200) {
+                                        alert("삭제하였습니다.");
+                                        location.reload();
+                                    }
+                                });
                         }
                     </script>
 

@@ -13,7 +13,7 @@
             resultType="com.rentcar.member.model.MemberDTO">
         select *
         from user
-<!--        where id =#{id}-->
+        where id =#{id}
     </select>
 
     <select id="reservation" parameterType="String"
@@ -38,18 +38,18 @@
         where carnumber =#{carnumber}
     </select>
 
-<!--    <select id="reservation2" parameterType="String"-->
-<!--            resultType="com.rentcar.member.model.CarConditionDTO">-->
-<!--        select a.carnumber , a.carname ,a.carimage , a.carseate ,b.wheel,-->
-<!--        b.windows,b.bumper,b.sideMirror ,b.cardoor ,b.airconditioner ,b.safetyBelt ,-->
-<!--        b.bluetooth ,b.rearSensor ,b.rearCamera ,b.sunroof ,b.blackbox ,b.chargeState-->
-<!--        from car_info a-->
-<!--        join carcondition b-->
-<!--        on a.carnumber = b.carnumber-->
-<!--        join user c-->
-<!--        on b.carnumber = c.carnumber-->
-<!--        where id = id-->
+    <!--    <select id="reservation2" parameterType="String"-->
+    <!--            resultType="com.rentcar.member.model.CarConditionDTO">-->
+    <!--        select a.carnumber , a.carname ,a.carimage , a.carseate ,b.wheel,-->
+    <!--        b.windows,b.bumper,b.sideMirror ,b.cardoor ,b.airconditioner ,b.safetyBelt ,-->
+    <!--        b.bluetooth ,b.rearSensor ,b.rearCamera ,b.sunroof ,b.blackbox ,b.chargeState-->
+    <!--        from car_info a-->
+    <!--        join carcondition b-->
+    <!--        on a.carnumber = b.carnumber-->
+    <!--        join user c-->
+    <!--        on b.carnumber = c.carnumber-->
+    <!--        where id = id-->
 
-<!--    </select>-->
+    <!--    </select>-->
 
 </mapper>

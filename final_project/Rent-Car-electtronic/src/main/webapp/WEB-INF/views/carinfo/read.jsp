@@ -27,8 +27,10 @@
 
           function reservation() {
             if ('${dto.rentstatus}' == '0') {
-              alert('예약가능 합니다. 예약페이지로 이동 나중에 정우님꺼랑 병합 필요 필요');
-              let url = "/carinfo/list"
+              alert('예약가능 합니다.');
+
+
+              let url = "/user/carinfo/list"
               location.href = url;
             } else {
               alert("이미 예약이 되어 있어 예약이 불가능 합니다.");
@@ -132,7 +134,6 @@
                   <c:when test="${empty dto.cdto.lane_departure_prevention}"><span class="off">차선방지이탈</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.lane_departure_prevention}</span> </c:otherwise>
                 </c:choose>
-
 
 
               </div>

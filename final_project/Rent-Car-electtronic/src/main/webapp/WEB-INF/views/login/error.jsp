@@ -29,7 +29,7 @@ $(document).ready(function(){
  function checkModal(){ //modal 생성함수 선언
      if(history.state) return; //코드2
      if('${flag}'==false){
-         $(".modal-body").html('에러가 발생했습니다.<br>잠시후 다시 확인하세요');
+         $(".modal-body").html('오류가 발생했습니다.<br>잠시후 다시 확인하세요');
          $("#myModal").modal("show");
      }
    }

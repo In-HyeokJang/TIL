@@ -57,5 +57,10 @@ public class NoticeServiceImpl implements NoticeService{
     return mapper.deleteFile(noticeno);
   }
 
+  @Override
+  public List<NoticeDTO> mainNoticeList() {
+    return mapper.mainNoticeList();
+  }
+
 
 }

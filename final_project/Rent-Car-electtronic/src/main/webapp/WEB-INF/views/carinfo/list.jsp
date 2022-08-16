@@ -11,6 +11,7 @@
       <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
       <script type="text/javascript">
 
         function del(carnumber) {
@@ -58,6 +59,9 @@
             padding: 0.35rem 1.25rem;
             border-radius: 6px;
             }
+            .create{
+            margin-left: 10px;
+            }
       </style>
     </head>
     <body>
@@ -83,9 +87,11 @@
           <div class="form-group">
             <input type="text" class="control" placeholder="Enter Category" name="word" value="${word}">
           </div>
-          <button type="submit" class="btn btn-defaul">검색</button>
+
+          <button type="submit" class="btn btn-default">검색</button>
+
           <c:if test="${sessionScope.grade == 'A'}">
-          <button onclick="createwindow()">Car Create</button>
+          <button class="btn btn-defaul" onclick="createwindow()">Car Create</button>
           </c:if>
 
           </form>
@@ -105,7 +111,7 @@
                 <div class="col-sm-3">
                   <h1> ${dto.carname }</h1>
 
-                  <a href="/user/carinfo/read/${dto.carnumber}">
+                  <a href="/user/carinfo/read/${dto.carnumber}" class="btn btn-defaul">
                     <img src="${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
@@ -114,10 +120,9 @@
                   </p>
                   
                   <c:if test="${sessionScope.grade == 'A'}">
-                  <button>
-                  <a href="javascript:del('${dto.carnumber}')">Car Delete
-                    <span class="glyphicon glyphicon-trash"></span>
-                  </a></button>
+
+                  <a href="javascript:del('${dto.carnumber}')" class="btn btn-defaul">Car Delete
+                  </a>
                 </c:if>
                 </div>
 

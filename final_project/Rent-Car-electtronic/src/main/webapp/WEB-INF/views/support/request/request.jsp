@@ -38,10 +38,10 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="label" for="name">User Id</label>
-                                                        <input type="text" class="form-control" name="mname" id="mname"
-                                                            placeholder="Name">
+                                                        <input type="text" class="form-control" name="mname" id="mname" placeholder="Name">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-6">
                                                     <!-- <div class="form-group">
                                                         <label class="label" for="email">Email Address</label>
@@ -49,11 +49,11 @@
                                                             id="email" placeholder="Email">
                                                     </div> -->
                                                 </div>
+
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="label" for="subject">Car number</label>
-                                                        <input type="text" class="form-control mb-5" name="carnum"
-                                                            id="carnum">
+                                                        <input type="text" class="form-control mb-5" name="carnum" id="carnum">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">

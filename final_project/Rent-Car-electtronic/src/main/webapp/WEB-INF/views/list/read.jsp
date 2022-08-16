@@ -24,8 +24,8 @@
           <th>&emsp;${dto.rdate}&emsp;</th>
           <th>조회수: ${dto.cnt}</th>
              <div style="display: inline-block; margin: 0 5px;  float: right;">
-             <button id='btn_update' class='btn' style="width:10; height:5;" >글 수정</button>
-            <button id='btn_delete' class='btn' style="width:10; height:5;" >글 삭제</button>
+             <button id='btn_update' class='btn btn-default' style="width:10; height:5;" >글 수정</button>
+            <button id='btn_delete' class='btn btn-default' style="width:10; height:5;" >글 삭제</button>
 
              </div>
 

@@ -7,6 +7,7 @@
       <title>Car Update</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="/css/carinfo/update.css">
+      <link rel="stylesheet" type="text/css" href="/css/common.css">
     </head>
 
 

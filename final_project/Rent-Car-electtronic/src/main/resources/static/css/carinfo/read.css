@@ -12,7 +12,7 @@
   font-weight: 600;
   font-size: 3.75rem;
   margin: -200px 861px 0 -190px;
-  font-family: Raleway, sans-serif !important;
+
   margin-left: 110px
 }
 
@@ -23,7 +23,7 @@
   font-weight: 700;
   font-size: 1.8rem;
   margin: -80px 13px 150px 13px;
-  font-family: Roboto, sans-serif !important;
+
   margin-left: 770px
 }
 
@@ -52,7 +52,7 @@
   border-color: #000 !important;
   color: #000 !important;
   background-color: transparent !important;
-  margin-left: 540px
+  margin-left: 480px
 }
 
 .option {
@@ -88,9 +88,9 @@
   margin-bottom: 30px
 }
 
-.tabCont {
-  margin: 100px
-}
+#tabCont {
+          margin: 0 125px 0 125px;
+        }
 
 .infoTypeIco {
   flex: 1;

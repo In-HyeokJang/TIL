@@ -20,7 +20,7 @@
           <p style="font-size:20px;">이용약관에 동의해 주세요.</p><br><br>
         </div>
 
-        <form class="form-horizontal" action="/exception/user/createForm" method="post" onsubmit="return send()" name="frm">
+        <form class="form-horizontal" action="/exception/user/createForm" method="get" onsubmit="return send()" name="frm">
 
 
           <div class="form-group" align="center">

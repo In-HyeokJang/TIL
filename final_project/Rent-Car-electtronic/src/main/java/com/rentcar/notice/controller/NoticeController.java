@@ -33,6 +33,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.http.HttpRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,18 +53,11 @@ public class NoticeController {
     private static final Logger log = LoggerFactory.getLogger(NoticeController.class);
 
     @GetMapping("/")
-    public String home(Model model) {
-        List<NoticeDTO> mainNoticeList = service.mainNoticeList();
-        System.out.println("!!!!!!!!!!!!!"+mainNoticeList);
-        model.addAttribute("mainNoticeList", mainNoticeList);
-        return "/home";
-    }
-
-    @GetMapping("/home2")
     public String home(HttpServletRequest request) {
         List<NoticeDTO> mainNoticeList = service.mainNoticeList();
+        System.out.println("!!!!!!!!!!!!!"+mainNoticeList);
         request.setAttribute("mainNoticeList", mainNoticeList);
-        return "/home2";
+        return "/home";
     }
 
     @GetMapping("/notice/fileDown")

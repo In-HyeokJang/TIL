@@ -24,7 +24,7 @@
 <body>
   <div class="container">
 
-  <header>CarOption</header>
+  <header>차 옵션 수정</header>
     <form class="form-horizontal"
     action="/carinfo/optupdate"
     method="post"

@@ -341,7 +341,6 @@ itemlist.forEach(obj => { geo(obj) })
 // 주소를 화면에 출력한다.
 function geo(obj) {
     var store = new kakao.maps.LatLng(obj.x, obj.y);
-    console.log(obj);
     if (obj.type == "까페"){
         imageSrc = 'https://user-images.githubusercontent.com/65659478/182173528-9b320482-a8f3-44bd-a2c4-a8cfa4b79890.png'
     }else{

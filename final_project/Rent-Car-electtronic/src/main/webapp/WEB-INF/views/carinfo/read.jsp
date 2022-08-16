@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/css/carinfo/read.css">
         <link rel="stylesheet" type="text/css" href="/css/carinfo/readmap.css">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
 
@@ -19,6 +20,8 @@
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
             windowObjectReference = window.open("/admin/carinfo/optupdate/${carnumber}", "mozillaTab", windowFeatures);
           }
+
+
           function mapupdate() {
             let windowObjectReference;
             let windowFeatures = "left=100, top=100, width=320, height=900, width=640";
@@ -28,9 +31,7 @@
           function reservation() {
             if ('${dto.rentstatus}' == '0') {
               alert('예약가능 합니다.');
-
-
-              let url = "/user/carinfo/list"
+              let url = "/carinfo/list"
               location.href = url;
             } else {
               alert("이미 예약이 되어 있어 예약이 불가능 합니다.");
@@ -106,10 +107,7 @@
                   <c:when test="${empty dto.cdto.navigation}"><span class="off">네비게이션</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.navigation}</span> </c:otherwise>
                 </c:choose>
-
-
                 <br><br>
-
                 <c:choose>
                   <c:when test="${empty dto.cdto.non_smoking_vehicle}"><span class="off">금연차량</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.non_smoking_vehicle}</span> </c:otherwise>
@@ -134,8 +132,6 @@
                   <c:when test="${empty dto.cdto.lane_departure_prevention}"><span class="off">차선방지이탈</span> </c:when>
                   <c:otherwise> <span class="on">${dto.cdto.lane_departure_prevention}</span> </c:otherwise>
                 </c:choose>
-
-
               </div>
               <!-- 수정 / 사진수정 버튼은 유저한테 안보이게 해야함 -->
               <p class="button">
@@ -144,13 +140,13 @@
               </div>
               <c:if test="${sessionScope.grade == 'A'}">
                 <div class="Abtn">
-                  <button><a href="/admin/carinfo/update/${dto.carnumber}">정보 수정</a></button>
+                  <a href="/admin/carinfo/update/${dto.carnumber}" class="btn btn-defaul">정보 수정</a>
 
-                  <button onclick="optupdate()">옵션 수정</button>
+                  <button onclick="optupdate()" class="btn btn-defaul">옵션 수정</button>
 
-                  <button><a href="/admin/carinfo/updateFile/${dto.carnumber}">사진 수정</a></button>
+                  <a href="/admin/carinfo/updateFile/${dto.carnumber}" class="btn btn-defaul">사진 수정</a>
 
-                  <button onclick="mapupdate()">차위치수정</button>
+                  <button onclick="mapupdate()" class="btn btn-defaul">차위치수정</button>
                 </div>
               </c:if>
               </p>
@@ -163,11 +159,11 @@
             <div class="boxWhite">
               <div class="plusbutton">
                 <ul class="pulsbutton01">
-                  <a href="#tabContents01" role="button" class="tabCont" aria-selected="true"
+                  <a href="#tabContents01" role="button" class="btn btn-defaul" aria-selected="false" id="tabCont"
                     data-controls="tabContents01">유의사항</a>
-                  <a href="#tebContents03" role="button" class="tabCont" aria-selected="false"
+                  <a href="#tebContents03" role="button" class="btn btn-defaul" aria-selected="false" id="tabCont"
                     data-controls="tabContents02">차량/보험</a>
-                  <a href="#tebContents04" role="button" class="tabCont" aria-selected="false"
+                  <a href="#tebContents04" role="button" class="btn btn-defaul" aria-selected="false" id="tabCont"
                     data-controls="tabContents04">차 위치</a>
                 </ul>
               </div>
@@ -337,7 +333,7 @@
             <div id="tebContents04" class="anchorTab"></div>
             <div id="tabContents04" class="tabContentWrap">
               <div class="reviewArea">
-                <h4 class="titDep4" compName>차 위치</h4><br>
+                <h4 class="titDep4" compName>차 렌트/ 반납 위치</h4><br>
               </div>
             </div>
             <div class="map_wrap">
@@ -380,7 +376,7 @@
         </div>
         </div>
         <p class="button">
-              <input type="button" value="TOP" onClick="javascript:window.scrollTo(0,0)"/>
+          <input type="button" value="TOP" onClick="javascript:window.scrollTo(0,0)" />
         </p>
         </div>
 

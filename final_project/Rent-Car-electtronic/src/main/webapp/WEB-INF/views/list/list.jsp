@@ -19,6 +19,7 @@
             <h1 class="col-sm-offset-2 col-sm-10">맛집 목록</h1>
 
             <form action="/user/contents/list" class='form-inline'>
+
               <div class="form-group">
                 <select class="control" name="col">
                   <option value="wname" <c:if test="${col=='wname'}"> selected </c:if>

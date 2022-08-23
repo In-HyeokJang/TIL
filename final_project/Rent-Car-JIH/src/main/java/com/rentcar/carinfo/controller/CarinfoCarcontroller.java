@@ -120,9 +120,4 @@ public class CarinfoCarcontroller {
        return "/home";
    }
 
-
-//    @GetMapping("/{id}")
-//    public String hello(@PathVariable("id") int id){
-//        return id + "입니다.";
-//    }
 }

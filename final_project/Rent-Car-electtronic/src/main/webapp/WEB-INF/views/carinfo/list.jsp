@@ -16,7 +16,7 @@
 
         function del(carnumber) {
           if (confirm("정말삭제하시겠습니까?")) {
-            let url = "delete/" + carnumber;
+            let url = "/admin/carinfo/delete/" + carnumber;
             location.href = url;
           }
         }
@@ -86,14 +86,14 @@
           <!--search1 end div-->
           <div class="form-group">
             <input type="text" class="control" placeholder="Enter Category" name="word" value="${word}">
-          </div>
+
 
           <button type="submit" class="btn btn-default">검색</button>
 
           <c:if test="${sessionScope.grade == 'A'}">
           <button class="btn btn-defaul" onclick="createwindow()">Car Create</button>
           </c:if>
-
+</div>
           </form>
 
         </div>
@@ -112,11 +112,12 @@
                   <h1> ${dto.carname }</h1>
 
                   <a href="/user/carinfo/read/${dto.carnumber}" class="btn btn-defaul">
-                    <img src="${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
+                     <img src="/carinfo/storage/${dto.carimage}" class="img-thumbnail" width="350" height="300"></a>
+
                   <p><b>차 번호 : ${dto.carnumber}</b><br>
                     <b>${dto.category} | ${dto.carseate }</b> | <b>${dto.caryearmodel}</b><br>
                     <b>차 위치 : ${dto.carpoint}</b><br>
-                    <!-- <b>차 렌트비용(시간당) : ${dto.rentcost}</b> -->
+                    <b>차 렌트비용(시간당) : ${dto.rentcost}\</b>
                   </p>
                   
                   <c:if test="${sessionScope.grade == 'A'}">

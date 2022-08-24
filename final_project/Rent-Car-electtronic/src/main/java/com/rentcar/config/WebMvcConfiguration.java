@@ -1,8 +1,7 @@
 package com.rentcar.config;
 
 
-import com.rentcar.utility.UploadList;
-
+import com.rentcar.utility.Uploadall;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -13,9 +12,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 
-        registry.addResourceHandler("/ckstorage/files/**")
-                .addResourceLocations("file:///"+ UploadList.getUploadDir()+"/files/");
-
         // Windows: path = "f:/AIstudy/deploy/shopping/contents/storage";
         // ▶ file:///f:/AIstudy/deploy/shopping/contents/storage
         // Ubuntu: path = "/home/ubuntu/deploy/shopping/contents/storage";
@@ -25,5 +21,10 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.addResourceHandler("/summernoteImage/**")
                 .addResourceLocations("file:///C:/summernote_image/");
 
+        registry.addResourceHandler("/notice/fileDown")
+                .addResourceLocations("file:///D:/Github_upload/projectSaveF/files/");
+
+        registry.addResourceHandler("/carinfo/storage/**")
+                .addResourceLocations("file:///" + Uploadall.getCarinfoDir());
     }
 }

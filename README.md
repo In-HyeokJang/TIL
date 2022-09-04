@@ -2,28 +2,24 @@
 
 ## 🙌백엔드 개발자가 되는 그날까지!
 
-## 👨‍💻Ethan: Portfolio
+## 👨‍💻Ethan: [Portfolio](https://github.com/In-HyeokJang/Portfolio)
 
 👗[ShoopingMall site: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/spring/shopping)
 
-🚘[Rent-Car-Electtronic: Portfolio](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
-
-😁[Rent-Car-Electronic : site(미완성)](https://evrent.ml/)
-🤬[Rent-Car-Electronic 서버 연결 방벙](https://github.com/In-HyeokJang/TIL/blob/master/EvRent_server_connection.md)
+🚘[Rent-Car-Electtronic: Portfolio](https://github.com/In-HyeokJang/Rent_Car_Electronic)
 
 🐷[Rent-Car-Electtronic Team github](https://github.com/ISOSIM)
-
-### 🔥Final_Project_TIL : [Final_Project_TIL](https://github.com/In-HyeokJang/TIL/tree/master/final_project)
 
 ## 📖멀티캠퍼스 (AI플랫폼 웹서비스 개발)
 
 > 📓 이론 정리
 
-[JAVA](./JAVA/)
-[HTML/CSS](./HTML/)
-[JvaScript](./JavaScript/)
-[DBMS](./DBMS/)
-[Spring](./spring/)
+[JAVA](./JAVA/)<br>
+[HTML/CSS](./HTML/)<br>
+[JvaScript](./JavaScript/)<br>
+[DBMS](./DBMS/)<br>
+[Spring](./spring/)<br>
+[Node.js](./Node/)<br>
 
 ## 📖멀티캠퍼스 (AI플랫폼 웹서비스 개발)
 

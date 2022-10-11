@@ -55,6 +55,8 @@
                     두 값을 연결하여 하나의 값으로 만들어준다.
     산술연산자
         + - * / 
+        DATE 타입의 값인 경우 + - 사용가능, 일이 계산된다
+
         -- 산술연산자(문자타입 값(문자타입 값이 있는 컬럼)은 산술연산 불가)
         -- SELECT 'hello' + 10
         -- FROM dual;
@@ -76,5 +78,103 @@
         --FROM dual;
         
     관계(비교) 연산자
+            a > b   : a가 b보다 큰조건
+            a < b   : a가 b보다 작은조건
+            a >= b  : a가 b보다 크거나 같은 조건
+            a <= b  : a가 b보다 작거나 간은 조건
+            a = b   : a가 b랑 같은 조건
+            a <> b  : a랑 b랑 다른 조건
+
     sql연산자
+        In (a,b,c, ...)     : a 가 b 혹은 c 혹은 ...인 조건
+        a Between b And c   : a 가 b 이상, c이하인 조건
+        a Like 패턴         : a가 패턴을 만족하는 조건
+            %   : ~로 해석
+            _   : 자릿수로 해석
+
     논리연산자
+        a and b     : a 조건도 만족하고 그리고 b조건도 만족하는 조건
+        a or b      : a 조건 혹은 b조건 둘중 하나라도 만족하는 조건
+        a not b     : a 조건을 만족하지 않는 조건
+
+
+
+-- 행 골라내기
+-- salary가 7000 이상인 행 골라내기
+SELECT FIRST_NAME , LAST_NAME , SALARY 
+FROM employees
+WHERE SALARY >= 7000
+ORDER BY SALARY ASC;
+
+
+-- 문자는 아스키코드에 해당하는 숫자 값으로 환산하여 적용된다
+SELECT first_name
+FROM EMPLOYEES
+WHERE first_name > 'E'
+ORDER BY first_name ASC;
+
+-- first_name이 David인 사람 
+SELECT first_name, last_name, salary
+FROM EMPLOYEES
+WHERE first_name = 'David' and SALARY >= 7000;
+
+SELECT first_name, last_name, salary
+FROM EMPLOYEES
+WHERE first_name = 'David' or SALARY >= 7000
+ORDER BY SALARY ASC;
+
+SELECT first_name, last_name, salary
+FROM EMPLOYEES
+WHERE  NOT FIRST_NAME = 'David' ;
+
+-- SQL 연산자
+SELECT first_name, last_name, salary
+FROM EMPLOYEES
+WHERE first_name IN ('David', 'John', 'Danielle')
+ORDER BY first_name ASC;
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE first_name = 'David' OR FIRST_NAME ='John' OR FIRST_NAME = 'Danielle';
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE salary IN (6000, 7000, 8000);
+
+-- salary가 5000이상 10000이하인 행들 뽑기
+SELECT first_name, last_name, salary
+FROM employees
+WHERE SALARY BETWEEN 5000 AND 10000
+ORDER BY SALARY ASC;
+
+SELECT first_name, last_name, salary
+FROM employees
+WHERE SALARY >= 5000 AND SALARY <=10000;
+
+-- Like 
+-- % : 문자가 없어도 되고, 몇개가 와도 상관없다
+-- _ : 어떤 문자가 와도 되는데 한 자리만
+SELECT first_name
+FROM employees
+WHERE first_name LIKE '%e';
+
+SELECT first_name
+FROM employees
+WHERE first_name LIKE '%e%';
+
+SELECT first_name
+FROM employees
+WHERE first_name LIKE '%he%';
+
+SELECT first_name
+FROM employees
+WHERE first_name LIKE 'D%e';
+
+SELECT first_name
+FROM employees
+WHERE first_name LIKE '%he_';
+
+-- 자동으로 salary 또는 '1%' 둘중 하나가 변형되서 출력
+SELECT salary
+FROM employees
+WHERE salary LIKE '1%';

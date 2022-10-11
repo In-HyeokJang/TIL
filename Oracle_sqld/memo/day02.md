@@ -25,7 +25,26 @@
     - 열 : column, 세로줄, 속성
     - 행과 열이 만나는 교점 : 필드
 
+#### 문 설명
+   - SELECT 문
+      -SELECT 컬럼명 FROM 테이블명;
+   
+   - DISTINCT 문
+      - 컬럼 명 앞에 distinct 사용
+      - select distinct 컬럼명 from 테이블명;
+      
+      - 여러개의 컬럼을 복합적으로 생각하여 중복 제외 한 후 가져올수도 있음
+      - select distinct 컬럼명, 컬럼명 from 테이블명;
 
-####
- - 조회 
-   - SELECT * from 
+   - 별칭
+      - select 컬럼명 as "별칭" from 테이블명;
+      - as 생략 가능, "" 생략가능, 둘다 생략 가능, 별칭이 예약어거나 띄어쓰기가 있다면 ""생략 불가능
+   
+   -ASC / DESC
+      - ASC 낮은순 부터 나열
+      - DESC 높은 순 부터 나열
+
+#### 값의 종류
+   - 숫자     number             10, -5, 1, ... 
+   - 문자(열) varchar2 / char    '안녕하세요', 'Ethan', ... (''문자값을 알려주기 위해서 ''안에 넣어서 사용)
+   - 날짜     date               년월일시간분초

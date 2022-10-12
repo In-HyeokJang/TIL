@@ -1,3 +1,8 @@
+#### 데이터 csv파일로 저장하기
+    저장하고자 하는 데이터 마우스 우클릭 > 데이터 추출 > CSV선택 > 저장할 경로 설정 > 진행
+#### CSV(comma separated value)파일
+    - 컴마로 값들이 구분되어 있다
+
 #### null 사용
     -- null값이 들어있는 행 골라내기
     -- is null
@@ -110,3 +115,74 @@
     SELECT first_name || ' ' || last_name AS 성함,
     	RPAD(SUBSTR (email,1,2),LENGTH (email),'*') ||'@koreakit.com' 이메일 
     FROM employees;
+
+-----
+        -- 숫자타입함수
+    -- round(숫자, 표현할자릿수)
+    SELECT ROUND(13.532, 2), -- 소수점두째자리까지 출력하고 그다음 숫자는 반올림
+    round(13.234,1),
+    ROUND(13.234,-1),
+    round(13.523) --생략하면 정수로 반올림
+    FROM dual;
+
+    -- trunc(숫자, 자릿수): 해당 숫자를 절삭하여 자릿수까지 표현
+    SELECT TRUNC(13.512,2),
+    TRUNC(13.523) -- 생략하면 정수
+    FROM dual;
+
+    -- floor(숫자) : 정수로 내림
+    -- seil(숫자) : 정수로 올림
+    SELECT FLOOR(13.512) ,
+    	CEIL(15.532)
+    FROM dual;
+
+    --sign(숫자) : 양수몀 1 음수면 -1 0이면 0
+    SELECT SIGN(-15),
+	    SIGN(10),
+	    SIGN(0)
+    	FROM dual;
+
+    -- mod(숫자, 나눌값) : 숫자를 값으로 나눴을때 나머지
+    -- power(숫자, 거듭제곱할값) : 숫자를 거듭제곱한 결과
+    -- sqrt(숫자): 해당숫자의 제곱근
+    SELECT MOD(10,3),
+	    POWER(10,3) ,
+	    SQRT(99) 
+	    FROM dual;
+
+    -- 사원번호가 짝수인 직원의 사원번호, 이름 조회
+    SELECT employee_id, first_name
+    FROM employees
+    WHERE mod(EMPLOYEE_ID,2) = 0
+    ORDER BY EMPLOYEE_ID asc;
+
+---------
+    -- 날짜 타입 연산
+    -- 날짜 - 숫자 : 해당 날짜로부터 숫자일 만큼 이전날짜
+    -- 날짜 + 숫자 : 해당 날짜로부터 숫자일 만큼 이후 날짜
+    -- 날짜 - 날짜 : 날짜 사이의 일수
+    -- 오늘날짜를 받아오는 방법 : sysdate
+    SELECT SYSDATE 
+    FROM dual;
+
+    SELECT SYSDATE ,
+    	hire_date,
+    	SYSDATE - hire_date
+	FROM employees;
+
+    -- months_between(날짜, 날짜) : 몇개월이 지났는지 월로 계산해서 출력
+    SELECT SYSDATE ,
+	    hire_date,
+	    (SYSDATE - HIRE_DATE) /365 AS"일수 / 365",
+	    MONTHS_BETWEEN(SYSDATE, hire_date) /12 "월/12"
+    	FROM employees;
+
+    -- add_months(날짜, 숫자) : 숫자로 부터 날짜의 월이 더해진다
+    SELECT hire_date,
+    	ADD_MONTHS(hire_date, 3) 
+    FROM EMPLOYEES;
+
+    -- next_day(날짜, 숫자) : 돌아오는 요일이 결과롤 나타남
+    SELECT SYSDATE ,
+	    NEXT_DAY(SYSDATE,1) -- 1=일요일 ,2=월요일, 3=화요일, 4=수요일, 5=목요일, 6=금요일, 7=토요일
+	    FROM dual;

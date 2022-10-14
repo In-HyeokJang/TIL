@@ -228,6 +228,8 @@
 
 ------
     -- 사원의 이름과 해당사원이 근무하는 부서의 이름
+    -- 동등조인 같은 값이 있는거만 가져온다
+    -- null 값은 가져오지 않음
     SELECT a.first_name, b.department_name
     FROM employees a, DEPARTMENTS b
     WHERE a.department_id  = b.department_id;

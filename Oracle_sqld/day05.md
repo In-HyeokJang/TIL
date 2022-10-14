@@ -188,3 +188,65 @@
     	CUME_DIST () OVER (ORDER BY salary) 누적비율,
     	PERCENT_RANK() OVER (ORDER BY salary) -- (자기순위 - 1) / (전제 - 1)
     FROM employees;
+
+    SELECT first_name, salary, 
+    	NTILE(3) over(ORDER BY salary) 
+    FROM employees;
+
+    -- 부서 끼리 묶어서 n 등분
+    SELECT first_name, department_id, salary, 
+	    NTILE(3) OVER (PARTITION BY department_id ORDER BY salary ) 
+    FROM employees;
+
+#### ★ 조인 join ★
+    관계형데이터베이스
+        - 여러개의 테이블이 서로 관계를 맺고 있다
+        - 관계를 맺고 있는 테이블 간에는 값은 값을 공유하는 컬럼이 존재한다.
+
+        - A테이블
+            A테이블 속에 있는 a라는 컬럼을 B테이블에 제공하고 있다.
+
+        - B테이블
+            B테이블에 있는 b라는 컬럼은 A테이블로부터 받은 a컬럼이다.
+            b라는 컬럼은 A라는 컬럼으로 부터 받은 외래키(foregin key)
+
+    조인 join
+        - 여러개의 테이블을 연결하여 조회하는 기법
+
+        - 동등조인(equi join, 내부조인 inner join)
+            양쪽 테이블에서 조건이 일치하는 행만 가져오는 조인
+
+        - Oracle 에서만 적용
+            select 컬럼명, 컬럼명, ...
+            from 테이블명, 테이블명 
+            where 조인조건;
+        
+        - 표준조인방법(db 다 가능)
+            select 컬럼명, 컬럼명, ...
+            from 테이블명
+            inner join 테이블명 on 조인조건;
+
+------
+    -- 사원의 이름과 해당사원이 근무하는 부서의 이름
+    SELECT a.first_name, b.department_name
+    FROM employees a, DEPARTMENTS b
+    WHERE a.department_id  = b.department_id;
+
+    SELECT *
+    FROM employees a, DEPARTMENTS b
+    WHERE a.department_id = b.department_id;
+
+    SELECT *
+    FROM employees a, DEPARTMENTS b
+    WHERE b.department_id = a.department_id;
+
+    SELECT * 
+    FROM departments b , employees a
+    WHERE a.DEPARTMENT_ID = b.DEPARTMENT_ID ;
+
+    -- 중심이 되는 테이블을 앞쪽에 기술
+
+    -- 둘다 있는 값으면 소속을 꼭 써주어야 함
+    SELECT e.first_name, e.department_id, d.department_name
+    FROM EMPLOYEES e, DEPARTMENTS d 
+    WHERE e.DEPARTMENT_ID =d.DEPARTMENT_ID ;

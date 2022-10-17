@@ -39,51 +39,52 @@
             on 조인조건;
 
 ------
--- 부서 이름과 관리자 이름
-SELECT d.department_name 부서이름, e.first_name 이름, e.employee_id 사원번호, d.manager_id 부서아이디
-FROM DEPARTMENTS d , EMPLOYEES e 
-WHERE d.MANAGER_ID = e.EMPLOYEE_ID;
+    -- 부서 이름과 관리자 이름
+    SELECT d.department_name 부서이름, e.first_name 이름, e.employee_id 사원번호, d.manager_id 부서아이디
+    FROM DEPARTMENTS d , EMPLOYEES e 
+    WHERE d.MANAGER_ID = e.EMPLOYEE_ID;
 
---ANSI 문법
-SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
-FROM DEPARTMENTS d INNER join EMPLOYEES e
-ON d.MANAGER_ID = e.EMPLOYEE_ID ;
+    --ANSI 문법
+    SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
+    FROM DEPARTMENTS d INNER join EMPLOYEES e
+    ON d.MANAGER_ID = e.EMPLOYEE_ID ;
 
---부서id가 30보다 큰 행들만 콜라내서...
-SELECT d.department_name 부서이름, e.first_name 이름, e.employee_id 사원번호, d.manager_id 부서아이디
-FROM DEPARTMENTS d , EMPLOYEES e 
-WHERE d.MANAGER_ID = e.EMPLOYEE_ID AND d.DEPARTMENT_ID > 30;
+    --부서id가 30보다 큰 행들만 콜라내서...
+    SELECT d.department_name 부서이름, e.first_name 이름, e.employee_id 사원번호, d.manager_id 부서아이디
+    FROM DEPARTMENTS d , EMPLOYEES e 
+    WHERE d.MANAGER_ID = e.EMPLOYEE_ID AND d.DEPARTMENT_ID > 30;
 
-SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
-FROM DEPARTMENTS d INNER join EMPLOYEES e
-ON d.MANAGER_ID = e.EMPLOYEE_ID 
-WHERE d.DEPARTMENT_ID >30;
+    SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
+    FROM DEPARTMENTS d INNER join EMPLOYEES e
+    ON d.MANAGER_ID = e.EMPLOYEE_ID 
+    WHERE d.DEPARTMENT_ID >30;
 
--- 외부조인
--- Orale
--- 부서 이름과 관리자 이름
-SELECT d.department_name, e.first_name
-FROM departments d, employees e
-WHERE d.MANAGER_ID(+) = e.EMPLOYEE_ID ;
+    -- 외부조인
+    -- Orale
+    -- 부서 이름과 관리자 이름
+    SELECT d.department_name, e.first_name
+    FROM departments d, employees e
+    WHERE d.MANAGER_ID(+) = e.EMPLOYEE_ID ;
 
--- ANSI 외부조인
-SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
-FROM DEPARTMENTS d LEFT OUTER JOIN EMPLOYEES e 
-ON d.MANAGER_ID = e.EMPLOYEE_ID ;
+    -- ANSI 외부조인
+    SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
+    FROM DEPARTMENTS d LEFT OUTER JOIN EMPLOYEES e 
+    ON d.MANAGER_ID = e.EMPLOYEE_ID ;
 
-SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
-FROM DEPARTMENTS d right OUTER JOIN EMPLOYEES e 
-ON d.MANAGER_ID = e.EMPLOYEE_ID ;
+    SELECT d.DEPARTMENT_NAME , e.FIRST_NAME 
+    FROM DEPARTMENTS d right OUTER JOIN EMPLOYEES e 
+    ON d.MANAGER_ID = e.EMPLOYEE_ID ;
 
-SELECT * 
-FROM DEPARTMENTS d LEFT OUTER JOIN EMPLOYEES e 
-ON d.MANAGER_ID = e.EMPLOYEE_ID;
+    SELECT * 
+    FROM DEPARTMENTS d LEFT OUTER JOIN EMPLOYEES e 
+    ON d.MANAGER_ID = e.EMPLOYEE_ID;
 
-SELECT * 
-FROM DEPARTMENTS d right OUTER JOIN EMPLOYEES e 
-ON d.MANAGER_ID = e.EMPLOYEE_ID;
+    SELECT * 
+    FROM DEPARTMENTS d right OUTER JOIN EMPLOYEES e 
+    ON d.MANAGER_ID = e.EMPLOYEE_ID;
 
--- 사원 이름(employees), 부서명(departments), 부서의 city(locations)
-SELECT e.FIRST_NAME , d.DEPARTMENT_name, l.CITY 
-FROM EMPLOYEES e ,DEPARTMENTS d , LOCATIONS l 
-WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID AND d.LOCATION_ID = l.LOCATION_ID ;
+    -- 3 join
+    -- 사원 이름(employees), 부서명(departments), 부서의 city(locations)
+    SELECT e.FIRST_NAME , d.DEPARTMENT_name, l.CITY 
+    FROM EMPLOYEES e ,DEPARTMENTS d , LOCATIONS l 
+    WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID AND d.LOCATION_ID = l.LOCATION_ID ;

@@ -39,6 +39,7 @@
             on 조인조건;
 
 ------
+```Orcal
     -- 부서 이름과 관리자 이름
     SELECT d.department_name 부서이름, e.first_name 이름, e.employee_id 사원번호, d.manager_id 부서아이디
     FROM DEPARTMENTS d , EMPLOYEES e 
@@ -88,3 +89,4 @@
     SELECT e.FIRST_NAME , d.DEPARTMENT_name, l.CITY 
     FROM EMPLOYEES e ,DEPARTMENTS d , LOCATIONS l 
     WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID AND d.LOCATION_ID = l.LOCATION_ID ;
+    ```

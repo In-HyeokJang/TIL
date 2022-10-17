@@ -39,7 +39,7 @@
             on 조인조건;
 
 ------
-```Orcal
+```orcal
     -- 부서 이름과 관리자 이름
     SELECT d.department_name 부서이름, e.first_name 이름, e.employee_id 사원번호, d.manager_id 부서아이디
     FROM DEPARTMENTS d , EMPLOYEES e 

@@ -75,14 +75,14 @@
             - 중복된 행은 제거한다
             - 연산되는 select문의 위치가 바뀌면 연산 결과도 바뀐다.
 #### 명령어
-※ SQL
-    - DML : Data Manipulation Language
-        select문 : 데이터 조회
-        insert문 : 데이터 추가(삽입)
-        update문 : 테이터 수정
-        delete문 : 데이터 삭제
-    - DDL : 
-    - TCL
+    ※ SQL
+        - DML : Data Manipulation Language
+            select문 : 데이터 조회
+            insert문 : 데이터 추가(삽입)
+            update문 : 테이터 수정
+            delete문 : 데이터 삭제
+        - DDL : 
+        - TCL
 ------
 ```orcal
     -- 부서 이름과 관리자 이름

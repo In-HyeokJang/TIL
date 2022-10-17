@@ -56,6 +56,33 @@
                 - 다중행 연산자와 함께 사용이 가능하다
                 in, any, all, exists
             3. 다중 컬럼 서브쿼리   : 서브쿼리 결과가 여러개의 열, 여러개의 행이 나오는 경우
+                sql server는 지원 안함
+    
+    - 집합 연산자
+        - 두 개 이상의 테이블을 연결하여 하나로 결합하는 연산자
+        select 문 집합연산자 select문
+        연산되는 select문들의 컬럼 갯수가 동일해야 하며, 컬럼 속에 저장된 값의 타입이 동일해야만 한다.
+
+        UNION(합집합)
+            - 중복된 행은 제거한다.
+            - 중복된 행을 제거하는 과정에서 SORT(정렬) 기능이 동작한다
+        UNION ALL(합집합)
+            - 중복된 행은 그대로 둔다
+            - UNION ALL이 UNION보다 성능 상 유리하다(제거 및 정렬 안함)
+        INTERSECT(교집합)
+            - 중복된 행은 제거한다
+        MINUS(차집합) : SQL Server에서는 Except를 사용한다
+            - 중복된 행은 제거한다
+            - 연산되는 select문의 위치가 바뀌면 연산 결과도 바뀐다.
+#### 명령어
+※ SQL
+    - DML : Data Manipulation Language
+        select문 : 데이터 조회
+        insert문 : 데이터 추가(삽입)
+        update문 : 테이터 수정
+        delete문 : 데이터 삭제
+    - DDL : 
+    - TCL
 ------
 ```orcal
     -- 부서 이름과 관리자 이름

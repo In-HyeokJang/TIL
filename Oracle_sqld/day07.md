@@ -1,4 +1,4 @@
-#### DML
+### DML
     - select : 검색, 조회
     - insert : 추가, 삽입
     - update : 수정
@@ -15,18 +15,18 @@
         컬럼 갯수랑 컬럼 내용 순서랑 동일하게 values 해주어야 한다.
 
  - 제약조건
-    PRIMARY KEY (기본키)
+    - PRIMARY KEY (기본키)
         - 중복된 값 x, null 값 x, 
-    FORIEGN KEY (외래키)
+    - FORIEGN KEY (외래키)
         - 자식테이블에는 부모테이블에 존재하는 값만 넣을 수 있다.
         - 부모테이블에만 존재하고, 자식테이블에는 존재하지 않는 값만 삭제가 가능하다.
-    NOT NULL
+    - NOT NULL
         - null을 넣을 수 없게 만드는 제약 조건.
-    UNIQUE
+    - UNIQUE
         - 중복을 허용하지 않는다
-    CHECK
+    - CHECK
         - 데이터의 범위
-    데이터 타입
+    - 데이터 타입
         - 컬럼에 저장될 데이터의 타입(날짜,...)
 
 #### UPDATE
@@ -38,6 +38,14 @@
 
 #### DELETE
     - 행 전체 삭제
-    
+    - from 생략 가능
+
     delete from 테이블명
     where 조건;
+
+    delete 테이블명
+    where 조건;
+
+### TCL (Transaction Control Language)
+    - 트랜잭션을 제어하는 명령어
+    - 업무를 처리하기 위한 데이터베이스의 논리적인 작업 단위

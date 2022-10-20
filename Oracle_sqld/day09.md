@@ -42,3 +42,24 @@
         RENAME COLUMN 컬럼명 TO 바꿀이름;
         ```
     2. 테이블명 수정
+        ```oracle
+        ALTER TABLE 테이블명
+        RENAME TO 바꿀이름 ;
+        ```
+    3. 제약조건명 수정
+        ```oracle
+        alter table 테이블명
+        rename constraint 제약조건명 to 변경할이름;
+        ```
+- DISABLE : 제약조건 비활성화 (nocheck)
+    ```ORACLE
+    ALTER TABLE 테이블명
+    DISABLE CONSTRAINT 제약조건명;
+    ```
+- ENABLE : 제약조건 활성화 (check)
+    ``` ORACLE
+    ALTER TABLE 테이블명
+    ENABLE CONSTRAINT 제약조건명;
+    ```
+
+#### DROP

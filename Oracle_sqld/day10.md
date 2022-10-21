@@ -76,7 +76,8 @@
     return 함수사용결과로되돌려줄값;
     end;
 
-    --------------
+--------------
+```oracle
     CREATE TABLE 무한상사(
 	사원명 	varchar2(300),
 	직급		varchar2(300),
@@ -229,3 +230,4 @@ BEGIN
 END;
 
 DROP FUNCTION get_salary;
+```

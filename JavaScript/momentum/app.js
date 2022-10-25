@@ -237,49 +237,103 @@
 
 // Returns
 
-const calculator = {
-    add : function (a, b){
-        return a+b;
-    },
-    minus : function(a,b){
-        return a-b;
-    },
-    div : function(a,b){
-        return a/b;
-    },
-    multi : function(a,b){
-        return a*b;
-    },
-    power : function (a, b) {
-        return a**b;
-    }
-};
+// const calculator = {
+//     add : function (a, b){
+//         return a+b;
+//     },
+//     minus : function(a,b){
+//         return a-b;
+//     },
+//     div : function(a,b){
+//         return a/b;
+//     },
+//     multi : function(a,b){
+//         return a*b;
+//     },
+//     power : function (a, b) {
+//         return a**b;
+//     }
+// };
 
-const plusResult = calculator.add(2,3);
-const minusResult = calculator.minus(plusResult,10);
-const divResult = calculator.div(10,minusResult);
-const multiResult = calculator.multi(divResult,plusResult);
-const powerResult = calculator.power(divResult,minusResult);
+// const plusResult = calculator.add(2,3);
+// const minusResult = calculator.minus(plusResult,10);
+// const divResult = calculator.div(10,minusResult);
+// const multiResult = calculator.multi(divResult,plusResult);
+// const powerResult = calculator.power(divResult,minusResult);
 
-// // calculator.add(5, 1);
-// // calculator.minus(10,2);
-// // calculator.div(10,5);
-// // calculator.multi(1,2);
-// // calculator.power(1,5);
+// // // calculator.add(5, 1);
+// // // calculator.minus(10,2);
+// // // calculator.div(10,5);
+// // // calculator.multi(1,2);
+// // // calculator.power(1,5);
 
-// console.log(calculator.add(2,3));
-
-
-const age = 95;
-function calculateKrAge(ageOfForeigner){ //95
-    ageOfForeigner + 2;  // return 95 + 2
-    return "hello";
-}
-
-const krAge = calculateKrAge(age); // 95
-
-console.log(krAge); // 97 //hello
+// // console.log(calculator.add(2,3));
 
 
+// const age = 95;
+// function calculateKrAge(ageOfForeigner){ //95
+//     ageOfForeigner + 2;  // return 95 + 2
+//     return "hello";
+// }
 
+// const krAge = calculateKrAge(age); // 95
+
+// console.log(krAge); // 97 //hello
+
+// Conditionals (if,else 조건문)
+    // const age =prompt("How old are you?"); // 오래된 방식
+    // const age = parseInt( prompt("How old are you?"));
+
+    // console.log(isNaN(age));
+// isNaN number 타입인지 아닌지 blooean을 반환해서 알려줌 true number가 아님 fales number
+    // console.log(age, parseInt(age)); 
+// typeof 어떤 타입인지 볼 수 있음
+// parseInt int로 변환 해주는 작업을 함
+
+// true || true === true
+// true || false === true
+// false || true === true
+// false || false == false
+
+// true && true == true
+// true && false == false
+// false && true == false
+// false && false == false
+
+// if(isNaN(age) || age <0){
+//     console.log("Please write a real positive number");
+//     // condition === true
+//     // || 경우 둘중 하나가 true경우 실행, 둘다 true여도 true
+// }else if(age < 18){
+//     console.log("You are too young.");
+// }else if(age >= 18 && age <= 50) { 
+//     // true && true 경우 실행
+//     console.log("You cnn drink ")
+// }else if(age > 50 && age <=80){
+//     console.log("You should exercise");
+// }else if(age === 100){
+//     console.log("wow you are wise");
+// }else if(age > 80){
+//     console.log("You can do whatever you want");
+// }
+
+//HTML in Javascript
+// document.title = "Hello! Frome JS!";
+
+// const title = document.getElementById("something");
+
+
+// // console.dir(title);
+// title.innerText = "Got you!"; //text변경
+
+// console.log(title.id);
+// console.log(title.className);
+
+// const hellos = document.getElementsByClassName("hello");
+
+// console.log(hellos);
+
+// const title = document.getElementsByTagName("h1");
+const title = document.querySelector(".hello h1");
+console.log(title);
 

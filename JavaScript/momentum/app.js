@@ -334,6 +334,84 @@
 // console.log(hellos);
 
 // const title = document.getElementsByTagName("h1");
-const title = document.querySelector(".hello h1");
-console.log(title);
+// const title = document.querySelector(".hello h1");
 
+const h1 = document.querySelector("div.hello:first-child h1");
+// const title = document.getElementById("hello");
+// console.dir(title);
+
+// title.style.color = "blue";
+
+// title.innerText = "hello";
+
+// console.dir(title);
+
+// 클릭 이벤트 주는법
+function handleTitleClick(){
+    // console.log("title was clicked!");
+    // console.log(h1.style.color);
+    // h1.style.color = "blue";
+    // console.log(h1.style.color);
+
+    // CSS : Javascript에서 사용하는거 별로 선호 안함
+    // const currentColor = h1.style.color;
+    // let newColor;
+    // if(currentColor === "blue"){
+    //     newColor = "tomato";
+    // }else{
+    //     newColor = "blue";
+    // }
+    // h1.style.color = newColor;
+
+    // h1.className = "active";
+    // const clickedClass = "clicked";
+    // if(h1.classList.contains (clickedClass)){
+    //     h1.classList.remove(clickedClass);
+    // } else{
+    //     h1.classList.add(clickedClass);
+    // }
+    
+    // 위에 작성한 if문을 toogle로 한줄로 끝낼수 있음
+    h1.classList.toggle("clicked");
+}
+h1.addEventListener("click", handleTitleClick);
+
+// function hadleMouseEnter(){
+//     console.log("mouse is here!");
+// }
+
+// function hadleMouseEnter(){
+//     h1.innerText = "Mouse is here!";
+// }
+
+// function heandleMouseLeave(){
+//     h1.innerText = "Mouse is gone!";
+// }
+
+// function handleWindowResize(){
+//     document.body.style.backgroundColor = "tomato";
+// }
+
+// function handleWindowCopy(){
+//     alert("copeier!");
+// }
+
+// function handleWindowOffline(){
+//     alert("SOS no Wife")
+// }
+
+// function handleWindowOnline(){
+//     alert("ALL GOOOOD")
+// }
+
+h1.addEventListener("click", handleTitleClick);
+// h1.onClick("click", handleTitleClick);
+// title.onclick = handleTitleClick;
+// h1.addEventListener("mouseenter",hadleMouseEnter); // 누가 마우스 올리면 글 변경
+// title.onmouseenter = hadleMouseEnter;
+// h1.addEventListener("mouseleave",heandleMouseLeave); // 누가 글에 마우스 치우면 변경
+
+// window.addEventListener("resize", handleWindowResize); //화면크기 변경 하면 이벤트 발생
+// window.addEventListener("copy", handleWindowCopy); //copy하면 이벤트 발생
+// window.addEventListener("offline", handleWindowOffline);
+// window.addEventListener("online", handleWindowOnline);

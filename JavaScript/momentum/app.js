@@ -336,7 +336,7 @@
 // const title = document.getElementsByTagName("h1");
 // const title = document.querySelector(".hello h1");
 
-const h1 = document.querySelector("div.hello:first-child h1");
+// const h1 = document.querySelector("div.hello:first-child h1");
 // const title = document.getElementById("hello");
 // console.dir(title);
 
@@ -347,7 +347,7 @@ const h1 = document.querySelector("div.hello:first-child h1");
 // console.dir(title);
 
 // 클릭 이벤트 주는법
-function handleTitleClick(){
+// function handleTitleClick(){
     // console.log("title was clicked!");
     // console.log(h1.style.color);
     // h1.style.color = "blue";
@@ -370,11 +370,11 @@ function handleTitleClick(){
     // } else{
     //     h1.classList.add(clickedClass);
     // }
-    
+
     // 위에 작성한 if문을 toogle로 한줄로 끝낼수 있음
-    h1.classList.toggle("clicked");
-}
-h1.addEventListener("click", handleTitleClick);
+//     h1.classList.toggle("clicked");
+// }
+// h1.addEventListener("click", handleTitleClick);
 
 // function hadleMouseEnter(){
 //     console.log("mouse is here!");
@@ -404,7 +404,7 @@ h1.addEventListener("click", handleTitleClick);
 //     alert("ALL GOOOOD")
 // }
 
-h1.addEventListener("click", handleTitleClick);
+// h1.addEventListener("click", handleTitleClick);
 // h1.onClick("click", handleTitleClick);
 // title.onclick = handleTitleClick;
 // h1.addEventListener("mouseenter",hadleMouseEnter); // 누가 마우스 올리면 글 변경
@@ -415,3 +415,15 @@ h1.addEventListener("click", handleTitleClick);
 // window.addEventListener("copy", handleWindowCopy); //copy하면 이벤트 발생
 // window.addEventListener("offline", handleWindowOffline);
 // window.addEventListener("online", handleWindowOnline);
+
+// const loginForm = document.getElementById("login-form");
+const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
+
+function onLoginBtnClick(){
+    // console.dir(loginInput.value);
+    console.log("hello", loginInput.value);
+    // console.log("click!!");
+}
+
+loginButton.addEventListener("click", onLoginBtnClick);

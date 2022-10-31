@@ -418,19 +418,49 @@
 
 // const loginForm = document.getElementById("login-form");
 const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
+// const loginButton = document.querySelector("#login-form button");
+const loginForm = document.querySelector("#login-form");
+const greeting = document.querySelector("#greeting");
+const HIDDEN_CLASSNAME = "hidden";
 
-function onLoginBtnClick(){
-    // console.dir(loginInput.value);
-    // console.log("hello", loginInput.value);
+// function onLoginBtnClick(){
+//     // console.dir(loginInput.value);
+//     // console.log("hello", loginInput.value);
+//     const username = loginInput.value;
+//     console.log(username);
+//     // if(username === ""){
+//     //     alert("Please write your name");
+//     // }else if(username.length > 15){
+//     //     alert("Your name is too long.");
+//     // }
+//     // console.log("click!!");
+// }
+
+function onLoginSubmit(event){
+    // const username = loginForm.value;
+    event.preventDefault(); // 이벤트 막는 방법
+    // console.log(loginInput.value);
+    // submit버튼을 누르면 html에 있는 id 값이 greeting 거가 작동해서 hidden으로 숨기고
+    // innerText를 사용해서 "Hello" + username 적은 값이 들어가는데
+    // hidden을 사용해서 submit 버튼을 없애고 값이 출력하게 만든거
+    loginForm.classList.add("hidden");
     const username = loginInput.value;
-    console.log(username);
-    // if(username === ""){
-    //     alert("Please write your name");
-    // }else if(username.length > 15){
-    //     alert("Your name is too long.");
-    // }
-    // console.log("click!!");
+    greeting.innerText = `Hello ${username} Welcome`; // == "Hello" + username; // `${변수명}` //string랑 변수랑 합치는법
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    // console.log(username);
 }
 
-loginButton.addEventListener("click", onLoginBtnClick);
+// loginButton.addEventListener("click", onLoginBtnClick);
+loginForm.addEventListener("submit", onLoginSubmit);
+
+
+// const link = document.querySelector("a")
+
+// function hanldeLinkClick(event){
+//     event.preventDefault(); // 이벤트 막는 방법
+//     console.dir(event);
+//     // console.log(event);
+//     alert("clicked!");
+// }
+
+// link.addEventListener("click", hanldeLinkClick);

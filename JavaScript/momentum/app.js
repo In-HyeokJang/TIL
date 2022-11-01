@@ -422,6 +422,7 @@ const loginInput = document.querySelector("#login-form input");
 const loginForm = document.querySelector("#login-form");
 const greeting = document.querySelector("#greeting");
 const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
 // function onLoginBtnClick(){
 //     // console.dir(loginInput.value);
@@ -443,16 +444,34 @@ function onLoginSubmit(event){
     // submit버튼을 누르면 html에 있는 id 값이 greeting 거가 작동해서 hidden으로 숨기고
     // innerText를 사용해서 "Hello" + username 적은 값이 들어가는데
     // hidden을 사용해서 submit 버튼을 없애고 값이 출력하게 만든거
-    loginForm.classList.add("hidden");
-    const username = loginInput.value;
-    greeting.innerText = `Hello ${username} Welcome`; // == "Hello" + username; // `${변수명}` //string랑 변수랑 합치는법
-    greeting.classList.remove(HIDDEN_CLASSNAME);
-    // console.log(username);
+    loginForm.classList.add(HIDDEN_CLASSNAME); //t숨긴다
+    const username = loginInput.value; // loginInput에 value값 넣어준다
+    localStorage.setItem(USERNAME_KEY, username); // localStorage.setItem("key", value) 로컬에 저장 작은 디비라 생각
+    // greeting.innerText = `Hello ${username} Welcome`; // == "Hello" + username; // `${변수명}` //string랑 변수랑 합치는법
+    // greeting.classList.remove(HIDDEN_CLASSNAME);
+    paintGreetings(username);
+}
+
+function paintGreetings(username){
+    greeting.innerText = `Hello ${username} `;
+    greeting.classList.remove(HIDDEN_CLASSNAME); // classList.remove를 사용해 ()인자값 진행
 }
 
 // loginButton.addEventListener("click", onLoginBtnClick);
 loginForm.addEventListener("submit", onLoginSubmit);
 
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+
+if(savedUsername === null){
+    // show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+}else{
+    // show the greetings
+    paintGreetings(savedUsername);
+    
+}
 
 // const link = document.querySelector("a")
 
